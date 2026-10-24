@@ -11,3 +11,4 @@
     "preview": "node scripts/build.mjs --serve"
   }
 }
+
