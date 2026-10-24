@@ -1,0 +1,18 @@
+{
+  "name": "RaggieSoft Backstage — Bonus Features & Archive",
+  "short_name": "RS Backstage",
+  "description": "Immersive in-universe bonus features, Commonwealth Polytechnic Institute (CPI) dossier, and correspondence archive for RaggieSoft properties.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#861f41",
+  "icons": [
+    {
+      "src": "https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

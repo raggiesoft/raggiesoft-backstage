@@ -1,0 +1,13 @@
+{
+  "name": "raggiesoft-backstage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "RaggieSoft Backstage (backstage.raggiesoft.com) — Web Awesome Pro & Font Awesome Pro+ Immersive Bonus Features, Correspondence Archive & Behind-the-Scenes PWA",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --serve",
+    "preview": "node scripts/build.mjs --serve"
+  }
+}

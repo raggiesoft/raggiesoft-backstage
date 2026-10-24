@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en" class="wa-dark" data-theme="dark" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#861f41" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+    <script>
+      try {
+        var storedScheme = localStorage.getItem('color-scheme');
+        document.querySelector('meta[name="color-scheme"]').content = storedScheme ?? 'light dark';
+        var resolved = (storedScheme === 'light' || storedScheme === 'dark')
+          ? storedScheme
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', resolved);
+        document.documentElement.classList.toggle('wa-dark', resolved === 'dark');
+      } catch (e) {}
+    </script>
+    <title>RaggieSoft Backstage | Bonus Features &amp; Lore Archive</title>
+    <meta name="description" content="Immersive in-universe bonus features, CPI campus guide, and background correspondence PWA for RaggieSoft Books and Engine Room Records." />
+    <link rel="canonical" href="https://backstage.raggiesoft.com" />
+    <meta property="og:title" content="RaggieSoft Backstage | Bonus Features &amp; Lore Archive" />
+    <meta property="og:description" content="Immersive in-universe bonus features, CPI campus guide, and background correspondence PWA for RaggieSoft Books and Engine Room Records." />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RaggieSoft Backstage | Bonus Features &amp; Lore Archive" />
+    <meta name="twitter:description" content="Immersive in-universe bonus features, CPI campus guide, and background correspondence PWA for RaggieSoft Books and Engine Room Records." />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg" />
+    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+
+    <!-- Reactivated Web Awesome Pro (bb765cf132c5414e) & Font Awesome Pro+ (ec060982d4) -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.10.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.10.0/styles/themes/dark.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.10.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.10.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.10.0/webawesome.loader.js"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261024a" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261017m" />
+
+    <!-- Google Analytics 4 (GA4) Telemetry Integration (G-P9RG9JVYB6) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to Backstage main content</a>
+
+    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem Network">
+      <div class="rs-network-bar-inner">
+        <span class="rs-network-label">✦ RaggieSoft Network:</span>
+        <ul class="rs-network-links">
+          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+          <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+          <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+          <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+          <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+          <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+          <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+          <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+          <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+          <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="bs-header" role="banner">
+      <div class="bs-container bs-header-inner">
+        <a href="/" class="bs-brand">
+          <i class="fa-solid fa-film" aria-hidden="true"></i>
+          <span>RaggieSoft Backstage</span>
+          <span class="bs-brand-badge">Web Awesome Pro • PWA</span>
+        </a>
+        <nav aria-label="RaggieSoft Backstage Primary Navigation">
+          <ul class="bs-nav">
+            <li><a href="/" class="bs-nav-link" aria-current="page"><i class="fa-solid fa-clapperboard-play" aria-hidden="true"></i> <span>Backstage Hub</span></a></li>
+            <li><a href="/locations/cpi" class="bs-nav-link"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> <span>CPI Campus Dossier</span></a></li>
+            <li><a href="/books/aubrie" class="bs-nav-link"><i class="fa-solid fa-book-sparkles" aria-hidden="true"></i> <span>The Eleventh Child (12)</span></a></li>
+            <li><a href="/music/stardust-engine-origins" class="bs-nav-link"><i class="fa-solid fa-compact-disc" aria-hidden="true"></i> <span>Music Backstage</span></a></li>
+            <li><a href="/corporations/vectron-question-the-rules" class="bs-nav-link"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> <span>Vectron Archive</span></a></li>
+            <li>
+              <button type="button" id="theme-toggle" class="bs-btn" aria-label="Toggle Light and Dark Mode">
+                <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+                <span id="theme-toggle-label">Theme</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="bs-container" tabindex="-1">
+      
+    <section class="bs-hero" aria-labelledby="backstage-hero-title">
+      <span class="bs-kicker">
+        <i class="fa-solid fa-stars" aria-hidden="true"></i> Web Awesome Pro • Font Awesome Pro+ • Immersive PWA
+      </span>
+      <h1 id="backstage-hero-title" class="bs-title">
+        🎬 RaggieSoft Backstage: Behind the Scenes &amp; In-Universe Bonus Features
+      </h1>
+      <p class="bs-subtitle">
+        The official 100% in-universe companion portal for every RaggieSoft property—housing the architectural dossier of <strong>Commonwealth Polytechnic Institute (CPI)</strong>, alternate-POV notes, and extracted background-character correspondence connected directly to <strong>RaggieSoft Book Reader (<code>books.raggiesoft.com</code>)</strong> via our cross-origin <code>&lt;dialog&gt;</code> API.
+      </p>
+
+      <div style="margin-top: 1.25rem;">
+        <label for="backstage-search" style="display: block; font-weight: 800; margin-bottom: 0.4rem;">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Search Dossiers, Campus Locations, &amp; Administrative Correspondence (16 Records):
+        </label>
+        <input
+          type="search"
+          id="backstage-search"
+          placeholder="Search for 'Commonwealth Polytechnic Institute', 'Kelsey Brennan', 'Isabel Dawson', 'Room 214', 'Vectron', 'Electric Color'..."
+          style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.6rem; border: 1px solid var(--bs-border); background: var(--bs-bg); color: var(--bs-text); font-size: 1rem;"
+        />
+      </div>
+    </section>
+
+    <section aria-labelledby="features-heading">
+      <h2 id="features-heading" style="font-size: 1.45rem; margin: 1.5rem 0 0.75rem;">
+        <i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> Featured Locations, Lore &amp; Behind-the-Scenes Dossiers
+      </h2>
+      <div class="bs-grid">
+        
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Eleventh Child: Bonus Features &amp; Archive Behind the Scenes, Alternate POVs &amp; Administrative Correspondence The Eleventh Child — Behind the Scenes    Explore extracted CPI administrative correspondence, Isabel Dawson&#39;s alternate-POV notes, and Zoë Wren Brooks&#39;s cognitive logging architecture.">
+      <div>
+        <span class="bs-kicker">2014-08-20 • The Eleventh Child — Behind the Scenes</span>
+        <h3><a href="/books/aubrie" class="bs-link">The Eleventh Child: Bonus Features &amp; Archive</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Behind the Scenes, Alternate POVs &amp; Administrative Correspondence</div>
+        <p>Explore extracted CPI administrative correspondence, Isabel Dawson&#39;s alternate-POV notes, and Zoë Wren Brooks&#39;s cognitive logging architecture.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="Isabel Dawson: Alternate-POV Notes (Room 215) What Happened on the Other Side of Room 214&#39;s Door The Eleventh Child — Behind the Scenes    Behind-the-scenes alternate-POV notes for Floor 2 RA Isabel Claire Dawson, including the Two-Knock Welfare-Check protocol on Move-In Friday.">
+      <div>
+        <span class="bs-kicker">2014-08-22 • The Eleventh Child — Behind the Scenes</span>
+        <h3><a href="/books/aubrie/isabel-pov-notes" class="bs-link">Isabel Dawson: Alternate-POV Notes (Room 215)</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">What Happened on the Other Side of Room 214&#39;s Door</div>
+        <p>Behind-the-scenes alternate-POV notes for Floor 2 RA Isabel Claire Dawson, including the Two-Knock Welfare-Check protocol on Move-In Friday.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/isabel-pov-notes" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/isabel-pov-notes">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="ZOË.Systems.Logs: Cognitive Architecture, Fin# &amp; Z-SOX-302 How Zoë Wren Brooks Compiles a Chaotic World into Deterministic Order The Eleventh Child — Behind the Scenes    Technical and narrative guide to Zoë Wren Brooks&#39;s autistic cognitive logging system (ZOË.Systems.Logs), Fin#, and the Z-SOX-302 audit protocol.">
+      <div>
+        <span class="bs-kicker">2015-07-18 • The Eleventh Child — Behind the Scenes</span>
+        <h3><a href="/books/aubrie/zoe-logging-architecture" class="bs-link">ZOË.Systems.Logs: Cognitive Architecture, Fin# &amp; Z-SOX-302</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">How Zoë Wren Brooks Compiles a Chaotic World into Deterministic Order</div>
+        <p>Technical and narrative guide to Zoë Wren Brooks&#39;s autistic cognitive logging system (ZOË.Systems.Logs), Fin#, and the Z-SOX-302 audit protocol.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/zoe-logging-architecture" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/zoe-logging-architecture">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001) From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act Corporate &amp; Legal Archives    In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302.">
+      <div>
+        <span class="bs-kicker">2001-12-02 • Corporate &amp; Legal Archives</span>
+        <h3><a href="/corporations/vectron-question-the-rules" class="bs-link">Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act</div>
+        <p>In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/corporations/vectron-question-the-rules" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="corporations/vectron-question-the-rules">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="Commonwealth Polytechnic Institute (CPI) Architectural, Geographic &amp; Transit Dossier — Blacksburg, Virginia Locations &amp; Architecture    Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI), Eleanor Bennett Commonwealth Hall, and the Poly Pass transit network.">
+      <div>
+        <span class="bs-kicker">1872-10-01 • Locations &amp; Architecture</span>
+        <h3><a href="/locations/cpi" class="bs-link">Commonwealth Polytechnic Institute (CPI)</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Architectural, Geographic &amp; Transit Dossier — Blacksburg, Virginia</div>
+        <p>Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI), Eleanor Bennett Commonwealth Hall, and the Poly Pass transit network.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/locations/cpi" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="locations/cpi">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39; From an Unheated Blacksburg Garage to the Cosmos Engine Room Records &amp; Music    How Ryan, Cassidy, Evan, Tyler, and Holly formed The Stardust Engine at CPI in 1986—and how their 1987 debut &#39;Electric Color&#39; awoke Jordan in 2015.">
+      <div>
+        <span class="bs-kicker">1986-10-14 • Engine Room Records &amp; Music</span>
+        <h3><a href="/music/stardust-engine-origins" class="bs-link">The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">From an Unheated Blacksburg Garage to the Cosmos</div>
+        <p>How Ryan, Cassidy, Evan, Tyler, and Holly formed The Stardust Engine at CPI in 1986—and how their 1987 debut &#39;Electric Color&#39; awoke Jordan in 2015.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/music/stardust-engine-origins" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="music/stardust-engine-origins">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+      </div>
+    </section>
+
+    <section aria-labelledby="correspondence-heading">
+      <h2 id="correspondence-heading" style="font-size: 1.45rem; margin: 1.5rem 0 0.75rem;">
+        <i class="fa-solid fa-envelopes-bulk" aria-hidden="true"></i> The Eleventh Child — CPI Administrative &amp; Residence Life Correspondence (10)
+      </h2>
+      <p style="color: var(--bs-muted); margin-top: 0;">
+        Extracted from the main narrative of <a href="https://books.raggiesoft.com/aubrie" class="bs-link"><em>The Eleventh Child: The Story of Jordan</em></a> so the novel stays tightly locked to Jordan's lived perspective while allowing readers to inspect every OEA, Housing, Radford Transit, and EHS email on demand via in-reader <code>&lt;dialog&gt;</code> modals.
+      </p>
+      <div class="bs-grid">
+        
+    <wa-card class="bs-card" data-bs-card data-bs-search="Early Check-In Rounds Floor 2 Staff Thread: The Two-Minute Abandonment &amp; Desk Outlet Fix The Eleventh Child — Correspondence Kelsey Brennan, Isabel Dawson, &amp; Henry Walsh (Bennett Hall Staff) Bennett Hall Floor 2 Residence Life Staff Thread Floor 2 Check-In Update — Aubrey Jordan Fuller (Room 214, Bed A) Bennett Hall staff emails documenting the two-minute lobby drop-off, RA Isabel Dawson mounting Room 214&#39;s desk power strip, and Friday door-card runners.">
+      <div>
+        <span class="bs-kicker">2014-08-22 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/early-check-in-rounds" class="bs-link">Early Check-In Rounds</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Floor 2 Staff Thread: The Two-Minute Abandonment &amp; Desk Outlet Fix</div>
+        <p>Bennett Hall staff emails documenting the two-minute lobby drop-off, RA Isabel Dawson mounting Room 214&#39;s desk power strip, and Friday door-card runners.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/early-check-in-rounds" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/early-check-in-rounds">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="Fifty-Eight Seconds Fall Drill 2 of 2 Clinical Accompaniment Log &amp; Permanent EHS Case Closure The Eleventh Child — Correspondence Isabel Dawson (RA), Evelyn Vance (MSN, APRN, FNP-C), &amp; Eleanor Higgins (OEA) Kelsey Brennan, Dr. Marcus Sterling, &amp; CPI Environmental Health &amp; Safety Bennett Hall Floor 2 — 00:58 (Exemplary Compliance — Case Closed) End-of-semester EHS fire drill report documenting Floor 2&#39;s 58-second evacuation during Jordan&#39;s 102.4°F flu exam, closing Arthur Pendelton&#39;s file forever.">
+      <div>
+        <span class="bs-kicker">2014-12-06 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/fifty-eight-seconds" class="bs-link">Fifty-Eight Seconds</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Fall Drill 2 of 2 Clinical Accompaniment Log &amp; Permanent EHS Case Closure</div>
+        <p>End-of-semester EHS fire drill report documenting Floor 2&#39;s 58-second evacuation during Jordan&#39;s 102.4°F flu exam, closing Arthur Pendelton&#39;s file forever.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/fifty-eight-seconds" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/fifty-eight-seconds">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Accommodation File OEA &amp; Central Housing Pre-Arrival ADA Clearance (Room 214, Bed A) The Eleventh Child — Correspondence Patricia Higgins (OEA), Central Housing, &amp; Kelsey Brennan (Bennett Hall) Isabel Dawson &amp; Henry Walsh (Bennett Hall Floor 2 RAs) FINAL CLEARANCE REQUEST — OEA Early Arrival &amp; ADA Placement (Room 214, Bed A) Pre-arrival CPI administrative email thread between OEA Director Patricia Higgins, Central Housing, and Bennett Hall RD Kelsey Brennan.">
+      <div>
+        <span class="bs-kicker">2014-08-20 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/the-accommodation-file" class="bs-link">The Accommodation File</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">OEA &amp; Central Housing Pre-Arrival ADA Clearance (Room 214, Bed A)</div>
+        <p>Pre-arrival CPI administrative email thread between OEA Director Patricia Higgins, Central Housing, and Bennett Hall RD Kelsey Brennan.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/the-accommodation-file" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-accommodation-file">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Bureaucratic Firewall Statutory Preemption &amp; Cease Directive Against EHS Secondary Compliance Inquiry The Eleventh Child — Correspondence Arthur Pendelton (EHS), Eleanor Higgins (OEA), &amp; Chief Robert Callahan (EHS Director) Kelsey Brennan, Dr. Marcus Sterling, &amp; CPI Environmental Health &amp; Safety Re: NOTICE OF SECONDARY COMPLIANCE INQUIRY — STATUTORY PREEMPTION &amp; CEASE DIRECTIVE (BLDG-014) OEA Director Eleanor Higgins, Housing Director Dr. Marcus Sterling, and EHS Chief Robert Callahan shut down Arthur Pendelton&#39;s attempt to interrogate Room 214.">
+      <div>
+        <span class="bs-kicker">2014-09-19 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/the-bureaucratic-firewall" class="bs-link">The Bureaucratic Firewall</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Statutory Preemption &amp; Cease Directive Against EHS Secondary Compliance Inquiry</div>
+        <p>OEA Director Eleanor Higgins, Housing Director Dr. Marcus Sterling, and EHS Chief Robert Callahan shut down Arthur Pendelton&#39;s attempt to interrogate Room 214.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/the-bureaucratic-firewall" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-bureaucratic-firewall">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Clerical Error File Suite 214/216 Forced-Triple Gender Mix-Up, Preferred Name Update &amp; Staff Directive The Eleventh Child — Correspondence Henry Walsh, Kelsey Brennan, Isabel Dawson, &amp; Dr. Alan Mercer CPI Office of Housing &amp; Residence Life / Bennett Hall Floor 2 Staff Floor 2 Incident Follow-Up — Suite 214/216 Clerical Error &amp; Preferred Name Update (&#39;Jordan Fuller&#39;) Move-In Day staff thread covering the Suite 214/216 forced-triple clerical error, Jordan claiming his middle name, and Kelsey&#39;s strict do-not-pry order.">
+      <div>
+        <span class="bs-kicker">2014-08-23 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/the-clerical-error-file" class="bs-link">The Clerical Error File</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Suite 214/216 Forced-Triple Gender Mix-Up, Preferred Name Update &amp; Staff Directive</div>
+        <p>Move-In Day staff thread covering the Suite 214/216 forced-triple clerical error, Jordan claiming his middle name, and Kelsey&#39;s strict do-not-pry order.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/the-clerical-error-file" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-clerical-error-file">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Counselor&#39;s Note Confidential Post-Intake OEA Observations &amp; Practical Check-In Briefing The Eleventh Child — Correspondence Patricia Higgins, M.S., CRC (Director, Office of Educational Accessibility) Kelsey Brennan, M.Ed. (Residence Director, Bennett Hall) CONFIDENTIAL — OEA Intake Completed &amp; Practical Check-In Notes for Tomorrow OEA Director Patricia Higgins warns Bennett Hall RD Kelsey Brennan after Aubrie Sinclair yanks her son&#39;s laptop cord from the wall mid-sentence.">
+      <div>
+        <span class="bs-kicker">2014-08-21 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/the-counselors-note" class="bs-link">The Counselor&#39;s Note</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Confidential Post-Intake OEA Observations &amp; Practical Check-In Briefing</div>
+        <p>OEA Director Patricia Higgins warns Bennett Hall RD Kelsey Brennan after Aubrie Sinclair yanks her son&#39;s laptop cord from the wall mid-sentence.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/the-counselors-note" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-counselors-note">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Fourteen-Day Floor Reports Post-Census RA Evaluations for Suite 214/216 (Form HRL-2014-COED-TEMP) The Eleventh Child — Correspondence Isabel Dawson (RA, Room 215) &amp; Henry Walsh (RA, Room 201) Kelsey Brennan (Bennett Hall RD) &amp; Dr. Alan Mercer (Director of Housing) 14-Day Post-Census Evaluation Report — Bennett Hall, Suite 214/216 Isabel Dawson and Henry Walsh&#39;s formal two-week evaluations recommending that Suite 214/216&#39;s co-ed housing arrangement be made permanent.">
+      <div>
+        <span class="bs-kicker">2014-09-08 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/the-fourteen-day-floor-reports" class="bs-link">The Fourteen-Day Floor Reports</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Post-Census RA Evaluations for Suite 214/216 (Form HRL-2014-COED-TEMP)</div>
+        <p>Isabel Dawson and Henry Walsh&#39;s formal two-week evaluations recommending that Suite 214/216&#39;s co-ed housing arrangement be made permanent.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/the-fourteen-day-floor-reports" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-fourteen-day-floor-reports">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Good-Faith Accord CPI Four-Point Transit &amp; Housing Remediation Plan (CPI-VPA-HRL-2014-0908R) The Eleventh Child — Correspondence Dr. Richard Halstead, Dr. Alan Mercer, &amp; Gregory Donovan (CPI Administration) Walter Hendricks (Radford Transit), Douglas Keaton (City of Radford), &amp; Dr. Catherine Sterling (RU) REMEDIATION ACCORD — Immediate Post-Census Evacuation of Radford Overflow Hotels &amp; :45 Off-Pulse Relief CPI Administration&#39;s four-point remediation accord assigning all 36 post-census dorm beds to Radford hotel residents and launching :45 relief buses.">
+      <div>
+        <span class="bs-kicker">2014-09-08 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/the-good-faith-accord" class="bs-link">The Good-Faith Accord</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">CPI Four-Point Transit &amp; Housing Remediation Plan (CPI-VPA-HRL-2014-0908R)</div>
+        <p>CPI Administration&#39;s four-point remediation accord assigning all 36 post-census dorm beds to Radford hotel residents and launching :45 relief buses.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/the-good-faith-accord" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-good-faith-accord">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Joint Administrative Complaint Radford Transit, City of Radford &amp; Radford University Filing (RT-COR-RU-2014-0908) The Eleventh Child — Correspondence Walter Hendricks (Radford Transit), Douglas Keaton (City of Radford), &amp; Dr. Catherine Sterling (RU) CPI Administration &amp; Office of Housing and Residence Life FORMAL COMPLAINT — Unannounced CPI Overflow Hotel Leasing &amp; Overcrowding of Radford Transit&#39;s 30-Foot Fleet Official joint complaint filed by Radford Transit, the City of Radford, and Radford University demanding immediate CPI overflow hotel relief.">
+      <div>
+        <span class="bs-kicker">2014-09-08 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/the-joint-administrative-complaint" class="bs-link">The Joint Administrative Complaint</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Radford Transit, City of Radford &amp; Radford University Filing (RT-COR-RU-2014-0908)</div>
+        <p>Official joint complaint filed by Radford Transit, the City of Radford, and Radford University demanding immediate CPI overflow hotel relief.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/the-joint-administrative-complaint" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-joint-administrative-complaint">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+
+    <wa-card class="bs-card" data-bs-card data-bs-search="The Mitigating Factor Floor 2 EHS Fire Drill Report (OEA-ADA-COMM) &amp; Confidential RA Follow-Up The Eleventh Child — Correspondence Isabel Dawson (RA, Floor 2) &amp; Kelsey Brennan (Residence Director) CPI Environmental Health &amp; Safety Portal / Kelsey Brennan CONFIDENTIAL — Private Follow-Up on Suite 214/216 Evacuation (Jordan Fuller) RA Isabel Dawson&#39;s official OEA-ADA-COMM fire drill report and her private message to Kelsey Brennan explaining why Jordan feared the unlocked door.">
+      <div>
+        <span class="bs-kicker">2014-09-19 • The Eleventh Child — Correspondence</span>
+        <h3><a href="/books/aubrie/correspondence/the-mitigating-factor" class="bs-link">The Mitigating Factor</a></h3>
+        <div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">Floor 2 EHS Fire Drill Report (OEA-ADA-COMM) &amp; Confidential RA Follow-Up</div>
+        <p>RA Isabel Dawson&#39;s official OEA-ADA-COMM fire drill report and her private message to Kelsey Brennan explaining why Jordan feared the unlocked door.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+        <a href="/books/aubrie/correspondence/the-mitigating-factor" class="bs-btn bs-btn-primary">
+          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+        </a>
+        <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-mitigating-factor">
+          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+        </button>
+      </div>
+    </wa-card>
+  
+      </div>
+    </section>
+  
+    </main>
+
+    <dialog id="bs-preview-dialog" aria-labelledby="bs-preview-title" style="padding: 0; border: 1px solid var(--bs-border); border-radius: 14px; background: var(--bs-surface); color: var(--bs-text); max-width: 820px; width: 92%; max-height: 86vh; box-shadow: 0 20px 60px rgba(0,0,0,0.55);">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.35rem; background: var(--bs-elevated); border-bottom: 1px solid var(--bs-border);">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bs-muted);">🎬 RaggieSoft Backstage Quick-View</span>
+          <h2 id="bs-preview-title" style="margin: 0.15rem 0 0; font-size: 1.25rem;">Backstage Dossier</h2>
+        </div>
+        <button type="button" id="bs-preview-close" class="bs-btn" aria-label="Close preview dialog">✕ Close</button>
+      </div>
+      <div id="bs-preview-meta" style="padding: 0.6rem 1.35rem; font-size: 0.85rem; background: var(--bs-bg); border-bottom: 1px solid var(--bs-border); color: var(--bs-muted);"></div>
+      <div id="bs-preview-body" style="padding: 1.35rem; overflow-y: auto; max-height: calc(86vh - 170px);"></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; padding: 0.85rem 1.35rem; background: var(--bs-elevated); border-top: 1px solid var(--bs-border);">
+        <span style="font-size: 0.82rem; color: var(--bs-muted);">Served via RaggieSoft Backstage JSON API (<code>/api/v1/</code>)</span>
+        <a id="bs-preview-full-link" href="/" class="bs-btn bs-btn-primary">Open Full Dossier Page ↗</a>
+      </div>
+    </dialog>
+
+    <footer class="bs-footer" role="contentinfo">
+      <div class="bs-container">
+        <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <p style="margin: 0;">
+            &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+            <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+            Creative content licensed under
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+          </p>
+          <a href="/api/v1/index.json" class="bs-link"><i class="fa-solid fa-brackets-curly" aria-hidden="true"></i> Backstage JSON API Index</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/backstage-client.js?v=20261024a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261017m" defer></script>
+  </body>
+</html>
