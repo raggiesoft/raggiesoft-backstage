@@ -1054,6 +1054,37 @@ function renderBackstageShell({
     <meta name="twitter:title" content="${safeTitle}" />
     <meta name="twitter:description" content="${safeDesc}" />
     <meta name="twitter:image" content="${escapeHtml(ogImage)}" />
+    <script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': 'https://raggiesoft.com/#organization',
+          name: 'RaggieSoft',
+          url: 'https://raggiesoft.com'
+        },
+        {
+          '@type': 'WebSite',
+          '@id': 'https://backstage.raggiesoft.com/#website',
+          url: 'https://backstage.raggiesoft.com',
+          name: 'RaggieSoft Backstage — Narrative Production & Dossier Archive',
+          publisher: { '@id': 'https://raggiesoft.com/#organization' }
+        },
+        {
+          '@type': 'WebPage',
+          '@id': `${canonicalUrl}#webpage`,
+          url: canonicalUrl,
+          name: title,
+          description: description,
+          isPartOf: { '@id': 'https://backstage.raggiesoft.com/#website' },
+          primaryImageOfPage: {
+            '@type': 'ImageObject',
+            url: ogImage
+          },
+          license: 'https://creativecommons.org/licenses/by-sa/4.0/'
+        }
+      ]
+    })}</script>
     <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
 
     <!-- Reactivated Web Awesome Pro (bb765cf132c5414e) & Font Awesome Pro+ (ec060982d4) -->
