@@ -362,6 +362,9 @@ function walkMarkdownFiles(dir, baseDir = dir) {
  */
 function loadBackstageItems() {
   const candidates = [
+    path.resolve(projectRoot, '../../../raggiesoft-novels/backstage'),
+    path.resolve(projectRoot, '../../raggiesoft-novels/backstage'),
+    path.resolve(projectRoot, '../raggiesoft-novels/backstage'),
     path.resolve(projectRoot, '../../../raggiesoft-narratives/backstage'),
     path.resolve(projectRoot, '../../raggiesoft-narratives/backstage'),
     path.resolve(projectRoot, '../raggiesoft-narratives/backstage')
