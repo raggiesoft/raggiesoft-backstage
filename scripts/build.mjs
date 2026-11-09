@@ -1009,6 +1009,7 @@ function renderBackstageShell({
     { href: '/', label: 'Backstage Hub', icon: 'fa-solid fa-clapperboard-play' },
     { href: '/locations/cpi', label: 'CPI Campus Dossier', icon: 'fa-solid fa-building-columns' },
     { href: '/books/aubrie', label: 'The Eleventh Child (12)', icon: 'fa-solid fa-book-sparkles' },
+    { href: '/books/katie', label: 'Katie & Nathaniel (4)', icon: 'fa-solid fa-wheelchair-move' },
     { href: '/music/stardust-engine-origins', label: 'Music Backstage', icon: 'fa-solid fa-compact-disc' },
     { href: '/corporations/vectron-question-the-rules', label: 'Vectron Archive', icon: 'fa-solid fa-scale-balanced' }
   ];
@@ -1290,9 +1291,15 @@ function renderItemPage(item, allItems) {
               </a>`
             : ''
         }
-        <a href="/books/aubrie" class="bs-btn">
-          <i class="fa-solid fa-box-archive" aria-hidden="true"></i> All Eleventh Child Bonus Features
-        </a>
+        ${
+          item.slug.startsWith('books/katie')
+            ? `<a href="/books/katie" class="bs-btn">
+                <i class="fa-solid fa-box-archive" aria-hidden="true"></i> All Katie &amp; Nathaniel Bonus Features
+              </a>`
+            : `<a href="/books/aubrie" class="bs-btn">
+                <i class="fa-solid fa-box-archive" aria-hidden="true"></i> All Eleventh Child Bonus Features
+              </a>`
+        }
         <a href="/api/v1/${escapeHtml(item.slug)}.json" class="bs-btn">
           <i class="fa-solid fa-code" aria-hidden="true"></i> View Dialog JSON API
         </a>

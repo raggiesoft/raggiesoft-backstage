@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-09T23:26:56.215Z",
+  "generatedAt": "2026-11-09T23:42:12.378Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 16,
+  "totalItems": 21,
   "items": {
     "books/aubrie/correspondence/early-check-in-rounds": {
       "slug": "books/aubrie/correspondence/early-check-in-rounds",
@@ -172,6 +172,71 @@
       "summary": "Technical and narrative guide to Zoë Wren Brooks's autistic cognitive logging system (ZOË.Systems.Logs), Fin#, and the Z-SOX-302 audit protocol.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/aubrie/zoe-logging-architecture",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/aubrie/zoe-logging-architecture.json"
+    },
+    "books/katie/dirksen-room-511-sterling-and-cross-panic": {
+      "slug": "books/katie/dirksen-room-511-sterling-and-cross-panic",
+      "title": "Inside Dirksen Room 511: Commissioner Sterling & Director Cross's Panic",
+      "subtitle": "Nine Stages of Bureaucratic Collapse, the 2007 Magic-Marker Redaction Boomerang, & The Parked-Car Riot Act From Richmond",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2027-02-16",
+      "time": "14:00–16:30 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "What was going through DARS Commissioner Marcus Sterling's and RRC Director Evelyn Cross's minds inside Dirksen Room 511—and what happened in the hallway and on their three-way conference call with the Governor's Chief of Staff after they stumbled out.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/dirksen-room-511-sterling-and-cross-panic.json"
+    },
+    "books/katie/hb-663-majority-leader-hawkins-postmortem": {
+      "slug": "books/katie/hb-663-majority-leader-hawkins-postmortem",
+      "title": "Majority Leader Hawkins's Closed-Door Post-Mortem on HB 663",
+      "subtitle": "What Uncle Richard and the Speaker Wished the Gentleman from Spotsylvania Had Done Before Bringing His Bill to the Floor",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2016-02-11",
+      "time": "14:15 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Behind-the-scenes look inside the Republican leadership suite after Delegate Katie Prairie and the thirteen-year-old triplet Pages dismantled HB 663 on the House floor.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/hb-663-majority-leader-hawkins-postmortem",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/hb-663-majority-leader-hawkins-postmortem.json"
+    },
+    "books/katie": {
+      "slug": "books/katie",
+      "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
+      "subtitle": "What Happened Outside Nate's First-Person POV in Fishersville, Richmond & Washington",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2007-03-13",
+      "time": "",
+      "sender": "",
+      "subject": "",
+      "summary": "Explore behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV—including the 11:00 PM Barton Hall curfew search and why locking the Rec Hall seasonal closet door is what actually got Nate and Katie caught.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
+    },
+    "books/katie/rrc-dorm-database-hack-and-coverup": {
+      "slug": "books/katie/rrc-dorm-database-hack-and-coverup",
+      "title": "How Christopher Vance Scrambled the Dorm Roster & The Thursday Cover-Up",
+      "subtitle": "Behind the Scenes of Wednesday Night's Keycard Swap & Why Thursday's Counselor Meeting Never Happened",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2007-03-14",
+      "time": "16:15–08:30 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "What happened outside Nate's first-person POV when Christopher Vance stole an open admin login to scramble the Barton Hall room database, and how RRC administration swept Natalie Brooks's assault under the rug on Thursday morning.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/rrc-dorm-database-hack-and-coverup",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/rrc-dorm-database-hack-and-coverup.json"
+    },
+    "books/katie/rrc-seasonal-closet-curfew-search": {
+      "slug": "books/katie/rrc-seasonal-closet-curfew-search",
+      "title": "The 11:00 PM Curfew Search & Why Locking the Closet Door Got Them Caught",
+      "subtitle": "What Happened Across the Courtyard in Barton Hall & The Hookup Closet Irony Neither Twin Ever Knew",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2007-03-13",
+      "time": "23:00–23:25 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Behind-the-scenes breakdown of how Barton Hall staff knew to search the Rec Hall after the 11:00 PM Level 2 bed check—and why locking the normally unlocked door of a notorious student hookup closet is what actually got Nate and Katie caught.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/rrc-seasonal-closet-curfew-search",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/rrc-seasonal-closet-curfew-search.json"
     },
     "corporations/vectron-question-the-rules": {
       "slug": "corporations/vectron-question-the-rules",
