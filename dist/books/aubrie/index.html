@@ -78,21 +78,23 @@
     <header class="bs-header" role="banner">
       <div class="bs-container bs-header-inner">
         <a href="/" class="bs-brand">
-          <i class="fa-solid fa-film" aria-hidden="true"></i>
+          <i class="fa-duotone fa-solid fa-film" aria-hidden="true"></i>
           <span>RaggieSoft Backstage</span>
-          <span class="bs-brand-badge">Web Awesome Pro • PWA</span>
+          <wa-badge variant="brand" appearance="filled" pill>
+            <i class="fa-solid fa-sparkles" aria-hidden="true"></i>&nbsp;Bonus Features
+          </wa-badge>
         </a>
         <nav aria-label="RaggieSoft Backstage Primary Navigation">
           <ul class="bs-nav">
-            <li><a href="/" class="bs-nav-link"><i class="fa-solid fa-clapperboard-play" aria-hidden="true"></i> <span>Backstage Hub</span></a></li>
-            <li><a href="/locations/cpi" class="bs-nav-link"><i class="fa-solid fa-building-columns" aria-hidden="true"></i> <span>CPI Campus Dossier</span></a></li>
-            <li><a href="/books/aubrie" class="bs-nav-link" aria-current="page"><i class="fa-solid fa-book-sparkles" aria-hidden="true"></i> <span>The Eleventh Child (12)</span></a></li>
-            <li><a href="/books/katie" class="bs-nav-link"><i class="fa-solid fa-wheelchair-move" aria-hidden="true"></i> <span>Katie &amp; Nathaniel (4)</span></a></li>
-            <li><a href="/music/stardust-engine-origins" class="bs-nav-link"><i class="fa-solid fa-compact-disc" aria-hidden="true"></i> <span>Music Backstage</span></a></li>
-            <li><a href="/corporations/vectron-question-the-rules" class="bs-nav-link"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> <span>Vectron Archive</span></a></li>
+            <li><a href="/" class="bs-nav-link"><i class="fa-duotone fa-solid fa-clapperboard-play" aria-hidden="true"></i> <span>Backstage Hub</span></a></li>
+            <li><a href="/books/katie" class="bs-nav-link"><i class="fa-duotone fa-solid fa-wheelchair-move" aria-hidden="true"></i> <span>Katie &amp; Nathaniel (12)</span></a></li>
+            <li><a href="/books/aubrie" class="bs-nav-link" aria-current="page"><i class="fa-duotone fa-solid fa-book-sparkles" aria-hidden="true"></i> <span>The Eleventh Child (12)</span></a></li>
+            <li><a href="/locations/cpi" class="bs-nav-link"><i class="fa-duotone fa-solid fa-building-columns" aria-hidden="true"></i> <span>CPI Campus Guide</span></a></li>
+            <li><a href="/music/stardust-engine-origins" class="bs-nav-link"><i class="fa-duotone fa-solid fa-compact-disc" aria-hidden="true"></i> <span>Music Backstage</span></a></li>
+            <li><a href="/corporations/vectron-question-the-rules" class="bs-nav-link"><i class="fa-duotone fa-solid fa-scale-balanced" aria-hidden="true"></i> <span>Vectron Archive</span></a></li>
             <li>
               <button type="button" id="theme-toggle" class="bs-btn" aria-label="Toggle Light and Dark Mode">
-                <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+                <i class="fa-duotone fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
                 <span id="theme-toggle-label">Theme</span>
               </button>
             </li>
@@ -103,41 +105,50 @@
 
     <main id="content" class="bs-container" tabindex="-1">
       
-    <nav aria-label="Breadcrumb" style="margin-top: 1.25rem; font-size: 0.9rem;">
-      <a href="/" class="bs-link">🎬 RaggieSoft Backstage</a>
-      <span aria-hidden="true"> / </span>
-      <span>The Eleventh Child — Behind the Scenes</span>
-      <span aria-hidden="true"> / </span>
-      <strong aria-current="page">The Eleventh Child: Bonus Features &amp; Archive</strong>
-    </nav>
+    <div style="margin-top: 1.35rem;">
+      <wa-breadcrumb label="Backstage Archive Path">
+        <wa-breadcrumb-item href="/">
+          <i class="fa-duotone fa-solid fa-clapperboard-play" slot="start" aria-hidden="true"></i>
+          RaggieSoft Backstage
+        </wa-breadcrumb-item>
+        <wa-breadcrumb-item href="/books/aubrie">
+          The Eleventh Child Archive
+        </wa-breadcrumb-item>
+        <wa-breadcrumb-item>The Eleventh Child: Bonus Features &amp; Archive</wa-breadcrumb-item>
+      </wa-breadcrumb>
+    </div>
 
     <section class="bs-hero" aria-labelledby="dossier-heading">
-      <span class="bs-kicker">
-        <i class="fa-solid fa-sparkles" aria-hidden="true"></i> The Eleventh Child — Behind the Scenes
-      </span>
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <i class="fa-duotone fa-solid fa-sparkles" aria-hidden="true"></i>&nbsp;The Eleventh Child — Behind the Scenes
+        </wa-badge>
+        <wa-tag size="small" pill><i class="fa-regular fa-clock" aria-hidden="true"></i>&nbsp;2014-08-20</wa-tag>
+      </div>
       <h1 id="dossier-heading" class="bs-title">The Eleventh Child: Bonus Features &amp; Archive</h1>
       <p class="bs-subtitle">Behind the Scenes, Alternate POVs &amp; Administrative Correspondence</p>
 
-      <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 1rem;">
+      <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; margin-top: 1rem;">
         <a href="https://books.raggiesoft.com/aubrie" class="bs-btn bs-btn-primary">
-                <i class="fa-solid fa-book-open-cover" aria-hidden="true"></i> Read The Eleventh Child on RaggieSoft Books ↗
+                <i class="fa-duotone fa-solid fa-book-open-cover" aria-hidden="true"></i> Read The Eleventh Child on RaggieSoft Books ↗
               </a>
         <a href="/books/aubrie" class="bs-btn">
-                <i class="fa-solid fa-box-archive" aria-hidden="true"></i> All Eleventh Child Bonus Features
+                <i class="fa-duotone fa-solid fa-book-sparkles" aria-hidden="true"></i> All Eleventh Child Dossiers
               </a>
-        <a href="/api/v1/books/aubrie.json" class="bs-btn">
-          <i class="fa-solid fa-code" aria-hidden="true"></i> View Dialog JSON API
-        </a>
+        <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.65rem; border-radius: 0.5rem; background: var(--bs-elevated); border: 1px solid var(--bs-border); font-size: 0.85rem; font-weight: 700;">
+          <span>Copy Dossier Link:</span>
+          <wa-copy-button value="https://backstage.raggiesoft.com/books/aubrie" copy-label="Copy direct link to this dossier" success-label="Link copied!"></wa-copy-button>
+        </span>
       </div>
 
       <div class="bs-meta-grid">
       <div class="bs-meta-item">
-        <span class="bs-meta-label"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> In-Universe Date &amp; Time</span>
+        <span class="bs-meta-label"><i class="fa-duotone fa-solid fa-calendar-day" aria-hidden="true"></i> In-Universe Date &amp; Time</span>
         <strong>2014-08-20</strong>
       </div>
     
       <div class="bs-meta-item">
-        <span class="bs-meta-label"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> In-Universe Location</span>
+        <span class="bs-meta-label"><i class="fa-duotone fa-solid fa-location-dot" aria-hidden="true"></i> In-Universe Location</span>
         <strong>Commonwealth Polytechnic Institute &amp; Christiansburg, Virginia</strong>
       </div>
     </div>
@@ -170,85 +181,134 @@
 
     
     <section aria-labelledby="related-backstage-heading" style="margin-bottom: 2.5rem;">
+      <wa-divider style="margin: 2rem 0 1.5rem;"></wa-divider>
       <h2 id="related-backstage-heading" style="font-size: 1.35rem; margin-bottom: 0.85rem;">
-        <i class="fa-solid fa-folder-tree" aria-hidden="true"></i> More in This Backstage Archive
+        <i class="fa-duotone fa-solid fa-folder-tree" aria-hidden="true"></i> More in This Behind-the-Scenes Collection
       </h2>
       <div class="bs-grid">
         
           <wa-card class="bs-card">
             <div>
-              <span class="bs-kicker">2014-08-22</span>
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>&nbsp;2014-08-22
+                </wa-badge>
+              </div>
               <h3><a href="/books/aubrie/correspondence/early-check-in-rounds" class="bs-link">Early Check-In Rounds</a></h3>
               <p>Bennett Hall staff emails documenting the two-minute lobby drop-off, RA Isabel Dawson mounting Room 214&#39;s desk power strip, and Friday door-card runners.</p>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <a href="/books/aubrie/correspondence/early-check-in-rounds" class="bs-btn bs-btn-primary">Read Dossier</a>
-              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/early-check-in-rounds">Quick Dialog</button>
+              <a href="/books/aubrie/correspondence/early-check-in-rounds" class="bs-btn bs-btn-primary">
+                <i class="fa-duotone fa-solid fa-book-open" aria-hidden="true"></i> Read Dossier
+              </a>
+              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/early-check-in-rounds">
+                <i class="fa-duotone fa-solid fa-expand" aria-hidden="true"></i> Quick View
+              </button>
             </div>
           </wa-card>
         
 
           <wa-card class="bs-card">
             <div>
-              <span class="bs-kicker">2014-12-06</span>
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>&nbsp;2014-12-06
+                </wa-badge>
+              </div>
               <h3><a href="/books/aubrie/correspondence/fifty-eight-seconds" class="bs-link">Fifty-Eight Seconds</a></h3>
               <p>End-of-semester EHS fire drill report documenting Floor 2&#39;s 58-second evacuation during Jordan&#39;s 102.4°F flu exam, closing Arthur Pendelton&#39;s file forever.</p>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <a href="/books/aubrie/correspondence/fifty-eight-seconds" class="bs-btn bs-btn-primary">Read Dossier</a>
-              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/fifty-eight-seconds">Quick Dialog</button>
+              <a href="/books/aubrie/correspondence/fifty-eight-seconds" class="bs-btn bs-btn-primary">
+                <i class="fa-duotone fa-solid fa-book-open" aria-hidden="true"></i> Read Dossier
+              </a>
+              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/fifty-eight-seconds">
+                <i class="fa-duotone fa-solid fa-expand" aria-hidden="true"></i> Quick View
+              </button>
             </div>
           </wa-card>
         
 
           <wa-card class="bs-card">
             <div>
-              <span class="bs-kicker">2014-08-20</span>
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>&nbsp;2014-08-20
+                </wa-badge>
+              </div>
               <h3><a href="/books/aubrie/correspondence/the-accommodation-file" class="bs-link">The Accommodation File</a></h3>
               <p>Pre-arrival CPI administrative email thread between OEA Director Patricia Higgins, Central Housing, and Bennett Hall RD Kelsey Brennan.</p>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <a href="/books/aubrie/correspondence/the-accommodation-file" class="bs-btn bs-btn-primary">Read Dossier</a>
-              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-accommodation-file">Quick Dialog</button>
+              <a href="/books/aubrie/correspondence/the-accommodation-file" class="bs-btn bs-btn-primary">
+                <i class="fa-duotone fa-solid fa-book-open" aria-hidden="true"></i> Read Dossier
+              </a>
+              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-accommodation-file">
+                <i class="fa-duotone fa-solid fa-expand" aria-hidden="true"></i> Quick View
+              </button>
             </div>
           </wa-card>
         
 
           <wa-card class="bs-card">
             <div>
-              <span class="bs-kicker">2014-09-19</span>
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>&nbsp;2014-09-19
+                </wa-badge>
+              </div>
               <h3><a href="/books/aubrie/correspondence/the-bureaucratic-firewall" class="bs-link">The Bureaucratic Firewall</a></h3>
               <p>OEA Director Eleanor Higgins, Housing Director Dr. Marcus Sterling, and EHS Chief Robert Callahan shut down Arthur Pendelton&#39;s attempt to interrogate Room 214.</p>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <a href="/books/aubrie/correspondence/the-bureaucratic-firewall" class="bs-btn bs-btn-primary">Read Dossier</a>
-              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-bureaucratic-firewall">Quick Dialog</button>
+              <a href="/books/aubrie/correspondence/the-bureaucratic-firewall" class="bs-btn bs-btn-primary">
+                <i class="fa-duotone fa-solid fa-book-open" aria-hidden="true"></i> Read Dossier
+              </a>
+              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-bureaucratic-firewall">
+                <i class="fa-duotone fa-solid fa-expand" aria-hidden="true"></i> Quick View
+              </button>
             </div>
           </wa-card>
         
 
           <wa-card class="bs-card">
             <div>
-              <span class="bs-kicker">2014-08-23</span>
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>&nbsp;2014-08-23
+                </wa-badge>
+              </div>
               <h3><a href="/books/aubrie/correspondence/the-clerical-error-file" class="bs-link">The Clerical Error File</a></h3>
               <p>Move-In Day staff thread covering the Suite 214/216 forced-triple clerical error, Jordan claiming his middle name, and Kelsey&#39;s strict do-not-pry order.</p>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <a href="/books/aubrie/correspondence/the-clerical-error-file" class="bs-btn bs-btn-primary">Read Dossier</a>
-              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-clerical-error-file">Quick Dialog</button>
+              <a href="/books/aubrie/correspondence/the-clerical-error-file" class="bs-btn bs-btn-primary">
+                <i class="fa-duotone fa-solid fa-book-open" aria-hidden="true"></i> Read Dossier
+              </a>
+              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-clerical-error-file">
+                <i class="fa-duotone fa-solid fa-expand" aria-hidden="true"></i> Quick View
+              </button>
             </div>
           </wa-card>
         
 
           <wa-card class="bs-card">
             <div>
-              <span class="bs-kicker">2014-08-21</span>
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>&nbsp;2014-08-21
+                </wa-badge>
+              </div>
               <h3><a href="/books/aubrie/correspondence/the-counselors-note" class="bs-link">The Counselor&#39;s Note</a></h3>
               <p>OEA Director Patricia Higgins warns Bennett Hall RD Kelsey Brennan after Aubrie Sinclair yanks her son&#39;s laptop cord from the wall mid-sentence.</p>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <a href="/books/aubrie/correspondence/the-counselors-note" class="bs-btn bs-btn-primary">Read Dossier</a>
-              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-counselors-note">Quick Dialog</button>
+              <a href="/books/aubrie/correspondence/the-counselors-note" class="bs-btn bs-btn-primary">
+                <i class="fa-duotone fa-solid fa-book-open" aria-hidden="true"></i> Read Dossier
+              </a>
+              <button type="button" class="bs-btn" data-bs-preview-slug="books/aubrie/correspondence/the-counselors-note">
+                <i class="fa-duotone fa-solid fa-expand" aria-hidden="true"></i> Quick View
+              </button>
             </div>
           </wa-card>
         
@@ -260,23 +320,23 @@
     <dialog id="bs-preview-dialog" aria-labelledby="bs-preview-title" style="padding: 0; border: 1px solid var(--bs-border); border-radius: 14px; background: var(--bs-surface); color: var(--bs-text); max-width: 820px; width: 92%; max-height: 86vh; box-shadow: 0 20px 60px rgba(0,0,0,0.55);">
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.35rem; background: var(--bs-elevated); border-bottom: 1px solid var(--bs-border);">
         <div>
-          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bs-muted);">🎬 RaggieSoft Backstage Quick-View</span>
+          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bs-muted);"><i class="fa-duotone fa-solid fa-clapperboard-play" aria-hidden="true"></i> RaggieSoft Backstage Quick View</span>
           <h2 id="bs-preview-title" style="margin: 0.15rem 0 0; font-size: 1.25rem;">Backstage Dossier</h2>
         </div>
-        <button type="button" id="bs-preview-close" class="bs-btn" aria-label="Close preview dialog">✕ Close</button>
+        <button type="button" id="bs-preview-close" class="bs-btn" aria-label="Close quick view window"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Close</button>
       </div>
       <div id="bs-preview-meta" style="padding: 0.6rem 1.35rem; font-size: 0.85rem; background: var(--bs-bg); border-bottom: 1px solid var(--bs-border); color: var(--bs-muted);"></div>
       <div id="bs-preview-body" style="padding: 1.35rem; overflow-y: auto; max-height: calc(86vh - 170px);"></div>
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; padding: 0.85rem 1.35rem; background: var(--bs-elevated); border-top: 1px solid var(--bs-border);">
-        <span style="font-size: 0.82rem; color: var(--bs-muted);">Served via RaggieSoft Backstage JSON API (<code>/api/v1/</code>)</span>
-        <a id="bs-preview-full-link" href="/" class="bs-btn bs-btn-primary">Open Full Dossier Page ↗</a>
+        <span style="font-size: 0.82rem; color: var(--bs-muted);"><i class="fa-duotone fa-solid fa-box-archive" aria-hidden="true"></i> RaggieSoft Backstage • Official Companion Archive</span>
+        <a id="bs-preview-full-link" href="/" class="bs-btn bs-btn-primary"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Full Dossier Page</a>
       </div>
     </dialog>
 
     <footer class="bs-footer" role="contentinfo">
       <div class="bs-container">
         <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
-          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
         </div>
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
           <p style="margin: 0;">
@@ -285,12 +345,15 @@
             Creative content licensed under
             <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
           </p>
-          <a href="/api/v1/index.json" class="bs-link"><i class="fa-solid fa-brackets-curly" aria-hidden="true"></i> Backstage JSON API Index</a>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://books.raggiesoft.com" class="bs-link"><i class="fa-duotone fa-solid fa-book-open-cover" aria-hidden="true"></i> RaggieSoft Book Reader</a>
+            <a href="https://music.raggiesoft.com" class="bs-link"><i class="fa-duotone fa-solid fa-headphones" aria-hidden="true"></i> The Listening Room</a>
+          </div>
         </div>
       </div>
     </footer>
 
-    <script src="/assets/backstage-client.js?v=20261024a" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261029f" defer></script>
+    <script src="/assets/backstage-client.js?v=20261109a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261109a" defer></script>
   </body>
 </html>

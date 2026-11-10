@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-09T23:42:12.378Z",
+  "generatedAt": "2026-11-10T00:07:48.994Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 21,
+  "totalItems": 29,
   "items": {
     "books/aubrie/correspondence/early-check-in-rounds": {
       "slug": "books/aubrie/correspondence/early-check-in-rounds",
@@ -173,6 +173,45 @@
       "canonicalUrl": "https://backstage.raggiesoft.com/books/aubrie/zoe-logging-architecture",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/aubrie/zoe-logging-architecture.json"
     },
+    "books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary": {
+      "slug": "books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary",
+      "title": "Brenda Walsh's Suite 756 Cease-and-Desist, Thorne's Gag Order, & The 2044 Route 15 Bus-Stop Primary",
+      "subtitle": "How Thorne Enterprises Shut Down Brenda's Store After the Senate Convictions, the U.S. Capitol Police Trap-and-Trace File, & Why Senator Katie Prairie Refused to Run for President in 2044",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2027-04-26",
+      "time": "11:00 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Complete behind-the-scenes dossier on Brenda Walsh's unauthorized 'Tidewater Thorne & RTR Superstore' in Suite 756, the Cease-and-Desist letter that bankrupted it ten days after Katie voted to convict and disqualify Garrett Thorne, and the 2044 epilogue where three-term Senator Katie Prairie conducts live-bus Presidential endorsement interviews on CVTA Route #15.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary.json"
+    },
+    "books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file": {
+      "slug": "books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file",
+      "title": "CBSA Secondary Inspection at 35 Park Street East & The U.S. Marshals File on Brandon Mercer",
+      "subtitle": "What Happened Between Katie's 4:01 PM Escape in Williamsburg and Brandon's Arrest on Cass Avenue in Detroit",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2005-11-13",
+      "time": "16:15–19:40 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Behind-the-scenes reconstruction of Brandon Mercer's flight from Williamsburg to the Detroit-Windsor Tunnel, his refusal of entry into Canada at 555 Goyeau Street / 35 Park Street East, and his arrest by U.S. Deputy Marshals on Cass Avenue.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file.json"
+    },
+    "books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if": {
+      "slug": "books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if",
+      "title": "Dirty Old Tonomy Hill & The Williamsburg Transportation Center 'What If'",
+      "subtitle": "Why Cousin Chelsea Held All the Legal Cards in Newport—and What Would Have Happened If Nate Had Stepped Off the Bus Two Blocks From Katie",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2004-12-27",
+      "time": "14:40 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Behind-the-scenes look at the legal irony inside Cousin Chelsea's apartment on Tonomy Hill during Christmas 2004—and the canonical 'What If' when Nate's southbound bus stopped two blocks from Katie's apartment in Williamsburg.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if.json"
+    },
     "books/katie/dirksen-room-511-sterling-and-cross-panic": {
       "slug": "books/katie/dirksen-room-511-sterling-and-cross-panic",
       "title": "Inside Dirksen Room 511: Commissioner Sterling & Director Cross's Panic",
@@ -186,31 +225,70 @@
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/dirksen-room-511-sterling-and-cross-panic.json"
     },
-    "books/katie/hb-663-majority-leader-hawkins-postmortem": {
-      "slug": "books/katie/hb-663-majority-leader-hawkins-postmortem",
-      "title": "Majority Leader Hawkins's Closed-Door Post-Mortem on HB 663",
-      "subtitle": "What Uncle Richard and the Speaker Wished the Gentleman from Spotsylvania Had Done Before Bringing His Bill to the Floor",
+    "books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus": {
+      "slug": "books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus",
+      "title": "The $14 Million DSCC Primary Shock, Thorne's 'Broken Katie' Meltdown, & The Senate Wheelchair Caucus",
+      "subtitle": "Inside Retiring Senator Martin Warren's Office, Uncle Richard's Live Beacon News Takedown, Josh Novak's Desk on the Senate Floor, & VPOTUS Julian Vance's Fury in S-216",
       "category": "Katie & Nathaniel — Behind the Scenes",
-      "date": "2016-02-11",
-      "time": "14:15 EST",
+      "date": "2027-01-03",
+      "time": "12:15 EST",
       "sender": "RaggieSoft Backstage Production Dossier",
       "subject": "",
-      "summary": "Behind-the-scenes look inside the Republican leadership suite after Delegate Katie Prairie and the thirteen-year-old triplet Pages dismantled HB 663 on the House floor.",
+      "summary": "Behind-the-scenes look at how Katie and Nate's bus-riding primary upset stunned the DSCC, how Uncle Richard went on Beacon News to defend Katie against President Garrett Thorne, how the Architect of the Capitol modified the chamber for the three-member Senate Wheelchair Caucus, and why Vice President Julian Vance was seething in S-216.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus.json"
+    },
+    "books/katie/hb-663-majority-leader-hawkins-postmortem": {
+      "slug": "books/katie/hb-663-majority-leader-hawkins-postmortem",
+      "title": "Majority Leader Callaway's Closed-Door Post-Mortem on HB 663 & The Pre-Floor Review That Never Happened",
+      "subtitle": "What Uncle Richard Wished Delegate Martin Cobb Had Done Before Bringing His Bill to the Floor—and What Would Have Happened in Room 518 If He Had",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2016-02-04",
+      "time": "13:45 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Behind-the-scenes look inside Majority Leader Richard Callaway's office after Delegate Katie Prairie and the thirteen-year-old Hawkins triplets dismantled HB 663 on the House floor—plus the alternate pre-floor QA review in Room 518 that could have spared the patron his televised humiliation.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/hb-663-majority-leader-hawkins-postmortem",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/hb-663-majority-leader-hawkins-postmortem.json"
     },
     "books/katie": {
       "slug": "books/katie",
       "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
-      "subtitle": "What Happened Outside Nate's First-Person POV in Fishersville, Richmond & Washington",
+      "subtitle": "Twelve Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
       "category": "Katie & Nathaniel — Behind the Scenes",
-      "date": "2007-03-13",
+      "date": "2027-02-16",
       "time": "",
       "sender": "",
       "subject": "",
-      "summary": "Explore behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV—including the 11:00 PM Barton Hall curfew search and why locking the Rec Hall seasonal closet door is what actually got Nate and Katie caught.",
+      "summary": "Complete collection of twelve behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap and the 2007 Roosevelt Rehabilitation Center curfew search to Majority Leader Richard Callaway's HB 663 post-mortem, Dirksen Room 511, and the 2044 Route 15 Bus-Stop Primary.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
+    },
+    "books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown": {
+      "slug": "books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown",
+      "title": "The 509 East 18th Street Executive Suite, Mayor Overton's Bus, & Harold Dietz's 0.4% Collapse",
+      "subtitle": "Why CVTA Blackballed Nate From TRAC, the Political Folklore of the Newtown Road Transfer, & How an Empty Podium on WHRC TV-15 Triggered the WTGA 790 AM Meltdown",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2010-10-28",
+      "time": "08:15 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Behind-the-scenes look inside CVTA headquarters on 18th Street, the real municipal history behind the Newtown Road bus-border cliff that haunted Mayor Myra E. Overton, and the internal campaign polling collapse that drove Incumbent Councilman Harold Dietz to attack Katie's wheelchair ramp on live talk radio.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown.json"
+    },
+    "books/katie/room-518-house-page-triplets-and-uncle-richard": {
+      "slug": "books/katie/room-518-house-page-triplets-and-uncle-richard",
+      "title": "Why the House Page Triplets Bolted From Room 518 & How Uncle Richard Rescued Them",
+      "subtitle": "The Story of Sam, Mandy, and Sarah Hawkins, Why Their Badges Didn't Match Majority Leader Callaway's Nameplate, & Inside Studio 6B at Saturday Night Sketch",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2016-02-05",
+      "time": "09:40 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Behind-the-scenes backstory explaining why thirteen-year-old autistic House Page triplets Sam, Mandy, and Sarah Hawkins bolted from the doorway of Room 518 during Katie and Nate's Friday morning meltdown—plus how Saturday Night Sketch wrote the viral HB 663 cold open without 'cripping up.'",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/room-518-house-page-triplets-and-uncle-richard",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/room-518-house-page-triplets-and-uncle-richard.json"
     },
     "books/katie/rrc-dorm-database-hack-and-coverup": {
       "slug": "books/katie/rrc-dorm-database-hack-and-coverup",
@@ -237,6 +315,32 @@
       "summary": "Behind-the-scenes breakdown of how Barton Hall staff knew to search the Rec Hall after the 11:00 PM Level 2 bed check—and why locking the normally unlocked door of a notorious student hookup closet is what actually got Nate and Katie caught.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/rrc-seasonal-closet-curfew-search",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/rrc-seasonal-closet-curfew-search.json"
+    },
+    "books/katie/rrc-staff-file-voc-eval-and-level-1-contract": {
+      "slug": "books/katie/rrc-staff-file-voc-eval-and-level-1-contract",
+      "title": "The Unopened RRC Staff Dossier: Form A vs. Form B & The Unsigned Level 1 Contract",
+      "subtitle": "How Nate and Katie Presented on Paper to Fishersville Staff, the 1996 Exam Battery Trap, & The Punishment Contract Destroyed by Wednesday Night's Chaos",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2007-03-08",
+      "time": "08:30–11:45 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Inside the internal RRC staff notes on 'Prairie, Nathaniel' and 'Prairie, Katherine'—why Ms. Hollis and Mr. Miller handed them alternating Form A and Form B test booklets expecting them to cheat, why VITA locked down the lab on Quantum OS 2000 Professional, and the drafted Level 1 Restriction Contract sitting on their counselor's desk on Thursday morning.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/rrc-staff-file-voc-eval-and-level-1-contract",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/rrc-staff-file-voc-eval-and-level-1-contract.json"
+    },
+    "books/katie/sunward-tropics-divorce-and-maiden-name-order": {
+      "slug": "books/katie/sunward-tropics-divorce-and-maiden-name-order",
+      "title": "The Sunward Tropics Security File & How Brenda Lost the 'Prairie' Surname",
+      "subtitle": "Inside Attorney Arthur Vance's Settlement Trap, the $6,400 Cruise Credit-Card Debt, & The Va. Code § 20-121.4 Maiden Name Restoration Order",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2001-10-19",
+      "time": "14:00 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "What happened behind closed doors when Brenda's attorney walked into Arthur Vance's conference room to view the M/S Sunward Tropics Deck 4 security tape—and how Katie and Nate's request cost Brenda the Prairie family name.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/sunward-tropics-divorce-and-maiden-name-order",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/sunward-tropics-divorce-and-maiden-name-order.json"
     },
     "corporations/vectron-question-the-rules": {
       "slug": "corporations/vectron-question-the-rules",

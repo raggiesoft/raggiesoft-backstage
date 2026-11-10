@@ -923,14 +923,23 @@ function buildBackstageClientJs() {
 
   // Instant filter on index pages
   var searchInput = document.getElementById('backstage-search');
+  var searchCount = document.getElementById('backstage-search-count');
   if (searchInput) {
     var cards = Array.prototype.slice.call(document.querySelectorAll('[data-bs-card]'));
     searchInput.addEventListener('input', function () {
       var q = (searchInput.value || '').toLowerCase().trim();
+      var visible = 0;
       cards.forEach(function (card) {
         var hay = (card.getAttribute('data-bs-search') || '').toLowerCase();
-        card.style.display = !q || hay.indexOf(q) !== -1 ? '' : 'none';
+        var match = !q || hay.indexOf(q) !== -1;
+        card.style.display = match ? '' : 'none';
+        if (match && card.getAttribute('data-bs-primary-card') === 'true') {
+          visible++;
+        }
       });
+      if (searchCount) {
+        searchCount.textContent = q ? (visible + ' matching records') : ('Showing all ' + visible + ' records');
+      }
     });
   }
 
@@ -1006,12 +1015,12 @@ function renderBackstageShell({
   const canonicalUrl = `https://backstage.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
 
   const navItems = [
-    { href: '/', label: 'Backstage Hub', icon: 'fa-solid fa-clapperboard-play' },
-    { href: '/locations/cpi', label: 'CPI Campus Dossier', icon: 'fa-solid fa-building-columns' },
-    { href: '/books/aubrie', label: 'The Eleventh Child (12)', icon: 'fa-solid fa-book-sparkles' },
-    { href: '/books/katie', label: 'Katie & Nathaniel (4)', icon: 'fa-solid fa-wheelchair-move' },
-    { href: '/music/stardust-engine-origins', label: 'Music Backstage', icon: 'fa-solid fa-compact-disc' },
-    { href: '/corporations/vectron-question-the-rules', label: 'Vectron Archive', icon: 'fa-solid fa-scale-balanced' }
+    { href: '/', label: 'Backstage Hub', icon: 'fa-duotone fa-solid fa-clapperboard-play' },
+    { href: '/books/katie', label: 'Katie & Nathaniel (12)', icon: 'fa-duotone fa-solid fa-wheelchair-move' },
+    { href: '/books/aubrie', label: 'The Eleventh Child (12)', icon: 'fa-duotone fa-solid fa-book-sparkles' },
+    { href: '/locations/cpi', label: 'CPI Campus Guide', icon: 'fa-duotone fa-solid fa-building-columns' },
+    { href: '/music/stardust-engine-origins', label: 'Music Backstage', icon: 'fa-duotone fa-solid fa-compact-disc' },
+    { href: '/corporations/vectron-question-the-rules', label: 'Vectron Archive', icon: 'fa-duotone fa-solid fa-scale-balanced' }
   ];
 
   const navHtml = navItems
@@ -1135,16 +1144,18 @@ function renderBackstageShell({
     <header class="bs-header" role="banner">
       <div class="bs-container bs-header-inner">
         <a href="/" class="bs-brand">
-          <i class="fa-solid fa-film" aria-hidden="true"></i>
+          <i class="fa-duotone fa-solid fa-film" aria-hidden="true"></i>
           <span>RaggieSoft Backstage</span>
-          <span class="bs-brand-badge">Web Awesome Pro • PWA</span>
+          <wa-badge variant="brand" appearance="filled" pill>
+            <i class="fa-solid fa-sparkles" aria-hidden="true"></i>&nbsp;Bonus Features
+          </wa-badge>
         </a>
         <nav aria-label="RaggieSoft Backstage Primary Navigation">
           <ul class="bs-nav">
             ${navHtml}
             <li>
               <button type="button" id="theme-toggle" class="bs-btn" aria-label="Toggle Light and Dark Mode">
-                <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+                <i class="fa-duotone fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
                 <span id="theme-toggle-label">Theme</span>
               </button>
             </li>
@@ -1160,23 +1171,23 @@ function renderBackstageShell({
     <dialog id="bs-preview-dialog" aria-labelledby="bs-preview-title" style="padding: 0; border: 1px solid var(--bs-border); border-radius: 14px; background: var(--bs-surface); color: var(--bs-text); max-width: 820px; width: 92%; max-height: 86vh; box-shadow: 0 20px 60px rgba(0,0,0,0.55);">
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.35rem; background: var(--bs-elevated); border-bottom: 1px solid var(--bs-border);">
         <div>
-          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bs-muted);">🎬 RaggieSoft Backstage Quick-View</span>
+          <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bs-muted);"><i class="fa-duotone fa-solid fa-clapperboard-play" aria-hidden="true"></i> RaggieSoft Backstage Quick View</span>
           <h2 id="bs-preview-title" style="margin: 0.15rem 0 0; font-size: 1.25rem;">Backstage Dossier</h2>
         </div>
-        <button type="button" id="bs-preview-close" class="bs-btn" aria-label="Close preview dialog">✕ Close</button>
+        <button type="button" id="bs-preview-close" class="bs-btn" aria-label="Close quick view window"><i class="fa-solid fa-xmark" aria-hidden="true"></i> Close</button>
       </div>
       <div id="bs-preview-meta" style="padding: 0.6rem 1.35rem; font-size: 0.85rem; background: var(--bs-bg); border-bottom: 1px solid var(--bs-border); color: var(--bs-muted);"></div>
       <div id="bs-preview-body" style="padding: 1.35rem; overflow-y: auto; max-height: calc(86vh - 170px);"></div>
       <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; padding: 0.85rem 1.35rem; background: var(--bs-elevated); border-top: 1px solid var(--bs-border);">
-        <span style="font-size: 0.82rem; color: var(--bs-muted);">Served via RaggieSoft Backstage JSON API (<code>/api/v1/</code>)</span>
-        <a id="bs-preview-full-link" href="/" class="bs-btn bs-btn-primary">Open Full Dossier Page ↗</a>
+        <span style="font-size: 0.82rem; color: var(--bs-muted);"><i class="fa-duotone fa-solid fa-box-archive" aria-hidden="true"></i> RaggieSoft Backstage • Official Companion Archive</span>
+        <a id="bs-preview-full-link" href="/" class="bs-btn bs-btn-primary"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Full Dossier Page</a>
       </div>
     </dialog>
 
     <footer class="bs-footer" role="contentinfo">
       <div class="bs-container">
         <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
-          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
         </div>
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
           <p style="margin: 0;">
@@ -1185,26 +1196,31 @@ function renderBackstageShell({
             Creative content licensed under
             <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
           </p>
-          <a href="/api/v1/index.json" class="bs-link"><i class="fa-solid fa-brackets-curly" aria-hidden="true"></i> Backstage JSON API Index</a>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://books.raggiesoft.com" class="bs-link"><i class="fa-duotone fa-solid fa-book-open-cover" aria-hidden="true"></i> RaggieSoft Book Reader</a>
+            <a href="https://music.raggiesoft.com" class="bs-link"><i class="fa-duotone fa-solid fa-headphones" aria-hidden="true"></i> The Listening Room</a>
+          </div>
         </div>
       </div>
     </footer>
 
-    <script src="/assets/backstage-client.js?v=20261024a" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261029f" defer></script>
+    <script src="/assets/backstage-client.js?v=20261109a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261109a" defer></script>
   </body>
 </html>`;
 }
 
 /**
- * Renders an individual Backstage article/correspondence page.
+ * Renders an individual Backstage article/correspondence page using
+ * Web Awesome Pro (`<wa-breadcrumb>`, `<wa-badge>`, `<wa-callout>`, `<wa-card>`,
+ * `<wa-copy-button>`, `<wa-divider>`) and Font Awesome Pro+ icons.
  */
 function renderItemPage(item, allItems) {
   const metaBlocks = [];
   if (item.date) {
     metaBlocks.push(`
       <div class="bs-meta-item">
-        <span class="bs-meta-label"><i class="fa-solid fa-calendar-day" aria-hidden="true"></i> In-Universe Date &amp; Time</span>
+        <span class="bs-meta-label"><i class="fa-duotone fa-solid fa-calendar-day" aria-hidden="true"></i> In-Universe Date &amp; Time</span>
         <strong>${escapeHtml(item.date)}${item.time ? ` • ${escapeHtml(item.time)}` : ''}</strong>
       </div>
     `);
@@ -1212,7 +1228,7 @@ function renderItemPage(item, allItems) {
   if (item.location) {
     metaBlocks.push(`
       <div class="bs-meta-item">
-        <span class="bs-meta-label"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> In-Universe Location</span>
+        <span class="bs-meta-label"><i class="fa-duotone fa-solid fa-location-dot" aria-hidden="true"></i> In-Universe Location</span>
         <strong>${escapeHtml(item.location)}</strong>
       </div>
     `);
@@ -1220,7 +1236,7 @@ function renderItemPage(item, allItems) {
   if (item.sender) {
     metaBlocks.push(`
       <div class="bs-meta-item">
-        <span class="bs-meta-label"><i class="fa-solid fa-user-pen" aria-hidden="true"></i> From / Author</span>
+        <span class="bs-meta-label"><i class="fa-duotone fa-solid fa-user-pen" aria-hidden="true"></i> From / Archival Source</span>
         <strong>${escapeHtml(item.sender)}</strong>
       </div>
     `);
@@ -1228,22 +1244,31 @@ function renderItemPage(item, allItems) {
   if (item.recipient) {
     metaBlocks.push(`
       <div class="bs-meta-item">
-        <span class="bs-meta-label"><i class="fa-solid fa-users" aria-hidden="true"></i> To / Recipients</span>
+        <span class="bs-meta-label"><i class="fa-duotone fa-solid fa-users" aria-hidden="true"></i> For Readers Of</span>
         <strong>${escapeHtml(item.recipient)}</strong>
       </div>
     `);
   }
 
+  const isKatie = item.slug.startsWith('books/katie');
+  const isAubrie = item.slug.startsWith('books/aubrie');
+
   const relatedItems = allItems
-    .filter((other) => other.slug !== item.slug && other.property === item.property)
+    .filter((other) => {
+      if (other.slug === item.slug) return false;
+      if (isKatie) return other.slug.startsWith('books/katie/');
+      if (isAubrie) return other.slug.startsWith('books/aubrie/');
+      return other.property === item.property;
+    })
     .slice(0, 6);
 
   const relatedHtml =
     relatedItems.length > 0
       ? `
     <section aria-labelledby="related-backstage-heading" style="margin-bottom: 2.5rem;">
+      <wa-divider style="margin: 2rem 0 1.5rem;"></wa-divider>
       <h2 id="related-backstage-heading" style="font-size: 1.35rem; margin-bottom: 0.85rem;">
-        <i class="fa-solid fa-folder-tree" aria-hidden="true"></i> More in This Backstage Archive
+        <i class="fa-duotone fa-solid fa-folder-tree" aria-hidden="true"></i> More in This Behind-the-Scenes Collection
       </h2>
       <div class="bs-grid">
         ${relatedItems
@@ -1251,13 +1276,21 @@ function renderItemPage(item, allItems) {
             (rel) => `
           <wa-card class="bs-card">
             <div>
-              <span class="bs-kicker">${escapeHtml(rel.date || rel.category)}</span>
+              <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>&nbsp;${escapeHtml(rel.date || rel.category)}
+                </wa-badge>
+              </div>
               <h3><a href="${rel.routePath}" class="bs-link">${escapeHtml(rel.title)}</a></h3>
               <p>${escapeHtml(rel.summary)}</p>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <a href="${rel.routePath}" class="bs-btn bs-btn-primary">Read Dossier</a>
-              <button type="button" class="bs-btn" data-bs-preview-slug="${escapeHtml(rel.slug)}">Quick Dialog</button>
+              <a href="${rel.routePath}" class="bs-btn bs-btn-primary">
+                <i class="fa-duotone fa-solid fa-book-open" aria-hidden="true"></i> Read Dossier
+              </a>
+              <button type="button" class="bs-btn" data-bs-preview-slug="${escapeHtml(rel.slug)}">
+                <i class="fa-duotone fa-solid fa-expand" aria-hidden="true"></i> Quick View
+              </button>
             </div>
           </wa-card>
         `
@@ -1267,42 +1300,62 @@ function renderItemPage(item, allItems) {
     </section>`
       : '';
 
+  const parentCollectionHref = isKatie ? '/books/katie' : isAubrie ? '/books/aubrie' : '/';
+  const parentCollectionLabel = isKatie
+    ? 'Katie & Nathaniel Archive'
+    : isAubrie
+      ? 'The Eleventh Child Archive'
+      : item.category;
+
   const bodyHtml = `
-    <nav aria-label="Breadcrumb" style="margin-top: 1.25rem; font-size: 0.9rem;">
-      <a href="/" class="bs-link">🎬 RaggieSoft Backstage</a>
-      <span aria-hidden="true"> / </span>
-      <span>${escapeHtml(item.category)}</span>
-      <span aria-hidden="true"> / </span>
-      <strong aria-current="page">${escapeHtml(item.title)}</strong>
-    </nav>
+    <div style="margin-top: 1.35rem;">
+      <wa-breadcrumb label="Backstage Archive Path">
+        <wa-breadcrumb-item href="/">
+          <i class="fa-duotone fa-solid fa-clapperboard-play" slot="start" aria-hidden="true"></i>
+          RaggieSoft Backstage
+        </wa-breadcrumb-item>
+        <wa-breadcrumb-item href="${parentCollectionHref}">
+          ${escapeHtml(parentCollectionLabel)}
+        </wa-breadcrumb-item>
+        <wa-breadcrumb-item>${escapeHtml(item.title)}</wa-breadcrumb-item>
+      </wa-breadcrumb>
+    </div>
 
     <section class="bs-hero" aria-labelledby="dossier-heading">
-      <span class="bs-kicker">
-        <i class="fa-solid fa-sparkles" aria-hidden="true"></i> ${escapeHtml(item.category)}
-      </span>
+      <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <i class="fa-duotone fa-solid fa-sparkles" aria-hidden="true"></i>&nbsp;${escapeHtml(item.category)}
+        </wa-badge>
+        ${
+          item.date
+            ? `<wa-tag size="small" pill><i class="fa-regular fa-clock" aria-hidden="true"></i>&nbsp;${escapeHtml(item.date)}</wa-tag>`
+            : ''
+        }
+      </div>
       <h1 id="dossier-heading" class="bs-title">${escapeHtml(item.title)}</h1>
       ${item.subtitle ? `<p class="bs-subtitle">${escapeHtml(item.subtitle)}</p>` : ''}
 
-      <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 1rem;">
+      <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; margin-top: 1rem;">
         ${
           item.relatedBookUrl
             ? `<a href="${escapeHtml(item.relatedBookUrl)}" class="bs-btn bs-btn-primary">
-                <i class="fa-solid fa-book-open-cover" aria-hidden="true"></i> ${escapeHtml(item.relatedBookLabel)} ↗
+                <i class="fa-duotone fa-solid fa-book-open-cover" aria-hidden="true"></i> ${escapeHtml(item.relatedBookLabel)} ↗
               </a>`
             : ''
         }
         ${
-          item.slug.startsWith('books/katie')
+          isKatie
             ? `<a href="/books/katie" class="bs-btn">
-                <i class="fa-solid fa-box-archive" aria-hidden="true"></i> All Katie &amp; Nathaniel Bonus Features
+                <i class="fa-duotone fa-solid fa-wheelchair-move" aria-hidden="true"></i> All 12 Katie &amp; Nathaniel Dossiers
               </a>`
             : `<a href="/books/aubrie" class="bs-btn">
-                <i class="fa-solid fa-box-archive" aria-hidden="true"></i> All Eleventh Child Bonus Features
+                <i class="fa-duotone fa-solid fa-book-sparkles" aria-hidden="true"></i> All Eleventh Child Dossiers
               </a>`
         }
-        <a href="/api/v1/${escapeHtml(item.slug)}.json" class="bs-btn">
-          <i class="fa-solid fa-code" aria-hidden="true"></i> View Dialog JSON API
-        </a>
+        <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.65rem; border-radius: 0.5rem; background: var(--bs-elevated); border: 1px solid var(--bs-border); font-size: 0.85rem; font-weight: 700;">
+          <span>Copy Dossier Link:</span>
+          <wa-copy-button value="${escapeHtml(item.canonicalUrl)}" copy-label="Copy direct link to this dossier" success-label="Link copied!"></wa-copy-button>
+        </span>
       </div>
 
       ${metaBlocks.length > 0 ? `<div class="bs-meta-grid">${metaBlocks.join('')}</div>` : ''}
@@ -1326,76 +1379,205 @@ function renderItemPage(item, allItems) {
 }
 
 /**
- * Renders the master RaggieSoft Backstage homepage (`/index.html`).
+ * Renders the master RaggieSoft Backstage homepage (`/index.html`) showcasing
+ * Web Awesome Pro (`<wa-callout>`, `<wa-tab-group>`, `<wa-tab>`, `<wa-tab-panel>`,
+ * `<wa-badge>`, `<wa-tag>`, `<wa-card>`, `<wa-details>`, `<wa-divider>`) and
+ * Font Awesome Pro+ icons (`fa-duotone`, `fa-solid`).
  */
 function renderHomePage(items) {
+  const katieItems = items.filter((i) => i.slug.startsWith('books/katie/') && i.slug !== 'books/katie');
+  const aubrieFeatureItems = items.filter(
+    (i) => i.slug.startsWith('books/aubrie') && !i.slug.startsWith('books/aubrie/correspondence/')
+  );
   const correspondenceItems = items.filter((i) => i.slug.startsWith('books/aubrie/correspondence/'));
-  const featureItems = items.filter((i) => !i.slug.startsWith('books/aubrie/correspondence/'));
+  const loreItems = items.filter((i) => !i.slug.startsWith('books/katie') && !i.slug.startsWith('books/aubrie'));
 
-  const renderCard = (item) => `
-    <wa-card class="bs-card" data-bs-card data-bs-search="${escapeHtml(
-      [item.title, item.subtitle, item.category, item.sender, item.recipient, item.subject, item.summary].join(' ')
+  const renderCard = (item, isPrimary = false) => {
+    const iconClass = item.slug.startsWith('books/katie')
+      ? 'fa-duotone fa-solid fa-wheelchair-move'
+      : item.slug.startsWith('books/aubrie/correspondence/')
+        ? 'fa-duotone fa-solid fa-envelope-open-text'
+        : item.slug.startsWith('books/aubrie')
+          ? 'fa-duotone fa-solid fa-book-sparkles'
+          : item.slug.startsWith('music/')
+            ? 'fa-duotone fa-solid fa-compact-disc'
+            : item.slug.startsWith('corporations/')
+              ? 'fa-duotone fa-solid fa-scale-balanced'
+              : 'fa-duotone fa-solid fa-building-columns';
+
+    return `
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="${isPrimary ? 'true' : 'false'}" data-bs-search="${escapeHtml(
+      [item.title, item.subtitle, item.category, item.sender, item.recipient, item.subject, item.summary, item.date].join(' ')
     )}">
       <div>
-        <span class="bs-kicker">${escapeHtml(item.date ? `${item.date} • ${item.category}` : item.category)}</span>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.55rem;">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <i class="${iconClass}" aria-hidden="true"></i>&nbsp;${escapeHtml(item.category)}
+          </wa-badge>
+          ${
+            item.date
+              ? `<wa-tag size="small" pill><i class="fa-regular fa-calendar" aria-hidden="true"></i>&nbsp;${escapeHtml(item.date)}</wa-tag>`
+              : ''
+          }
+        </div>
         <h3><a href="${item.routePath}" class="bs-link">${escapeHtml(item.title)}</a></h3>
-        ${item.subtitle ? `<div style="font-size: 0.86rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">${escapeHtml(item.subtitle)}</div>` : ''}
+        ${item.subtitle ? `<div style="font-size: 0.88rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--bs-text);">${escapeHtml(item.subtitle)}</div>` : ''}
         <p>${escapeHtml(item.summary)}</p>
       </div>
       <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
         <a href="${item.routePath}" class="bs-btn bs-btn-primary">
-          <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Open Feature
+          <i class="fa-duotone fa-solid fa-folder-open" aria-hidden="true"></i> Open Dossier
         </a>
         <button type="button" class="bs-btn" data-bs-preview-slug="${escapeHtml(item.slug)}">
-          <i class="fa-solid fa-window-restore" aria-hidden="true"></i> Preview &lt;dialog&gt;
+          <i class="fa-duotone fa-solid fa-expand" aria-hidden="true"></i> Quick View
         </button>
       </div>
     </wa-card>
   `;
+  };
 
   const bodyHtml = `
     <section class="bs-hero" aria-labelledby="backstage-hero-title">
-      <span class="bs-kicker">
-        <i class="fa-solid fa-stars" aria-hidden="true"></i> Web Awesome Pro • Font Awesome Pro+ • Immersive PWA
-      </span>
+      <div style="display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 0.85rem;">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <i class="fa-duotone fa-solid fa-clapperboard-play" aria-hidden="true"></i>&nbsp;Official Companion Archive
+        </wa-badge>
+        <wa-badge variant="neutral" appearance="filled-outlined" pill>
+          <i class="fa-duotone fa-solid fa-wheelchair-move" aria-hidden="true"></i>&nbsp;${katieItems.length} Katie &amp; Nathaniel Dossiers
+        </wa-badge>
+        <wa-badge variant="neutral" appearance="filled-outlined" pill>
+          <i class="fa-duotone fa-solid fa-book-sparkles" aria-hidden="true"></i>&nbsp;${aubrieFeatureItems.length + correspondenceItems.length} Eleventh Child Archives
+        </wa-badge>
+        <wa-badge variant="neutral" appearance="filled-outlined" pill>
+          <i class="fa-duotone fa-solid fa-building-columns" aria-hidden="true"></i>&nbsp;Campus, Music &amp; Corporate Lore
+        </wa-badge>
+      </div>
+
       <h1 id="backstage-hero-title" class="bs-title">
-        🎬 RaggieSoft Backstage: Behind the Scenes &amp; In-Universe Bonus Features
+        <i class="fa-duotone fa-solid fa-film" aria-hidden="true"></i> RaggieSoft Backstage: Behind the Scenes &amp; In-Universe Bonus Features
       </h1>
       <p class="bs-subtitle">
-        The official 100% in-universe companion portal for every RaggieSoft property—housing the architectural dossier of <strong>Commonwealth Polytechnic Institute (CPI)</strong>, alternate-POV notes, and extracted background-character correspondence connected directly to <strong>RaggieSoft Book Reader (<code>books.raggiesoft.com</code>)</strong> via our cross-origin <code>&lt;dialog&gt;</code> API.
+        Every Ocean View Archives novel stays tightly anchored to its narrator's lived, in-the-moment point of view. <strong>RaggieSoft Backstage</strong> opens the closed doors down the hall—revealing what happened across the courtyard at <strong>Roosevelt Rehabilitation Center</strong>, inside the <strong>Virginia State Capitol</strong> and <strong>Dirksen Room 511</strong>, and across the campus of <strong>Commonwealth Polytechnic Institute (CPI)</strong>.
       </p>
 
+      <wa-callout variant="brand" open style="margin: 1.25rem 0;">
+        <i class="fa-duotone fa-solid fa-stars" slot="icon" aria-hidden="true"></i>
+        <strong>New Collection Now Live — <em>Katie &amp; Nathaniel</em> Behind-the-Scenes Archive (${katieItems.length} Dossiers, 2001–2044):</strong>
+        Explore how Barton Hall staff tracked Nate and Katie to the Rec Hall at 11:00 PM (and why locking a notorious hookup closet's door is what actually got them caught), Majority Leader Richard Callaway's closed-door post-mortem on <em>HB 663</em>, Commissioner Sterling and Director Cross's nine stages of panic in <strong>Dirksen Room 511</strong>, and three-term Senator Katie Prairie's <strong>2044 Route 15 Bus-Stop Primary</strong>.
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.75rem;">
+          <a href="/books/katie" class="bs-btn bs-btn-primary">
+            <i class="fa-duotone fa-solid fa-wheelchair-move" aria-hidden="true"></i> Explore Katie &amp; Nathaniel Backstage (${katieItems.length})
+          </a>
+          <a href="/books/aubrie" class="bs-btn">
+            <i class="fa-duotone fa-solid fa-book-sparkles" aria-hidden="true"></i> Explore The Eleventh Child Backstage (${aubrieFeatureItems.length + correspondenceItems.length})
+          </a>
+          <a href="https://books.raggiesoft.com" class="bs-btn">
+            <i class="fa-duotone fa-solid fa-book-open-cover" aria-hidden="true"></i> Open RaggieSoft Book Reader ↗
+          </a>
+        </div>
+      </wa-callout>
+
       <div style="margin-top: 1.25rem;">
-        <label for="backstage-search" style="display: block; font-weight: 800; margin-bottom: 0.4rem;">
-          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Search Dossiers, Campus Locations, &amp; Administrative Correspondence (${items.length} Records):
-        </label>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem;">
+          <label for="backstage-search" style="font-weight: 800;">
+            <i class="fa-duotone fa-solid fa-magnifying-glass" aria-hidden="true"></i> Search All Dossiers, Campus Guides, &amp; Correspondence:
+          </label>
+          <span id="backstage-search-count" style="font-size: 0.85rem; font-weight: 700; color: var(--bs-muted);" aria-live="polite">
+            Showing all ${items.length} records
+          </span>
+        </div>
         <input
           type="search"
           id="backstage-search"
-          placeholder="Search for 'Commonwealth Polytechnic Institute', 'Kelsey Brennan', 'Isabel Dawson', 'Room 214', 'Vectron', 'Electric Color'..."
+          placeholder="Search for 'Dirksen Room 511', 'HB 663', 'Uncle Richard', 'Barton Hall', 'Suite 756', 'Commonwealth Polytechnic Institute', 'Kelsey Brennan'..."
           style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.6rem; border: 1px solid var(--bs-border); background: var(--bs-bg); color: var(--bs-text); font-size: 1rem;"
         />
       </div>
     </section>
 
-    <section aria-labelledby="features-heading">
-      <h2 id="features-heading" style="font-size: 1.45rem; margin: 1.5rem 0 0.75rem;">
-        <i class="fa-solid fa-compass-drafting" aria-hidden="true"></i> Featured Locations, Lore &amp; Behind-the-Scenes Dossiers
-      </h2>
-      <div class="bs-grid">
-        ${featureItems.map(renderCard).join('\n')}
-      </div>
-    </section>
+    <wa-tab-group aria-label="Backstage Archive Collections" style="margin-bottom: 2rem;">
+      <wa-tab slot="nav" panel="katie">
+        <i class="fa-duotone fa-solid fa-wheelchair-move" aria-hidden="true"></i>&nbsp;Katie &amp; Nathaniel (${katieItems.length})
+      </wa-tab>
+      <wa-tab slot="nav" panel="aubrie">
+        <i class="fa-duotone fa-solid fa-book-sparkles" aria-hidden="true"></i>&nbsp;The Eleventh Child (${aubrieFeatureItems.length + correspondenceItems.length})
+      </wa-tab>
+      <wa-tab slot="nav" panel="lore">
+        <i class="fa-duotone fa-solid fa-building-columns" aria-hidden="true"></i>&nbsp;Campus, Music &amp; Corporate Lore (${loreItems.length})
+      </wa-tab>
+      <wa-tab slot="nav" panel="all">
+        <i class="fa-duotone fa-solid fa-layer-group" aria-hidden="true"></i>&nbsp;All Archives (${items.length})
+      </wa-tab>
 
-    <section aria-labelledby="correspondence-heading">
-      <h2 id="correspondence-heading" style="font-size: 1.45rem; margin: 1.5rem 0 0.75rem;">
-        <i class="fa-solid fa-envelopes-bulk" aria-hidden="true"></i> The Eleventh Child — CPI Administrative &amp; Residence Life Correspondence (${correspondenceItems.length})
+      <wa-tab-panel name="katie">
+        <section aria-labelledby="katie-panel-heading">
+          <h2 id="katie-panel-heading" style="font-size: 1.45rem; margin: 1rem 0 0.4rem;">
+            <i class="fa-duotone fa-solid fa-wheelchair-move" aria-hidden="true"></i> Katie &amp; Nathaniel — Behind the Scenes (${katieItems.length} Dossiers, 2001–2044)
+          </h2>
+          <p style="color: var(--bs-muted); margin-top: 0;">
+            Companion dossiers to <a href="https://books.raggiesoft.com/katie" class="bs-link"><em>Katie &amp; Nathaniel</em></a> revealing what happened outside Nathaniel Prairie's first-person POV—from Arthur Vance's 2001 divorce settlement conference and the 2007 Roosevelt Rehabilitation Center curfew search to the Virginia State Capitol and the United States Senate.
+          </p>
+          <div class="bs-grid">
+            ${katieItems.map((i) => renderCard(i, false)).join('\n')}
+          </div>
+        </section>
+      </wa-tab-panel>
+
+      <wa-tab-panel name="aubrie">
+        <section aria-labelledby="aubrie-panel-heading">
+          <h2 id="aubrie-panel-heading" style="font-size: 1.45rem; margin: 1rem 0 0.4rem;">
+            <i class="fa-duotone fa-solid fa-book-sparkles" aria-hidden="true"></i> The Eleventh Child — Behind the Scenes &amp; CPI Administrative Correspondence (${aubrieFeatureItems.length + correspondenceItems.length})
+          </h2>
+          <p style="color: var(--bs-muted); margin-top: 0;">
+            Behind-the-scenes dossiers and extracted CPI Residence Life, OEA, Radford Transit, and EHS correspondence for <a href="https://books.raggiesoft.com/aubrie" class="bs-link"><em>The Eleventh Child: The Story of Jordan</em></a>.
+          </p>
+          <div class="bs-grid">
+            ${[...aubrieFeatureItems, ...correspondenceItems].map((i) => renderCard(i, false)).join('\n')}
+          </div>
+        </section>
+      </wa-tab-panel>
+
+      <wa-tab-panel name="lore">
+        <section aria-labelledby="lore-panel-heading">
+          <h2 id="lore-panel-heading" style="font-size: 1.45rem; margin: 1rem 0 0.4rem;">
+            <i class="fa-duotone fa-solid fa-compass-drafting" aria-hidden="true"></i> Campus Architecture, Music Origins &amp; Corporate Archives (${loreItems.length})
+          </h2>
+          <p style="color: var(--bs-muted); margin-top: 0;">
+            Architectural guides to <strong>Commonwealth Polytechnic Institute (CPI)</strong> in Blacksburg, the origins of <strong>The Stardust Engine</strong> on Progress Street NE, and the <strong>Vectron Energy Corporation</strong> archive.
+          </p>
+          <div class="bs-grid">
+            ${loreItems.map((i) => renderCard(i, false)).join('\n')}
+          </div>
+        </section>
+      </wa-tab-panel>
+
+      <wa-tab-panel name="all">
+        <section aria-labelledby="all-panel-heading">
+          <h2 id="all-panel-heading" style="font-size: 1.45rem; margin: 1rem 0 0.4rem;">
+            <i class="fa-duotone fa-solid fa-box-archive" aria-hidden="true"></i> Complete RaggieSoft Backstage Index (${items.length} Records)
+          </h2>
+          <div class="bs-grid">
+            ${items.map((i) => renderCard(i, true)).join('\n')}
+          </div>
+        </section>
+      </wa-tab-panel>
+    </wa-tab-group>
+
+    <section aria-labelledby="faq-heading" style="margin-bottom: 2.5rem;">
+      <h2 id="faq-heading" style="font-size: 1.35rem; margin-bottom: 0.85rem;">
+        <i class="fa-duotone fa-solid fa-circle-question" aria-hidden="true"></i> About RaggieSoft Backstage &amp; In-Reader Bonus Features
       </h2>
-      <p style="color: var(--bs-muted); margin-top: 0;">
-        Extracted from the main narrative of <a href="https://books.raggiesoft.com/aubrie" class="bs-link"><em>The Eleventh Child: The Story of Jordan</em></a> so the novel stays tightly locked to Jordan's lived perspective while allowing readers to inspect every OEA, Housing, Radford Transit, and EHS email on demand via in-reader <code>&lt;dialog&gt;</code> modals.
-      </p>
-      <div class="bs-grid">
-        ${correspondenceItems.map(renderCard).join('\n')}
+      <div style="display: grid; gap: 0.75rem;">
+        <wa-details summary="Why are these behind-the-scenes scenes in Backstage instead of inside the chapters?">
+          <p style="margin: 0;">
+            Every Ocean View Archives novel is written strictly from its narrator's lived perspective (such as Nathaniel Prairie's first-person POV in <em>Katie &amp; Nathaniel</em> or Jordan's third-person limited POV in <em>The Eleventh Child</em>). Keeping events the narrator wasn't present to witness inside <strong>RaggieSoft Backstage</strong> preserves complete narrative immersion while letting readers explore the full backstage truth at the end of the chapter.
+          </p>
+        </wa-details>
+        <wa-details summary="How do I open Backstage bonus features while reading a book?">
+          <p style="margin: 0;">
+            Whenever a chapter on <a href="https://books.raggiesoft.com" class="bs-link">RaggieSoft Book Reader</a> has a companion Backstage dossier, you'll see a <strong>Behind the Scenes / Bonus Feature</strong> card at the bottom of the chapter. Clicking the button opens the full archival dossier right on the page without losing your reading spot—or you can browse every collection directly here on <strong>RaggieSoft Backstage</strong>.
+          </p>
+        </wa-details>
       </div>
     </section>
   `;
@@ -1403,7 +1585,7 @@ function renderHomePage(items) {
   return renderBackstageShell({
     title: 'RaggieSoft Backstage | Bonus Features & Lore Archive',
     description:
-      'Immersive in-universe bonus features, CPI campus guide, and background correspondence PWA for RaggieSoft Books and Engine Room Records.',
+      'Official behind-the-scenes bonus features, Katie & Nathaniel dossiers, CPI campus guide, and correspondence archive for RaggieSoft Books and Music.',
     canonicalPath: '/',
     bodyHtml
   });

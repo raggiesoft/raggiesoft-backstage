@@ -57,14 +57,23 @@
 
   // Instant filter on index pages
   var searchInput = document.getElementById('backstage-search');
+  var searchCount = document.getElementById('backstage-search-count');
   if (searchInput) {
     var cards = Array.prototype.slice.call(document.querySelectorAll('[data-bs-card]'));
     searchInput.addEventListener('input', function () {
       var q = (searchInput.value || '').toLowerCase().trim();
+      var visible = 0;
       cards.forEach(function (card) {
         var hay = (card.getAttribute('data-bs-search') || '').toLowerCase();
-        card.style.display = !q || hay.indexOf(q) !== -1 ? '' : 'none';
+        var match = !q || hay.indexOf(q) !== -1;
+        card.style.display = match ? '' : 'none';
+        if (match && card.getAttribute('data-bs-primary-card') === 'true') {
+          visible++;
+        }
       });
+      if (searchCount) {
+        searchCount.textContent = q ? (visible + ' matching records') : ('Showing all ' + visible + ' records');
+      }
     });
   }
 
