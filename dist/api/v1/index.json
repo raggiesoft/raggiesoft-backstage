@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-11T11:48:56.968Z",
+  "generatedAt": "2026-11-11T12:16:44.738Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 29,
+  "totalItems": 31,
   "items": {
     "books/aubrie/correspondence/early-check-in-rounds": {
       "slug": "books/aubrie/correspondence/early-check-in-rounds",
@@ -173,6 +173,19 @@
       "canonicalUrl": "https://backstage.raggiesoft.com/books/aubrie/zoe-logging-architecture",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/aubrie/zoe-logging-architecture.json"
     },
+    "books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations": {
+      "slug": "books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations",
+      "title": "Arthur Lawrence's 12:38 PM Fishersville Sweep, VITA's 120-Day Unsigned Form, & The 5:00 PM Resignations",
+      "subtitle": "What Happened in Fishersville After Katie and Nate Caught the Bus Back to Staunton—and Why Cross and Saunders Resigned Before 5:00 PM",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2027-07-22",
+      "time": "09:49–20:15 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "Behind-the-scenes chronicle of Chief of Staff Arthur Lawrence, State Inspector General Kenneth Dalton, VITA CIO Rajiv Patel, and Acting DARS Commissioner Angela Thornton arriving in Fishersville at 12:38 PM—uncovering VITA's 120-day unsigned VLAN form, lobby video of Greg Saunders, and two more 5:00 PM resignations.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations.json"
+    },
     "books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary": {
       "slug": "books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary",
       "title": "Brenda Walsh's Suite 756 Cease-and-Desist, Thorne's Gag Order, & The 2044 Route 15 Bus-Stop Primary",
@@ -238,6 +251,19 @@
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus.json"
     },
+    "books/katie/governor-langford-capitol-square-reckoning-with-sterling": {
+      "slug": "books/katie/governor-langford-capitol-square-reckoning-with-sterling",
+      "title": "Governor Langford's Capitol Square Reckoning With Commissioner Sterling & Secretary Alcott",
+      "subtitle": "Thirty-Seven Minutes of Panic at DARS, the June 14 'Run Out the Clock' Email, & Two Pieces of Paper on the Governor's Mahogany Table",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2027-07-22",
+      "time": "09:03–10:25 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "What happened in Richmond between 9:03 AM and 10:25 AM on Thursday, July 22, 2027—when a volcanically irate Governor Rebecca Langford summoned DARS Commissioner Marcus Sterling and Secretary of Health and Human Resources Dr. Miriam Alcott across Capitol Square for lying to U.S. Senator Katie Prairie.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/governor-langford-capitol-square-reckoning-with-sterling",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/governor-langford-capitol-square-reckoning-with-sterling.json"
+    },
     "books/katie/hb-663-majority-leader-hawkins-postmortem": {
       "slug": "books/katie/hb-663-majority-leader-hawkins-postmortem",
       "title": "Majority Leader Callaway's Closed-Door Post-Mortem on HB 663 & The Pre-Floor Review That Never Happened",
@@ -254,13 +280,13 @@
     "books/katie": {
       "slug": "books/katie",
       "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
-      "subtitle": "Twelve Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
+      "subtitle": "Fourteen Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
       "category": "Katie & Nathaniel — Behind the Scenes",
-      "date": "2027-02-16",
+      "date": "2027-07-22",
       "time": "",
       "sender": "",
       "subject": "",
-      "summary": "Complete collection of twelve behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap and the 2007 Roosevelt Rehabilitation Center curfew search to Majority Leader Richard Callaway's HB 663 post-mortem, Dirksen Room 511, and the 2044 Route 15 Bus-Stop Primary.",
+      "summary": "Complete collection of fourteen behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap and the 2007 Roosevelt Rehabilitation Center curfew search to Governor Rebecca Langford's July 2027 Capitol Square reckoning, Arthur Lawrence's Fishersville sweep, and the 2044 Route 15 Bus-Stop Primary.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
     },
