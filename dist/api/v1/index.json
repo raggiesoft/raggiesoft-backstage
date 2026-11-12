@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-12T02:46:58.791Z",
+  "generatedAt": "2026-11-12T04:37:06.400Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 31,
+  "totalItems": 32,
   "items": {
     "books/aubrie/correspondence/early-check-in-rounds": {
       "slug": "books/aubrie/correspondence/early-check-in-rounds",
@@ -276,6 +276,19 @@
       "summary": "Behind-the-scenes look inside Majority Leader Richard Callaway's office after Delegate Katie Prairie and the thirteen-year-old Hawkins triplets dismantled HB 663 on the House floor—plus the alternate pre-floor QA review in Room 518 that could have spared the patron his televised humiliation.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/hb-663-majority-leader-hawkins-postmortem",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/hb-663-majority-leader-hawkins-postmortem.json"
+    },
+    "books/katie/hillside-court-six-oclock-news-and-holding-the-elevator": {
+      "slug": "books/katie/hillside-court-six-oclock-news-and-holding-the-elevator",
+      "title": "Across the James River in Hillside Court: Watching the 6:00 PM News & Holding the General Assembly Elevator",
+      "subtitle": "How Cousin Brittany Saw Delegate Katie Prairie on Television Thursday Night, Rode JRTC Across the Manchester Bridge Without an Appointment, & Stuck Her Hand in the Closing Doors",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2016-02-04",
+      "time": "18:04 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "summary": "What happened across the James River in Hillside Court on Thursday evening, February 4, 2016—before Nate and Katie's first-person camera catches Brittany holding open the General Assembly Building elevator at 1:15 PM on Friday.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/hillside-court-six-oclock-news-and-holding-the-elevator",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/hillside-court-six-oclock-news-and-holding-the-elevator.json"
     },
     "books/katie": {
       "slug": "books/katie",
