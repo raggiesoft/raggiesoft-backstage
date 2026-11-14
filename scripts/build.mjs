@@ -357,6 +357,35 @@ function walkMarkdownFiles(dir, baseDir = dir) {
 }
 
 /**
+ * Normalizes legacy RaggieSoft Book Reader (`/books/<slug>`) and Listening Room
+ * (`?track=<id>` or legacy album slugs) URLs into their canonical single-hop routes.
+ * @param {string} rawText
+ * @returns {string}
+ */
+function canonicalizeRaggieSoftUrlsInText(rawText) {
+  return String(rawText ?? '')
+    .replace(/https:\/\/books\.raggiesoft\.com\/books\/([a-z0-9\/-]+)/gi, 'https://books.raggiesoft.com/$1')
+    .replace(
+      'https://music.raggiesoft.com/the-paper-wall/2003-eleventh-child-book-2?track=1-02-an-80s-education',
+      'https://music.raggiesoft.com/the-paper-wall/2003-eleventh-child-book-2/an-80s-education-the-brooks-mix'
+    )
+    .replace(
+      'https://music.raggiesoft.com/the-stardust-engine/1995-starfield-calibration',
+      'https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration'
+    )
+    .replace(
+      /https:\/\/music\.raggiesoft\.com\/(?:artists\/)?([a-z0-9-]+)\/([a-z0-9-]+)\?track=([a-z0-9-]+)/gi,
+      (_, art, alb, trk) => {
+        const cleanSlug = String(trk)
+          .toLowerCase()
+          .replace(/^\d+-\d+-/, '')
+          .replace(/^\d+-/, '');
+        return `https://music.raggiesoft.com/${art.toLowerCase()}/${alb.toLowerCase()}/${cleanSlug}`;
+      }
+    );
+}
+
+/**
  * Loads all Backstage Markdown items from `/raggiesoft-narratives/backstage`
  * (or falls back to `src/data/backstage-snapshot.json` on the Droplet).
  */
@@ -382,7 +411,8 @@ function loadBackstageItems() {
     const relFiles = walkMarkdownFiles(narrativesDir);
     const items = relFiles.map((relFile) => {
       const raw = fs.readFileSync(path.join(narrativesDir, relFile), 'utf-8');
-      const { frontmatter, body } = parseFrontmatter(raw);
+      const { frontmatter, body: rawBody } = parseFrontmatter(raw);
+      const body = canonicalizeRaggieSoftUrlsInText(rawBody);
       // Compute clean route slug: e.g. `books/aubrie/index.md` -> `books/aubrie`
       let slug = relFile.replace(/\.md$/, '');
       if (slug.endsWith('/index')) {
@@ -406,7 +436,7 @@ function loadBackstageItems() {
         sender: frontmatter.sender || '',
         recipient: frontmatter.recipient || '',
         subject: frontmatter.subject || '',
-        relatedBookUrl: frontmatter.relatedBookUrl || '',
+        relatedBookUrl: canonicalizeRaggieSoftUrlsInText(frontmatter.relatedBookUrl || ''),
         relatedBookLabel: frontmatter.relatedBookLabel || 'Return to RaggieSoft Book Reader',
         summary: frontmatter.summary || frontmatter.subtitle || frontmatter.title || '',
         markdown: body,
