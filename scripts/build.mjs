@@ -57,7 +57,7 @@ const snapshotPath = path.join(projectRoot, 'src', 'data', 'backstage-snapshot.j
 /**
  * Cache-buster revision token shared by HTML asset links, PWA splash screens, and `/sw.js`.
  */
-const ASSET_VERSION = '20261114f';
+const ASSET_VERSION = '20261114g';
 
 /**
  * Web Awesome Pro 3.13.0 CDN base URL (`bb765cf132c5414e`) & Font Awesome Pro+ Kit (`ec060982d4`).
@@ -278,13 +278,15 @@ function parseFrontmatter(rawMd) {
  * so inline chips use standard semantic `<span>` + Font Awesome classes that
  * work both standalone and inside Web Awesome pages.
  * @param {string} text
+ * @param {{ tokens: string[] } | null} [sharedState]
  * @returns {string}
  */
-function renderInlineMarkdown(text) {
-  const tokens = [];
+function renderInlineMarkdown(text, sharedState = null) {
+  const isRoot = sharedState === null;
+  const state = sharedState ?? { tokens: [] };
   const stash = (html) => {
-    const id = `\u0000TOK${tokens.length}\u0000`;
-    tokens.push(html);
+    const id = `\u0000TOK${state.tokens.length}\u0000`;
+    state.tokens.push(html);
     return id;
   };
 
@@ -292,6 +294,12 @@ function renderInlineMarkdown(text) {
 
   // Preserve explicit line breaks
   working = working.replace(/<br\s*\/?>/gi, () => stash('<br />'));
+
+  // Preserve escaped punctuation before Markdown delimiter scanning
+  working = working.replace(/\\\*/g, () => stash('*'));
+  working = working.replace(/\\_/g, () => stash('_'));
+  working = working.replace(/\\\$/g, () => stash('$'));
+  working = working.replace(/\\\|/g, () => stash('|'));
 
   // Custom in-universe speech/signage tags (<aac>, <pa>, <led>)
   working = working.replace(/<aac>([\s\S]*?)<\/aac>/gi, (_, inner) =>
@@ -308,43 +316,127 @@ function renderInlineMarkdown(text) {
     stash(`<span class="bs-led-sign">${escapeHtml(inner)}</span>`)
   );
 
-  // Inline code fragments
+  // Inline code fragments (stashed into shared `state.tokens` so recursive link calls preserve them)
   working = working.replace(/`([^`]+)`/g, (_, code) =>
     stash(`<code class="bs-inline-code">${escapeHtml(code)}</code>`)
   );
 
-  // Markdown links [label](href)
+  // Markdown links [label](href) — passes `state` so nested inline code & emphasis resolve cleanly
   working = working.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, href) => {
     const cleanHref = href.trim();
     const isExternal = /^https?:\/\//i.test(cleanHref) && !cleanHref.includes('backstage.raggiesoft.com');
     const targetAttr = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
     return stash(
-      `<a href="${escapeHtml(cleanHref)}" class="bs-link"${targetAttr}>${renderInlineMarkdown(label)}</a>`
+      `<a href="${escapeHtml(cleanHref)}" class="bs-link"${targetAttr}>${renderInlineMarkdown(label, state)}</a>`
     );
   });
 
-  // Escape remaining raw characters
+  // Escape remaining raw characters prior to emphasis conversion
   working = escapeHtml(working);
 
-  // Bold + Italic (***text***), Bold (**text**), Italic (*text*)
-  working = working.replace(/\*\*\*([^*]+)\*\*\*/g, '<strong><em>$1</em></strong>');
-  working = working.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  working = working.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-  working = working.replace(/\\_/g, '_');
-  working = working.replace(/\\\$/g, '$');
+  // Emphasis pipeline using token stashing so nested `**bold with *italic* inside**`
+  // and `***bold-italic***` never leave stray asterisks or inverted tags:
+  // 1. Symmetric triple-asterisk bold+italic (`***text***`)
+  working = working.replace(/\*\*\*([^\n*]+?)\*\*\*/g, (_, inner) =>
+    stash(`<strong><em>${inner}</em></strong>`)
+  );
+  // 2a. Bold spans opening immediately with a nested italic span (`***italic* suffix**`)
+  working = working.replace(/\*\*\*([^\n*]+?)\*(?!\*)/g, (_, it) => `**${stash(`<em>${it}</em>`)}`);
+  // 2b. Bold spans closing immediately on a nested italic span (`**prefix *italic***`)
+  working = working.replace(/(?<!\*)\*([^\n*]+?)\*\*\*/g, (_, it) => `${stash(`<em>${it}</em>`)}**`);
+  // 3. Single-asterisk italics (`*italic*`), leaving adjacent `**` delimiters intact
+  working = working.replace(/(?<!\*)\*(?!\*)([^\n*]+?)(?<!\*)\*(?!\*)/g, (_, inner) =>
+    stash(`<em>${inner}</em>`)
+  );
+  // 4. Double-asterisk bold (`**bold**`), which can now wrap stashed `<em>` tokens cleanly
+  working = working.replace(/\*\*([^\n*]+?)\*\*/g, (_, inner) =>
+    stash(`<strong>${inner}</strong>`)
+  );
+  // 5. Final single-asterisk pass for `*italic wrapping **bold***`
+  working = working.replace(/(?<!\*)\*(?!\*)([^\n*]+?)(?<!\*)\*(?!\*)/g, (_, inner) =>
+    stash(`<em>${inner}</em>`)
+  );
 
-  // Restore stashed HTML tokens
-  working = working.replace(/\u0000TOK(\d+)\u0000/g, (_, idx) => tokens[Number(idx)] ?? '');
+  // Iteratively restore stashed HTML tokens at the top-level root invocation
+  if (isRoot) {
+    let guard = 0;
+    while (/\u0000TOK\d+\u0000/.test(working) && guard++ < 16) {
+      working = working.replace(/\u0000TOK(\d+)\u0000/g, (_, idx) => state.tokens[Number(idx)] ?? '');
+    }
+  }
 
   return working;
 }
 
 /**
+ * Strips Markdown formatting from a heading or table column header so it can be
+ * safely used in plain-text TOC entries, accessible `<caption>` elements, and
+ * CSS custom property labels (`--label-2`, `--label-3`, etc.).
+ * @param {string} raw
+ * @returns {string}
+ */
+function stripMarkdownPlain(raw) {
+  return String(raw ?? '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\*\*\*([^*]+)\*\*\*/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\\([*_$|])/g, '$1')
+    .trim();
+}
+
+/**
+ * Splits a single GitHub Flavored Markdown (GFM) pipe-table row into cell strings,
+ * honoring escaped pipes (`\|`) inside cell text.
+ * @param {string} line
+ * @returns {string[]}
+ */
+function splitTableCells(line) {
+  let trimmed = line.trim();
+  if (trimmed.startsWith('|')) trimmed = trimmed.slice(1);
+  if (/(?<!\\)\|$/.test(trimmed)) trimmed = trimmed.slice(0, -1);
+  return trimmed.split(/(?<!\\)\|/g).map((cell) => cell.trim());
+}
+
+/**
+ * Checks whether a line is a valid GFM table alignment separator row
+ * (e.g. `| :--- | :---: | ---: |` or `| --- | --- |`).
+ * @param {string} line
+ * @returns {boolean}
+ */
+function isTableSeparatorLine(line) {
+  const trimmed = line.trim();
+  if (!trimmed.includes('|')) return false;
+  const cells = splitTableCells(trimmed);
+  if (cells.length === 0) return false;
+  return cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+}
+
+/**
+ * Detects whether `lines[idx]` starts a valid GFM pipe table (a pipe-delimited
+ * header row immediately followed by a valid alignment separator row).
+ * @param {string[]} lines
+ * @param {number} idx
+ * @returns {boolean}
+ */
+function isMarkdownTableStart(lines, idx) {
+  if (idx + 1 >= lines.length) return false;
+  const headerLine = lines[idx].trim();
+  if (!headerLine || !headerLine.includes('|')) return false;
+  if (!isTableSeparatorLine(lines[idx + 1])) return false;
+  const headerCells = splitTableCells(headerLine);
+  const sepCells = splitTableCells(lines[idx + 1]);
+  return headerCells.length > 0 && headerCells.length === sepCells.length;
+}
+
+/**
  * Converts a Backstage Markdown body into semantic HTML with specialized
- * styling for standalone `<figure>` scene illustrations, in-universe CPI
- * administrative emails (`> **To:**`, `> **From:**`), and institutional filings,
- * preserving strict sequential heading levels (`<h2>` -> `<h3>`) and extracting
- * `<h2>` table-of-contents anchors for `<wa-page slot="aside">`.
+ * styling for standalone `<figure>` scene illustrations, GFM data tables,
+ * in-universe CPI administrative emails (`> **To:**`, `> **From:**`), and
+ * institutional filings, preserving strict sequential heading levels (`<h2>` -> `<h3>`)
+ * and extracting `<h2>` table-of-contents anchors for `<wa-page slot="aside">`.
  * @param {string} md
  * @param {{ id: string, text: string }[]} [tocOut]
  * @returns {string}
@@ -353,6 +445,7 @@ function renderMarkdownToHtml(md, tocOut = null) {
   const lines = md.replace(/\r\n/g, '\n').split('\n');
   const htmlBlocks = [];
   const usedIds = new Set();
+  let lastHeadingPlain = '';
   let i = 0;
 
   while (i < lines.length) {
@@ -424,15 +517,10 @@ function renderMarkdownToHtml(md, tocOut = null) {
       }
       usedIds.add(uniqueId);
 
+      const plainLabel = stripMarkdownPlain(text);
+      lastHeadingPlain = plainLabel;
+
       if (tocOut && level === 2) {
-        const plainLabel = text
-          .replace(/<[^>]+>/g, '')
-          .replace(/\*\*\*([^*]+)\*\*\*/g, '$1')
-          .replace(/\*\*([^*]+)\*\*/g, '$1')
-          .replace(/\*([^*]+)\*/g, '$1')
-          .replace(/`([^`]+)`/g, '$1')
-          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
-          .trim();
         tocOut.push({ id: uniqueId, text: plainLabel });
       }
 
@@ -440,6 +528,77 @@ function renderMarkdownToHtml(md, tocOut = null) {
         `<h${level} id="${escapeHtml(uniqueId)}" class="bs-heading bs-h${level}">${renderInlineMarkdown(text)}</h${level}>`
       );
       i++;
+      continue;
+    }
+
+    // GitHub Flavored Markdown (GFM) Pipe Tables -> Semantic, container-responsive <table>
+    if (isMarkdownTableStart(lines, i)) {
+      const headerCells = splitTableCells(lines[i]);
+      const sepCells = splitTableCells(lines[i + 1]);
+      const colCount = headerCells.length;
+      const alignments = sepCells.map((sep) => {
+        if (sep.startsWith(':') && sep.endsWith(':')) return 'center';
+        if (sep.endsWith(':')) return 'end';
+        return 'start';
+      });
+
+      i += 2;
+      const bodyRows = [];
+      while (
+        i < lines.length &&
+        lines[i].trim() !== '' &&
+        lines[i].includes('|') &&
+        !lines[i].trim().startsWith('#') &&
+        !lines[i].trim().startsWith('```') &&
+        !lines[i].trim().startsWith('>')
+      ) {
+        const rawCells = splitTableCells(lines[i]);
+        const normalizedRow = Array.from({ length: colCount }, (_, colIdx) => rawCells[colIdx] ?? '');
+        bodyRows.push(normalizedRow);
+        i++;
+      }
+
+      // Build `--label-2`..`--label-N` CSS custom properties for accessible mobile stacked cards
+      const labelVars = headerCells
+        .slice(1)
+        .map((cell, idx) => {
+          const cleanLabel = stripMarkdownPlain(cell).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+          return `--label-${idx + 2}: "${cleanLabel}"`;
+        })
+        .join('; ');
+
+      const captionText = lastHeadingPlain
+        ? `${lastHeadingPlain} — Reference Table`
+        : 'Archival Reference Table';
+
+      const theadHtml = headerCells
+        .map(
+          (cell, colIdx) =>
+            `<th scope="col" class="bs-cell-align-${alignments[colIdx]}">${renderInlineMarkdown(cell)}</th>`
+        )
+        .join('');
+
+      const tbodyHtml = bodyRows
+        .map((row) => {
+          const cellsHtml = row
+            .map((cell, colIdx) => {
+              const alignClass = `bs-cell-align-${alignments[colIdx]}`;
+              if (colIdx === 0) {
+                return `<th scope="row" class="${alignClass}">${renderInlineMarkdown(cell)}</th>`;
+              }
+              return `<td class="${alignClass}">${renderInlineMarkdown(cell)}</td>`;
+            })
+            .join('');
+          return `<tr>${cellsHtml}</tr>`;
+        })
+        .join('\n');
+
+      const styleAttr = labelVars ? ` style="${escapeHtml(labelVars)}"` : '';
+      htmlBlocks.push(
+        `<div class="bs-table-wrapper"><table class="bs-table"${styleAttr}><caption class="visually-hidden">${escapeHtml(
+          captionText
+        )}</caption><thead><tr>${theadHtml}</tr></thead><tbody>${tbodyHtml}</tbody></table></div>`
+      );
       continue;
     }
 
@@ -527,6 +686,7 @@ function renderMarkdownToHtml(md, tocOut = null) {
       !lines[i].trim().startsWith('#') &&
       !lines[i].trim().startsWith('>') &&
       !lines[i].trim().startsWith('```') &&
+      !isMarkdownTableStart(lines, i) &&
       !/^!\[([^\]]*)\]\(([^)]+)\)$/.test(lines[i].trim()) &&
       !/^(-{3,}|\*{3,})$/.test(lines[i].trim()) &&
       !/^(\*|-|\d+\.)\s+/.test(lines[i].trim())
@@ -1817,6 +1977,163 @@ function buildBackstageCss() {
     margin-block-start: 0.25rem;
     color: var(--bs-muted);
     font-size: 0.95em;
+  }
+
+  /* Responsive Semantic GFM Data Tables (Sticky Headers + @container Stacked Cards) */
+  .bs-table-wrapper {
+    margin-block: 1.4rem;
+    overflow: auto;
+    max-inline-size: 100%;
+    max-block-size: min(560px, 80vh);
+    container-type: inline-size;
+    border-radius: var(--bs-radius-m);
+  }
+
+  .bs-table {
+    inline-size: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--bs-border);
+    border-radius: var(--bs-radius-m);
+    background: var(--bs-surface);
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .bs-table thead {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+  }
+
+  .bs-table thead th {
+    background: var(--bs-elevated);
+    color: var(--bs-text);
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.78rem 1rem;
+    border-block-end: 2px solid var(--bs-border);
+    text-align: start;
+  }
+
+  .bs-table tbody th,
+  .bs-table tbody td {
+    padding: 0.88rem 1rem;
+    border-block-end: 1px solid var(--bs-border);
+    vertical-align: top;
+    text-align: start;
+  }
+
+  .bs-table tbody tr:last-child th,
+  .bs-table tbody tr:last-child td {
+    border-block-end: none;
+  }
+
+  .bs-table tbody tr:nth-child(even) td {
+    background: color-mix(in oklab, var(--bs-elevated) 45%, var(--bs-surface));
+  }
+
+  .bs-table tbody th {
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 1;
+    background: var(--bs-surface);
+    font-weight: 800;
+    white-space: nowrap;
+    border-inline-end: 1px solid var(--bs-border);
+  }
+
+  .bs-table tbody tr:nth-child(even) th {
+    background: color-mix(in oklab, var(--bs-elevated) 45%, var(--bs-surface));
+  }
+
+  .bs-table .bs-cell-align-center {
+    text-align: center;
+  }
+
+  .bs-table .bs-cell-align-end {
+    text-align: end;
+  }
+
+  @container (width < 600px) {
+    .bs-table,
+    .bs-table thead,
+    .bs-table tbody,
+    .bs-table tr,
+    .bs-table th,
+    .bs-table td {
+      display: block;
+    }
+
+    .bs-table {
+      border: none;
+      background: transparent;
+    }
+
+    .bs-table thead {
+      /* Hide column header row from layout and screen readers in stacked mode */
+      display: none;
+    }
+
+    .bs-table tbody tr {
+      margin-block-end: 1.15rem;
+      border: 1px solid var(--bs-border);
+      border-radius: var(--bs-radius-m);
+      background: var(--bs-surface);
+    }
+
+    .bs-table tbody tr:last-child {
+      margin-block-end: 0;
+    }
+
+    .bs-table tbody th {
+      position: sticky;
+      inset-block-start: 0;
+      inset-inline-start: auto;
+      z-index: 2;
+      background: var(--bs-elevated);
+      border-inline-end: none;
+      border-block-end: 1px solid var(--bs-border);
+      border-radius: var(--bs-radius-m) var(--bs-radius-m) 0 0;
+      white-space: normal;
+    }
+
+    .bs-table tbody tr:nth-child(even) th {
+      background: var(--bs-elevated);
+    }
+
+    .bs-table tbody tr:nth-child(even) td {
+      background: transparent;
+    }
+
+    .bs-table tbody td {
+      border-block-end: 1px solid var(--bs-border);
+    }
+
+    .bs-table tbody td:last-child {
+      border-block-end: none;
+    }
+
+    .bs-table tbody td::before {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--bs-muted);
+      margin-block-end: 0.24rem;
+    }
+
+    /* Accessible name after "/" ensures screen readers announce the label cleanly without trailing colon */
+    .bs-table td:nth-child(2)::before { content: var(--label-2) ": " / var(--label-2); }
+    .bs-table td:nth-child(3)::before { content: var(--label-3) ": " / var(--label-3); }
+    .bs-table td:nth-child(4)::before { content: var(--label-4) ": " / var(--label-4); }
+    .bs-table td:nth-child(5)::before { content: var(--label-5) ": " / var(--label-5); }
+    .bs-table td:nth-child(6)::before { content: var(--label-6) ": " / var(--label-6); }
+    .bs-table td:nth-child(7)::before { content: var(--label-7) ": " / var(--label-7); }
+    .bs-table td:nth-child(8)::before { content: var(--label-8) ": " / var(--label-8); }
   }
 
   /* Related Scroller Strip */
