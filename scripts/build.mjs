@@ -370,7 +370,7 @@ function canonicalizeRaggieSoftUrlsInText(rawText) {
       'https://music.raggiesoft.com/the-paper-wall/2003-eleventh-child-book-2/an-80s-education-the-brooks-mix'
     )
     .replace(
-      'https://music.raggiesoft.com/the-stardust-engine/1995-starfield-calibration',
+      'https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration',
       'https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration'
     )
     .replace(
@@ -1038,11 +1038,19 @@ function renderBackstageShell({
   description,
   canonicalPath = '/',
   ogImage = 'https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg',
+  noindex = false,
   bodyHtml
 }) {
   const safeTitle = escapeHtml(title.slice(0, 60));
   const safeDesc = escapeHtml(description.slice(0, 155));
+  const isErrorPage = canonicalPath === '/404';
   const canonicalUrl = `https://backstage.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
+  const robotsMetaHtml = noindex
+    ? '\n    <meta name="robots" content="noindex, follow" />'
+    : '';
+  const canonicalLinkHtml = isErrorPage
+    ? ''
+    : `\n    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`;
 
   const navItems = [
     { href: '/', label: 'Backstage Hub', icon: 'fa-duotone fa-solid fa-clapperboard-play' },
@@ -1085,8 +1093,7 @@ function renderBackstageShell({
       } catch (e) {}
     </script>
     <title>${safeTitle}</title>
-    <meta name="description" content="${safeDesc}" />
-    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
+    <meta name="description" content="${safeDesc}" />${robotsMetaHtml}${canonicalLinkHtml}
     <meta property="og:title" content="${safeTitle}" />
     <meta property="og:description" content="${safeDesc}" />
     <meta property="og:image" content="${escapeHtml(ogImage)}" />
@@ -1677,6 +1684,15 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+  if (
+    url.pathname === '/robots.txt' ||
+    url.pathname === '/sitemap.xml' ||
+    url.pathname === '/404.html' ||
+    url.pathname.endsWith('.txt')
+  ) {
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const networkFetch = fetch(event.request)
@@ -1780,17 +1796,42 @@ function buildBackstageSite() {
     fs.writeFileSync(path.join(sharedAssetsRoot, 'index.json'), indexJsonStr, 'utf-8');
   }
 
-  // 4. Generate sitemap.xml and robots.txt
+  // 4. Generate 404.html, sitemap.xml, robots.txt, and IndexNow key
+  writeDistFile(
+    '404.html',
+    renderBackstageShell({
+      title: 'Page Not Found | RaggieSoft Backstage',
+      description: 'The requested Backstage correspondence or companion dossier could not be found.',
+      canonicalPath: '/404',
+      noindex: true,
+      bodyHtml: `
+        <section class="bs-hero" aria-labelledby="bs-404-heading" style="margin-top: 2rem;">
+          <span class="bs-eyebrow"><i class="fa-duotone fa-solid fa-clapperboard-play" aria-hidden="true"></i> RaggieSoft Backstage • Page Not Found</span>
+          <h1 id="bs-404-heading" style="margin: 0.5rem 0 0.75rem;">We Could Not Find That Backstage Record</h1>
+          <p style="color: var(--bs-muted); max-width: 68ch; margin: 0 0 1.25rem;">
+            The bonus correspondence, campus guide, or companion dossier you followed may have moved. Browse all Backstage collections below or return to the books and music hubs.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <a href="/" class="bs-btn bs-btn-primary"><i class="fa-duotone fa-solid fa-film" aria-hidden="true"></i> Backstage Hub</a>
+            <a href="/books/katie" class="bs-btn"><i class="fa-duotone fa-solid fa-wheelchair-move" aria-hidden="true"></i> Katie &amp; Nathaniel</a>
+            <a href="/books/aubrie" class="bs-btn"><i class="fa-duotone fa-solid fa-book-sparkles" aria-hidden="true"></i> The Eleventh Child</a>
+            <a href="https://books.raggiesoft.com" class="bs-btn"><i class="fa-duotone fa-solid fa-book-open-cover" aria-hidden="true"></i> RaggieSoft Book Reader</a>
+          </div>
+        </section>`
+    })
+  );
+
   const today = new Date().toISOString().split('T')[0];
-  const urls = ['https://backstage.raggiesoft.com', ...items.map((i) => i.canonicalUrl)];
+  const urls = ['https://backstage.raggiesoft.com/', ...items.map((i) => i.canonicalUrl)];
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
     .map((u) => `  <url>\n    <loc>${escapeHtml(u)}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`)
     .join('\n')}\n</urlset>\n`;
   writeDistFile('sitemap.xml', sitemapXml);
   writeDistFile(
     'robots.txt',
-    `User-agent: *\nAllow: /\nSitemap: https://backstage.raggiesoft.com/sitemap.xml\n`
+    `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: https://backstage.raggiesoft.com/sitemap.xml\n`
   );
+  writeDistFile('726167676965736f6674696e6465786e.txt', '726167676965736f6674696e6465786e\n');
 
   console.log(
     `✅ Built backstage.raggiesoft.com static PWA & JSON API bundle in ${distDir} (${items.length} Backstage dossiers & correspondence endpoints compiled).`
