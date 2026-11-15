@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-11-15T05:55:42.653Z",
+  "generatedAt": "2026-11-15T12:43:32.654Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 43,
+  "totalItems": 44,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 16,
-    "katieDossiers": 15,
+    "katie": 17,
+    "katieDossiers": 16,
     "aubrie": 13,
     "aubrieDossiers": 12,
     "aubrieCorrespondence": 10,
     "lore": 3,
     "hubs": 3,
-    "total": 43
+    "total": 44
   },
   "items": {
     "books/aubrie": {
@@ -49,7 +49,7 @@
     "books/katie": {
       "slug": "books/katie",
       "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
-      "subtitle": "Fourteen Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
+      "subtitle": "Sixteen Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
       "category": "Katie & Nathaniel — Behind the Scenes",
       "date": "2027-07-22",
       "time": "",
@@ -57,7 +57,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "Complete collection of fourteen behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap and the 2007 Roosevelt Rehabilitation Center curfew search to Governor Rebecca Langford's July 2027 Capitol Square reckoning, Arthur Lawrence's Fishersville sweep, and the 2044 Route 15 Bus-Stop Primary.",
+      "summary": "Complete collection of sixteen behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Heather Collins's 2003 Room 204 reckoning, and the 2007 Roosevelt Rehabilitation Center curfew search to Governor Rebecca Langford's July 2027 Capitol Square sweep and the 2044 Route 15 Bus-Stop Primary.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
     },
@@ -225,6 +225,21 @@
       "summary": "In-universe corporate history of Vectron Energy Corp.'s 1997-2001 'Question The Rules' TV ad campaign, energy deregulation, and the birth of Z-SOX-302.",
       "canonicalUrl": "https://backstage.raggiesoft.com/corporations/vectron-question-the-rules",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/corporations/vectron-question-the-rules.json"
+    },
+    "books/katie/room-204-unhandled-exception-and-tylers-cousin-lie": {
+      "slug": "books/katie/room-204-unhandled-exception-and-tylers-cousin-lie",
+      "title": "Workstation Three, Cousin Hannah's Green Parka, & Why Heather Knew There Was No Restore Point",
+      "subtitle": "Inside Senior Homeroom 212 on January 6, Five Weeks of Empty Floor in Room 204, & The Cafeteria Lie That Left Heather Sick With Herself",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2003-02-11",
+      "time": "11:48 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "What happened outside Nathaniel's first-person view between January and April 2003—from Tyler's homeroom ambush on January 6 and five weeks of silence in Mr. Callahan's Room 204 lab to the Tuesday lunch when Heather overheard Tyler run the exact same lie about another boy's redhead maternal cousin.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie.json"
     },
     "books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file": {
       "slug": "books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file",
