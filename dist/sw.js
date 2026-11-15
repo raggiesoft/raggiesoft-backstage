@@ -10,16 +10,16 @@
  * 3. Versioned Same-Origin Assets (`/assets/*`, `/icons/*`): CacheFirst.
  * ============================================================================
  */
-const CACHE_NAME = 'raggiesoft-backstage-v20261115b';
+const CACHE_NAME = 'raggiesoft-backstage-v20261115c';
 const PRECACHE_URLS = [
   "/",
-  "/favicon.ico?v=20261115b",
-  "/icons/icon.svg?v=20261115b",
-  "/icons/icon-192.png?v=20261115b",
-  "/icons/icon-512.png?v=20261115b",
-  "/icons/apple-icon-180.png?v=20261115b",
-  "/assets/backstage.css?v=20261115b",
-  "/assets/backstage-client.js?v=20261115b",
+  "/favicon.ico?v=20261115c",
+  "/icons/icon.svg?v=20261115c",
+  "/icons/icon-192.png?v=20261115c",
+  "/icons/icon-512.png?v=20261115c",
+  "/icons/apple-icon-180.png?v=20261115c",
+  "/assets/backstage.css?v=20261115c",
+  "/assets/backstage-client.js?v=20261115c",
   "/api/v1/index.json",
   "/books/aubrie",
   "/books/rachel",

@@ -243,28 +243,55 @@
 }
 
 @layer components {
-  /* Web Awesome Pro 3.13.0 <wa-page> Application Frame */
+  /* ==========================================================================
+     Web Awesome Pro 3.13.0 <wa-page> Application Frame & Intrinsic Width Safety
+     ==========================================================================
+     Architectural Note:
+     CSS Grid tracks inside <wa-page>'s shadow layout default to min-width: auto,
+     which allows any wide slotted descendant (long buttons, breadcrumbs, data grids,
+     or charts) to stretch the entire page horizontally on mobile phones and narrow
+     PWA windows. Every structural slot and shadow part explicitly opts into
+     min-inline-size: 0 and max-inline-size: 100%, with overflow-x: clip on
+     wa-page.bs-page so stray shadow paint never creates a horizontal scrollbar
+     while preserving position: sticky on the header and desktop aside rail.
+     ========================================================================== */
   wa-page.bs-page {
     --header-height: calc(3.35rem + var(--bs-safe-top));
     --main-width: minmax(0, 1fr);
     --aside-width: 18.5rem;
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
     min-block-size: 100dvh;
+    overflow-x: clip;
     background-color: var(--bs-bg);
     color: var(--bs-text);
+  }
+
+  wa-page.bs-page::part(page) {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    box-sizing: border-box;
   }
 
   wa-page.bs-page::part(banner),
   wa-page.bs-page::part(header),
   wa-page.bs-page::part(subheader),
   wa-page.bs-page::part(footer) {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
     padding: 0;
     border: none;
     background: transparent;
+    box-sizing: border-box;
   }
 
   wa-page.bs-page::part(body) {
     inline-size: 100%;
-    max-inline-size: 1280px;
+    max-inline-size: min(100%, 1280px);
+    min-inline-size: 0;
     margin-inline: auto;
     padding-inline: var(--bs-safe-left) var(--bs-safe-right);
     box-sizing: border-box;
@@ -272,13 +299,24 @@
 
   wa-page.bs-page::part(main),
   wa-page.bs-page::part(main-content) {
+    inline-size: 100%;
+    max-inline-size: 100%;
     min-inline-size: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   wa-page.bs-page::part(aside) {
+    min-inline-size: 0;
     padding-block: 1.75rem 2rem;
     padding-inline: 0 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .bs-banner-slot {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
   }
 
   @media (max-width: 1080px) {
@@ -318,15 +356,17 @@
 
   .bs-container {
     inline-size: 100%;
-    max-inline-size: 1220px;
+    max-inline-size: min(100%, 1220px);
+    min-inline-size: 0;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: clamp(0.85rem, 3.5vw, 1.25rem);
     box-sizing: border-box;
   }
 
   /* Ultra-Compact Single-Row Sticky Header with Full Dynamic Island Safe-Area Clearance */
   .bs-header {
     inline-size: 100%;
+    max-inline-size: 100%;
     box-sizing: border-box;
     padding-block-start: var(--bs-safe-top);
     padding-inline: var(--bs-safe-left) var(--bs-safe-right);
@@ -342,9 +382,10 @@
     display: flex;
     align-items: safe center;
     justify-content: space-between;
-    gap: 0.55rem;
+    gap: 0.45rem;
     padding-block: 0.38rem;
     min-block-size: 3.3rem;
+    min-inline-size: 0;
     box-sizing: border-box;
     flex-wrap: nowrap;
   }
@@ -352,7 +393,7 @@
   .bs-brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.48rem;
     min-inline-size: 0;
     flex: 0 1 auto;
     font-weight: 900;
@@ -361,6 +402,13 @@
     color: var(--bs-text);
     text-decoration: none;
     white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .bs-brand > span {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .bs-brand-icon {
@@ -379,8 +427,9 @@
   .bs-nav-row {
     display: flex;
     align-items: safe center;
-    gap: 0.35rem;
+    gap: 0.32rem;
     flex: 0 0 auto;
+    min-inline-size: 0;
     margin-inline-start: auto;
     white-space: nowrap;
   }
@@ -444,13 +493,13 @@
     white-space: nowrap;
   }
 
-  @container header (inline-size >= 430px) {
+  @container header (inline-size >= 540px) {
     .bs-brand-prefix {
       display: inline;
     }
   }
 
-  @container header (inline-size >= 560px) {
+  @container header (inline-size >= 680px) {
     .bs-appearance-label {
       position: static;
       clip-path: none;
@@ -464,7 +513,7 @@
     }
   }
 
-  @container header (inline-size >= 980px) {
+  @container header (inline-size >= 1020px) {
     .bs-desktop-nav {
       display: block;
     }
@@ -476,9 +525,11 @@
     }
   }
 
-  /* <wa-page slot="subheader"> Breadcrumb Strip */
+  /* <wa-page slot="subheader"> Breadcrumb Strip — Multi-Line Wrapping on Mobile */
   .bs-subheader {
     inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
     box-sizing: border-box;
     padding-inline: var(--bs-safe-left) var(--bs-safe-right);
     background: color-mix(in oklab, var(--bs-elevated) 96%, var(--bs-bg));
@@ -489,7 +540,171 @@
 
   .bs-subheader-inner {
     padding-block: 0.45rem;
-    font-size: 0.86rem;
+    font-size: 0.85rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+
+  /* Allow Web Awesome <wa-breadcrumb> & <wa-breadcrumb-item> to wrap long dossier titles
+     across multiple lines instead of forcing horizontal overflow past the mobile viewport. */
+  .bs-subheader wa-breadcrumb {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .bs-subheader wa-breadcrumb::part(breadcrumb) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 0.22rem;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .bs-subheader wa-breadcrumb-item {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .bs-subheader wa-breadcrumb-item::part(label) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: start;
+    line-height: 1.35;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  .bs-subheader wa-breadcrumb-item::part(start),
+  .bs-subheader wa-breadcrumb-item::part(end),
+  .bs-subheader wa-breadcrumb-item::part(separator) {
+    flex-shrink: 0;
+  }
+
+  /* ==========================================================================
+     Responsive Web Awesome <wa-button>, <wa-badge>, & <wa-callout> Containment
+     ==========================================================================
+     Web Awesome <wa-button> and <wa-badge> default to single-line white-space: nowrap
+     inside their Shadow DOM (::part(button) / ::part(label) / ::part(badge)).
+     When a chapter link button carries a 70–90 character title (e.g. "Episode 26,
+     Chapter 3, Part 3: 9:00 PM: The Only Vault That Can Never Be Cloned ↗"), an
+     unconstrained button expands past 550px and pushes the entire mobile viewport
+     off-screen to the right. Styling the documented CSS parts allows long content
+     buttons and badges to wrap cleanly across multiple lines while keeping compact
+     top-header toolbar controls single-line.
+     ========================================================================== */
+  :where(
+      .bs-action-row,
+      .bs-card-actions,
+      .bs-aside-rail,
+      .bs-slide-overlay,
+      .bs-dialog-width,
+      .bs-grid-detail,
+      .bs-ledger-actions
+    )
+    wa-button {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  :where(
+      .bs-action-row,
+      .bs-card-actions,
+      .bs-aside-rail,
+      .bs-slide-overlay,
+      .bs-dialog-width,
+      .bs-grid-detail,
+      .bs-ledger-actions
+    )
+    wa-button::part(button) {
+    max-inline-size: 100%;
+    block-size: auto;
+    min-block-size: var(--wa-form-control-height, 2.3rem);
+    white-space: normal;
+    text-align: start;
+    padding-block: 0.44rem;
+    line-height: 1.35;
+    box-sizing: border-box;
+  }
+
+  :where(
+      .bs-action-row,
+      .bs-card-actions,
+      .bs-aside-rail,
+      .bs-slide-overlay,
+      .bs-dialog-width,
+      .bs-grid-detail,
+      .bs-ledger-actions
+    )
+    wa-button::part(label) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+    min-inline-size: 0;
+    line-height: 1.35;
+  }
+
+  :where(
+      .bs-action-row,
+      .bs-card-actions,
+      .bs-aside-rail,
+      .bs-slide-overlay,
+      .bs-dialog-width,
+      .bs-grid-detail,
+      .bs-ledger-actions
+    )
+    wa-button::part(start),
+  :where(
+      .bs-action-row,
+      .bs-card-actions,
+      .bs-aside-rail,
+      .bs-slide-overlay,
+      .bs-dialog-width,
+      .bs-grid-detail,
+      .bs-ledger-actions
+    )
+    wa-button::part(end),
+  :where(
+      .bs-action-row,
+      .bs-card-actions,
+      .bs-aside-rail,
+      .bs-slide-overlay,
+      .bs-dialog-width,
+      .bs-grid-detail,
+      .bs-ledger-actions
+    )
+    wa-button::part(caret) {
+    flex-shrink: 0;
+  }
+
+  :where(.bs-badge-strip, .bs-card-meta, .bs-dialog-meta, .bs-pulse-top) wa-badge,
+  :where(.bs-badge-strip, .bs-card-meta, .bs-dialog-meta, .bs-pulse-top) wa-tag {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  :where(.bs-badge-strip, .bs-card-meta, .bs-dialog-meta, .bs-pulse-top) wa-badge::part(badge) {
+    max-inline-size: 100%;
+    block-size: auto;
+    white-space: normal;
+    text-align: start;
+    line-height: 1.3;
+    padding-block: 0.22rem;
+    box-sizing: border-box;
+  }
+
+  wa-callout {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    box-sizing: border-box;
+  }
+
+  wa-callout::part(message) {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    overflow-wrap: break-word;
   }
 
   /* <wa-page slot="aside"> Sticky Table of Contents & Story Companion Rail */
@@ -543,14 +758,16 @@
 
   /* Hero Showcase Stage */
   .bs-hero {
-    margin-block: 1.5rem 1.5rem;
-    padding: clamp(1.35rem, 3vw, 2.25rem);
+    margin-block: clamp(1rem, 2.5vw, 1.5rem);
+    padding: clamp(1rem, 3.5vw, 2.25rem);
     border-radius: var(--bs-radius-l);
     background-color: var(--bs-surface);
     background-image: var(--bs-hero-glow);
     border: 1px solid var(--bs-border);
     box-shadow: var(--bs-shadow);
     box-sizing: border-box;
+    max-inline-size: 100%;
+    min-inline-size: 0;
   }
 
   .bs-badge-strip {
@@ -559,20 +776,27 @@
     gap: 0.5rem;
     flex-wrap: wrap;
     margin-block-end: 0.85rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-title {
     margin: 0 0 0.55rem;
-    font-size: clamp(1.6rem, 3vw, 2.38rem);
+    font-size: clamp(1.45rem, 1.15rem + 1.8vw, 2.38rem);
     line-height: 1.18;
     letter-spacing: -0.015em;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+    min-inline-size: 0;
   }
 
   .bs-subtitle {
     margin: 0 0 1.1rem;
-    font-size: 1.06rem;
+    font-size: clamp(0.98rem, 0.94rem + 0.25vw, 1.06rem);
     color: var(--bs-muted);
     max-inline-size: 78ch;
+    overflow-wrap: break-word;
+    min-inline-size: 0;
   }
 
   .bs-action-row {
@@ -581,16 +805,22 @@
     gap: 0.6rem;
     flex-wrap: wrap;
     margin-block-start: 0.95rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   /* Featured Scenes Showcase (<wa-carousel>) */
   .bs-carousel-section {
     margin-block-end: 2rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-scene-carousel {
     --aspect-ratio: 16 / 9;
     border-radius: var(--bs-radius-l);
+    max-inline-size: 100%;
+    min-inline-size: 0;
   }
 
   .bs-slide-frame {
@@ -602,6 +832,7 @@
     border: 1px solid var(--bs-border);
     background: #070b14;
     margin: 0;
+    box-sizing: border-box;
   }
 
   .bs-slide-img {
@@ -624,6 +855,36 @@
     justify-content: space-between;
     gap: 1rem;
     flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+  /* On mobile screens, stack the playbill caption cleanly beneath the 16:9 artwork
+     so neither the scene illustration nor the slide CTA button gets clipped. */
+  @media (max-width: 680px) {
+    .bs-scene-carousel {
+      --aspect-ratio: auto;
+    }
+
+    .bs-slide-frame {
+      display: flex;
+      flex-direction: column;
+      block-size: auto;
+    }
+
+    .bs-slide-img {
+      aspect-ratio: 16 / 9;
+      block-size: auto;
+    }
+
+    .bs-slide-overlay {
+      position: static;
+      background: #0b1120;
+      border-block-start: 1px solid rgba(148, 163, 184, 0.25);
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1rem 1.05rem;
+    }
   }
 
   .bs-slide-copy {
@@ -743,13 +1004,17 @@
   /* Archive Pulse Metric + Sparkline Strip */
   .bs-pulse-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 215px), 1fr));
     gap: 1rem;
     margin-block-end: 1.85rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-pulse-card {
     --spacing: 1.05rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-pulse-top {
@@ -758,6 +1023,8 @@
     justify-content: space-between;
     gap: 0.65rem;
     margin-block-end: 0.55rem;
+    flex-wrap: wrap;
+    min-inline-size: 0;
   }
 
   .bs-pulse-value {
@@ -784,6 +1051,8 @@
   /* Story Timeline & Collection Charts */
   .bs-charts-section {
     margin-block-end: 2rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-section-head {
@@ -793,27 +1062,39 @@
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-block-end: 0.9rem;
+    min-inline-size: 0;
   }
 
   .bs-section-title {
     margin: 0;
-    font-size: 1.38rem;
+    font-size: clamp(1.18rem, 1.05rem + 0.65vw, 1.38rem);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    min-inline-size: 0;
+    overflow-wrap: break-word;
   }
 
   .bs-section-lead {
     margin: 0;
     color: var(--bs-muted);
     font-size: 0.95rem;
+    min-inline-size: 0;
+    overflow-wrap: break-word;
   }
 
   .bs-charts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 1.25rem;
     margin-block-end: 0.9rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+
+  .bs-charts-grid > wa-card {
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-chart-figure {
@@ -821,11 +1102,27 @@
     display: flex;
     flex-direction: column;
     gap: 0.65rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+
+  .bs-chart-figure wa-bar-chart,
+  .bs-chart-figure wa-doughnut-chart {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
   }
 
   .bs-chart-caption {
     font-size: 0.88rem;
     color: var(--bs-muted);
+  }
+
+  .bs-table-scroll {
+    max-inline-size: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .bs-data-table {
@@ -853,12 +1150,14 @@
     font-weight: 800;
   }
 
-  /* Collection Cards Grid */
+  /* Collection Cards Grid (min(100%, 300px) prevents overflow on 320px–360px phones) */
   .bs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
     gap: 1.25rem;
     margin-block: 1.15rem 2rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-card {
@@ -866,6 +1165,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-card::part(body) {
@@ -874,6 +1175,8 @@
     justify-content: space-between;
     gap: 0.85rem;
     flex: 1;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-card-media-img {
@@ -891,12 +1194,15 @@
     gap: 0.45rem;
     flex-wrap: wrap;
     margin-block-end: 0.55rem;
+    min-inline-size: 0;
   }
 
   .bs-card-title {
     margin: 0.3rem 0 0.35rem;
     font-size: 1.14rem;
     line-height: 1.35;
+    overflow-wrap: break-word;
+    min-inline-size: 0;
   }
 
   .bs-card-subtitle {
@@ -904,12 +1210,14 @@
     font-weight: 700;
     margin-block-end: 0.45rem;
     color: var(--bs-text);
+    overflow-wrap: break-word;
   }
 
   .bs-card-summary {
     margin: 0;
     color: var(--bs-muted);
     font-size: 0.93rem;
+    overflow-wrap: break-word;
   }
 
   .bs-card-actions {
@@ -918,9 +1226,20 @@
     gap: 0.5rem;
     flex-wrap: wrap;
     margin-block-start: 0.35rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   /* Interactive Ledger (<wa-data-grid>) & Tree Explorer (<wa-tree>) */
+  wa-tab-group,
+  wa-tab-panel,
+  wa-data-grid,
+  wa-scroller {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    box-sizing: border-box;
+  }
+
   .bs-ledger-toolbar {
     display: flex;
     align-items: center;
@@ -928,6 +1247,17 @@
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-block: 0.75rem 1rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+
+  .bs-ledger-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-grid-detail {
@@ -935,41 +1265,55 @@
     background: var(--bs-elevated);
     border-radius: var(--bs-radius-m);
     border: 1px solid var(--bs-border);
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    box-sizing: border-box;
   }
 
   .bs-grid-detail p {
     margin: 0 0 0.65rem;
     color: var(--bs-muted);
+    overflow-wrap: break-word;
   }
 
   .bs-explorer-split {
     display: grid;
-    grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+    grid-template-columns: minmax(min(100%, 280px), 380px) minmax(0, 1fr);
     gap: 1.25rem;
     align-items: start;
     margin-block: 1rem 2rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+
+  .bs-explorer-split > * {
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   @media (max-width: 860px) {
     .bs-explorer-split {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
   .bs-tree-pane {
     max-block-size: 32rem;
     overflow-y: auto;
+    overflow-x: auto;
   }
 
   /* Dossier Metadata & Article Prose */
   .bs-meta-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
     gap: 0.75rem;
     margin-block-start: 1.25rem;
     padding-block-start: 1.1rem;
     border-block-start: 1px solid var(--bs-border);
     font-size: 0.9rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-meta-item {
@@ -977,6 +1321,8 @@
     padding: 0.65rem 0.9rem;
     border-radius: var(--bs-radius-m);
     border: 1px solid var(--bs-border);
+    min-inline-size: 0;
+    overflow-wrap: break-word;
   }
 
   .bs-meta-label {
@@ -994,17 +1340,34 @@
   .bs-article-card {
     display: block;
     margin-block-end: 2rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+
+  .bs-article-card::part(body) {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+  }
+
+  @media (max-width: 520px) {
+    .bs-article-card {
+      --spacing: 1rem;
+    }
   }
 
   .bs-article-prose {
     font-size: 1.03rem;
     line-height: 1.78;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    overflow-wrap: break-word;
   }
 
   .bs-heading {
     line-height: 1.3;
     margin-block: 1.65rem 0.65rem;
     scroll-margin-block-start: calc(6rem + var(--bs-safe-top));
+    overflow-wrap: break-word;
   }
 
   .bs-article-prose > .bs-heading:first-child {
@@ -1019,6 +1382,8 @@
     background: var(--bs-email-bg);
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    max-inline-size: 100%;
+    box-sizing: border-box;
   }
 
   .bs-email-card-bar {
@@ -1027,7 +1392,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.75rem;
-    padding: 0.6rem 1.1rem;
+    padding: 0.6rem clamp(0.85rem, 3vw, 1.1rem);
     background: var(--bs-email-bar);
     border-block-end: 1px solid var(--bs-email-border);
     font-size: 0.8rem;
@@ -1047,7 +1412,8 @@
   }
 
   .bs-email-card-body {
-    padding: 1.15rem 1.35rem;
+    padding: clamp(0.9rem, 3vw, 1.15rem) clamp(0.95rem, 3.5vw, 1.35rem);
+    overflow-wrap: break-word;
   }
 
   .bs-email-card-body p:first-child {
@@ -1061,10 +1427,13 @@
   .bs-blockquote {
     margin-block: 1.25rem;
     margin-inline: 0;
-    padding: 0.85rem 1.25rem;
+    padding: 0.85rem clamp(0.9rem, 3vw, 1.25rem);
     border-inline-start: 4px solid var(--bs-primary);
     background: var(--bs-elevated);
     border-radius: 0 var(--bs-radius-m) var(--bs-radius-m) 0;
+    max-inline-size: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
   }
 
   .bs-code-block {
@@ -1073,6 +1442,8 @@
     background: var(--bs-elevated);
     border: 1px solid var(--bs-border);
     overflow-x: auto;
+    max-inline-size: 100%;
+    box-sizing: border-box;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.88rem;
     line-height: 1.55;
@@ -1080,6 +1451,7 @@
 
   .bs-aac-chip {
     display: inline-block;
+    max-inline-size: 100%;
     padding: 0.15rem 0.55rem;
     border-radius: 0.38rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -1088,19 +1460,27 @@
     background: var(--bs-aac-bg);
     color: var(--bs-aac-fg);
     border: 1px solid var(--bs-aac-border);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
   }
 
   .bs-pa-chip {
     display: inline-block;
+    max-inline-size: 100%;
     padding: 0.15rem 0.55rem;
     border-radius: 0.38rem;
     font-weight: 700;
     background: var(--bs-elevated);
     border: 1px solid var(--bs-border);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
   }
 
   .bs-led-sign {
     display: inline-block;
+    max-inline-size: 100%;
     padding: 0.25rem 0.75rem;
     border-radius: 0.35rem;
     background: #090d16;
@@ -1109,6 +1489,9 @@
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-weight: 800;
     letter-spacing: 0.06em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
   }
 
   .bs-inline-code {
@@ -1118,6 +1501,7 @@
     border: 1px solid var(--bs-border);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.9em;
+    overflow-wrap: anywhere;
   }
 
   .bs-link {
@@ -1125,6 +1509,7 @@
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 3px;
+    overflow-wrap: anywhere;
   }
 
   .bs-divider {
@@ -1312,7 +1697,8 @@
   }
 
   .bs-scroller-card {
-    min-inline-size: 300px;
+    inline-size: min(320px, 82dvw);
+    min-inline-size: 0;
     max-inline-size: 340px;
     flex: 0 0 auto;
   }
@@ -1328,6 +1714,8 @@
     border: 1px solid var(--bs-border);
     font-size: 0.85rem;
     font-weight: 700;
+    max-inline-size: 100%;
+    box-sizing: border-box;
   }
 
   .bs-qr-panel {
@@ -1350,29 +1738,38 @@
     padding-block-start: var(--bs-safe-top);
     padding-block-end: var(--bs-safe-bottom);
     box-sizing: border-box;
+    max-inline-size: 100dvw;
+  }
+
+  #bs-scheme-radios {
+    max-inline-size: 100%;
   }
 
   .bs-studio-stack {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .bs-studio-note {
     margin: 0;
     font-size: 0.9rem;
     color: var(--bs-muted);
+    overflow-wrap: break-word;
   }
 
   .bs-install-steps {
     display: grid;
     gap: 0.85rem;
     margin-block: 0.5rem;
+    min-inline-size: 0;
   }
 
   /* Quick View Dialog */
   .bs-dialog-width {
-    --width: 54rem;
+    --width: min(54rem, calc(100dvw - 1.5rem));
   }
 
   .bs-dialog-meta {
@@ -1383,6 +1780,7 @@
     margin-block-end: 1rem;
     padding-block-end: 0.75rem;
     border-block-end: 1px solid var(--bs-border);
+    min-inline-size: 0;
   }
 
   .bs-skeleton-stack {
@@ -1394,6 +1792,8 @@
   /* Footer & Mandatory Fictitious Disclaimer */
   .bs-footer {
     inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
     box-sizing: border-box;
     padding-block: 2.25rem calc(2.25rem + var(--bs-safe-bottom));
     padding-inline: var(--bs-safe-left) var(--bs-safe-right);
@@ -1403,12 +1803,14 @@
   }
 
   .bs-disclaimer {
-    padding: 1.15rem 1.3rem;
+    padding: clamp(0.95rem, 3vw, 1.15rem) clamp(1rem, 3.5vw, 1.3rem);
     border-radius: 0.75rem;
     background: var(--bs-elevated);
     border: 1px solid var(--bs-border);
     margin-block-end: 1.15rem;
     color: var(--bs-muted);
+    overflow-wrap: break-word;
+    box-sizing: border-box;
   }
 
   .bs-footer-bar {
