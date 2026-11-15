@@ -59,7 +59,7 @@ const snapshotPath = path.join(projectRoot, 'src', 'data', 'backstage-snapshot.j
 /**
  * Cache-buster revision token shared by HTML asset links and the PWA Service Worker.
  */
-const ASSET_VERSION = '20261114b';
+const ASSET_VERSION = '20261114c';
 
 /**
  * Web Awesome Pro 3.13.0 CDN base URL (`bb765cf132c5414e`) & Font Awesome Pro+ Kit (`ec060982d4`).
@@ -758,61 +758,77 @@ function buildBackstageCss() {
     box-sizing: border-box;
   }
 
-  /* Sticky Theatrical Playbill Header */
+  /* Ultra-Compact Single-Row Sticky Header (47px Desktop & Mobile via @container) */
   .bs-header {
     position: sticky;
     inset-block-start: 0;
     z-index: 40;
+    container: header / inline-size;
     background: color-mix(in oklab, var(--bs-surface) 92%, transparent);
     backdrop-filter: blur(12px);
     border-block-end: 1px solid var(--bs-border);
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   }
 
   .bs-header-inner {
     display: flex;
-    align-items: center;
+    align-items: safe center;
     justify-content: space-between;
-    gap: 0.85rem;
-    padding-block: 0.7rem;
-    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding-block: 0.4rem;
+    min-block-size: 2.9rem;
+    flex-wrap: nowrap;
   }
 
   .bs-brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
+    min-inline-size: 0;
+    flex: 0 1 auto;
     font-weight: 900;
-    font-size: 1.08rem;
+    font-size: 0.98rem;
     letter-spacing: 0.01em;
     color: var(--bs-text);
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .bs-brand-mark {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 2.15rem;
-    block-size: 2.15rem;
-    border-radius: 0.6rem;
+    flex: 0 0 auto;
+    inline-size: 1.8rem;
+    block-size: 1.8rem;
+    border-radius: 0.48rem;
     background: var(--bs-fallback-primary);
     color: var(--bs-fallback-primary-fg);
-    font-size: 1.05rem;
+    font-size: 0.92rem;
+  }
+
+  .bs-brand-prefix {
+    display: none;
   }
 
   .bs-nav-row {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+    align-items: safe center;
+    gap: 0.35rem;
+    flex: 0 0 auto;
+    margin-inline-start: auto;
+    white-space: nowrap;
+  }
+
+  .bs-desktop-nav {
+    display: none;
   }
 
   .bs-nav {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    flex-wrap: wrap;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -821,27 +837,74 @@ function buildBackstageCss() {
   .bs-nav-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.42rem;
-    min-block-size: 2.25rem;
-    padding: 0.35rem 0.78rem;
+    gap: 0.35rem;
+    min-block-size: 2rem;
+    padding: 0.24rem 0.62rem;
     border-radius: var(--bs-radius-m);
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     font-weight: 700;
-    color: var(--bs-text);
-    background: var(--bs-elevated);
-    border: 1px solid var(--bs-border);
+    color: var(--bs-muted);
+    background: transparent;
+    border: 1px solid transparent;
     text-decoration: none;
-    transition: border-color 0.15s ease, background-color 0.15s ease;
+    transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
   }
 
   .bs-nav-link:hover {
-    border-color: var(--bs-primary);
+    color: var(--bs-text);
+    background: var(--bs-elevated);
+    border-color: var(--bs-border);
   }
 
   .bs-nav-link[aria-current="page"] {
     background: var(--bs-fallback-primary);
     color: var(--bs-fallback-primary-fg);
     border-color: var(--bs-fallback-primary);
+  }
+
+  .bs-dropdown-desktop-label {
+    display: none;
+  }
+
+  .bs-appearance-label {
+    position: absolute;
+    clip-path: inset(50%);
+    overflow: hidden;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    white-space: nowrap;
+  }
+
+  @container header (inline-size >= 430px) {
+    .bs-brand-prefix {
+      display: inline;
+    }
+  }
+
+  @container header (inline-size >= 540px) {
+    .bs-appearance-label {
+      position: static;
+      clip-path: none;
+      overflow: visible;
+      inline-size: auto;
+      block-size: auto;
+      margin: 0;
+    }
+  }
+
+  @container header (inline-size >= 860px) {
+    .bs-desktop-nav {
+      display: block;
+    }
+    .bs-dropdown-mobile-label {
+      display: none;
+    }
+    .bs-dropdown-desktop-label {
+      display: inline;
+    }
   }
 
   /* Hero Showcase Stage */
@@ -2021,12 +2084,9 @@ function renderBackstageShell({
   const canonicalLinkHtml = isErrorPage ? '' : `\n    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`;
 
   const navItems = [
-    { href: '/', label: 'Backstage Hub', icon: 'clapperboard-play' },
-    { href: '/books/katie', label: `Katie & Nathaniel (${counts.katie})`, icon: 'wheelchair-move' },
-    { href: '/books/aubrie', label: `The Eleventh Child (${counts.aubrie})`, icon: 'book-sparkles' },
-    { href: '/locations/cpi', label: 'CPI Campus', icon: 'building-columns' },
-    { href: '/music/stardust-engine-origins', label: 'Music Origins', icon: 'compact-disc' },
-    { href: '/corporations/vectron-question-the-rules', label: 'Vectron', icon: 'scale-balanced' }
+    { href: '/', label: 'Hub', icon: 'clapperboard-play' },
+    { href: '/books/katie', label: `Katie & Nathaniel (${counts.katieDossiers ?? counts.katie})`, icon: 'wheelchair-move' },
+    { href: '/books/aubrie', label: `Eleventh Child (${counts.aubrieDossiers ?? counts.aubrie})`, icon: 'book-sparkles' }
   ];
 
   const navHtml = navItems
@@ -2167,14 +2227,11 @@ function renderBackstageShell({
           <span class="bs-brand-mark" aria-hidden="true">
             <wa-icon family="duotone" name="film" swap-opacity></wa-icon>
           </span>
-          <span>RaggieSoft Backstage</span>
-          <wa-badge variant="brand" appearance="filled" pill>
-            <wa-icon family="duotone" name="sparkles" aria-hidden="true"></wa-icon>&nbsp;Bonus Features
-          </wa-badge>
+          <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
         </a>
 
         <div class="bs-nav-row">
-          <nav aria-label="Backstage collections">
+          <nav class="bs-desktop-nav" aria-label="Backstage collections">
             <ul class="bs-nav">
               ${navHtml}
             </ul>
@@ -2183,7 +2240,7 @@ function renderBackstageShell({
           <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
             <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
               <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
-              Jump To
+              <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
             </wa-button>
             <wa-dropdown-item value="/">
               <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
@@ -2191,11 +2248,11 @@ function renderBackstageShell({
             </wa-dropdown-item>
             <wa-dropdown-item value="/books/katie">
               <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
-              Katie &amp; Nathaniel Archive (${counts.katie})
+              Katie &amp; Nathaniel (${counts.katieDossiers ?? counts.katie} Dossiers)
             </wa-dropdown-item>
             <wa-dropdown-item value="/books/aubrie">
               <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
-              The Eleventh Child Archive (${counts.aubrie})
+              The Eleventh Child (${counts.aubrieDossiers ?? counts.aubrie} Files)
             </wa-dropdown-item>
             <wa-divider></wa-divider>
             <wa-dropdown-item value="/locations/cpi">
@@ -2224,7 +2281,7 @@ function renderBackstageShell({
           <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
           <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
             <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
-            Appearance
+            <span class="bs-appearance-label">Appearance</span>
           </wa-button>
         </div>
       </div>
@@ -2789,22 +2846,22 @@ function renderHomePage(items, groups) {
 
       <wa-tab-group id="bs-main-tabs">
         <wa-tab slot="nav" panel="katie">
-          <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel (${counts.katie})
+          <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel (${counts.katieDossiers})
         </wa-tab>
         <wa-tab slot="nav" panel="aubrie">
-          <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>&nbsp;The Eleventh Child (${counts.aubrie})
+          <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>&nbsp;Eleventh Child (${counts.aubrieDossiers})
         </wa-tab>
         <wa-tab slot="nav" panel="lore">
-          <wa-icon family="duotone" name="building-columns" aria-hidden="true"></wa-icon>&nbsp;Campus, Music &amp; Corporate (${counts.lore})
+          <wa-icon family="duotone" name="building-columns" aria-hidden="true"></wa-icon>&nbsp;Worldbuilding (${counts.lore})
         </wa-tab>
         <wa-tab slot="nav" panel="ledger">
           <wa-icon family="sharp-duotone" variant="solid" name="table-list" aria-hidden="true"></wa-icon>&nbsp;Archival Ledger
         </wa-tab>
         <wa-tab slot="nav" panel="explorer">
-          <wa-icon family="duotone" name="folder-tree" aria-hidden="true"></wa-icon>&nbsp;Folder Explorer
+          <wa-icon family="duotone" name="folder-tree" aria-hidden="true"></wa-icon>&nbsp;Folder Tree
         </wa-tab>
         <wa-tab slot="nav" panel="all">
-          <wa-icon family="duotone" name="layer-group" aria-hidden="true"></wa-icon>&nbsp;All Records (${counts.total})
+          <wa-icon family="duotone" name="layer-group" aria-hidden="true"></wa-icon>&nbsp;All (${counts.total})
         </wa-tab>
 
         <wa-tab-panel name="katie">
@@ -2812,7 +2869,7 @@ function renderHomePage(items, groups) {
             Companion dossiers to <a href="https://books.raggiesoft.com/katie" class="bs-link"><em>Katie &amp; Nathaniel</em></a> revealing what unfolded outside Nathaniel Prairie&rsquo;s first-person perspective—from Arthur Vance&rsquo;s 2001 conference room off Independence Boulevard to Capitol Square and the United States Senate.
           </p>
           <div class="bs-grid">
-            ${katieAll.map((i) => renderDossierCard(i, false)).join('\n')}
+            ${katieDossiers.map((i) => renderDossierCard(i, false)).join('\n')}
           </div>
         </wa-tab-panel>
 
@@ -2821,7 +2878,7 @@ function renderHomePage(items, groups) {
             Behind-the-scenes dossiers and CPI Residence Life, Office of Educational Accessibility, Radford Transit, and Environmental Health &amp; Safety correspondence for <a href="https://books.raggiesoft.com/aubrie" class="bs-link"><em>The Eleventh Child: The Story of Jordan</em></a>.
           </p>
           <div class="bs-grid">
-            ${aubrieAll.map((i) => renderDossierCard(i, false)).join('\n')}
+            ${aubrieDossiers.map((i) => renderDossierCard(i, false)).join('\n')}
           </div>
         </wa-tab-panel>
 

@@ -2,11 +2,11 @@
  * @license MIT
  * sw.js — Offline-First Progressive Web App Service Worker for backstage.raggiesoft.com
  */
-const CACHE_NAME = 'raggiesoft-backstage-v20261114b';
+const CACHE_NAME = 'raggiesoft-backstage-v20261114c';
 const PRECACHE_URLS = [
   "/",
-  "/assets/backstage.css?v=20261114b",
-  "/assets/backstage-client.js?v=20261114b",
+  "/assets/backstage.css?v=20261114c",
+  "/assets/backstage-client.js?v=20261114c",
   "/api/v1/index.json",
   "/books/aubrie/correspondence/early-check-in-rounds",
   "/books/aubrie/correspondence/fifty-eight-seconds",

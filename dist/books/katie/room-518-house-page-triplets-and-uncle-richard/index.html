@@ -58,7 +58,7 @@
     <!-- Font Awesome Pro+ Kit (ec060982d4) -->
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="/assets/backstage.css?v=20261114b" />
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261114c" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261029f" />
 
     <!-- Google Analytics 4 (GA4) -->
@@ -97,28 +97,22 @@
           <span class="bs-brand-mark" aria-hidden="true">
             <wa-icon family="duotone" name="film" swap-opacity></wa-icon>
           </span>
-          <span>RaggieSoft Backstage</span>
-          <wa-badge variant="brand" appearance="filled" pill>
-            <wa-icon family="duotone" name="sparkles" aria-hidden="true"></wa-icon>&nbsp;Bonus Features
-          </wa-badge>
+          <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
         </a>
 
         <div class="bs-nav-row">
-          <nav aria-label="Backstage collections">
+          <nav class="bs-desktop-nav" aria-label="Backstage collections">
             <ul class="bs-nav">
-              <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Backstage Hub</span></a></li>
-              <li><a href="/books/katie" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (16)</span></a></li>
-              <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>The Eleventh Child (13)</span></a></li>
-              <li><a href="/locations/cpi" class="bs-nav-link"><wa-icon family="duotone" name="building-columns" swap-opacity aria-hidden="true"></wa-icon><span>CPI Campus</span></a></li>
-              <li><a href="/music/stardust-engine-origins" class="bs-nav-link"><wa-icon family="duotone" name="compact-disc" swap-opacity aria-hidden="true"></wa-icon><span>Music Origins</span></a></li>
-              <li><a href="/corporations/vectron-question-the-rules" class="bs-nav-link"><wa-icon family="duotone" name="scale-balanced" swap-opacity aria-hidden="true"></wa-icon><span>Vectron</span></a></li>
+              <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+              <li><a href="/books/katie" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (15)</span></a></li>
+              <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
             </ul>
           </nav>
 
           <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
             <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
               <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
-              Jump To
+              <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
             </wa-button>
             <wa-dropdown-item value="/">
               <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
@@ -126,11 +120,11 @@
             </wa-dropdown-item>
             <wa-dropdown-item value="/books/katie">
               <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
-              Katie &amp; Nathaniel Archive (16)
+              Katie &amp; Nathaniel (15 Dossiers)
             </wa-dropdown-item>
             <wa-dropdown-item value="/books/aubrie">
               <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
-              The Eleventh Child Archive (13)
+              The Eleventh Child (12 Files)
             </wa-dropdown-item>
             <wa-divider></wa-divider>
             <wa-dropdown-item value="/locations/cpi">
@@ -159,7 +153,7 @@
           <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
           <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
             <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
-            Appearance
+            <span class="bs-appearance-label">Appearance</span>
           </wa-button>
         </div>
       </div>
@@ -519,7 +513,7 @@
       </div>
     </footer>
 
-    <script src="/assets/backstage-client.js?v=20261114b" defer></script>
+    <script src="/assets/backstage-client.js?v=20261114c" defer></script>
     <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261109a" defer></script>
   </body>
 </html>
