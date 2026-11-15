@@ -57,7 +57,7 @@ const snapshotPath = path.join(projectRoot, 'src', 'data', 'backstage-snapshot.j
 /**
  * Cache-buster revision token shared by HTML asset links, PWA splash screens, and `/sw.js`.
  */
-const ASSET_VERSION = '20261114d';
+const ASSET_VERSION = '20261114e';
 
 /**
  * Web Awesome Pro 3.13.0 CDN base URL (`bb765cf132c5414e`) & Font Awesome Pro+ Kit (`ec060982d4`).
@@ -3502,7 +3502,7 @@ function renderHomePage(items, groups) {
       kicker: 'Blacksburg Regional Transit • Commonwealth Mall',
       title: 'The Keystone Bridge & Blue Ridge Transit Route 1',
       desc: 'How regional low-floor Prairie Coachworks buses connect Commonwealth Mall, Kincaid Hall, and Christiansburg on a student Poly Pass.',
-      src: 'https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-keystone-bridge-commonwealth-mall.jpg',
+      src: `https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-keystone-bridge-commonwealth-mall.jpg?v=${ASSET_VERSION}`,
       alt: 'The monumental Ironstone arch of The Keystone Bridge spanning Commonwealth Mall at dusk as an accessible low-floor Blue Ridge Transit bus glides beneath warm campus streetlights.',
       href: '/locations/cpi#sec-4-the-poly-pass-regional-transit-ecosystem',
       cta: 'Explore Poly Pass Transit'
