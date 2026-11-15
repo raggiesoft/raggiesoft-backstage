@@ -57,7 +57,7 @@ const snapshotPath = path.join(projectRoot, 'src', 'data', 'backstage-snapshot.j
 /**
  * Cache-buster revision token shared by HTML asset links, PWA splash screens, and `/sw.js`.
  */
-const ASSET_VERSION = '20261114e';
+const ASSET_VERSION = '20261114f';
 
 /**
  * Web Awesome Pro 3.13.0 CDN base URL (`bb765cf132c5414e`) & Font Awesome Pro+ Kit (`ec060982d4`).
@@ -2942,7 +2942,7 @@ ${splashLinksHtml}
     <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
       <div class="bs-install-steps">
         <p class="bs-studio-note">
-          Add <strong>RaggieSoft Backstage</strong> to your iPhone or iPad Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
         </p>
         <wa-callout variant="brand">
           <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
@@ -4022,7 +4022,7 @@ function renderHomePage(items, groups) {
         </wa-accordion-item>
         <wa-accordion-item label="Can I install RaggieSoft Backstage as an app or customize the reading look?">
           <p>
-            Yes! Select <strong>Install App</strong> in the top bar (or <strong>Share → Add to Home Screen</strong> on iPhone and iPad) to install <strong>RaggieSoft Backstage</strong> alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong> with offline access across all ${counts.total} records. Select <strong>Appearance</strong> at any time to switch between Light, Dark, or device-matched lighting, five distinct visual styles, and four editorial color palettes.
+            Yes! Select <strong>Install App</strong> in the top bar (or <strong>Share → Add to Home Screen</strong> on mobile devices) to install <strong>RaggieSoft Backstage</strong> alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong> with offline access across all ${counts.total} records. Select <strong>Appearance</strong> at any time to switch between Light, Dark, or device-matched lighting, five distinct visual styles, and four editorial color palettes.
           </p>
         </wa-accordion-item>
       </wa-accordion>
