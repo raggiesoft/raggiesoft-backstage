@@ -2,7 +2,7 @@
 <html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <script>
       try {
@@ -22,24 +22,140 @@
         root.setAttribute('data-theme', isDark ? 'dark' : 'light');
       } catch (e) {}
     </script>
-    <meta name="theme-color" content="#861f41" />
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
     <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261114d" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261114d" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261114d" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261114d" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261114d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261114d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261114d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261114d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261114d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261114d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261114d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261114d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261114d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261114d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261114d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261114d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261114d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261114d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261114d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261114d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261114d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261114d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261114d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261114d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261114d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261114d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261114d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261114d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261114d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261114d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261114d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261114d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261114d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261114d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
     <title>Commonwealth Polytechnic Institute (CPI) | RaggieSoft…</title>
-    <meta name="description" content="Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI), Eleanor Bennett Commonwealth Hall, and the Poly Pass transit network." />
+    <meta name="description" content="Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI)—featuring Preston Hall, The Keystone Bridge, Kincaid Hall &amp; Kincaid…" />
     <link rel="canonical" href="https://backstage.raggiesoft.com/locations/cpi" />
     <meta property="og:title" content="Commonwealth Polytechnic Institute (CPI) | RaggieSoft…" />
-    <meta property="og:description" content="Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI), Eleanor Bennett Commonwealth Hall, and the Poly Pass transit network." />
-    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg" />
+    <meta property="og:description" content="Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI)—featuring Preston Hall, The Keystone Bridge, Kincaid Hall &amp; Kincaid…" />
     <meta property="og:url" content="https://backstage.raggiesoft.com/locations/cpi" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/cpi-campus-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/cpi-campus-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Preston Hall&#39;s towering Neo-Gothic Ironstone turrets overlooking the sweeping oval lawn of Commonwealth Green in crisp Blacksburg autumn sunlight, with students walking and a…" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Commonwealth Polytechnic Institute (CPI) | RaggieSoft…" />
-    <meta name="twitter:description" content="Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI), Eleanor Bennett Commonwealth Hall, and the Poly Pass transit network." />
-    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/locations/cpi#webpage","url":"https://backstage.raggiesoft.com/locations/cpi","name":"Commonwealth Polytechnic Institute (CPI) | RaggieSoft…","description":"Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI), Eleanor Bennett Commonwealth Hall, and the Poly Pass transit network.","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg"},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
-    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+    <meta name="twitter:description" content="Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI)—featuring Preston Hall, The Keystone Bridge, Kincaid Hall &amp; Kincaid…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/cpi-campus-og.jpg" />
+    <meta name="twitter:image:alt" content="Preston Hall&#39;s towering Neo-Gothic Ironstone turrets overlooking the sweeping oval lawn of Commonwealth Green in crisp Blacksburg autumn sunlight, with students walking and a…" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/locations/cpi#webpage","url":"https://backstage.raggiesoft.com/locations/cpi","name":"Commonwealth Polytechnic Institute (CPI) | RaggieSoft…","description":"Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI)—featuring Preston Hall, The Keystone Bridge, Kincaid Hall \u0026 Kincaid…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/cpi-campus-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
 
     <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
     <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
@@ -58,7 +174,7 @@
     <!-- Font Awesome Pro+ Kit (ec060982d4) -->
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="/assets/backstage.css?v=20261114c" />
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261114d" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261029f" />
 
     <!-- Google Analytics 4 (GA4) -->
@@ -71,107 +187,120 @@
     </script>
   </head>
   <body>
-    <a href="#content" class="skip-link">Skip to Backstage main content</a>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
 
-    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
-      <div class="rs-network-bar-inner">
-        <span class="rs-network-label">✦ RaggieSoft Network:</span>
-        <ul class="rs-network-links">
-          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
-          <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
-          <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
-          <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
-          <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
-          <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
-          <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
-          <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
-          <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
-          <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
-        </ul>
-      </div>
-    </nav>
+      <nav slot="banner" class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+        <div class="rs-network-bar-inner">
+          <span class="rs-network-label">✦ RaggieSoft Network:</span>
+          <ul class="rs-network-links">
+            <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+            <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+            <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+            <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+            <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+            <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+            <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+            <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+            <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+            <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+          </ul>
+        </div>
+      </nav>
 
-    <header class="bs-header">
-      <div class="bs-container bs-header-inner">
-        <a href="/" class="bs-brand">
-          <span class="bs-brand-mark" aria-hidden="true">
-            <wa-icon family="duotone" name="film" swap-opacity></wa-icon>
-          </span>
-          <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
-        </a>
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261114d" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
 
-        <div class="bs-nav-row">
-          <nav class="bs-desktop-nav" aria-label="Backstage collections">
-            <ul class="bs-nav">
-              <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
-              <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (15)</span></a></li>
-              <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
-            </ul>
-          </nav>
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (15)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
 
-          <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
-            <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
-              <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
-              <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (43 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (15 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
             </wa-button>
-            <wa-dropdown-item value="/">
-              <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
-              Backstage Hub (32 Records)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/books/katie">
-              <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
-              Katie &amp; Nathaniel (15 Dossiers)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/books/aubrie">
-              <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
-              The Eleventh Child (12 Files)
-            </wa-dropdown-item>
-            <wa-divider></wa-divider>
-            <wa-dropdown-item value="/locations/cpi">
-              <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
-              Commonwealth Polytechnic Institute (CPI)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/music/stardust-engine-origins">
-              <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
-              The Stardust Engine: 1986 Origins
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/corporations/vectron-question-the-rules">
-              <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
-              Vectron Energy Corp. Archive
-            </wa-dropdown-item>
-            <wa-divider></wa-divider>
-            <wa-dropdown-item value="https://books.raggiesoft.com">
-              <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
-              Open RaggieSoft Book Reader ↗
-            </wa-dropdown-item>
-            <wa-dropdown-item value="https://music.raggiesoft.com">
-              <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
-              Open The Listening Room ↗
-            </wa-dropdown-item>
-          </wa-dropdown>
 
-          <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
-          <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
-            <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
-            <span class="bs-appearance-label">Appearance</span>
-          </wa-button>
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
         </div>
       </div>
-    </header>
 
-    <main id="content" class="bs-container" tabindex="-1">
       
-    <div class="bs-breadcrumb-wrap">
-      <wa-breadcrumb label="Backstage Archive Path">
-        <wa-breadcrumb-item href="/">
-          <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
-          RaggieSoft Backstage
-        </wa-breadcrumb-item>
-        
-        <wa-breadcrumb-item>Commonwealth Polytechnic Institute (CPI)</wa-breadcrumb-item>
-      </wa-breadcrumb>
-    </div>
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            
+            <wa-breadcrumb-item>Commonwealth Polytechnic Institute (CPI)</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
 
+      <div id="content" class="bs-container" tabindex="-1">
+        
     <div class="bs-hero">
       <div class="bs-badge-strip">
         <wa-badge variant="success" appearance="filled" pill>
@@ -190,7 +319,7 @@
               </wa-button>
         <wa-button variant="neutral" appearance="outlined" href="/">
                 <wa-icon slot="start" family="duotone" name="film" aria-hidden="true"></wa-icon>
-                All 32 Backstage Records
+                All 43 Backstage Records
               </wa-button>
         <span class="bs-copy-pill">
           <span>Copy Link:</span>
@@ -222,44 +351,97 @@
     </div>
     </div>
 
+    
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-preston-hall-commonwealth-green.jpg"
+        alt="Preston Hall&#39;s towering Neo-Gothic Ironstone turrets overlooking the sweeping oval lawn of Commonwealth Green in crisp Blacksburg autumn sunlight, with students walking and a student propelling a manual wheelchair along the accessible paved campus promenade."
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      <figcaption class="bs-dossier-hero-caption">Preston Hall&#39;s towering Neo-Gothic Ironstone turrets overlooking the sweeping oval lawn of Commonwealth Green in crisp Blacksburg autumn sunlight, with students walking and a student propelling a manual wheelchair along the accessible paved campus promenade.</figcaption>
+    </figure>
+
     <wa-card class="bs-article-card">
       <article class="bs-article-prose" aria-label="Commonwealth Polytechnic Institute (CPI)">
-        <p><strong>Commonwealth Polytechnic Institute (CPI)</strong>—universally known across the New River Valley as <strong>Poly</strong> and home to the <strong>CPI Forgers</strong>—is a major public land-grant research university located on a high plateau in <strong>Blacksburg, Montgomery County, Virginia</strong>, nestled between the Blue Ridge and Allegheny mountains at an elevation of 2,080 feet.</p>
-<p>Founded in <strong>1872</strong>, CPI serves as the central geographic anchor for both <a href="https://books.raggiesoft.com/aubrie" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>The Eleventh Child: The Story of Jordan</em></strong></a> (<code class="bs-inline-code">2014–2016</code>) and the origin story of <a href="https://stardust.raggiesoft.com" class="bs-link" target="_blank" rel="noopener noreferrer"><strong>The Stardust Engine</strong></a>, whose five founding members—siblings <strong>Ryan, Cassidy, and Holly O&#39;Connell</strong> and their twin cousins <strong>Evan and Tyler Wright</strong>—formed their band in an unheated garage at the corner of Progress and Turner Streets while studying at CPI in <strong>1986</strong>.</p>
+        <p><strong>Commonwealth Polytechnic Institute (CPI)</strong>—universally known across the New River Valley as <strong>Poly</strong> and home to <strong>The CPI Forgers</strong> <em>(and <strong>The Ironheads</strong>)</em>—is a major public land-grant polytechnic research university located on a high Appalachian plateau in <strong>Blacksburg, Montgomery County, Virginia</strong>, nestled between the Blue Ridge and Allegheny mountains at an elevation of 2,080 feet.</p>
+<p>Founded in <strong>1872</strong>, CPI serves as a central geographic anchor across the RaggieSoft narrative universe—from <a href="https://books.raggiesoft.com/aubrie" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>The Eleventh Child: The Story of Jordan</em></strong></a> (<code class="bs-inline-code">2014–2016</code>) and <a href="https://books.raggiesoft.com/rachel" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>The Rachel Narrative</em></strong></a> (<code class="bs-inline-code">SAACURC 2016</code>) to the 1986 origin of <a href="https://stardust.raggiesoft.com" class="bs-link" target="_blank" rel="noopener noreferrer"><strong>The Stardust Engine</strong></a>, whose five founding members—siblings <strong>Ryan, Cassidy, and Holly O&#39;Connell</strong> and identical twin cousins <strong>Evan and Tyler Wright</strong>—formed their band in an unheated garage at the corner of <strong>Progress and Turner Streets</strong> while studying at CPI.</p>
 <hr class="bs-divider" />
-<h2 class="bs-heading bs-h2">1. Campus Identity, Colors &amp; Architectural Signature</h2>
-<ul class="bs-list"><li><strong>Athletic &amp; Institutional Moniker:</strong> <strong>The CPI Forgers</strong></li>
-<li><strong>Official University Colors:</strong> <strong>Forger Maroon</strong> (<code class="bs-inline-code">#861F41</code>) and <strong>Burnished Forge Gold / Burnt Orange</strong> (<code class="bs-inline-code">#E5751F</code>)</li>
-<li><strong>Architectural Stonework (&quot;Appalachian Ironstone&quot;):</strong> Nearly every academic building and residence hall flanking the central campus is constructed from rough-hewn, ashlar-cut dolomitic limestone quarried locally in Montgomery County—giving the university its unmistakable Neo-Gothic fortress silhouette against the mountain sky.</li>
-<li><strong>Commonwealth Green:</strong> The vast, oval central grass commons at the heart of campus, ringed by a one-way stone promenade and mature oak trees, connecting the northern academic terrace to the southern and western residential quads.</li></ul>
+<h2 id="sec-1-campus-identity-colors-architectural-signature" class="bs-heading bs-h2">1. Campus Identity, Colors &amp; Architectural Signature</h2>
+<ul class="bs-list"><li><strong>Athletic &amp; Institutional Moniker:</strong> <strong>The CPI Forgers</strong> <em>(or <strong>The Ironheads</strong>)</em></li>
+<li><strong>Official University Colors:</strong> <strong>Foundry Maroon</strong> (<code class="bs-inline-code">#630031</code>) and <strong>Molten Orange</strong> (<code class="bs-inline-code">#CF4420</code>)</li>
+<li><strong>Architectural Stonework (&quot;Appalachian Ironstone&quot;):</strong> Nearly every academic hall, administrative landmark, and residence hall ringing central campus is clad in rough-cut gray dolomitic <strong>Ironstone</strong> quarried locally in Montgomery County—contrasted on modern expansions like <strong>Kincaid Hall</strong> with soaring three-story mullioned glass curtain walls.</li>
+<li><strong>Commonwealth Green (&quot;The Green&quot;):</strong> The vast, sunken oval grass commons at the center of campus, ringed by a one-way stone-bordered roadway, paved accessible pathways, and Neo-Gothic Ironstone towers connecting the northern academic terrace to the residential and engineering quads.</li></ul>
+
+        <figure class="bs-inline-figure">
+          <img
+            src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-keystone-bridge-commonwealth-mall.jpg"
+            alt="The monumental Ironstone arch of The Keystone Bridge spanning Commonwealth Mall at dusk as an accessible low-floor Blue Ridge Transit bus displaying &#39;1 CPI&#39; glides along the boulevard beneath warm campus streetlights."
+            width="1408"
+            height="768"
+            loading="lazy"
+            class="bs-inline-img"
+          />
+          <figcaption class="bs-inline-caption">The monumental Ironstone arch of The Keystone Bridge spanning Commonwealth Mall at dusk as an accessible low-floor Blue Ridge Transit bus displaying &#39;1 CPI&#39; glides along the boulevard beneath warm campus streetlights.</figcaption>
+        </figure>
+      
 <hr class="bs-divider" />
-<h2 class="bs-heading bs-h2">2. Key Campus Buildings &amp; Landmarks</h2>
-<h3 class="bs-heading bs-h3">Eleanor Bennett Commonwealth Hall (<code class="bs-inline-code">BLDG-014</code>)</h3>
-<p>Located on the West Campus residential quad along <strong>Washington Street SW</strong>, <strong>Eleanor Bennett Commonwealth Hall</strong> (&quot;Bennett Hall&quot;) is a six-story Ironstone residence hall housing approximately 400 students across five residential floors (<code class="bs-inline-code">Floors 2–6</code>), overseen by Residence Director <strong>Kelsey Brennan, M.Ed.</strong> (<code class="bs-inline-code">Room 104</code>) and ten undergraduate Resident Advisors (one male RA and one female RA per residential floor).</p>
-<ul class="bs-list"><li><strong>Hillside Topography &amp; Dual Grade-Level Access:</strong><div class="bs-list-subline">Because Bennett Hall is built directly into the natural slope of the Washington Street SW hillside:</div></li>
-<li><strong>Floor 1 (Lower Level / Inner Quad Level):</strong> Opens at flat grade onto the lower brick pathways of the West Campus inner quad.</li>
-<li><strong>Floor 2 (Washington Street SW Grade Level):</strong> Opens at flat, zero-step grade directly onto the <strong>Washington Street SW</strong> sidewalk and ADA drop-off circle at the top of the hill. This unique two-level topography is why the <strong>Office of Educational Accessibility (OEA)</strong> designates <strong>Room 214</strong> on Floor 2 as the building&#39;s primary ADA wheelchair-accessible suite—allowing a manual or power wheelchair user to exit directly onto Washington Street SW at the top of the hill without needing an elevator, or take the central elevator down to Floor 1 for flat access to the inner quad.</li>
-<li><strong>The First-Floor Masonry Firewall (<code class="bs-inline-code">Room 104</code> vs. <code class="bs-inline-code">Suite 110–120</code>):</strong><div class="bs-list-subline">The first floor of Bennett Hall is physically divided into two completely air-gapped halves by an unbroken, solid interior masonry firewall with zero connecting doors:</div></li>
-<li><strong>Western Half (Bennett Hall Residential Lobby):</strong> Contains the 24-hour student front desk, residential mail room, TV lounge, staff workroom (<code class="bs-inline-code">Room 106</code>), and Residence Director Kelsey Brennan&#39;s office (<code class="bs-inline-code">Room 104</code>).</li>
-<li><strong>Eastern Half (<code class="bs-inline-code">Suite 110–120</code> — Central Office of Housing and Residence Life):</strong> Houses the university-wide Housing Assignments &amp; Operations annex, directed by <strong>Dr. Alan Mercer</strong> and Associate Director <strong>David Thorne</strong>. Walk-in visitors and contractors entering Central Housing from the outer quad cannot pass through the firewall into the residential dormitory.</li>
-<li><strong>Floor 2 Layout (<code class="bs-inline-code">Suite 214/216</code>, <code class="bs-inline-code">Room 215</code>, <code class="bs-inline-code">Room 201</code>, &amp; <code class="bs-inline-code">Room 212A</code>):</strong></li>
-<li><strong>Suite 214/216:</strong> A two-room connecting suite sharing a central Jack-and-Jill bathroom. <strong>Room 214</strong> (<code class="bs-inline-code">Jordan Fuller</code>, <code class="bs-inline-code">Aubrie Jean Kelly</code>, <code class="bs-inline-code">Madison Elizabeth Scott</code>) is equipped with an exterior Poly Pass RFID reader, an interior square stainless-steel <code class="bs-inline-code">PUSH TO OPEN</code> paddle wired to a <strong>10-second residential motorized door opener</strong>, a roll-under vanity sink, widened bathroom doorways with steel grab bars, and a lowered peephole. <strong>Room 216</strong> (<code class="bs-inline-code">Zoë Wren Brooks</code>, <code class="bs-inline-code">Lauren Nicole Barnes</code>, <code class="bs-inline-code">Hannah Ashlee Parker</code>) adjoins via the shared suite bathroom.</li>
-<li><strong>Room 215 (West Wing Female RA Single):</strong> Positioned directly across the corridor from Room 214; occupied by Junior/Senior Nursing &amp; Pre-OT major <strong>Isabel Claire Dawson</strong>.</li>
-<li><strong>Room 201 (East Wing Male RA Single):</strong> Positioned near the eastern stairwell; occupied by Junior Accounting major <strong>Henry Walsh</strong> (<code class="bs-inline-code">2014–2015</code>) and Sophomore Engineering major <strong>Garrett Reynolds</strong> (<code class="bs-inline-code">2015–2016</code>).</li>
-<li><strong>Room 212A (Accessible Roll-In Shower Room):</strong> Single-occupant, Poly Pass-encoded private ADA roll-in shower and dressing suite located thirty feet down the Floor 2 corridor from Room 214.</li></ul>
-<h3 class="bs-heading bs-h3">Academic, Dining &amp; Athletic Facilities</h3>
-<ul class="bs-list"><li><strong>Callahan Hall:</strong> Home to the <strong>Office of Educational Accessibility (OEA)</strong> (<code class="bs-inline-code">Suite 210</code>), directed by <strong>Patricia Higgins, M.S., CRC</strong> (and Senior Director <strong>Eleanor Higgins, M.Ed.</strong>), where students receive classroom accommodations, assistive FM microphone kits, and ADA housing clearances.</li>
-<li><strong>Kepler Hall:</strong> Home to the <strong>Department of Physics &amp; Astronomy</strong>, featuring tiered lecture auditoriums with front-row wheelchair cutouts and rooftop observatory domes where <strong>Dr. Alistair</strong> teaches introductory and advanced Astrophysics.</li>
-<li><strong>Gable Hall:</strong> Humanities and History building housing <strong>Dr. Marcus Gable</strong>&#39;s Western Civilization and Roman History lecture halls.</li>
-<li><strong>Kincaid Commons:</strong> The flagship multi-station West Campus dining hall steps from Bennett Hall.</li>
-<li><strong>The Foundry:</strong> The official CPI campus bookstore and Forgers outfitter.</li>
-<li><strong>The Crucible:</strong> CPI&#39;s 66,000-seat outdoor football stadium on the southern edge of campus, famous for shaking the entire Blacksburg valley when sixty-six thousand Forger fans jump in unison to the opening guitar riff of <em>&quot;Enter the Crucible&quot;</em>.</li></ul>
+<h2 id="sec-2-central-campus-landmarks-student-life" class="bs-heading bs-h2">2. Central Campus Landmarks &amp; Student Life</h2>
+<h3 id="sec-preston-hall-commonwealth-mall" class="bs-heading bs-h3">Preston Hall &amp; Commonwealth Mall</h3>
+<ul class="bs-list"><li><strong>Preston Hall:</strong> The towering Neo-Gothic Ironstone administrative fortress dominating the northern rim of <strong>Commonwealth Green</strong>, flanked by twin crenellated turrets and housing the <strong>Office of the President</strong>, the <strong>Office of the Bursar</strong>, and the 3,000-seat <strong>Preston Auditorium</strong>.</li>
+<li><strong>Keystone Hall &amp; The Keystone Bridge:</strong> The monumental arched Ironstone skybridge spanning <strong>Commonwealth Mall</strong> to connect <strong>Keystone Hall</strong>&#39;s advanced computing spaces directly to <strong>Pendleton Library</strong> (CPI&#39;s multi-story main research library). Prior to the opening of the off-street <strong>CPI Transit Center</strong> in <strong>2016</strong>, regional buses queued bumper-to-bumper along the Commonwealth Mall curb directly beneath <strong>The Keystone Bridge</strong> across from <strong>Kincaid Hall</strong>.</li></ul>
+<h3 id="sec-kincaid-hall-kincaid-commons-290-college-ave" class="bs-heading bs-h3">Kincaid Hall &amp; Kincaid Commons (<code class="bs-inline-code">290 College Ave.</code>)</h3>
+<p>Built directly into the eastern hillside of <strong>Commonwealth Green</strong> along <strong>Commonwealth Mall</strong>, <strong>Kincaid Hall</strong> (<em>Kincaid Student Center</em>) is the three-story &quot;living room of the university,&quot; offering zero-step ground-level entrances on both the <strong>1st Floor</strong> (lower ground level) and <strong>2nd Floor</strong> (upper-quad hillside level):</p>
+<ul class="bs-list"><li><strong>1st Floor (Main Terrazzo Atrium Lobby, Ballrooms &amp; Services):</strong> Opened along the front by a three-story floor-to-ceiling glass curtain-wall atrium with automatic sliding doors and ADA push-plates, connected vertically by a plainly visible <strong>three-floor glass-and-steel passenger elevator</strong> and open architectural staircase, plus the <strong>Poly Pass ID Office</strong>, <strong>Commonwealth Ballroom</strong>, <strong>Kincaid Game Room</strong>, and rear lower-level kitchens with a back-of-house <strong>freight elevator</strong>.</li>
+<li><strong>2nd Floor (Cantilevered Balcony Food Court &amp; <code class="bs-inline-code">Kincaid Commons</code> Cafeteria):</strong> Overlooks the sunlit glass atrium with quick-service stations (<em>Ironstone Grill</em>, <em>Blue Ridge Bakery &amp; Espresso</em>, <em>Commonwealth Deli</em>, <em>Hearthstone Pizza &amp; Pasta</em>) and opens directly into the full <strong>Kincaid Commons Dining Hall</strong>.</li>
+<li><strong>3rd Floor (Stacked Conference &amp; Governance Mezzanine):</strong> Houses numbered breakout suites (<code class="bs-inline-code">Kincaid Rooms 301–330</code>), <strong>SGA &amp; RHA Executive Offices</strong>, and student lounges.</li></ul>
+
+        <figure class="bs-inline-figure">
+          <img
+            src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-kincaid-hall-atrium-lobby.jpg"
+            alt="Inside the soaring three-story Ironstone-and-glass atrium lobby of Kincaid Hall at CPI, showing the open cantilevered second- and third-floor balconies, hanging Forgers banners, and the three-floor glass passenger elevator."
+            width="1408"
+            height="768"
+            loading="lazy"
+            class="bs-inline-img"
+          />
+          <figcaption class="bs-inline-caption">Inside the soaring three-story Ironstone-and-glass atrium lobby of Kincaid Hall at CPI, showing the open cantilevered second- and third-floor balconies, hanging Forgers banners, and the three-floor glass passenger elevator.</figcaption>
+        </figure>
+      
+
+        <figure class="bs-inline-figure">
+          <img
+            src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-kincaid-commons-balcony-dining.jpg"
+            alt="The second-floor Kincaid Commons balcony quick-service dining mezzanine inside Kincaid Hall, overlooking the sunlit glass curtain-wall atrium and Ironstone structural piers."
+            width="1408"
+            height="768"
+            loading="lazy"
+            class="bs-inline-img"
+          />
+          <figcaption class="bs-inline-caption">The second-floor Kincaid Commons balcony quick-service dining mezzanine inside Kincaid Hall, overlooking the sunlit glass curtain-wall atrium and Ironstone structural piers.</figcaption>
+        </figure>
+      
 <hr class="bs-divider" />
-<h2 class="bs-heading bs-h2">3. The Poly Pass &amp; Regional Transit Ecosystem</h2>
-<p>Every matriculated CPI student is issued a <strong>Poly Pass</strong>—an encrypted smartcard University ID that serves simultaneously as a residence hall keycard, Kincaid Commons dining pass, library card, and <strong>unlimited fare-free regional transit pass</strong> across three interconnected public transit agencies:</p>
-<ol class="bs-list"><li><strong>Blue Ridge Transit (BRT — Blacksburg &amp; Christiansburg):</strong><div class="bs-list-subline">Operates the maroon-and-gold fleet of 40-foot and 60-foot articulated low-floor heavy-duty transit buses across the CPI campus loops (<strong>Commonwealth Mall</strong>, <strong>West Campus Loop</strong>, <strong>Progress Street</strong>) and down <strong>U.S. Route 460 Business</strong> (<code class="bs-inline-code">Route 100</code>) to the <strong>Pepper Plaza Transit Center</strong> in <strong>Christiansburg</strong>.</div></li>
-<li><strong>Radford Transit (City of Radford &amp; Radford University):</strong><div class="bs-list-subline">Operates a fleet of 29-foot and 30-foot low-floor municipal buses pulsing every 30 minutes (<code class="bs-inline-code">:15</code> and <code class="bs-inline-code">:45</code>) at the <strong>McConnell Transit Center</strong> on the campus of <strong>Radford University</strong>, along with <strong><em>The Radford Connector</em></strong> linking Radford, the New River Valley Mall in Christiansburg, and CPI.</div></li>
-<li><strong>Mountain Valley Transit (MVT — Roanoke Valley):</strong><div class="bs-list-subline">Connects the New River Valley regional commuter routes into downtown <strong>Roanoke</strong>, <strong>Roanoke–Blacksburg Regional Airport (<code class="bs-inline-code">ROA</code>)</strong>, and <strong>Star City General Hospital</strong>.</div></li></ol>
+<h2 id="sec-3-eleanor-bennett-commonwealth-hall-bldg-014-academic-quads" class="bs-heading bs-h2">3. Eleanor Bennett Commonwealth Hall (<code class="bs-inline-code">BLDG-014</code>) &amp; Academic Quads</h2>
+<p>Located on the West Campus residential quad along <strong>Washington Street SW</strong> directly across from <strong>The Furnace</strong>, <strong>Eleanor Bennett Commonwealth Hall</strong> (<em>&quot;Bennett Hall&quot;</em> / <em>&quot;The Old Lady on the Hill&quot;</em>) is a six-story Ironstone residence hall housing ~400 students across five residential floors (<code class="bs-inline-code">Floors 2–6</code>), overseen by Residence Director <strong>Kelsey Brennan, M.Ed.</strong> (<code class="bs-inline-code">Room 104</code>) and ten undergraduate Resident Advisors.</p>
+<ul class="bs-list"><li><strong>Hillside Topography &amp; Dual Grade-Level Access:</strong></li>
+<li><strong>Floor 1 (Lower Level / Inner Quad Grade — 100% Administration, Zero Dorm Rooms):</strong> Opens onto the lower West Campus quad. Divided into two completely air-gapped halves by an unbroken <strong>solid interior masonry firewall with zero connecting doors</strong>: the <strong>Western Half</strong> houses the 24-hour residential lobby (<code class="bs-inline-code">Room 100</code>), mail room (<code class="bs-inline-code">Room 101</code>), RD office (<code class="bs-inline-code">Room 104</code>), and RA workroom (<code class="bs-inline-code">Room 106</code>), while the <strong>Eastern Half (<code class="bs-inline-code">Suite 110–120</code>)</strong> houses the central <strong>Office of Housing and Residence Life</strong> (<em>Dr. Alan Mercer</em>, <em>David Thorne</em>).</li>
+<li><strong>Floor 2 (Washington Street SW Upper Grade Level):</strong> Opens at flat, zero-step grade directly onto <strong>Washington Street SW</strong>, making <strong>Suite 214/216</strong> (<code class="bs-inline-code">Room 214</code>: Jordan Fuller, Aubrie Jean Kelly, Madison Elizabeth Scott; <code class="bs-inline-code">Room 216</code>: Zoë Wren Brooks, Lauren Nicole Barnes, Hannah Ashlee Parker) the building&#39;s primary OEA wheelchair-accessible suite—equipped with a <strong>10-second motorized door opener</strong>, roll-under vanity, <strong>RA Isabel Claire Dawson</strong> across the hall in <code class="bs-inline-code">Room 215</code>, <strong>RA Henry Thomas Walsh</strong> in <code class="bs-inline-code">Room 201</code>, and the private Poly Pass-encoded roll-in shower suite in <code class="bs-inline-code">Room 212A</code>.</li></ul>
+<h3 id="sec-key-academic-dining-athletic-venues" class="bs-heading bs-h3">Key Academic, Dining &amp; Athletic Venues</h3>
+<ul class="bs-list"><li><strong>Callahan Hall:</strong> Historic building on the eastern rim of <strong>Commonwealth Green</strong> housing the <strong>Office of Educational Accessibility (<code class="bs-inline-code">OEA</code>, <code class="bs-inline-code">Suite 210</code>)</strong>—renamed from <em>Services for Students with Disabilities (<code class="bs-inline-code">SSD</code>)</em> in <strong>Fall 2014</strong> under <strong>Patricia Higgins, M.S., CRC</strong> and Senior Director <strong>Eleanor Higgins, M.Ed.</strong></li>
+<li><strong>Copernicus Hall &amp; The Engineering Quad:</strong> <strong>Copernicus Hall</strong> houses <strong>Physics, Astronomy &amp; Earth Sciences</strong> (<code class="bs-inline-code">ASTR 101</code>, <code class="bs-inline-code">PHYS 102</code>, and the campus seismograph), flanking <strong>The Engineering Quad</strong> (<strong>Faraday Hall</strong>, <strong>Joule Hall</strong>, and <strong>Kelvin Hall</strong>).</li>
+<li><strong>Carter Hall &amp; Archer Hall:</strong> Humanities and large undergraduate lecture amphitheaters hosting <code class="bs-inline-code">HIST 101</code> and <code class="bs-inline-code">HIST 115</code> (<em>Dr. Marcus Gable</em>).</li>
+<li><strong>The Foundry &amp; CPI Campus Bookstore:</strong> <strong>The Foundry</strong> is the massive two-story brick-and-Ironstone rotunda all-you-care-to-eat dining hall serving the Residential Quad, while the rotunda-topped <strong>CPI Campus Bookstore</strong> anchors the edge of the academic district.</li>
+<li><strong>The Crucible (<code class="bs-inline-code">65,000</code> Seats + <code class="bs-inline-code">The Anvil</code>) &amp; The Furnace (<code class="bs-inline-code">10,000</code> Seats):</strong> Permanently protected against corporate naming rights under <strong>Jeremiah &quot;Ironhead&quot; Vance&#39;s</strong> <code class="bs-inline-code">$40M</code> August 1995 Perpetuity Covenant (<code class="bs-inline-code">CPI-2017-084-VANCE</code>), <strong>The Crucible</strong> shakes the entire Blacksburg valley—registering on the <strong>Copernicus Hall</strong> seismograph—whenever 65,000 Forger fans stomp the galvanized steel bleachers of <strong>The Anvil</strong> in unison to <a href="https://music.raggiesoft.com/the-stardust-engine/1987-electric-color" class="bs-link" target="_blank" rel="noopener noreferrer"><strong>The Stardust Engine&#39;s</strong></a> pre-game anthem <strong><em>&quot;Ignition (The Forger&#39;s Call)&quot;</em></strong> and fourth-quarter chorus <strong><em>&quot;Saturday Night Lights: The Crucible&quot;</em></strong>. Next door stands the 10,000-seat vaulted basketball arena, <strong>The Furnace</strong>.</li></ul>
+<hr class="bs-divider" />
+<h2 id="sec-4-the-poly-pass-regional-transit-ecosystem" class="bs-heading bs-h2">4. The Poly Pass &amp; Regional Transit Ecosystem</h2>
+<p>Every matriculated CPI student carries a <strong>Poly Pass</strong>—serving simultaneously as a residence hall keycard, dining card, library pass, and <strong>unlimited fare-free regional transit pass</strong> across four interconnected New River &amp; Roanoke Valley public transit agencies:</p>
+<ol class="bs-list"><li><strong>Blue Ridge Transit (<code class="bs-inline-code">BT / BRT</code> — Blacksburg &amp; Christiansburg):</strong> Operates 29&#39;, 35&#39;, 40&#39;, and 60-foot articulated low-floor <strong>Prairie Coachworks</strong> buses with front-door flip-out ADA ramps—anchored by *<em>Route 1 (</em>The Spine<em>, <code class="bs-inline-code">1 CPI</code> ↔ <code class="bs-inline-code">1 CBURG TRANS CTR</code>)<strong> along Business US-460 through </strong>Pepper Plaza Transit Center<strong> to the </strong>Christiansburg Transit Center at Falling Branch<strong> (<code class="bs-inline-code">I-81 Exit 118</code>), </strong>Route 2 (</em>The Christiansburg Local<em>)<strong> serving the </strong>Blue Ridge Regional Aquatic Center<strong> and </strong>New River Valley Mall<strong>, </strong>Route 4<strong> serving the </strong>CPI Christiansburg Campus (</em>&quot;the Law School&quot;<em>)<strong> on Simmons Road NE, and zero-fare </strong><code class="bs-inline-code">Route 1X</code> (<code class="bs-inline-code">LOAD AND GO</code>)<strong> event shuttles paired with </strong>CPI Fleet Services<strong> to </strong>The Crucible Bus Loop</em>*.</li>
+<li><strong>Radford Transit (City of Radford &amp; Radford University):</strong> Pulses every 30 minutes (<code class="bs-inline-code">:15</code> and <code class="bs-inline-code">:45</code>) at <strong>McConnell Transit Center</strong> alongside <strong><em>The Radford Connector</em></strong> linking Radford, the New River Valley Mall, and CPI.</li>
+<li>*<em>Bluewater Transit (</em>&quot;The Other BT&quot;<em> — Carroll County &amp; </em>The Maroon Express<em>):<strong> Operates 45-foot </strong>Sainte-Claire<strong> highway coaches up <code class="bs-inline-code">I-77</code> and <code class="bs-inline-code">I-81</code> from </strong>Bluewater</em><em> (</em>Madison Scott&#39;s* hometown) via <strong>Christiansburg Transit Center</strong> to CPI (<code class="bs-inline-code">$0.00</code> with <strong>Poly Pass</strong>).</li>
+<li>*<em>Roanoke Valley Transit (<code class="bs-inline-code">RVT</code> — </em>The Roanoke Express<em> &amp; </em>ARTS Train Connector<em>):<strong> Connects downtown </strong>Roanoke<strong>, <code class="bs-inline-code">I-81</code>, </strong>Christiansburg Transit Center<strong>, and </strong>CPI<strong> (<code class="bs-inline-code">$0.00</code> with </strong>Poly Pass</em>*).</li></ol>
       </article>
     </wa-card>
 
@@ -276,32 +458,8 @@
       <wa-scroller orientation="horizontal">
         <div class="bs-scroller-track">
           <div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001) From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act Corporate &amp; Legal Archives Houston, Texas / Blacksburg, Virginia In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302. 2001-12-02">
-      <div>
-        <div class="bs-card-meta">
-          <wa-badge variant="neutral" appearance="filled-outlined" pill>
-            <wa-icon family="duotone" name="scale-balanced" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Corporate &amp; Legal Archives
-          </wa-badge>
-          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-12-02</wa-tag>
-        </div>
-        <h3 class="bs-card-title"><a href="/corporations/vectron-question-the-rules" class="bs-link">Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</a></h3>
-        <div class="bs-card-subtitle">From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act</div>
-        <p class="bs-card-summary">In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302.</p>
-      </div>
-      <div class="bs-card-actions">
-        <wa-button variant="brand" size="small" href="/corporations/vectron-question-the-rules">
-          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
-        </wa-button>
-        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="corporations/vectron-question-the-rules">
-          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
-        </wa-button>
-      </div>
-    </wa-card>
-  </div>
-<div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39; From an Unheated Blacksburg Garage to the Cosmos Engine Room Records &amp; Music Corner of Progress &amp; Turner Streets, Blacksburg, Virginia (CPI) How Ryan, Cassidy, Evan, Tyler, and Holly formed The Stardust Engine at CPI in 1986—and how their 1987 debut &#39;Electric Color&#39; awoke Jordan in 2015. 1986-10-14">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39; From an Unheated Blacksburg Garage to the Cosmos Engine Room Records &amp; Music Corner of Progress &amp; Turner Streets, Blacksburg, Virginia (CPI) How Ryan, Cassidy, Evan, Tyler, and Holly formed The Stardust Engine at CPI in 1986—and how their 1987 debut &#39;Electric Color&#39; awoke Jordan in 2015. 1986-10-14">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/aubrie/e008/c004/p002/stardust-engine-300-marching-forgers.jpg" alt="The Stardust Engine performing live inside CPI&#39;s stadium alongside three hundred members of the Marching Forgers under glowing concert stage lights." width="704" height="384" loading="lazy" class="bs-card-media-img" />
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="warning" appearance="filled-outlined" pill>
@@ -316,11 +474,37 @@
       <div class="bs-card-actions">
         <wa-button variant="brand" size="small" href="/music/stardust-engine-origins">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</span>
         </wa-button>
         <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="music/stardust-engine-origins">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001) From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act Corporate &amp; Legal Archives Houston, Texas / Blacksburg, Virginia In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302. 2001-12-02">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/aubrie/e007/c001/p003/birth-of-finsharp.jpg" alt="Zoë Wren Brooks studying historical Vectron Energy Corp. financial ledger disclosures while designing the Fin# audit architecture at CPI." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="neutral" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="scale-balanced" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Corporate &amp; Legal Archives
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-12-02</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/corporations/vectron-question-the-rules" class="bs-link">Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</a></h3>
+        <div class="bs-card-subtitle">From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act</div>
+        <p class="bs-card-summary">In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/corporations/vectron-question-the-rules">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="corporations/vectron-question-the-rules">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</span>
         </wa-button>
       </div>
     </wa-card>
@@ -329,7 +513,62 @@
       </wa-scroller>
     </section>
   
-    </main>
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        <wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  <li><a href="#sec-1-campus-identity-colors-architectural-signature" class="bs-toc-link">1. Campus Identity, Colors &amp; Architectural Signature</a></li>
+                  <li><a href="#sec-2-central-campus-landmarks-student-life" class="bs-toc-link">2. Central Campus Landmarks &amp; Student Life</a></li>
+                  <li><a href="#sec-3-eleanor-bennett-commonwealth-hall-bldg-014-academic-quads" class="bs-toc-link">3. Eleanor Bennett Commonwealth Hall (BLDG-014) &amp; Academic Quads</a></li>
+                  <li><a href="#sec-4-the-poly-pass-regional-transit-ecosystem" class="bs-toc-link">4. The Poly Pass &amp; Regional Transit Ecosystem</a></li>
+                </ul>
+              </wa-card>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/aubrie">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    The Eleventh Child: The Story of Jordan ↗
+                  </wa-button>
+            
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/locations/cpi" label="QR code to open Commonwealth Polytechnic Institute (CPI) on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
 
     <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
     <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
@@ -377,6 +616,26 @@
       </div>
     </wa-drawer>
 
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your iPhone or iPad Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
     <!-- Quick View Dossier Modal (<wa-dialog>) -->
     <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
       <div id="bs-preview-meta" class="bs-dialog-meta"></div>
@@ -398,28 +657,7 @@
       </div>
     </wa-dialog>
 
-    <footer class="bs-footer">
-      <div class="bs-container">
-        <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
-          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
-        </div>
-        <div class="bs-footer-bar">
-          <p>
-            &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
-            <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
-            Creative content licensed under
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
-          </p>
-          <div class="bs-footer-links">
-            <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
-            <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
-            <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="/assets/backstage-client.js?v=20261114c" defer></script>
+    <script src="/assets/backstage-client.js?v=20261114d" defer></script>
     <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261109a" defer></script>
   </body>
 </html>

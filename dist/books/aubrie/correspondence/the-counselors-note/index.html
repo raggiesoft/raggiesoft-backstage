@@ -2,7 +2,7 @@
 <html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <script>
       try {
@@ -22,24 +22,140 @@
         root.setAttribute('data-theme', isDark ? 'dark' : 'light');
       } catch (e) {}
     </script>
-    <meta name="theme-color" content="#861f41" />
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
     <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261114d" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261114d" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261114d" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261114d" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261114d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261114d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261114d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261114d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261114d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261114d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261114d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261114d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261114d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261114d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261114d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261114d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261114d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261114d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261114d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261114d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261114d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261114d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261114d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261114d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261114d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261114d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261114d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261114d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261114d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261114d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261114d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261114d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261114d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261114d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
     <title>The Counselor&#39;s Note | RaggieSoft Backstage</title>
     <meta name="description" content="OEA Director Patricia Higgins warns Bennett Hall RD Kelsey Brennan after Aubrie Sinclair yanks her son&#39;s laptop cord from the wall mid-sentence." />
     <link rel="canonical" href="https://backstage.raggiesoft.com/books/aubrie/correspondence/the-counselors-note" />
     <meta property="og:title" content="The Counselor&#39;s Note | RaggieSoft Backstage" />
     <meta property="og:description" content="OEA Director Patricia Higgins warns Bennett Hall RD Kelsey Brennan after Aubrie Sinclair yanks her son&#39;s laptop cord from the wall mid-sentence." />
-    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg" />
     <meta property="og:url" content="https://backstage.raggiesoft.com/books/aubrie/correspondence/the-counselors-note" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/aubrie-collection-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/aubrie-collection-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Counselor&#39;s Note" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Counselor&#39;s Note | RaggieSoft Backstage" />
     <meta name="twitter:description" content="OEA Director Patricia Higgins warns Bennett Hall RD Kelsey Brennan after Aubrie Sinclair yanks her son&#39;s laptop cord from the wall mid-sentence." />
-    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/aubrie/correspondence/the-counselors-note#webpage","url":"https://backstage.raggiesoft.com/books/aubrie/correspondence/the-counselors-note","name":"The Counselor's Note | RaggieSoft Backstage","description":"OEA Director Patricia Higgins warns Bennett Hall RD Kelsey Brennan after Aubrie Sinclair yanks her son's laptop cord from the wall mid-sentence.","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg"},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
-    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/aubrie-collection-og.jpg" />
+    <meta name="twitter:image:alt" content="The Counselor&#39;s Note" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/aubrie/correspondence/the-counselors-note#webpage","url":"https://backstage.raggiesoft.com/books/aubrie/correspondence/the-counselors-note","name":"The Counselor's Note | RaggieSoft Backstage","description":"OEA Director Patricia Higgins warns Bennett Hall RD Kelsey Brennan after Aubrie Sinclair yanks her son's laptop cord from the wall mid-sentence.","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/aubrie-collection-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
 
     <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
     <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
@@ -58,7 +174,7 @@
     <!-- Font Awesome Pro+ Kit (ec060982d4) -->
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="/assets/backstage.css?v=20261114c" />
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261114d" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261029f" />
 
     <!-- Google Analytics 4 (GA4) -->
@@ -71,107 +187,120 @@
     </script>
   </head>
   <body>
-    <a href="#content" class="skip-link">Skip to Backstage main content</a>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
 
-    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
-      <div class="rs-network-bar-inner">
-        <span class="rs-network-label">✦ RaggieSoft Network:</span>
-        <ul class="rs-network-links">
-          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
-          <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
-          <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
-          <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
-          <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
-          <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
-          <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
-          <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
-          <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
-          <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
-        </ul>
-      </div>
-    </nav>
+      <nav slot="banner" class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+        <div class="rs-network-bar-inner">
+          <span class="rs-network-label">✦ RaggieSoft Network:</span>
+          <ul class="rs-network-links">
+            <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+            <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+            <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+            <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+            <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+            <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+            <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+            <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+            <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+            <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+          </ul>
+        </div>
+      </nav>
 
-    <header class="bs-header">
-      <div class="bs-container bs-header-inner">
-        <a href="/" class="bs-brand">
-          <span class="bs-brand-mark" aria-hidden="true">
-            <wa-icon family="duotone" name="film" swap-opacity></wa-icon>
-          </span>
-          <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
-        </a>
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261114d" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
 
-        <div class="bs-nav-row">
-          <nav class="bs-desktop-nav" aria-label="Backstage collections">
-            <ul class="bs-nav">
-              <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
-              <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (15)</span></a></li>
-              <li><a href="/books/aubrie" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
-            </ul>
-          </nav>
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (15)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
 
-          <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
-            <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
-              <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
-              <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (43 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (15 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
             </wa-button>
-            <wa-dropdown-item value="/">
-              <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
-              Backstage Hub (32 Records)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/books/katie">
-              <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
-              Katie &amp; Nathaniel (15 Dossiers)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/books/aubrie">
-              <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
-              The Eleventh Child (12 Files)
-            </wa-dropdown-item>
-            <wa-divider></wa-divider>
-            <wa-dropdown-item value="/locations/cpi">
-              <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
-              Commonwealth Polytechnic Institute (CPI)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/music/stardust-engine-origins">
-              <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
-              The Stardust Engine: 1986 Origins
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/corporations/vectron-question-the-rules">
-              <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
-              Vectron Energy Corp. Archive
-            </wa-dropdown-item>
-            <wa-divider></wa-divider>
-            <wa-dropdown-item value="https://books.raggiesoft.com">
-              <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
-              Open RaggieSoft Book Reader ↗
-            </wa-dropdown-item>
-            <wa-dropdown-item value="https://music.raggiesoft.com">
-              <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
-              Open The Listening Room ↗
-            </wa-dropdown-item>
-          </wa-dropdown>
 
-          <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
-          <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
-            <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
-            <span class="bs-appearance-label">Appearance</span>
-          </wa-button>
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
         </div>
       </div>
-    </header>
 
-    <main id="content" class="bs-container" tabindex="-1">
       
-    <div class="bs-breadcrumb-wrap">
-      <wa-breadcrumb label="Backstage Archive Path">
-        <wa-breadcrumb-item href="/">
-          <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
-          RaggieSoft Backstage
-        </wa-breadcrumb-item>
-        <wa-breadcrumb-item href="/books/aubrie">The Eleventh Child Archive (12)</wa-breadcrumb-item>
-        <wa-breadcrumb-item>The Counselor&#39;s Note</wa-breadcrumb-item>
-      </wa-breadcrumb>
-    </div>
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/books/aubrie">The Eleventh Child (12 Files)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>The Counselor&#39;s Note</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
 
+      <div id="content" class="bs-container" tabindex="-1">
+        
     <div class="bs-hero">
       <div class="bs-badge-strip">
         <wa-badge variant="neutral" appearance="filled" pill>
@@ -190,7 +319,7 @@
               </wa-button>
         <wa-button variant="neutral" appearance="outlined" href="/books/aubrie">
                 <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
-                The Eleventh Child Archive (12)
+                The Eleventh Child (12 Files)
               </wa-button>
         <span class="bs-copy-pill">
           <span>Copy Link:</span>
@@ -231,6 +360,8 @@
       </div>
     </div>
     </div>
+
+    
 
     <wa-card class="bs-article-card">
       <article class="bs-article-prose" aria-label="The Counselor&#39;s Note">
@@ -303,57 +434,8 @@
       <wa-scroller orientation="horizontal">
         <div class="bs-scroller-track">
           <div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Early Check-In Rounds Floor 2 Staff Thread: The Two-Minute Abandonment &amp; Desk Outlet Fix The Eleventh Child — Correspondence Kelsey Brennan, Isabel Dawson, &amp; Henry Walsh (Bennett Hall Staff) Bennett Hall Floor 2 Residence Life Staff Thread Floor 2 Check-In Update — Aubrey Jordan Fuller (Room 214, Bed A) Room 215 &amp; First-Floor Office, Eleanor Bennett Commonwealth Hall, CPI Bennett Hall staff emails documenting the two-minute lobby drop-off, RA Isabel Dawson mounting Room 214&#39;s desk power strip, and Friday door-card runners. 2014-08-22">
-      <div>
-        <div class="bs-card-meta">
-          <wa-badge variant="neutral" appearance="filled-outlined" pill>
-            <wa-icon family="duotone" name="envelope-open-text" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Eleventh Child • Correspondence
-          </wa-badge>
-          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2014-08-22</wa-tag>
-        </div>
-        <h3 class="bs-card-title"><a href="/books/aubrie/correspondence/early-check-in-rounds" class="bs-link">Early Check-In Rounds</a></h3>
-        <div class="bs-card-subtitle">Floor 2 Staff Thread: The Two-Minute Abandonment &amp; Desk Outlet Fix</div>
-        <p class="bs-card-summary">Bennett Hall staff emails documenting the two-minute lobby drop-off, RA Isabel Dawson mounting Room 214&#39;s desk power strip, and Friday door-card runners.</p>
-      </div>
-      <div class="bs-card-actions">
-        <wa-button variant="brand" size="small" href="/books/aubrie/correspondence/early-check-in-rounds">
-          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
-        </wa-button>
-        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/correspondence/early-check-in-rounds">
-          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
-        </wa-button>
-      </div>
-    </wa-card>
-  </div>
-<div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Fifty-Eight Seconds Fall Drill 2 of 2 Clinical Accompaniment Log &amp; Permanent EHS Case Closure The Eleventh Child — Correspondence Isabel Dawson (RA), Evelyn Vance (MSN, APRN, FNP-C), &amp; Eleanor Higgins (OEA) Kelsey Brennan, Dr. Marcus Sterling, &amp; CPI Environmental Health &amp; Safety Bennett Hall Floor 2 — 00:58 (Exemplary Compliance — Case Closed) Room 104, Bennett Hall &amp; EHS Operations Desk, CPI End-of-semester EHS fire drill report documenting Floor 2&#39;s 58-second evacuation during Jordan&#39;s 102.4°F flu exam, closing Arthur Pendelton&#39;s file forever. 2014-12-06">
-      <div>
-        <div class="bs-card-meta">
-          <wa-badge variant="neutral" appearance="filled-outlined" pill>
-            <wa-icon family="duotone" name="envelope-open-text" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Eleventh Child • Correspondence
-          </wa-badge>
-          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2014-12-06</wa-tag>
-        </div>
-        <h3 class="bs-card-title"><a href="/books/aubrie/correspondence/fifty-eight-seconds" class="bs-link">Fifty-Eight Seconds</a></h3>
-        <div class="bs-card-subtitle">Fall Drill 2 of 2 Clinical Accompaniment Log &amp; Permanent EHS Case Closure</div>
-        <p class="bs-card-summary">End-of-semester EHS fire drill report documenting Floor 2&#39;s 58-second evacuation during Jordan&#39;s 102.4°F flu exam, closing Arthur Pendelton&#39;s file forever.</p>
-      </div>
-      <div class="bs-card-actions">
-        <wa-button variant="brand" size="small" href="/books/aubrie/correspondence/fifty-eight-seconds">
-          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
-        </wa-button>
-        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/correspondence/fifty-eight-seconds">
-          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
-        </wa-button>
-      </div>
-    </wa-card>
-  </div>
-<div class="bs-scroller-card">
     <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Accommodation File OEA &amp; Central Housing Pre-Arrival ADA Clearance (Room 214, Bed A) The Eleventh Child — Correspondence Patricia Higgins (OEA), Central Housing, &amp; Kelsey Brennan (Bennett Hall) Isabel Dawson &amp; Henry Walsh (Bennett Hall Floor 2 RAs) FINAL CLEARANCE REQUEST — OEA Early Arrival &amp; ADA Placement (Room 214, Bed A) Callahan Hall &amp; Eleanor Bennett Commonwealth Hall, CPI Pre-arrival CPI administrative email thread between OEA Director Patricia Higgins, Central Housing, and Bennett Hall RD Kelsey Brennan. 2014-08-20">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="neutral" appearance="filled-outlined" pill>
@@ -368,42 +450,70 @@
       <div class="bs-card-actions">
         <wa-button variant="brand" size="small" href="/books/aubrie/correspondence/the-accommodation-file">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: The Accommodation File</span>
         </wa-button>
         <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/correspondence/the-accommodation-file">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: The Accommodation File</span>
         </wa-button>
       </div>
     </wa-card>
   </div>
 <div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Bureaucratic Firewall Statutory Preemption &amp; Cease Directive Against EHS Secondary Compliance Inquiry The Eleventh Child — Correspondence Arthur Pendelton (EHS), Eleanor Higgins (OEA), &amp; Chief Robert Callahan (EHS Director) Kelsey Brennan, Dr. Marcus Sterling, &amp; CPI Environmental Health &amp; Safety Re: NOTICE OF SECONDARY COMPLIANCE INQUIRY — STATUTORY PREEMPTION &amp; CEASE DIRECTIVE (BLDG-014) Room 104, Bennett Hall &amp; EHS Operations Desk, CPI OEA Director Eleanor Higgins, Housing Director Dr. Marcus Sterling, and EHS Chief Robert Callahan shut down Arthur Pendelton&#39;s attempt to interrogate Room 214. 2014-09-19">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Early Check-In Rounds Floor 2 Staff Thread: The Two-Minute Abandonment &amp; Desk Outlet Fix The Eleventh Child — Correspondence Kelsey Brennan, Isabel Dawson, &amp; Henry Walsh (Bennett Hall Staff) Bennett Hall Floor 2 Residence Life Staff Thread Floor 2 Check-In Update — Aubrey Jordan Fuller (Room 214, Bed A) Room 215 &amp; First-Floor Office, Eleanor Bennett Commonwealth Hall, CPI Bennett Hall staff emails documenting the two-minute lobby drop-off, RA Isabel Dawson mounting Room 214&#39;s desk power strip, and Friday door-card runners. 2014-08-22">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="neutral" appearance="filled-outlined" pill>
             <wa-icon family="duotone" name="envelope-open-text" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Eleventh Child • Correspondence
           </wa-badge>
-          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2014-09-19</wa-tag>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2014-08-22</wa-tag>
         </div>
-        <h3 class="bs-card-title"><a href="/books/aubrie/correspondence/the-bureaucratic-firewall" class="bs-link">The Bureaucratic Firewall</a></h3>
-        <div class="bs-card-subtitle">Statutory Preemption &amp; Cease Directive Against EHS Secondary Compliance Inquiry</div>
-        <p class="bs-card-summary">OEA Director Eleanor Higgins, Housing Director Dr. Marcus Sterling, and EHS Chief Robert Callahan shut down Arthur Pendelton&#39;s attempt to interrogate Room 214.</p>
+        <h3 class="bs-card-title"><a href="/books/aubrie/correspondence/early-check-in-rounds" class="bs-link">Early Check-In Rounds</a></h3>
+        <div class="bs-card-subtitle">Floor 2 Staff Thread: The Two-Minute Abandonment &amp; Desk Outlet Fix</div>
+        <p class="bs-card-summary">Bennett Hall staff emails documenting the two-minute lobby drop-off, RA Isabel Dawson mounting Room 214&#39;s desk power strip, and Friday door-card runners.</p>
       </div>
       <div class="bs-card-actions">
-        <wa-button variant="brand" size="small" href="/books/aubrie/correspondence/the-bureaucratic-firewall">
+        <wa-button variant="brand" size="small" href="/books/aubrie/correspondence/early-check-in-rounds">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: Early Check-In Rounds</span>
         </wa-button>
-        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/correspondence/the-bureaucratic-firewall">
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/correspondence/early-check-in-rounds">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: Early Check-In Rounds</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Isabel Dawson: Alternate-POV Notes (Room 215) What Happened on the Other Side of Room 214&#39;s Door The Eleventh Child — Behind the Scenes Floor 2 Corridor &amp; Room 214/215, Eleanor Bennett Commonwealth Hall, CPI Behind-the-scenes alternate-POV notes for Floor 2 RA Isabel Claire Dawson, including the Two-Knock Welfare-Check protocol on Move-In Friday. 2014-08-22">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Eleventh Child • Dossier
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2014-08-22</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/aubrie/isabel-pov-notes" class="bs-link">Isabel Dawson: Alternate-POV Notes (Room 215)</a></h3>
+        <div class="bs-card-subtitle">What Happened on the Other Side of Room 214&#39;s Door</div>
+        <p class="bs-card-summary">Behind-the-scenes alternate-POV notes for Floor 2 RA Isabel Claire Dawson, including the Two-Knock Welfare-Check protocol on Move-In Friday.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/aubrie/isabel-pov-notes">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Isabel Dawson: Alternate-POV Notes (Room 215)</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/isabel-pov-notes">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Isabel Dawson: Alternate-POV Notes (Room 215)</span>
         </wa-button>
       </div>
     </wa-card>
   </div>
 <div class="bs-scroller-card">
     <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Clerical Error File Suite 214/216 Forced-Triple Gender Mix-Up, Preferred Name Update &amp; Staff Directive The Eleventh Child — Correspondence Henry Walsh, Kelsey Brennan, Isabel Dawson, &amp; Dr. Alan Mercer CPI Office of Housing &amp; Residence Life / Bennett Hall Floor 2 Staff Floor 2 Incident Follow-Up — Suite 214/216 Clerical Error &amp; Preferred Name Update (&#39;Jordan Fuller&#39;) Floor 2 RA Workroom &amp; Room 104, Eleanor Bennett Commonwealth Hall, CPI Move-In Day staff thread covering the Suite 214/216 forced-triple clerical error, Jordan claiming his middle name, and Kelsey&#39;s strict do-not-pry order. 2014-08-23">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="neutral" appearance="filled-outlined" pill>
@@ -418,17 +528,18 @@
       <div class="bs-card-actions">
         <wa-button variant="brand" size="small" href="/books/aubrie/correspondence/the-clerical-error-file">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: The Clerical Error File</span>
         </wa-button>
         <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/correspondence/the-clerical-error-file">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: The Clerical Error File</span>
         </wa-button>
       </div>
     </wa-card>
   </div>
 <div class="bs-scroller-card">
     <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Fourteen-Day Floor Reports Post-Census RA Evaluations for Suite 214/216 (Form HRL-2014-COED-TEMP) The Eleventh Child — Correspondence Isabel Dawson (RA, Room 215) &amp; Henry Walsh (RA, Room 201) Kelsey Brennan (Bennett Hall RD) &amp; Dr. Alan Mercer (Director of Housing) 14-Day Post-Census Evaluation Report — Bennett Hall, Suite 214/216 Room 104, Eleanor Bennett Commonwealth Hall, CPI Isabel Dawson and Henry Walsh&#39;s formal two-week evaluations recommending that Suite 214/216&#39;s co-ed housing arrangement be made permanent. 2014-09-08">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="neutral" appearance="filled-outlined" pill>
@@ -443,11 +554,37 @@
       <div class="bs-card-actions">
         <wa-button variant="brand" size="small" href="/books/aubrie/correspondence/the-fourteen-day-floor-reports">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: The Fourteen-Day Floor Reports</span>
         </wa-button>
         <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/correspondence/the-fourteen-day-floor-reports">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: The Fourteen-Day Floor Reports</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Good-Faith Accord CPI Four-Point Transit &amp; Housing Remediation Plan (CPI-VPA-HRL-2014-0908R) The Eleventh Child — Correspondence Dr. Richard Halstead, Dr. Alan Mercer, &amp; Gregory Donovan (CPI Administration) Walter Hendricks (Radford Transit), Douglas Keaton (City of Radford), &amp; Dr. Catherine Sterling (RU) REMEDIATION ACCORD — Immediate Post-Census Evacuation of Radford Overflow Hotels &amp; :45 Off-Pulse Relief Radford Transit Operations Center, City of Radford, Virginia CPI Administration&#39;s four-point remediation accord assigning all 36 post-census dorm beds to Radford hotel residents and launching :45 relief buses. 2014-09-08">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="neutral" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="envelope-open-text" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Eleventh Child • Correspondence
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2014-09-08</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/aubrie/correspondence/the-good-faith-accord" class="bs-link">The Good-Faith Accord</a></h3>
+        <div class="bs-card-subtitle">CPI Four-Point Transit &amp; Housing Remediation Plan (CPI-VPA-HRL-2014-0908R)</div>
+        <p class="bs-card-summary">CPI Administration&#39;s four-point remediation accord assigning all 36 post-census dorm beds to Radford hotel residents and launching :45 relief buses.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/aubrie/correspondence/the-good-faith-accord">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Good-Faith Accord</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/aubrie/correspondence/the-good-faith-accord">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Good-Faith Accord</span>
         </wa-button>
       </div>
     </wa-card>
@@ -456,7 +593,54 @@
       </wa-scroller>
     </section>
   
-    </main>
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/aubrie/the-eleventh-child-off-to-college/the-administrative-prelude-early-move-in/part-3-the-poly-pass-educational-accessibility">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Episode 1, Chapter 2, Scene 2: Educational Accessibility ↗
+                  </wa-button>
+            <wa-button variant="neutral" appearance="outlined" size="small" href="/books/aubrie">
+                    <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                    The Eleventh Child (12 Files)
+                  </wa-button>
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/books/aubrie/correspondence/the-counselors-note" label="QR code to open The Counselor&#39;s Note on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
 
     <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
     <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
@@ -504,6 +688,26 @@
       </div>
     </wa-drawer>
 
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your iPhone or iPad Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
     <!-- Quick View Dossier Modal (<wa-dialog>) -->
     <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
       <div id="bs-preview-meta" class="bs-dialog-meta"></div>
@@ -525,28 +729,7 @@
       </div>
     </wa-dialog>
 
-    <footer class="bs-footer">
-      <div class="bs-container">
-        <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
-          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
-        </div>
-        <div class="bs-footer-bar">
-          <p>
-            &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
-            <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
-            Creative content licensed under
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
-          </p>
-          <div class="bs-footer-links">
-            <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
-            <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
-            <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="/assets/backstage-client.js?v=20261114c" defer></script>
+    <script src="/assets/backstage-client.js?v=20261114d" defer></script>
     <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261109a" defer></script>
   </body>
 </html>

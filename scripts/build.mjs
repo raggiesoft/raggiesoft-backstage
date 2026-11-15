@@ -6,42 +6,39 @@
  * Architectural Overview:
  * Flagship Web Awesome Pro 3.13.0 (`bb765cf132c5414e`) and Font Awesome Pro+
  * (`ec060982d4`) Static Site Generation (SSG) compiler, Progressive Web App
- * (PWA) bundler, and Cross-Origin JSON API generator for RaggieSoft Backstage
- * (`https://backstage.raggiesoft.com/`).
+ * (PWA) bundler, OpenGraph social-card linker, and Cross-Origin JSON API
+ * generator for RaggieSoft Backstage (`https://backstage.raggiesoft.com/`).
  *
  * Showcase Highlights (Web Awesome Pro 3.13.0 + Font Awesome Pro+):
- * 1. Stackable Theme & Palette Studio (`<wa-drawer>`, `<wa-radio-group>`,
+ * 1. Full Application Layout (`<wa-page>`): Scaffolds `banner`, single-row
+ *    47px sticky `header`, breadcrumb `subheader`, main reading canvas,
+ *    sticky `aside` ("On This Page & Companion Links" rail), and `footer`.
+ * 2. Stackable Theme & Palette Studio (`<wa-drawer>`, `<wa-radio-group>`,
  *    `<wa-radio>`): Live zero-reload switching across 5 Web Awesome Pro
  *    themes (`default`, `awesome`, `glossy`, `mellow`, `premium`), 4 Pro
  *    color palettes (`default`, `elegant`, `natural`, `vogue`), and 3-state
  *    lighting (`system`, `light`, `dark`) synchronized with `<meta name="color-scheme">`
  *    and `.wa-dark`.
- * 2. Interactive Archival Ledger (`<wa-data-grid>`): Full client-side Pro data
+ * 3. Featured Scenes Showcase (`<wa-carousel>`, `<wa-carousel-item>`):
+ *    Widescreen visual tour across Bear & Bug Sanctuary, the May 1999 Wingman
+ *    Briefing (Ashley Raybourn & Bonnie Reed), Katie & Nate in the U.S. Senate,
+ *    CPI Blacksburg landmarks, Suite 214/216, and The Stardust Engine.
+ * 4. Interactive Archival Ledger (`<wa-data-grid>`): Full client-side Pro data
  *    grid with global search, sortable/filterable/resizable/reorderable/pinnable
  *    columns, column visibility menu, expandable `rowDetail` dossier cards,
  *    collection grouping (`groupBy`), pagination, and safe CSV spreadsheet
  *    export (`exportDataAsCsv({ escapeFormulas: true })`).
- * 3. Story Timeline & Collection Analytics (`<wa-bar-chart>`,
- *    `<wa-doughnut-chart>`, `<wa-sparkline>`): Visual breakdown of archival
- *    records across narrative eras (1872–2044) and collections, paired with
- *    expandable semantic HTML `<table>` summaries (`<wa-details>`) for full
- *    assistive-technology parity.
- * 4. Hierarchical Folder Explorer (`<wa-tree>`, `<wa-tree-item>`): Interactive
+ * 5. Story Timeline & Collection Analytics (`<wa-bar-chart>`,
+ *    `<wa-doughnut-chart>`, `<wa-sparkline>`): 100% live-computed breakdown of
+ *    archival records across narrative eras (1872–2044) and collections, paired
+ *    with expandable semantic HTML `<table>` summaries (`<wa-details>`).
+ * 6. Hierarchical Folder Explorer (`<wa-tree>`, `<wa-tree-item>`): Interactive
  *    archive tree paired with a live dossier inspector card.
- * 5. Rich Reader Experience (`<wa-tab-group>`, `<wa-card>`, `<wa-callout>`,
- *    `<wa-accordion>`, `<wa-breadcrumb>`, `<wa-dialog>`, `<wa-skeleton>`,
- *    `<wa-dropdown>`, `<wa-popover>`, `<wa-qr-code>`, `<wa-copy-button>`,
- *    `<wa-tooltip>`, `<wa-scroller>`, `<wa-badge>`, `<wa-tag>`, `<wa-button>`,
- *    `<wa-button-group>`, `<wa-icon>`): Powered by Font Awesome Pro+ duotone,
- *    sharp-duotone, solid, and regular iconography.
- *
- * Content Source & Droplet Resilience:
- * - Compiles Markdown dossiers from `/raggiesoft-narratives/backstage/` when
- *   building locally and persists `src/data/backstage-snapshot.json` so builds
- *   on the DigitalOcean Droplet succeed even without `/raggiesoft-narratives`.
- * - Mirrors `/api/v1/<slug>.json` and `/api/v1/index.json` into
- *   `/raggiesoft-assets/raggiesoft-backstage/api/v1/` so `books.raggiesoft.com`
- *   has an instant fallback alongside `https://backstage.raggiesoft.com/api/v1/`.
+ * 7. Full Installable PWA Parity: Dedicated rounded-squircle + maskable icons,
+ *    92 Light & Dark iOS/iPadOS startup splash screens, one-click Install App
+ *    support (Chromium `beforeinstallprompt` + iOS Safari guide `<wa-dialog>`),
+ *    and a tiered `NetworkFirst` / `StaleWhileRevalidate` / `CacheFirst`
+ *    Service Worker (`/sw.js`).
  * ============================================================================
  */
 
@@ -53,19 +50,52 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
+const publicDir = path.join(projectRoot, 'public');
 const distDir = path.join(projectRoot, 'dist');
 const snapshotPath = path.join(projectRoot, 'src', 'data', 'backstage-snapshot.json');
 
 /**
- * Cache-buster revision token shared by HTML asset links and the PWA Service Worker.
+ * Cache-buster revision token shared by HTML asset links, PWA splash screens, and `/sw.js`.
  */
-const ASSET_VERSION = '20261114c';
+const ASSET_VERSION = '20261114d';
 
 /**
  * Web Awesome Pro 3.13.0 CDN base URL (`bb765cf132c5414e`) & Font Awesome Pro+ Kit (`ec060982d4`).
  */
 const WA_PRO_BASE = 'https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0';
 const FA_PRO_KIT_CODE = 'ec060982d4';
+const OG_CDN_BASE = 'https://assets.raggiesoft.com/raggiesoft-backstage/images/og';
+const PWA_CDN_BASE = 'https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons';
+
+/**
+ * Complete table of 23 iOS / iPadOS device viewport specs generating all 92
+ * (23 devices × 2 orientations × 2 color schemes) startup splash `<link>` tags.
+ */
+const IOS_SPLASH_SPECS = [
+  { dw: 1024, dh: 1366, dpr: 2, pw: 2048, ph: 2732 },
+  { dw: 1032, dh: 1376, dpr: 2, pw: 2064, ph: 2752 },
+  { dw: 834, dh: 1210, dpr: 2, pw: 1668, ph: 2420 },
+  { dw: 834, dh: 1194, dpr: 2, pw: 1668, ph: 2388 },
+  { dw: 834, dh: 1112, dpr: 2, pw: 1668, ph: 2224 },
+  { dw: 768, dh: 1024, dpr: 2, pw: 1536, ph: 2048 },
+  { dw: 820, dh: 1180, dpr: 2, pw: 1640, ph: 2360 },
+  { dw: 810, dh: 1080, dpr: 2, pw: 1620, ph: 2160 },
+  { dw: 744, dh: 1133, dpr: 2, pw: 1488, ph: 2266 },
+  { dw: 440, dh: 956, dpr: 3, pw: 1320, ph: 2868 },
+  { dw: 402, dh: 874, dpr: 3, pw: 1206, ph: 2622 },
+  { dw: 420, dh: 912, dpr: 3, pw: 1260, ph: 2736 },
+  { dw: 430, dh: 932, dpr: 3, pw: 1290, ph: 2796 },
+  { dw: 393, dh: 852, dpr: 3, pw: 1179, ph: 2556 },
+  { dw: 390, dh: 844, dpr: 3, pw: 1170, ph: 2532 },
+  { dw: 428, dh: 926, dpr: 3, pw: 1284, ph: 2778 },
+  { dw: 360, dh: 780, dpr: 3, pw: 1080, ph: 2340 },
+  { dw: 414, dh: 896, dpr: 3, pw: 1242, ph: 2688 },
+  { dw: 375, dh: 812, dpr: 3, pw: 1125, ph: 2436 },
+  { dw: 414, dh: 896, dpr: 2, pw: 828, ph: 1792 },
+  { dw: 414, dh: 736, dpr: 3, pw: 1242, ph: 2208 },
+  { dw: 375, dh: 667, dpr: 2, pw: 750, ph: 1334 },
+  { dw: 320, dh: 568, dpr: 2, pw: 640, ph: 1136 }
+];
 
 /**
  * Escapes HTML special characters for safe interpolation in attributes and text nodes.
@@ -95,7 +125,7 @@ function safeJsonForScript(value) {
 }
 
 /**
- * Trims text cleanly at a word boundary within `maxLen` characters for SEO tags.
+ * Trims text cleanly at a word boundary within `maxLen` characters for SEO & OpenGraph tags.
  * @param {string} str
  * @param {number} maxLen
  * @returns {string}
@@ -109,6 +139,21 @@ function clampMetaText(str, maxLen) {
 }
 
 /**
+ * Generates a clean URL-safe anchor slug from heading text.
+ * @param {string} raw
+ * @returns {string}
+ */
+function slugifyHeading(raw) {
+  const stripped = String(raw ?? '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/[`*_~[\]()]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return stripped || 'section';
+}
+
+/**
  * Writes a static file to `./dist`, creating parent directories automatically.
  * @param {string} relPath
  * @param {string} content
@@ -117,6 +162,61 @@ function writeDistFile(relPath, content) {
   const fullPath = path.join(distDir, relPath);
   fs.mkdirSync(path.dirname(fullPath), { recursive: true });
   fs.writeFileSync(fullPath, content, 'utf-8');
+}
+
+/**
+ * Recursively copies static files from `public/` (`favicon.ico`, `icons/*`) into `dist/`.
+ * @param {string} srcDir
+ * @param {string} destDir
+ */
+function copyDirectoryRecursive(srcDir, destDir) {
+  if (!fs.existsSync(srcDir)) return;
+  fs.mkdirSync(destDir, { recursive: true });
+  for (const entry of fs.readdirSync(srcDir, { withFileTypes: true })) {
+    if (entry.name.startsWith('.')) continue;
+    const srcPath = path.join(srcDir, entry.name);
+    const destPath = path.join(destDir, entry.name);
+    if (entry.isDirectory()) {
+      copyDirectoryRecursive(srcPath, destPath);
+    } else if (entry.isFile()) {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
+}
+
+/**
+ * Resolves the dedicated `sips`-verified `1200x630` OpenGraph JPEG card for any Backstage route.
+ * @param {string} slug
+ * @param {string} [explicitOg]
+ * @returns {string}
+ */
+function resolveOgImageForSlug(slug, explicitOg = '') {
+  if (explicitOg) return explicitOg;
+  const exactMap = {
+    '': `${OG_CDN_BASE}/backstage-hub-og.jpg`,
+    'books/rachel': `${OG_CDN_BASE}/rachel-collection-og.jpg`,
+    'books/rachel/the-bug-and-bear-dynamic-and-base-camp-protocols': `${OG_CDN_BASE}/rachel-collection-og.jpg`,
+    'books/rachel/the-wingman-briefing-ashley-and-bonnie': `${OG_CDN_BASE}/rachel-wingman-og.jpg`,
+    'books/rachel/david-miller-precinct-interview-and-warehouse-raid': `${OG_CDN_BASE}/rachel-david-miller-og.jpg`,
+    'books/rachel/confidential-school-nurse-briefing-and-tiered-iep-addenda': `${OG_CDN_BASE}/rachel-nurse-iep-og.jpg`,
+    'books/rachel/seonduwon-diplomatic-shield-and-pamyun-verdict': `${OG_CDN_BASE}/rachel-seonduwon-og.jpg`,
+    'books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage': `${OG_CDN_BASE}/rachel-sloane-brigadoon-og.jpg`,
+    'books/rachel/black-friday-1999-and-toms-two-am-christmas-drop': `${OG_CDN_BASE}/rachel-black-friday-christmas-og.jpg`,
+    'books/rachel/the-quantum-dossier-jessica-progman-and-william-keswick': `${OG_CDN_BASE}/rachel-quantum-og.jpg`,
+    'books/rachel/canadian-arch-sanctuary-anchor-rotation-and-lynnhaven-seondu': `${OG_CDN_BASE}/rachel-canadian-arch-og.jpg`,
+    'books/rachel/code-susquehanna-and-the-bear-and-bug-vault': `${OG_CDN_BASE}/rachel-susquehanna-og.jpg`,
+    'books/katie': `${OG_CDN_BASE}/katie-collection-og.jpg`,
+    'books/katie/dirksen-room-511-sterling-and-cross-panic': `${OG_CDN_BASE}/katie-dirksen-room-511-og.jpg`,
+    'books/aubrie': `${OG_CDN_BASE}/aubrie-collection-og.jpg`,
+    'locations/cpi': `${OG_CDN_BASE}/cpi-campus-og.jpg`,
+    'music/stardust-engine-origins': `${OG_CDN_BASE}/stardust-origins-og.jpg`,
+    'corporations/vectron-question-the-rules': `${OG_CDN_BASE}/vectron-archive-og.jpg`
+  };
+  if (exactMap[slug]) return exactMap[slug];
+  if (slug.startsWith('books/rachel/')) return `${OG_CDN_BASE}/rachel-collection-og.jpg`;
+  if (slug.startsWith('books/katie/')) return `${OG_CDN_BASE}/katie-collection-og.jpg`;
+  if (slug.startsWith('books/aubrie/')) return `${OG_CDN_BASE}/aubrie-collection-og.jpg`;
+  return `${OG_CDN_BASE}/backstage-hub-og.jpg`;
 }
 
 /**
@@ -241,14 +341,18 @@ function renderInlineMarkdown(text) {
 
 /**
  * Converts a Backstage Markdown body into semantic HTML with specialized
- * styling for in-universe CPI administrative emails (`> **To:**`, `> **From:**`)
- * and institutional filings, preserving strict sequential heading levels (`<h2>` -> `<h3>`).
+ * styling for standalone `<figure>` scene illustrations, in-universe CPI
+ * administrative emails (`> **To:**`, `> **From:**`), and institutional filings,
+ * preserving strict sequential heading levels (`<h2>` -> `<h3>`) and extracting
+ * `<h2>` table-of-contents anchors for `<wa-page slot="aside">`.
  * @param {string} md
+ * @param {{ id: string, text: string }[]} [tocOut]
  * @returns {string}
  */
-function renderMarkdownToHtml(md) {
+function renderMarkdownToHtml(md, tocOut = null) {
   const lines = md.replace(/\r\n/g, '\n').split('\n');
   const htmlBlocks = [];
+  const usedIds = new Set();
   let i = 0;
 
   while (i < lines.length) {
@@ -278,6 +382,28 @@ function renderMarkdownToHtml(md) {
       continue;
     }
 
+    // Standalone Markdown image block: ![alt](src) -> accessible <figure> + <figcaption>
+    const imgMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (imgMatch) {
+      const altText = imgMatch[1].trim();
+      const imgSrc = imgMatch[2].trim();
+      htmlBlocks.push(`
+        <figure class="bs-inline-figure">
+          <img
+            src="${escapeHtml(imgSrc)}"
+            alt="${escapeHtml(altText)}"
+            width="1408"
+            height="768"
+            loading="lazy"
+            class="bs-inline-img"
+          />
+          ${altText ? `<figcaption class="bs-inline-caption">${escapeHtml(altText)}</figcaption>` : ''}
+        </figure>
+      `);
+      i++;
+      continue;
+    }
+
     // Horizontal rule
     if (/^(-{3,}|\*{3,})$/.test(trimmed)) {
       htmlBlocks.push('<hr class="bs-divider" />');
@@ -290,7 +416,29 @@ function renderMarkdownToHtml(md) {
     if (headingMatch) {
       const level = Math.max(2, Math.min(headingMatch[1].length, 4));
       const text = headingMatch[2];
-      htmlBlocks.push(`<h${level} class="bs-heading bs-h${level}">${renderInlineMarkdown(text)}</h${level}>`);
+      const baseSlug = `sec-${slugifyHeading(text)}`;
+      let uniqueId = baseSlug;
+      let suffix = 2;
+      while (usedIds.has(uniqueId)) {
+        uniqueId = `${baseSlug}-${suffix++}`;
+      }
+      usedIds.add(uniqueId);
+
+      if (tocOut && level === 2) {
+        const plainLabel = text
+          .replace(/<[^>]+>/g, '')
+          .replace(/\*\*\*([^*]+)\*\*\*/g, '$1')
+          .replace(/\*\*([^*]+)\*\*/g, '$1')
+          .replace(/\*([^*]+)\*/g, '$1')
+          .replace(/`([^`]+)`/g, '$1')
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+          .trim();
+        tocOut.push({ id: uniqueId, text: plainLabel });
+      }
+
+      htmlBlocks.push(
+        `<h${level} id="${escapeHtml(uniqueId)}" class="bs-heading bs-h${level}">${renderInlineMarkdown(text)}</h${level}>`
+      );
       i++;
       continue;
     }
@@ -308,7 +456,7 @@ function renderMarkdownToHtml(md) {
         /ENVIRONMENTAL HEALTH & SAFETY|OFFICIAL JOINT ADMINISTRATIVE COMPLAINT|OFFICIAL GOOD-FAITH REMEDIATION/i.test(
           joinedQuote
         );
-      const innerHtml = renderMarkdownToHtml(joinedQuote);
+      const innerHtml = renderMarkdownToHtml(joinedQuote, null);
 
       if (isEmailHeader || isEhsReport) {
         const badgeLabel = isEhsReport
@@ -379,6 +527,7 @@ function renderMarkdownToHtml(md) {
       !lines[i].trim().startsWith('#') &&
       !lines[i].trim().startsWith('>') &&
       !lines[i].trim().startsWith('```') &&
+      !/^!\[([^\]]*)\]\(([^)]+)\)$/.test(lines[i].trim()) &&
       !/^(-{3,}|\*{3,})$/.test(lines[i].trim()) &&
       !/^(\*|-|\d+\.)\s+/.test(lines[i].trim())
     ) {
@@ -425,10 +574,6 @@ function canonicalizeRaggieSoftUrlsInText(rawText) {
       'https://music.raggiesoft.com/the-paper-wall/2003-eleventh-child-book-2/an-80s-education-the-brooks-mix'
     )
     .replace(
-      'https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration',
-      'https://music.raggiesoft.com/the-stardust-engine/2011-starfield-calibration'
-    )
-    .replace(
       /https:\/\/music\.raggiesoft\.com\/(?:artists\/)?([a-z0-9-]+)\/([a-z0-9-]+)\?track=([a-z0-9-]+)/gi,
       (_, art, alb, trk) => {
         const cleanSlug = String(trk)
@@ -445,6 +590,15 @@ function canonicalizeRaggieSoftUrlsInText(rawText) {
  * @param {Record<string, any>} item
  */
 function describeCollection(item) {
+  if (item.slug.startsWith('books/rachel')) {
+    return {
+      key: 'rachel',
+      label: 'The Rachel Narrative',
+      badgeVariant: 'success',
+      iconFamily: 'duotone',
+      iconName: 'shield-heart'
+    };
+  }
   if (item.slug.startsWith('books/katie')) {
     return {
       key: 'katie',
@@ -532,7 +686,11 @@ function loadBackstageItems() {
         slug = slug.slice(0, -'/index'.length);
       }
       const routePath = `/${slug}`;
-      const html = renderMarkdownToHtml(body);
+      const toc = [];
+      const html = renderMarkdownToHtml(body, toc);
+      const image = frontmatter.image || '';
+      const imageAlt = frontmatter.imageAlt || frontmatter.title || '';
+      const ogImage = resolveOgImageForSlug(slug, frontmatter.ogImage || '');
 
       return {
         slug,
@@ -551,10 +709,23 @@ function loadBackstageItems() {
         subject: frontmatter.subject || '',
         relatedBookUrl: canonicalizeRaggieSoftUrlsInText(frontmatter.relatedBookUrl || ''),
         relatedBookLabel: frontmatter.relatedBookLabel || 'Return to RaggieSoft Book Reader',
+        image,
+        imageAlt,
+        ogImage,
         summary: frontmatter.summary || frontmatter.subtitle || frontmatter.title || '',
+        toc,
         markdown: body,
         html
       };
+    });
+
+    // Sort items chronologically within collections when dates are present while keeping hubs deterministic
+    items.sort((a, b) => {
+      const aHub = a.slug === 'books/rachel' || a.slug === 'books/katie' || a.slug === 'books/aubrie' ? 0 : 1;
+      const bHub = b.slug === 'books/rachel' || b.slug === 'books/katie' || b.slug === 'books/aubrie' ? 0 : 1;
+      if (aHub !== bHub) return aHub - bHub;
+      if (a.date && b.date && a.date !== b.date) return a.date.localeCompare(b.date);
+      return a.slug.localeCompare(b.slug);
     });
 
     fs.mkdirSync(path.dirname(snapshotPath), { recursive: true });
@@ -571,7 +742,7 @@ function loadBackstageItems() {
 
 /**
  * Generates `/assets/backstage.css` — modern layered CSS architecture bridging
- * Web Awesome Pro 3.13.0 design tokens (`--wa-color-*`, `--wa-border-radius-*`)
+ * Web Awesome Pro 3.13.0 `<wa-page>` and design tokens (`--wa-color-*`, `--wa-border-radius-*`)
  * with high-contrast fallbacks, `<meta name="color-scheme">` `:has()` synchronization,
  * `light-dark()` progressive enhancement, and Windows High Contrast (`forced-colors`) support.
  * @returns {string}
@@ -583,8 +754,8 @@ function buildBackstageCss() {
  * /assets/backstage.css — RaggieSoft Backstage (backstage.raggiesoft.com)
  * ============================================================================
  * Layered modern CSS architecture harmonizing directly with Web Awesome Pro
- * 3.13.0 themes (default, awesome, glossy, mellow, premium) and color palettes
- * (default, elegant, natural, vogue) alongside Font Awesome Pro+ iconography.
+ * 3.13.0 <wa-page>, themes (default, awesome, glossy, mellow, premium), and
+ * color palettes (default, elegant, natural, vogue) alongside Font Awesome Pro+.
  * ============================================================================
  */
 
@@ -713,8 +884,24 @@ function buildBackstageCss() {
     color: var(--bs-text);
     font-family: var(--wa-font-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
     line-height: 1.7;
+  }
+
+  /* Zero-FOUC fallback before <wa-page> custom element upgrades */
+  wa-page:not(:defined) {
     display: flex;
     flex-direction: column;
+    min-block-size: 100dvh;
+  }
+
+  wa-page:not(:defined) [slot="aside"] {
+    display: none;
+  }
+
+  /* Hide cross-property network bar when installed as a standalone Home Screen / Desktop App */
+  @media (display-mode: standalone) {
+    .rs-network-bar {
+      display: none !important;
+    }
   }
 
   :where(a:any-link, button, summary, [tabindex="0"]):focus-visible {
@@ -723,7 +910,67 @@ function buildBackstageCss() {
   }
 }
 
+@layer utilities {
+  .visually-hidden:where(:not(:focus-within, :active)) {
+    position: absolute !important;
+    clip-path: inset(50%) !important;
+    overflow: hidden !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+  }
+}
+
 @layer components {
+  /* Web Awesome Pro 3.13.0 <wa-page> Application Frame */
+  wa-page.bs-page {
+    --header-height: 2.95rem;
+    --main-width: minmax(0, 1fr);
+    --aside-width: 18.5rem;
+    min-block-size: 100dvh;
+    background-color: var(--bs-bg);
+    color: var(--bs-text);
+  }
+
+  wa-page.bs-page::part(banner),
+  wa-page.bs-page::part(header),
+  wa-page.bs-page::part(subheader),
+  wa-page.bs-page::part(footer) {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  wa-page.bs-page::part(body) {
+    inline-size: 100%;
+    max-inline-size: 1280px;
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+
+  wa-page.bs-page::part(main),
+  wa-page.bs-page::part(main-content) {
+    min-inline-size: 0;
+    padding: 0;
+  }
+
+  wa-page.bs-page::part(aside) {
+    padding-block: 1.75rem 2rem;
+    padding-inline: 0 1.25rem;
+  }
+
+  @media (max-width: 1080px) {
+    wa-page.bs-page {
+      --aside-width: 0px;
+    }
+    wa-page.bs-page::part(aside) {
+      display: none;
+    }
+  }
+
   .skip-link {
     position: fixed;
     inset-block-start: 0.75rem;
@@ -760,9 +1007,7 @@ function buildBackstageCss() {
 
   /* Ultra-Compact Single-Row Sticky Header (47px Desktop & Mobile via @container) */
   .bs-header {
-    position: sticky;
-    inset-block-start: 0;
-    z-index: 40;
+    inline-size: 100%;
     container: header / inline-size;
     background: color-mix(in oklab, var(--bs-surface) 92%, transparent);
     backdrop-filter: blur(12px);
@@ -774,8 +1019,8 @@ function buildBackstageCss() {
     display: flex;
     align-items: safe center;
     justify-content: space-between;
-    gap: 0.6rem;
-    padding-block: 0.4rem;
+    gap: 0.55rem;
+    padding-block: 0.38rem;
     min-block-size: 2.9rem;
     flex-wrap: nowrap;
   }
@@ -787,24 +1032,20 @@ function buildBackstageCss() {
     min-inline-size: 0;
     flex: 0 1 auto;
     font-weight: 900;
-    font-size: 0.98rem;
+    font-size: 0.96rem;
     letter-spacing: 0.01em;
     color: var(--bs-text);
     text-decoration: none;
     white-space: nowrap;
   }
 
-  .bs-brand-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
+  .bs-brand-icon {
     inline-size: 1.8rem;
     block-size: 1.8rem;
-    border-radius: 0.48rem;
-    background: var(--bs-fallback-primary);
-    color: var(--bs-fallback-primary-fg);
-    font-size: 0.92rem;
+    border-radius: 0.44rem;
+    flex: 0 0 auto;
+    display: block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
   }
 
   .bs-brand-prefix {
@@ -827,7 +1068,7 @@ function buildBackstageCss() {
   .bs-nav {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.22rem;
     flex-wrap: nowrap;
     list-style: none;
     margin: 0;
@@ -837,11 +1078,11 @@ function buildBackstageCss() {
   .bs-nav-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.32rem;
     min-block-size: 2rem;
-    padding: 0.24rem 0.62rem;
+    padding: 0.22rem 0.56rem;
     border-radius: var(--bs-radius-m);
-    font-size: 0.84rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--bs-muted);
     background: transparent;
@@ -862,7 +1103,8 @@ function buildBackstageCss() {
     border-color: var(--bs-fallback-primary);
   }
 
-  .bs-dropdown-desktop-label {
+  .bs-dropdown-desktop-label,
+  .bs-install-label {
     display: none;
   }
 
@@ -884,7 +1126,7 @@ function buildBackstageCss() {
     }
   }
 
-  @container header (inline-size >= 540px) {
+  @container header (inline-size >= 560px) {
     .bs-appearance-label {
       position: static;
       clip-path: none;
@@ -893,9 +1135,12 @@ function buildBackstageCss() {
       block-size: auto;
       margin: 0;
     }
+    .bs-install-label {
+      display: inline;
+    }
   }
 
-  @container header (inline-size >= 860px) {
+  @container header (inline-size >= 980px) {
     .bs-desktop-nav {
       display: block;
     }
@@ -907,9 +1152,70 @@ function buildBackstageCss() {
     }
   }
 
+  /* <wa-page slot="subheader"> Breadcrumb Strip */
+  .bs-subheader {
+    inline-size: 100%;
+    background: color-mix(in oklab, var(--bs-elevated) 84%, transparent);
+    border-block-end: 1px solid var(--bs-border);
+  }
+
+  .bs-subheader-inner {
+    padding-block: 0.45rem;
+    font-size: 0.86rem;
+  }
+
+  /* <wa-page slot="aside"> Sticky Table of Contents & Story Companion Rail */
+  .bs-aside-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bs-aside-card {
+    --spacing: 1rem;
+  }
+
+  .bs-aside-heading {
+    margin: 0 0 0.55rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bs-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .bs-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.87rem;
+  }
+
+  .bs-toc-link {
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.4rem;
+    color: var(--bs-muted);
+    text-decoration: none;
+    border-inline-start: 2px solid var(--bs-border);
+    line-height: 1.35;
+  }
+
+  .bs-toc-link:hover {
+    color: var(--bs-text);
+    background: var(--bs-elevated);
+    border-inline-start-color: var(--bs-primary);
+  }
+
   /* Hero Showcase Stage */
   .bs-hero {
-    margin-block: 1.75rem 1.5rem;
+    margin-block: 1.5rem 1.5rem;
     padding: clamp(1.35rem, 3vw, 2.25rem);
     border-radius: var(--bs-radius-l);
     background-color: var(--bs-surface);
@@ -929,14 +1235,14 @@ function buildBackstageCss() {
 
   .bs-title {
     margin: 0 0 0.55rem;
-    font-size: clamp(1.65rem, 3.1vw, 2.45rem);
+    font-size: clamp(1.6rem, 3vw, 2.38rem);
     line-height: 1.18;
     letter-spacing: -0.015em;
   }
 
   .bs-subtitle {
     margin: 0 0 1.1rem;
-    font-size: 1.08rem;
+    font-size: 1.06rem;
     color: var(--bs-muted);
     max-inline-size: 78ch;
   }
@@ -947,6 +1253,119 @@ function buildBackstageCss() {
     gap: 0.6rem;
     flex-wrap: wrap;
     margin-block-start: 0.95rem;
+  }
+
+  /* Featured Scenes Showcase (<wa-carousel>) */
+  .bs-carousel-section {
+    margin-block-end: 2rem;
+  }
+
+  .bs-scene-carousel {
+    --aspect-ratio: 16 / 9;
+    border-radius: var(--bs-radius-l);
+  }
+
+  .bs-slide-frame {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: var(--bs-radius-l);
+    overflow: hidden;
+    border: 1px solid var(--bs-border);
+    background: #070b14;
+    margin: 0;
+  }
+
+  .bs-slide-img {
+    inline-size: 100%;
+    block-size: 100%;
+    max-block-size: 480px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bs-slide-overlay {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding: clamp(1rem, 2.5vw, 1.65rem);
+    background: linear-gradient(to top, rgba(7, 11, 20, 0.94) 0%, rgba(7, 11, 20, 0.72) 58%, transparent 100%);
+    color: #f8fafc;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .bs-slide-copy {
+    max-inline-size: 66ch;
+  }
+
+  .bs-slide-kicker {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #fbbf24;
+    margin-block-end: 0.2rem;
+  }
+
+  .bs-slide-title {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    line-height: 1.25;
+    color: #ffffff;
+  }
+
+  .bs-slide-desc {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #e2e8f0;
+  }
+
+  /* Dossier Hero Artwork & Inline Markdown Figures */
+  .bs-dossier-hero {
+    margin: 0 0 1.5rem;
+    border-radius: var(--bs-radius-l);
+    overflow: hidden;
+    border: 1px solid var(--bs-border);
+    background: var(--bs-surface);
+    box-shadow: var(--bs-shadow);
+  }
+
+  .bs-dossier-hero-img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1408 / 768;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bs-dossier-hero-caption,
+  .bs-inline-caption {
+    padding: 0.75rem 1.15rem;
+    font-size: 0.88rem;
+    color: var(--bs-muted);
+    background: var(--bs-elevated);
+    border-block-start: 1px solid var(--bs-border);
+  }
+
+  .bs-inline-figure {
+    margin: 1.65rem 0;
+    border-radius: var(--bs-radius-m);
+    overflow: hidden;
+    border: 1px solid var(--bs-border);
+    background: var(--bs-surface);
+  }
+
+  .bs-inline-img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1408 / 768;
+    object-fit: cover;
+    display: block;
   }
 
   /* Search Stage */
@@ -996,32 +1415,32 @@ function buildBackstageCss() {
   /* Archive Pulse Metric + Sparkline Strip */
   .bs-pulse-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
     gap: 1rem;
-    margin-block-end: 1.75rem;
+    margin-block-end: 1.85rem;
   }
 
   .bs-pulse-card {
-    --spacing: 1.1rem;
+    --spacing: 1.05rem;
   }
 
   .bs-pulse-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: 0.65rem;
     margin-block-end: 0.55rem;
   }
 
   .bs-pulse-value {
     display: block;
-    font-size: 1.8rem;
+    font-size: 1.68rem;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.12;
   }
 
   .bs-pulse-title {
-    font-size: 0.84rem;
+    font-size: 0.8rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -1030,7 +1449,7 @@ function buildBackstageCss() {
 
   .bs-pulse-caption {
     margin: 0.45rem 0 0;
-    font-size: 0.86rem;
+    font-size: 0.85rem;
     color: var(--bs-muted);
   }
 
@@ -1129,6 +1548,14 @@ function buildBackstageCss() {
     flex: 1;
   }
 
+  .bs-card-media-img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1408 / 768;
+    object-fit: cover;
+    display: block;
+  }
+
   .bs-card-meta {
     display: flex;
     align-items: center;
@@ -1207,10 +1634,6 @@ function buildBackstageCss() {
   }
 
   /* Dossier Metadata & Article Prose */
-  .bs-breadcrumb-wrap {
-    margin-block-start: 1.25rem;
-  }
-
   .bs-meta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1253,6 +1676,7 @@ function buildBackstageCss() {
   .bs-heading {
     line-height: 1.3;
     margin-block: 1.65rem 0.65rem;
+    scroll-margin-block-start: 5.5rem;
   }
 
   .bs-article-prose > .bs-heading:first-child {
@@ -1436,7 +1860,7 @@ function buildBackstageCss() {
     color: var(--bs-muted);
   }
 
-  /* Appearance Drawer Studio */
+  /* Appearance Drawer Studio & Install Dialog */
   .bs-studio-stack {
     display: flex;
     flex-direction: column;
@@ -1447,6 +1871,12 @@ function buildBackstageCss() {
     margin: 0;
     font-size: 0.9rem;
     color: var(--bs-muted);
+  }
+
+  .bs-install-steps {
+    display: grid;
+    gap: 0.85rem;
+    margin-block: 0.5rem;
   }
 
   /* Quick View Dialog */
@@ -1472,7 +1902,7 @@ function buildBackstageCss() {
 
   /* Footer & Mandatory Fictitious Disclaimer */
   .bs-footer {
-    margin-block-start: auto;
+    inline-size: 100%;
     padding-block: 2.25rem;
     background: var(--bs-surface);
     border-block-start: 1px solid var(--bs-border);
@@ -1510,13 +1940,15 @@ function buildBackstageCss() {
  * 1. Reading Appearance & Theme Studio (`<wa-drawer>`, 3-state color-scheme
  *    synchronization without clobbering pinned user choices on OS time-of-day
  *    shifts, cross-tab `storage` sync, and live Web Awesome Pro theme + palette switching).
- * 2. Header `<wa-dropdown>` quick navigation.
- * 3. Instant debounced `<wa-input>` search + quick-topic filter chips.
- * 4. Interactive `<wa-data-grid>` Archival Ledger configuration (`columns`, `data`,
+ * 2. One-Click Install App controller (`beforeinstallprompt` on Desktop/Android
+ *    plus friendly Add-to-Home-Screen `<wa-dialog>` on iOS/iPadOS Safari).
+ * 3. Header `<wa-dropdown>` quick navigation.
+ * 4. Instant debounced `<wa-input>` search + quick-topic filter chips.
+ * 5. Interactive `<wa-data-grid>` Archival Ledger configuration (`columns`, `data`,
  *    `rowDetail`, `groupBy`, `sizeColumnsToFit()`, `resetState()`, `exportDataAsCsv()`).
- * 5. Hierarchical `<wa-tree>` Folder Explorer inspector.
- * 6. `<wa-dialog>` Quick View modal with `<wa-skeleton>` loading shimmer.
- * 7. Offline-capable PWA Service Worker registration (`/sw.js`).
+ * 6. Hierarchical `<wa-tree>` Folder Explorer inspector.
+ * 7. `<wa-dialog>` Quick View modal with `<wa-skeleton>` loading shimmer.
+ * 8. Offline-capable PWA Service Worker registration (`/sw.js`).
  * @returns {string}
  */
 function buildBackstageClientJs() {
@@ -1526,9 +1958,9 @@ function buildBackstageClientJs() {
  * /assets/backstage-client.js — RaggieSoft Backstage Progressive Controller
  * ============================================================================
  * Orchestrates Web Awesome Pro 3.13.0 interactive components, the Reading
- * Appearance Studio (themes, palettes, and 3-state lighting), debounced search
- * live-region announcements, the Archival Ledger data grid, Folder Explorer,
- * and Quick View modal.
+ * Appearance Studio (themes, palettes, and 3-state lighting), Install App
+ * progressive prompts, debounced search live-region announcements, the
+ * Archival Ledger data grid, Folder Explorer, and Quick View modal.
  * ============================================================================
  */
 (function () {
@@ -1683,6 +2115,56 @@ function buildBackstageClientJs() {
       safeSetStorage('bs-wa-theme', null);
       safeSetStorage('bs-wa-palette', null);
       syncAppearanceDom('system', 'default', 'default');
+    });
+  }
+
+  // Install App Controller (Desktop/Android beforeinstallprompt + iOS/iPadOS Home Screen guide)
+  var installBtn = document.getElementById('bs-install-app');
+  var iosInstallDialog = document.getElementById('bs-ios-install-dialog');
+  var closeIosInstallBtn = document.getElementById('bs-close-ios-install');
+  var deferredInstallPrompt = null;
+
+  var isStandalone =
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+    window.navigator.standalone === true;
+
+  var ua = window.navigator.userAgent || '';
+  var isIosSafari =
+    (/iPad|iPhone|iPod/.test(ua) ||
+      (window.navigator.platform === 'MacIntel' && window.navigator.maxTouchPoints > 1)) &&
+    !/CriOS|FxiOS|EdgiOS/.test(ua);
+
+  if (!isStandalone && installBtn) {
+    if (isIosSafari) {
+      installBtn.hidden = false;
+    }
+
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      installBtn.hidden = false;
+    });
+
+    window.addEventListener('appinstalled', function () {
+      deferredInstallPrompt = null;
+      installBtn.hidden = true;
+    });
+
+    installBtn.addEventListener('click', function () {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.finally(function () {
+          deferredInstallPrompt = null;
+        });
+      } else if (iosInstallDialog) {
+        iosInstallDialog.open = true;
+      }
+    });
+  }
+
+  if (closeIosInstallBtn && iosInstallDialog) {
+    closeIosInstallBtn.addEventListener('click', function () {
+      iosInstallDialog.open = false;
     });
   }
 
@@ -1986,7 +2468,16 @@ function buildBackstageClientJs() {
           if (data.location) addPill(data.location, 'neutral');
         }
         if (previewBody) {
-          previewBody.innerHTML = '<div class="bs-article-prose">' + (data.html || '') + '</div>';
+          var heroHtml = '';
+          if (data.image) {
+            var safeSrc = String(data.image).replace(/"/g, '&quot;');
+            var safeAlt = String(data.imageAlt || data.title || '').replace(/"/g, '&quot;');
+            heroHtml =
+              '<figure class="bs-inline-figure" style="margin-block-start:0">' +
+              '<img src="' + safeSrc + '" alt="' + safeAlt + '" width="1408" height="768" loading="lazy" class="bs-inline-img" />' +
+              '</figure>';
+          }
+          previewBody.innerHTML = heroHtml + '<div class="bs-article-prose">' + (data.html || '') + '</div>';
         }
         if (previewFullLink && data.slug) {
           previewFullLink.setAttribute('href', '/' + data.slug);
@@ -2011,8 +2502,25 @@ function buildBackstageClientJs() {
 }
 
 /**
+ * Renders the 92 Light & Dark iOS/iPadOS `<link rel="apple-touch-startup-image">` tags.
+ * @returns {string}
+ */
+function renderIosSplashLinksHtml() {
+  const lines = [];
+  for (const s of IOS_SPLASH_SPECS) {
+    lines.push(
+      `    <link rel="apple-touch-startup-image" href="${PWA_CDN_BASE}/apple-splash-${s.pw}-${s.ph}.jpg?v=${ASSET_VERSION}" media="(device-width: ${s.dw}px) and (device-height: ${s.dh}px) and (-webkit-device-pixel-ratio: ${s.dpr}) and (orientation: portrait)" />`,
+      `    <link rel="apple-touch-startup-image" href="${PWA_CDN_BASE}/apple-splash-${s.ph}-${s.pw}.jpg?v=${ASSET_VERSION}" media="(device-width: ${s.dw}px) and (device-height: ${s.dh}px) and (-webkit-device-pixel-ratio: ${s.dpr}) and (orientation: landscape)" />`,
+      `    <link rel="apple-touch-startup-image" href="${PWA_CDN_BASE}/apple-splash-dark-${s.pw}-${s.ph}.jpg?v=${ASSET_VERSION}" media="(prefers-color-scheme: dark) and (device-width: ${s.dw}px) and (device-height: ${s.dh}px) and (-webkit-device-pixel-ratio: ${s.dpr}) and (orientation: portrait)" />`,
+      `    <link rel="apple-touch-startup-image" href="${PWA_CDN_BASE}/apple-splash-dark-${s.ph}-${s.pw}.jpg?v=${ASSET_VERSION}" media="(prefers-color-scheme: dark) and (device-width: ${s.dw}px) and (device-height: ${s.dh}px) and (-webkit-device-pixel-ratio: ${s.dpr}) and (orientation: landscape)" />`
+    );
+  }
+  return lines.join('\n');
+}
+
+/**
  * Renders a reusable `<wa-card>` dossier preview card with Web Awesome Pro
- * badges, tags, buttons, and Font Awesome Pro+ icons.
+ * media slots, badges, tags, disambiguated accessible names, and Font Awesome Pro+ icons.
  * @param {Record<string, any>} item
  * @param {boolean} isPrimary
  * @returns {string}
@@ -2033,8 +2541,14 @@ function renderDossierCard(item, isPrimary = false) {
     .filter(Boolean)
     .join(' ');
 
+  const hasMedia = Boolean(item.image);
+  const mediaSlotHtml = hasMedia
+    ? `<img slot="media" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" width="704" height="384" loading="lazy" class="bs-card-media-img" />`
+    : '';
+
   return `
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="${isPrimary ? 'true' : 'false'}" data-bs-search="${escapeHtml(searchHaystack)}">
+    <wa-card${hasMedia ? ' with-media' : ''} class="bs-card" data-bs-card data-bs-primary-card="${isPrimary ? 'true' : 'false'}" data-bs-search="${escapeHtml(searchHaystack)}">
+      ${mediaSlotHtml}
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="${col.badgeVariant}" appearance="filled-outlined" pill>
@@ -2053,11 +2567,11 @@ function renderDossierCard(item, isPrimary = false) {
       <div class="bs-card-actions">
         <wa-button variant="brand" size="small" href="${item.routePath}">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: ${escapeHtml(item.title)}</span>
         </wa-button>
         <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="${escapeHtml(item.slug)}">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: ${escapeHtml(item.title)}</span>
         </wa-button>
       </div>
     </wa-card>
@@ -2065,19 +2579,32 @@ function renderDossierCard(item, isPrimary = false) {
 }
 
 /**
- * Generates the Web Awesome Pro 3.13.0 + Font Awesome Pro+ outer HTML5 document shell.
+ * Generates the Web Awesome Pro 3.13.0 `<wa-page>` + Font Awesome Pro+ outer HTML5 document shell.
  */
 function renderBackstageShell({
   title,
   description,
   canonicalPath = '/',
-  ogImage = 'https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg',
+  ogImage = `${OG_CDN_BASE}/backstage-hub-og.jpg`,
+  ogImageAlt = 'RaggieSoft Backstage — Behind-the-scenes dossiers, alternate points of view, and campus guides across RaggieSoft Books and Music.',
   noindex = false,
-  counts = { katie: 15, aubrie: 13, lore: 3, total: 32 },
+  counts = {
+    rachel: 11,
+    rachelDossiers: 10,
+    katie: 16,
+    katieDossiers: 15,
+    aubrie: 13,
+    aubrieDossiers: 12,
+    lore: 3,
+    total: 43
+  },
+  subheaderHtml = '',
+  asideHtml = '',
   bodyHtml
 }) {
   const safeTitle = escapeHtml(clampMetaText(title, 60));
   const safeDesc = escapeHtml(clampMetaText(description, 155));
+  const safeOgAlt = escapeHtml(clampMetaText(ogImageAlt || title, 180));
   const isErrorPage = canonicalPath === '/404';
   const canonicalUrl = `https://backstage.raggiesoft.com${canonicalPath === '/' ? '' : canonicalPath}`;
   const robotsMetaHtml = noindex ? '\n    <meta name="robots" content="noindex, follow" />' : '';
@@ -2085,8 +2612,9 @@ function renderBackstageShell({
 
   const navItems = [
     { href: '/', label: 'Hub', icon: 'clapperboard-play' },
-    { href: '/books/katie', label: `Katie & Nathaniel (${counts.katieDossiers ?? counts.katie})`, icon: 'wheelchair-move' },
-    { href: '/books/aubrie', label: `Eleventh Child (${counts.aubrieDossiers ?? counts.aubrie})`, icon: 'book-sparkles' }
+    { href: '/books/rachel', label: `Rachel (${counts.rachelDossiers})`, icon: 'shield-heart' },
+    { href: '/books/katie', label: `Katie & Nathaniel (${counts.katieDossiers})`, icon: 'wheelchair-move' },
+    { href: '/books/aubrie', label: `Eleventh Child (${counts.aubrieDossiers})`, icon: 'book-sparkles' }
   ];
 
   const navHtml = navItems
@@ -2097,13 +2625,15 @@ function renderBackstageShell({
         isCurrent ? ' aria-current="page"' : ''
       }><wa-icon family="duotone" name="${item.icon}" swap-opacity aria-hidden="true"></wa-icon><span>${escapeHtml(item.label)}</span></a></li>`;
     })
-    .join('\n              ');
+    .join('\n                ');
+
+  const splashLinksHtml = renderIosSplashLinksHtml();
 
   return `<!DOCTYPE html>
 <html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="${FA_PRO_KIT_CODE}">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <script>
       try {
@@ -2123,21 +2653,47 @@ function renderBackstageShell({
         root.setAttribute('data-theme', isDark ? 'dark' : 'light');
       } catch (e) {}
     </script>
-    <meta name="theme-color" content="#861f41" />
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
     <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=${ASSET_VERSION}" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=${ASSET_VERSION}" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=${ASSET_VERSION}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=${ASSET_VERSION}" />
+${splashLinksHtml}
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
     <title>${safeTitle}</title>
     <meta name="description" content="${safeDesc}" />${robotsMetaHtml}${canonicalLinkHtml}
     <meta property="og:title" content="${safeTitle}" />
     <meta property="og:description" content="${safeDesc}" />
-    <meta property="og:image" content="${escapeHtml(ogImage)}" />
     <meta property="og:url" content="${escapeHtml(canonicalUrl)}" />
     <meta property="og:type" content="${canonicalPath === '/' ? 'website' : 'article'}" />
     <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="${escapeHtml(ogImage)}" />
+    <meta property="og:image:secure_url" content="${escapeHtml(ogImage)}" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${safeOgAlt}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${safeTitle}" />
     <meta name="twitter:description" content="${safeDesc}" />
     <meta name="twitter:image" content="${escapeHtml(ogImage)}" />
+    <meta name="twitter:image:alt" content="${safeOgAlt}" />
+
     <script type="application/ld+json">${safeJsonForScript({
       '@context': 'https://schema.org',
       '@graph': [
@@ -2151,8 +2707,17 @@ function renderBackstageShell({
           '@type': 'WebSite',
           '@id': 'https://backstage.raggiesoft.com/#website',
           url: 'https://backstage.raggiesoft.com',
-          name: 'RaggieSoft Backstage — Bonus Features & Companion Archive',
+          name: 'RaggieSoft Backstage — Bonus Features & Story Companion Archive',
           publisher: { '@id': 'https://raggiesoft.com/#organization' }
+        },
+        {
+          '@type': 'WebApplication',
+          '@id': 'https://backstage.raggiesoft.com/#webapp',
+          name: 'RaggieSoft Backstage',
+          url: 'https://backstage.raggiesoft.com',
+          applicationCategory: 'EntertainmentApplication',
+          operatingSystem: 'Web, macOS, Windows, Linux, iOS, Android',
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
         },
         {
           '@type': 'WebPage',
@@ -2163,13 +2728,14 @@ function renderBackstageShell({
           isPartOf: { '@id': 'https://backstage.raggiesoft.com/#website' },
           primaryImageOfPage: {
             '@type': 'ImageObject',
-            url: ogImage
+            url: ogImage,
+            width: 1200,
+            height: 630
           },
           license: 'https://creativecommons.org/licenses/by-sa/4.0/'
         }
       ]
     })}</script>
-    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
 
     <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
     <link rel="stylesheet" href="${WA_PRO_BASE}/styles/themes/default.css" />
@@ -2201,95 +2767,130 @@ function renderBackstageShell({
     </script>
   </head>
   <body>
-    <a href="#content" class="skip-link">Skip to Backstage main content</a>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
 
-    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
-      <div class="rs-network-bar-inner">
-        <span class="rs-network-label">✦ RaggieSoft Network:</span>
-        <ul class="rs-network-links">
-          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
-          <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
-          <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
-          <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
-          <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
-          <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
-          <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
-          <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
-          <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
-          <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
-        </ul>
-      </div>
-    </nav>
+      <nav slot="banner" class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+        <div class="rs-network-bar-inner">
+          <span class="rs-network-label">✦ RaggieSoft Network:</span>
+          <ul class="rs-network-links">
+            <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+            <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+            <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+            <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+            <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+            <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+            <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+            <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+            <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+            <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+          </ul>
+        </div>
+      </nav>
 
-    <header class="bs-header">
-      <div class="bs-container bs-header-inner">
-        <a href="/" class="bs-brand">
-          <span class="bs-brand-mark" aria-hidden="true">
-            <wa-icon family="duotone" name="film" swap-opacity></wa-icon>
-          </span>
-          <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
-        </a>
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=${ASSET_VERSION}" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
 
-        <div class="bs-nav-row">
-          <nav class="bs-desktop-nav" aria-label="Backstage collections">
-            <ul class="bs-nav">
-              ${navHtml}
-            </ul>
-          </nav>
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                ${navHtml}
+              </ul>
+            </nav>
 
-          <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
-            <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
-              <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
-              <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (${counts.total} Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (${counts.rachelDossiers} Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (${counts.katieDossiers} Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (${counts.aubrieDossiers} Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
             </wa-button>
-            <wa-dropdown-item value="/">
-              <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
-              Backstage Hub (${counts.total} Records)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/books/katie">
-              <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
-              Katie &amp; Nathaniel (${counts.katieDossiers ?? counts.katie} Dossiers)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/books/aubrie">
-              <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
-              The Eleventh Child (${counts.aubrieDossiers ?? counts.aubrie} Files)
-            </wa-dropdown-item>
-            <wa-divider></wa-divider>
-            <wa-dropdown-item value="/locations/cpi">
-              <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
-              Commonwealth Polytechnic Institute (CPI)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/music/stardust-engine-origins">
-              <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
-              The Stardust Engine: 1986 Origins
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/corporations/vectron-question-the-rules">
-              <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
-              Vectron Energy Corp. Archive
-            </wa-dropdown-item>
-            <wa-divider></wa-divider>
-            <wa-dropdown-item value="https://books.raggiesoft.com">
-              <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
-              Open RaggieSoft Book Reader ↗
-            </wa-dropdown-item>
-            <wa-dropdown-item value="https://music.raggiesoft.com">
-              <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
-              Open The Listening Room ↗
-            </wa-dropdown-item>
-          </wa-dropdown>
 
-          <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
-          <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
-            <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
-            <span class="bs-appearance-label">Appearance</span>
-          </wa-button>
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
         </div>
       </div>
-    </header>
 
-    <main id="content" class="bs-container" tabindex="-1">
-      ${bodyHtml}
-    </main>
+      ${subheaderHtml}
+
+      <div id="content" class="bs-container" tabindex="-1">
+        ${bodyHtml}
+      </div>
+
+      ${asideHtml}
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
 
     <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
     <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
@@ -2337,6 +2938,26 @@ function renderBackstageShell({
       </div>
     </wa-drawer>
 
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your iPhone or iPad Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
     <!-- Quick View Dossier Modal (<wa-dialog>) -->
     <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
       <div id="bs-preview-meta" class="bs-dialog-meta"></div>
@@ -2358,27 +2979,6 @@ function renderBackstageShell({
       </div>
     </wa-dialog>
 
-    <footer class="bs-footer">
-      <div class="bs-container">
-        <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
-          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
-        </div>
-        <div class="bs-footer-bar">
-          <p>
-            &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
-            <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
-            Creative content licensed under
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
-          </p>
-          <div class="bs-footer-links">
-            <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
-            <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
-            <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
     <script src="/assets/backstage-client.js?v=${ASSET_VERSION}" defer></script>
     <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261109a" defer></script>
   </body>
@@ -2386,22 +2986,34 @@ function renderBackstageShell({
 }
 
 /**
- * Computes collection groupings and dynamic story-era tallies from the compiled dataset.
+ * Computes 100% live collection groupings, sparkline series, and dynamic story-era
+ * tallies directly from the compiled Markdown dataset (zero hardcoded counts).
  * @param {Record<string, any>[]} items
  */
 function computeArchiveGroups(items) {
+  const rachelAll = items.filter((i) => i.slug.startsWith('books/rachel'));
+  const rachelDossiers = items.filter((i) => i.slug.startsWith('books/rachel/') && i.slug !== 'books/rachel');
   const katieAll = items.filter((i) => i.slug.startsWith('books/katie'));
   const katieDossiers = items.filter((i) => i.slug.startsWith('books/katie/') && i.slug !== 'books/katie');
   const aubrieAll = items.filter((i) => i.slug.startsWith('books/aubrie'));
   const aubrieDossiers = items.filter((i) => i.slug.startsWith('books/aubrie/') && i.slug !== 'books/aubrie');
-  const loreItems = items.filter((i) => !i.slug.startsWith('books/katie') && !i.slug.startsWith('books/aubrie'));
+  const aubrieCorrespondence = items.filter((i) => i.slug.startsWith('books/aubrie/correspondence/'));
+  const loreItems = items.filter(
+    (i) =>
+      !i.slug.startsWith('books/rachel') &&
+      !i.slug.startsWith('books/katie') &&
+      !i.slug.startsWith('books/aubrie')
+  );
+  const hubs = items.filter(
+    (i) => i.slug === 'books/rachel' || i.slug === 'books/katie' || i.slug === 'books/aubrie'
+  );
 
   const eras = [
-    { label: 'Origins (1872–1999)', test: (y) => y > 0 && y < 2000, count: 0 },
+    { label: 'Origins & 1990s (1872–2000)', test: (y) => y > 0 && y <= 2000, count: 0 },
     { label: '2001–2010 Era', test: (y) => y >= 2001 && y <= 2010, count: 0 },
     { label: '2014–2015 CPI Era', test: (y) => y >= 2011 && y <= 2015, count: 0 },
     { label: '2016 Capitol Era', test: (y) => y >= 2016 && y <= 2020, count: 0 },
-    { label: '2027–2044 Senate Era', test: (y) => y >= 2021, count: 0 }
+    { label: '2026–2044 Vault & Senate Era', test: (y) => y >= 2021, count: 0 }
   ];
 
   for (const item of items) {
@@ -2410,26 +3022,65 @@ function computeArchiveGroups(items) {
     if (bucket) bucket.count++;
   }
 
+  // Compute live sparkline buckets for each series from actual item dates
+  const computeSeriesBuckets = (arr, ranges) =>
+    ranges
+      .map(([minY, maxY]) =>
+        arr.filter((it) => {
+          const y = Number(String(it.date || '').slice(0, 4)) || 0;
+          return y >= minY && y <= maxY;
+        }).length
+      )
+      .join(' ');
+
+  const sparklines = {
+    total: eras.map((e) => e.count).join(' '),
+    rachel: computeSeriesBuckets(rachelDossiers, [
+      [1995, 1995],
+      [1999, 2000],
+      [2005, 2007],
+      [2026, 2030]
+    ]),
+    katie: computeSeriesBuckets(katieDossiers, [
+      [2001, 2004],
+      [2005, 2008],
+      [2015, 2016],
+      [2026, 2027],
+      [2028, 2044]
+    ]),
+    aubrie: `${aubrieCorrespondence.length} ${Math.max(1, aubrieDossiers.length - aubrieCorrespondence.length)} ${aubrieDossiers.length}`,
+    lore: `1 ${Math.max(1, loreItems.length - 1)} ${loreItems.length}`
+  };
+
   return {
+    rachelAll,
+    rachelDossiers,
     katieAll,
     katieDossiers,
     aubrieAll,
     aubrieDossiers,
+    aubrieCorrespondence,
     loreItems,
     eras,
+    sparklines,
     counts: {
+      rachel: rachelAll.length,
+      rachelDossiers: rachelDossiers.length,
       katie: katieAll.length,
       katieDossiers: katieDossiers.length,
       aubrie: aubrieAll.length,
       aubrieDossiers: aubrieDossiers.length,
+      aubrieCorrespondence: aubrieCorrespondence.length,
       lore: loreItems.length,
+      hubs: hubs.length,
       total: items.length
     }
   };
 }
 
 /**
- * Renders an individual Backstage dossier, correspondence, or collection hub page.
+ * Renders an individual Backstage dossier, correspondence, or collection hub page
+ * utilizing `<wa-page>`'s `subheader` (breadcrumbs) and `aside` (On This Page & Story Links).
  */
 function renderItemPage(item, allItems, groups) {
   const col = describeCollection(item);
@@ -2468,17 +3119,20 @@ function renderItemPage(item, allItems, groups) {
     `);
   }
 
+  const isRachel = item.slug.startsWith('books/rachel');
   const isKatie = item.slug.startsWith('books/katie');
   const isAubrie = item.slug.startsWith('books/aubrie');
-  const isCollectionHub = item.slug === 'books/katie' || item.slug === 'books/aubrie';
+  const isCollectionHub =
+    item.slug === 'books/rachel' || item.slug === 'books/katie' || item.slug === 'books/aubrie';
 
-  // On /books/katie and /books/aubrie hub pages, render all child dossiers as interactive cards
   const hubChildren =
-    item.slug === 'books/katie'
-      ? groups.katieDossiers
-      : item.slug === 'books/aubrie'
-        ? groups.aubrieDossiers
-        : [];
+    item.slug === 'books/rachel'
+      ? groups.rachelDossiers
+      : item.slug === 'books/katie'
+        ? groups.katieDossiers
+        : item.slug === 'books/aubrie'
+          ? groups.aubrieDossiers
+          : [];
 
   const hubGridHtml =
     hubChildren.length > 0
@@ -2487,7 +3141,7 @@ function renderItemPage(item, allItems, groups) {
       <div class="bs-section-head">
         <h2 id="collection-cards-heading" class="bs-section-title">
           <wa-icon family="duotone" name="layer-group" swap-opacity aria-hidden="true"></wa-icon>
-          Browse All ${hubChildren.length} Companion Records
+          Browse All ${hubChildren.length} Companion Dossiers
         </h2>
       </div>
       <div class="bs-grid">
@@ -2500,12 +3154,22 @@ function renderItemPage(item, allItems, groups) {
     ? []
     : allItems
         .filter((other) => {
-          if (other.slug === item.slug || other.slug === 'books/katie' || other.slug === 'books/aubrie') {
+          if (
+            other.slug === item.slug ||
+            other.slug === 'books/rachel' ||
+            other.slug === 'books/katie' ||
+            other.slug === 'books/aubrie'
+          ) {
             return false;
           }
+          if (isRachel) return other.slug.startsWith('books/rachel/');
           if (isKatie) return other.slug.startsWith('books/katie/');
           if (isAubrie) return other.slug.startsWith('books/aubrie/');
-          return !other.slug.startsWith('books/katie') && !other.slug.startsWith('books/aubrie');
+          return (
+            !other.slug.startsWith('books/rachel') &&
+            !other.slug.startsWith('books/katie') &&
+            !other.slug.startsWith('books/aubrie')
+          );
         })
         .slice(0, 6);
 
@@ -2530,37 +3194,117 @@ function renderItemPage(item, allItems, groups) {
     </section>`
       : '';
 
-  const parentCollectionHref =
-    item.slug === 'books/katie' || item.slug === 'books/aubrie'
-      ? null
+  const parentCollectionHref = isCollectionHub
+    ? null
+    : isRachel
+      ? '/books/rachel'
       : isKatie
         ? '/books/katie'
         : isAubrie
           ? '/books/aubrie'
           : null;
 
-  const parentCollectionLabel = isKatie
-    ? `Katie & Nathaniel Archive (${groups.counts.katieDossiers})`
-    : isAubrie
-      ? `The Eleventh Child Archive (${groups.counts.aubrieDossiers})`
-      : '';
+  const parentCollectionLabel = isRachel
+    ? `The Rachel Narrative (${groups.counts.rachelDossiers} Dossiers)`
+    : isKatie
+      ? `Katie & Nathaniel (${groups.counts.katieDossiers} Dossiers)`
+      : isAubrie
+        ? `The Eleventh Child (${groups.counts.aubrieDossiers} Files)`
+        : '';
 
-  const bodyHtml = `
-    <div class="bs-breadcrumb-wrap">
-      <wa-breadcrumb label="Backstage Archive Path">
-        <wa-breadcrumb-item href="/">
-          <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
-          RaggieSoft Backstage
-        </wa-breadcrumb-item>
+  const subheaderHtml = `
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            ${
+              parentCollectionHref
+                ? `<wa-breadcrumb-item href="${parentCollectionHref}">${escapeHtml(parentCollectionLabel)}</wa-breadcrumb-item>`
+                : ''
+            }
+            <wa-breadcrumb-item>${escapeHtml(item.title)}</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>`;
+
+  // Sticky right-hand <wa-page slot="aside"> rail on individual dossier/guide pages
+  const tocItems = Array.isArray(item.toc) ? item.toc : [];
+  const asideHtml = isCollectionHub
+    ? ''
+    : `
+      <div slot="aside" class="bs-aside-rail">
         ${
-          parentCollectionHref
-            ? `<wa-breadcrumb-item href="${parentCollectionHref}">${escapeHtml(parentCollectionLabel)}</wa-breadcrumb-item>`
+          tocItems.length > 0
+            ? `<wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  ${tocItems
+                    .map(
+                      (h) =>
+                        `<li><a href="#${escapeHtml(h.id)}" class="bs-toc-link">${escapeHtml(h.text)}</a></li>`
+                    )
+                    .join('\n                  ')}
+                </ul>
+              </wa-card>`
             : ''
         }
-        <wa-breadcrumb-item>${escapeHtml(item.title)}</wa-breadcrumb-item>
-      </wa-breadcrumb>
-    </div>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            ${
+              item.relatedBookUrl
+                ? `<wa-button variant="brand" size="small" href="${escapeHtml(item.relatedBookUrl)}">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    ${escapeHtml(item.relatedBookLabel)} ↗
+                  </wa-button>`
+                : ''
+            }
+            ${
+              parentCollectionHref
+                ? `<wa-button variant="neutral" appearance="outlined" size="small" href="${parentCollectionHref}">
+                    <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                    ${escapeHtml(parentCollectionLabel)}
+                  </wa-button>`
+                : ''
+            }
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="${escapeHtml(item.canonicalUrl)}" label="QR code to open ${escapeHtml(item.title)} on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>`;
 
+  // LCP Hero Illustration when `item.image` is present (`fetchpriority="high"`, never `loading="lazy"`)
+  const heroMediaHtml = item.image
+    ? `
+    <figure class="bs-dossier-hero">
+      <img
+        src="${escapeHtml(item.image)}"
+        alt="${escapeHtml(item.imageAlt || item.title)}"
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      ${
+        item.imageAlt
+          ? `<figcaption class="bs-dossier-hero-caption">${escapeHtml(item.imageAlt)}</figcaption>`
+          : ''
+      }
+    </figure>`
+    : '';
+
+  const bodyHtml = `
     <div class="bs-hero">
       <div class="bs-badge-strip">
         <wa-badge variant="${col.badgeVariant}" appearance="filled" pill>
@@ -2616,6 +3360,8 @@ function renderItemPage(item, allItems, groups) {
       ${metaBlocks.length > 0 ? `<div class="bs-meta-grid">${metaBlocks.join('')}</div>` : ''}
     </div>
 
+    ${heroMediaHtml}
+
     <wa-card class="bs-article-card">
       <article class="bs-article-prose" aria-label="${escapeHtml(item.title)}">
         ${item.html}
@@ -2630,17 +3376,34 @@ function renderItemPage(item, allItems, groups) {
     title: `${item.title} | RaggieSoft Backstage`,
     description: item.summary,
     canonicalPath: item.routePath,
+    ogImage: item.ogImage || resolveOgImageForSlug(item.slug),
+    ogImageAlt: item.imageAlt || item.summary || item.title,
     counts: groups.counts,
+    subheaderHtml,
+    asideHtml,
     bodyHtml
   });
 }
 
 /**
  * Renders the flagship RaggieSoft Backstage homepage (`/index.html`) showcasing
- * Web Awesome Pro 3.13.0 and Font Awesome Pro+.
+ * Web Awesome Pro 3.13.0 `<wa-page>`, `<wa-carousel>`, `<wa-data-grid>`, `<wa-tree>`,
+ * `<wa-bar-chart>`, `<wa-doughnut-chart>`, `<wa-sparkline>`, and Font Awesome Pro+.
  */
 function renderHomePage(items, groups) {
-  const { katieAll, katieDossiers, aubrieAll, aubrieDossiers, loreItems, eras, counts } = groups;
+  const {
+    rachelAll,
+    rachelDossiers,
+    katieAll,
+    katieDossiers,
+    aubrieAll,
+    aubrieDossiers,
+    aubrieCorrespondence,
+    loreItems,
+    eras,
+    sparklines,
+    counts
+  } = groups;
 
   // Build clean client dataset for <wa-data-grid> and <wa-tree>
   const ledgerRows = items.map((item) => {
@@ -2656,7 +3419,7 @@ function renderHomePage(items, groups) {
     };
   });
 
-  const defaultTreeItem = katieDossiers[0] || items[0];
+  const defaultTreeItem = rachelDossiers[0] || katieDossiers[0] || items[0];
 
   const barChartConfig = {
     data: {
@@ -2673,6 +3436,7 @@ function renderHomePage(items, groups) {
   const doughnutChartConfig = {
     data: {
       labels: [
+        `The Rachel Narrative (${counts.rachel})`,
         `Katie & Nathaniel (${counts.katie})`,
         `The Eleventh Child (${counts.aubrie})`,
         `Campus, Music & Corporate (${counts.lore})`
@@ -2680,35 +3444,139 @@ function renderHomePage(items, groups) {
       datasets: [
         {
           label: 'Records by Collection',
-          data: [counts.katie, counts.aubrie, counts.lore]
+          data: [counts.rachel, counts.katie, counts.aubrie, counts.lore]
         }
       ]
     }
   };
 
   const searchChips = [
+    'Bear and Bug',
+    'Ashley Raybourn',
     'Dirksen Room 511',
     'HB 663',
-    'Barton Hall',
     'Suite 214/216',
     'Commonwealth Polytechnic',
-    'Stardust Engine'
+    'Stardust Engine',
+    'Code Susquehanna'
   ];
+
+  const featuredSlides = [
+    {
+      kicker: 'The Rachel Narrative • Bear & Bug Sanctuary',
+      title: 'Why Rachel Is the Center of Michael’s Universe',
+      desc: 'Ten behind-the-scenes dossiers spanning the 1995 living room sanctuary, school nurse briefings, Lynnhaven Seondu, and the 2026 vault.',
+      src: 'https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/rachel-bug-and-bear-sanctuary.jpg',
+      alt: 'Young teenage Michael and younger sister Rachel seated peacefully side-by-side on their sunlit Virginia Beach living room sofa in modest everyday clothing with two black Labradors resting calmly at their feet.',
+      href: '/books/rachel',
+      cta: `Explore Rachel (${counts.rachelDossiers} Dossiers)`
+    },
+    {
+      kicker: 'May 13, 1999 • Morrison Middle School Band Corridor',
+      title: 'The Wingman Briefing: Ashley Raybourn & Bonnie Reed',
+      desc: 'Two days before Brewster Gardens, Ashley pulls Bonnie into the hallway outside the band room to explain Michael’s grounding hugs and “The Trio.”',
+      src: 'https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/rachel-wingman-briefing-ashley-bonnie-1999.jpg',
+      alt: 'Fourteen-year-old eighth-grader Ashley Raybourn in her light sky-blue crewneck t-shirt and golden-blonde ponytail holding wooden snare drumsticks outside the Morrison Middle School band room doors as she talks earnestly with Bonnie Reed in her deep-burgundy long-sleeve top cradling her black music binder.',
+      href: '/books/rachel/the-wingman-briefing-ashley-and-bonnie',
+      cta: 'Read the Hallway Briefing'
+    },
+    {
+      kicker: 'Katie & Nathaniel • 2001–2044 Companion Archive',
+      title: 'Senators Katie & Nathaniel Prairie on Capitol Hill',
+      desc: 'From Barton Hall’s Rec Hall and Richmond’s HB 663 showdown to Dirksen Room 511 and the 2044 Route 15 Bus-Stop Primary.',
+      src: 'https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg',
+      alt: 'Senators Katie and Nathaniel Prairie rolling side-by-side in their custom power wheelchairs down a sunlit marble corridor in the United States Senate.',
+      href: '/books/katie',
+      cta: `Explore Katie & Nathaniel (${counts.katieDossiers} Dossiers)`
+    },
+    {
+      kicker: 'Locations & Architecture • Founded 1872',
+      title: 'Commonwealth Polytechnic Institute (CPI) — Preston Hall & The Green',
+      desc: 'Explore Appalachian Ironstone towers, Kincaid Hall & Kincaid Commons, The Crucible, and the Poly Pass transit network.',
+      src: 'https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-preston-hall-commonwealth-green.jpg',
+      alt: 'Preston Hall’s Neo-Gothic Ironstone turrets overlooking the sweeping oval lawn of Commonwealth Green in Blacksburg autumn sunlight.',
+      href: '/locations/cpi',
+      cta: 'Open CPI Campus Guide'
+    },
+    {
+      kicker: 'Blacksburg Regional Transit • Commonwealth Mall',
+      title: 'The Keystone Bridge & Blue Ridge Transit Route 1',
+      desc: 'How regional low-floor Prairie Coachworks buses connect Commonwealth Mall, Kincaid Hall, and Christiansburg on a student Poly Pass.',
+      src: 'https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-keystone-bridge-commonwealth-mall.jpg',
+      alt: 'The monumental Ironstone arch of The Keystone Bridge spanning Commonwealth Mall at dusk as an accessible low-floor Blue Ridge Transit bus glides beneath warm campus streetlights.',
+      href: '/locations/cpi#sec-4-the-poly-pass-regional-transit-ecosystem',
+      cta: 'Explore Poly Pass Transit'
+    },
+    {
+      kicker: 'The Eleventh Child • Eleanor Bennett Commonwealth Hall',
+      title: 'Suite 214/216 & CPI Administrative Correspondence',
+      desc: 'Read Residence Life, Office of Educational Accessibility, Radford Transit, and Isabel Dawson’s Room 215 records.',
+      src: 'https://assets.raggiesoft.com/raggiesoft-books/images/scenes/aubrie/baselines/room-214-lived-in-baseline.jpg',
+      alt: 'Warm sunlit dorm interior of accessible Suite 214 at Eleanor Bennett Commonwealth Hall on the West Campus quad of CPI.',
+      href: '/books/aubrie',
+      cta: `Explore Eleventh Child (${counts.aubrieDossiers} Files)`
+    },
+    {
+      kicker: 'Engine Room Records • Progress Street NE, 1986',
+      title: 'The Stardust Engine & 300 Marching Forgers',
+      desc: 'How siblings Ryan, Cassidy, and Holly O’Connell and twin cousins Evan and Tyler Wright forged their 1986 Blacksburg debut.',
+      src: 'https://assets.raggiesoft.com/raggiesoft-books/images/scenes/aubrie/e008/c004/p002/stardust-engine-300-marching-forgers.jpg',
+      alt: 'The Stardust Engine performing alongside 300 Marching Forgers brass and percussion musicians under stadium lights in Blacksburg.',
+      href: '/music/stardust-engine-origins',
+      cta: 'Read 1986 Band Origins'
+    }
+  ];
+
+  const carouselSlidesHtml = featuredSlides
+    .map((slide, idx) => {
+      // Slide 0 is the above-the-fold LCP image (fetchpriority="high", NO loading="lazy");
+      // slides 1..6 are initially hidden carousel slides (fetchpriority="low" loading="lazy").
+      const priorityAttrs =
+        idx === 0 ? 'fetchpriority="high"' : 'fetchpriority="low" loading="lazy"';
+      return `
+          <wa-carousel-item>
+            <figure class="bs-slide-frame">
+              <img
+                src="${escapeHtml(slide.src)}"
+                alt="${escapeHtml(slide.alt)}"
+                width="1408"
+                height="768"
+                ${priorityAttrs}
+                class="bs-slide-img"
+              />
+              <figcaption class="bs-slide-overlay">
+                <div class="bs-slide-copy">
+                  <span class="bs-slide-kicker">${escapeHtml(slide.kicker)}</span>
+                  <h3 class="bs-slide-title">${escapeHtml(slide.title)}</h3>
+                  <p class="bs-slide-desc">${escapeHtml(slide.desc)}</p>
+                </div>
+                <wa-button variant="brand" size="small" href="${slide.href}">
+                  ${escapeHtml(slide.cta)}
+                  <wa-icon slot="end" family="classic" variant="solid" name="arrow-right" aria-hidden="true"></wa-icon>
+                </wa-button>
+              </figcaption>
+            </figure>
+          </wa-carousel-item>`;
+    })
+    .join('\n');
 
   const bodyHtml = `
     <div class="bs-hero">
       <div class="bs-badge-strip">
         <wa-badge variant="brand" appearance="filled" pill>
-          <wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Official Companion Archive
+          <wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Official Companion Archive (${counts.total} Live Records)
+        </wa-badge>
+        <wa-badge variant="success" appearance="filled-outlined" pill>
+          <wa-icon family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>&nbsp;${counts.rachelDossiers} Rachel Dossiers
         </wa-badge>
         <wa-badge variant="neutral" appearance="filled-outlined" pill>
-          <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>&nbsp;${counts.katie} Katie &amp; Nathaniel Records
+          <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>&nbsp;${counts.katieDossiers} Katie &amp; Nathaniel Dossiers
         </wa-badge>
         <wa-badge variant="neutral" appearance="filled-outlined" pill>
-          <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>&nbsp;${counts.aubrie} Eleventh Child Records
+          <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>&nbsp;${counts.aubrieDossiers} Eleventh Child Files
         </wa-badge>
         <wa-badge variant="neutral" appearance="filled-outlined" pill>
-          <wa-icon family="duotone" name="building-columns" aria-hidden="true"></wa-icon>&nbsp;${counts.lore} Campus, Music &amp; Corporate Guides
+          <wa-icon family="duotone" name="building-columns" aria-hidden="true"></wa-icon>&nbsp;${counts.lore} Worldbuilding Guides
         </wa-badge>
       </div>
 
@@ -2716,25 +3584,29 @@ function renderHomePage(items, groups) {
         RaggieSoft Backstage: Behind the Scenes &amp; In-Universe Bonus Features
       </h1>
       <p class="bs-subtitle">
-        Every Ocean View Archives novel stays anchored to its narrator&rsquo;s lived, in-the-moment point of view. <strong>RaggieSoft Backstage</strong> opens the closed doors down the hall—revealing what happened across the courtyard at <strong>Roosevelt Rehabilitation Center</strong>, inside the <strong>Virginia State Capitol</strong> and <strong>Dirksen Room 511</strong>, and across the campus of <strong>Commonwealth Polytechnic Institute (CPI)</strong>.
+        Every Ocean View Archives novel stays anchored to its narrator&rsquo;s lived, in-the-moment point of view. <strong>RaggieSoft Backstage</strong> opens the closed doors down the hall—revealing what happened outside the <strong>Morrison Middle School Band Room</strong>, across the courtyard at <strong>Roosevelt Rehabilitation Center</strong>, inside <strong>Dirksen Room 511</strong>, and across the campus of <strong>Commonwealth Polytechnic Institute (CPI)</strong>.
       </p>
 
       <wa-callout variant="brand">
         <wa-icon slot="icon" family="duotone" name="stars" swap-opacity aria-hidden="true"></wa-icon>
-        <strong>Featured Collection — <em>Katie &amp; Nathaniel</em> Behind-the-Scenes Archive (${counts.katieDossiers} Dossiers, 2001–2044):</strong>
-        Discover how Barton Hall staff tracked Nate and Katie to the Rec Hall at 11:00 PM (and why locking a notorious student hookup closet&rsquo;s door is what actually got them caught), Majority Leader Richard Callaway&rsquo;s closed-door post-mortem on <em>HB 663</em>, Commissioner Sterling and Director Cross&rsquo;s nine stages of panic in <strong>Dirksen Room 511</strong>, and three-term Senator Katie Prairie&rsquo;s <strong>2044 Route 15 Bus-Stop Primary</strong>.
+        <strong>New Addition — <em>The Rachel Narrative</em> Behind-the-Scenes Archive (${counts.rachelDossiers} Dossiers, 1995–2026):</strong>
+        Step into the hallway outside the Morrison Band Room as <strong>Ashley Raybourn</strong> explains to <strong>Bonnie Reed</strong> who sixth-grader Rachel is and why she is the center of Michael&rsquo;s universe—alongside David Miller&rsquo;s 1995 precinct interview, the confidential school-nurse briefing, Jessica Miller&rsquo;s 1999 bare-metal discovery inside <em>PROGMAN.EXE</em>, and <strong>Code Susquehanna</strong>.
         <div class="bs-action-row">
-          <wa-button variant="brand" size="small" href="/books/katie">
-            <wa-icon slot="start" family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>
-            Explore Katie &amp; Nathaniel (${counts.katie})
+          <wa-button variant="brand" size="small" href="/books/rachel/the-wingman-briefing-ashley-and-bonnie">
+            <wa-icon slot="start" family="duotone" name="comments" swap-opacity aria-hidden="true"></wa-icon>
+            Read Ashley &amp; Bonnie&rsquo;s Briefing
           </wa-button>
-          <wa-button variant="neutral" appearance="outlined" size="small" href="/books/aubrie">
-            <wa-icon slot="start" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
-            Explore The Eleventh Child (${counts.aubrie})
+          <wa-button variant="neutral" appearance="outlined" size="small" href="/books/rachel">
+            <wa-icon slot="start" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+            Rachel Archive (${counts.rachelDossiers})
           </wa-button>
-          <wa-button variant="neutral" appearance="outlined" size="small" href="https://books.raggiesoft.com">
-            <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
-            Open RaggieSoft Book Reader ↗
+          <wa-button variant="neutral" appearance="outlined" size="small" href="/books/katie">
+            <wa-icon slot="start" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+            Katie &amp; Nathaniel (${counts.katieDossiers})
+          </wa-button>
+          <wa-button variant="neutral" appearance="outlined" size="small" href="/locations/cpi">
+            <wa-icon slot="start" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+            CPI Campus Guide
           </wa-button>
         </div>
       </wa-callout>
@@ -2755,7 +3627,7 @@ function renderHomePage(items, groups) {
           size="large"
           pill
           with-clear
-          placeholder="Try 'Dirksen Room 511', 'HB 663', 'Uncle Richard', 'Barton Hall', 'Suite 756', or 'Kelsey Brennan'…"
+          placeholder="Try 'Bear and Bug', 'Ashley Raybourn', 'Dirksen Room 511', 'HB 663', 'Suite 214/216', or 'PROGMAN.EXE'…"
         >
           <wa-icon slot="start" family="duotone" name="magnifying-glass" aria-hidden="true"></wa-icon>
         </wa-input>
@@ -2771,6 +3643,21 @@ function renderHomePage(items, groups) {
       </search>
     </div>
 
+    <!-- Visual Scene Tour (<wa-carousel>) -->
+    <section class="bs-carousel-section" aria-labelledby="scene-tour-heading">
+      <div class="bs-section-head">
+        <h2 id="scene-tour-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="panorama" swap-opacity aria-hidden="true"></wa-icon>
+          Scenes &amp; Worlds Across RaggieSoft Backstage
+        </h2>
+        <p class="bs-section-lead">Step inside illustrated moments from Virginia Beach, Blacksburg, Richmond, and the United States Senate.</p>
+      </div>
+
+      <wa-carousel navigation pagination loop mouse-dragging class="bs-scene-carousel">
+        ${carouselSlidesHtml}
+      </wa-carousel>
+    </section>
+
     <!-- Archive Pulse Highlight Strip (<wa-card> + <wa-sparkline>) -->
     <section aria-labelledby="archive-pulse-heading">
       <div class="bs-section-head">
@@ -2778,7 +3665,7 @@ function renderHomePage(items, groups) {
           <wa-icon family="duotone" name="chart-mixed" swap-opacity aria-hidden="true"></wa-icon>
           Archive at a Glance
         </h2>
-        <p class="bs-section-lead">Spanning 172 years of in-universe history across Virginia, Ontario, Michigan, and Washington, D.C.</p>
+        <p class="bs-section-lead">100% live counts compiled directly from ${counts.total} published Markdown files (${counts.total - counts.hubs} individual dossiers &amp; guides + ${counts.hubs} series hubs).</p>
       </div>
 
       <div class="bs-pulse-grid">
@@ -2789,11 +3676,23 @@ function renderHomePage(items, groups) {
               <span class="bs-pulse-value">${counts.total}</span>
             </div>
             <wa-badge variant="brand" appearance="filled" pill>
-              <wa-icon family="duotone" name="box-archive" aria-hidden="true"></wa-icon>&nbsp;Complete
+              <wa-icon family="duotone" name="box-archive" aria-hidden="true"></wa-icon>&nbsp;Live
             </wa-badge>
           </div>
-          <wa-sparkline data="${eras.map((e) => e.count).join(' ')}" appearance="gradient" curve="natural" trend="positive" label="Distribution of ${counts.total} records across five narrative eras"></wa-sparkline>
-          <p class="bs-pulse-caption">Every chapter companion dossier, campus guide, and correspondence thread.</p>
+          <wa-sparkline data="${sparklines.total}" appearance="gradient" curve="natural" trend="positive" label="Distribution of ${counts.total} records across five narrative eras"></wa-sparkline>
+          <p class="bs-pulse-caption">Every companion dossier, correspondence thread, worldbuilding guide, and series index.</p>
+        </wa-card>
+
+        <wa-card class="bs-pulse-card">
+          <div class="bs-pulse-top">
+            <div>
+              <span class="bs-pulse-title">The Rachel Narrative</span>
+              <span class="bs-pulse-value">${counts.rachelDossiers} Dossiers</span>
+            </div>
+            <wa-badge variant="success" appearance="filled-outlined" pill>1995–2026</wa-badge>
+          </div>
+          <wa-sparkline data="${sparklines.rachel}" appearance="gradient" curve="natural" trend="positive" label="The Rachel Narrative dossiers from 1995 through 2026"></wa-sparkline>
+          <p class="bs-pulse-caption">Bear &amp; Bug sanctuary protocols, Ashley &amp; Bonnie&rsquo;s 1999 hallway briefing, and Code Susquehanna.</p>
         </wa-card>
 
         <wa-card class="bs-pulse-card">
@@ -2804,8 +3703,8 @@ function renderHomePage(items, groups) {
             </div>
             <wa-badge variant="brand" appearance="filled-outlined" pill>2001–2044</wa-badge>
           </div>
-          <wa-sparkline data="1 2 3 1 2 5" appearance="gradient" curve="natural" trend="positive" label="Katie and Nathaniel dossiers from 2001 through 2044"></wa-sparkline>
-          <p class="bs-pulse-caption">Plus the master chronological hub covering Tidewater, Fishersville, Richmond, and the Senate.</p>
+          <wa-sparkline data="${sparklines.katie}" appearance="gradient" curve="natural" trend="positive" label="Katie and Nathaniel dossiers from 2001 through 2044"></wa-sparkline>
+          <p class="bs-pulse-caption">Tidewater, Roosevelt Rehab, Capitol Square, Dirksen Room 511, and the U.S. Senate.</p>
         </wa-card>
 
         <wa-card class="bs-pulse-card">
@@ -2816,8 +3715,8 @@ function renderHomePage(items, groups) {
             </div>
             <wa-badge variant="neutral" appearance="filled-outlined" pill>2014–2015</wa-badge>
           </div>
-          <wa-sparkline data="4 4 2 1 1" appearance="gradient" curve="natural" trend="neutral" label="Eleventh Child dispatches across Fall 2014 and Summer 2015"></wa-sparkline>
-          <p class="bs-pulse-caption">10 CPI administrative mail dispatches, Isabel&rsquo;s Room 215 notes, and Zoë&rsquo;s cognitive logs.</p>
+          <wa-sparkline data="${sparklines.aubrie}" appearance="gradient" curve="natural" trend="neutral" label="Eleventh Child dispatches across Fall 2014 and Summer 2015"></wa-sparkline>
+          <p class="bs-pulse-caption">${counts.aubrieCorrespondence} CPI administrative mail dispatches, Isabel&rsquo;s Room 215 notes, and Zoë&rsquo;s cognitive logs.</p>
         </wa-card>
 
         <wa-card class="bs-pulse-card">
@@ -2828,7 +3727,7 @@ function renderHomePage(items, groups) {
             </div>
             <wa-badge variant="warning" appearance="filled-outlined" pill>1872–2001</wa-badge>
           </div>
-          <wa-sparkline data="1 2 3" appearance="gradient" curve="natural" trend="positive" label="Foundational campus, music, and corporate lore guides"></wa-sparkline>
+          <wa-sparkline data="${sparklines.lore}" appearance="gradient" curve="natural" trend="positive" label="Foundational campus, music, and corporate lore guides"></wa-sparkline>
           <p class="bs-pulse-caption">CPI Blacksburg architecture, The Stardust Engine&rsquo;s 1986 debut, and Vectron Energy Corp.</p>
         </wa-card>
       </div>
@@ -2845,6 +3744,9 @@ function renderHomePage(items, groups) {
       </div>
 
       <wa-tab-group id="bs-main-tabs">
+        <wa-tab slot="nav" panel="rachel">
+          <wa-icon family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>&nbsp;Rachel (${counts.rachelDossiers})
+        </wa-tab>
         <wa-tab slot="nav" panel="katie">
           <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel (${counts.katieDossiers})
         </wa-tab>
@@ -2861,8 +3763,17 @@ function renderHomePage(items, groups) {
           <wa-icon family="duotone" name="folder-tree" aria-hidden="true"></wa-icon>&nbsp;Folder Tree
         </wa-tab>
         <wa-tab slot="nav" panel="all">
-          <wa-icon family="duotone" name="layer-group" aria-hidden="true"></wa-icon>&nbsp;All (${counts.total})
+          <wa-icon family="duotone" name="layer-group" aria-hidden="true"></wa-icon>&nbsp;All Records (${counts.total})
         </wa-tab>
+
+        <wa-tab-panel name="rachel">
+          <p class="bs-section-lead">
+            Companion dossiers to <a href="https://books.raggiesoft.com/rachel" class="bs-link"><em>The Rachel Narrative</em></a> documenting scenes and institutional records that unfolded outside Michael&rsquo;s first-person point of view—from August 1995 in Chesapeake and Virginia Beach to May 1999 outside the Morrison Band Room and October 2026 inside the Bear &amp; Bug Vault.
+          </p>
+          <div class="bs-grid">
+            ${rachelDossiers.map((i) => renderDossierCard(i, false)).join('\n')}
+          </div>
+        </wa-tab-panel>
 
         <wa-tab-panel name="katie">
           <p class="bs-section-lead">
@@ -2884,7 +3795,7 @@ function renderHomePage(items, groups) {
 
         <wa-tab-panel name="lore">
           <p class="bs-section-lead">
-            Architectural blueprints in prose for <strong>Commonwealth Polytechnic Institute (CPI)</strong> in Blacksburg, the 1986 origins of <strong>The Stardust Engine</strong> on Progress Street NE, and the <strong>Vectron Energy Corp.</strong> archive.
+            Illustrated campus guide for <strong>Commonwealth Polytechnic Institute (CPI)</strong> in Blacksburg, the 1986 origins of <strong>The Stardust Engine</strong> on Progress Street NE, and the <strong>Vectron Energy Corp.</strong> archive.
           </p>
           <div class="bs-grid">
             ${loreItems.map((i) => renderDossierCard(i, false)).join('\n')}
@@ -2940,12 +3851,22 @@ function renderHomePage(items, groups) {
             <wa-card class="bs-tree-pane">
               <wa-tree id="bs-archive-tree" selection="leaf" aria-label="Backstage Archive Folders">
                 <wa-tree-item expanded>
+                  <wa-icon family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                  The Rachel Narrative (${counts.rachel})
+                  ${rachelAll
+                    .map(
+                      (item, idx) =>
+                        `<wa-tree-item data-slug="${escapeHtml(item.slug)}"${idx === 0 ? ' selected' : ''}>${escapeHtml(item.date ? `${item.date} — ${item.title}` : item.title)}</wa-tree-item>`
+                    )
+                    .join('\n                  ')}
+                </wa-tree-item>
+                <wa-tree-item expanded>
                   <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
                   Katie &amp; Nathaniel (${counts.katie})
                   ${katieAll
                     .map(
-                      (item, idx) =>
-                        `<wa-tree-item data-slug="${escapeHtml(item.slug)}"${idx === 0 ? ' selected' : ''}>${escapeHtml(item.date ? `${item.date} — ${item.title}` : item.title)}</wa-tree-item>`
+                      (item) =>
+                        `<wa-tree-item data-slug="${escapeHtml(item.slug)}">${escapeHtml(item.date ? `${item.date} — ${item.title}` : item.title)}</wa-tree-item>`
                     )
                     .join('\n                  ')}
                 </wa-tree-item>
@@ -3001,7 +3922,7 @@ function renderHomePage(items, groups) {
         </wa-tab-panel>
 
         <wa-tab-panel name="all">
-          <p class="bs-section-lead">Complete index of all ${counts.total} RaggieSoft Backstage records.</p>
+          <p class="bs-section-lead">Complete index of all ${counts.total} RaggieSoft Backstage records (including series overview hubs).</p>
           <div class="bs-grid">
             ${items.map((i) => renderDossierCard(i, true)).join('\n')}
           </div>
@@ -3032,7 +3953,7 @@ function renderHomePage(items, groups) {
               <script type="application/json">${safeJsonForScript(barChartConfig)}</script>
             </wa-bar-chart>
             <figcaption class="bs-chart-caption">
-              Chronological distribution from CPI&rsquo;s 1872 founding and The Stardust Engine&rsquo;s 1986 Blacksburg debut to Katie Prairie&rsquo;s 2044 Route 15 primary.
+              Chronological distribution from CPI&rsquo;s 1872 founding, The Stardust Engine&rsquo;s 1986 debut, and 1995–1999 Virginia Beach to the 2044 Route 15 primary.
             </figcaption>
           </figure>
         </wa-card>
@@ -3041,7 +3962,7 @@ function renderHomePage(items, groups) {
           <figure class="bs-chart-figure">
             <wa-doughnut-chart
               label="Published Backstage Records by Narrative Collection"
-              description="Doughnut chart showing proportion of records across Katie and Nathaniel, The Eleventh Child, and Worldbuilding guides."
+              description="Doughnut chart showing proportion of records across The Rachel Narrative, Katie and Nathaniel, The Eleventh Child, and Worldbuilding guides."
               legend-position="bottom"
             >
               <script type="application/json">${safeJsonForScript(doughnutChartConfig)}</script>
@@ -3070,6 +3991,7 @@ function renderHomePage(items, groups) {
                   `<tr><td>Story Era</td><td>${escapeHtml(e.label)}</td><td>${e.count}</td></tr>`
               )
               .join('\n            ')}
+            <tr><td>Collection</td><td>The Rachel Narrative</td><td>${counts.rachel}</td></tr>
             <tr><td>Collection</td><td>Katie &amp; Nathaniel</td><td>${counts.katie}</td></tr>
             <tr><td>Collection</td><td>The Eleventh Child</td><td>${counts.aubrie}</td></tr>
             <tr><td>Collection</td><td>Campus, Music &amp; Corporate Lore</td><td>${counts.lore}</td></tr>
@@ -3090,7 +4012,7 @@ function renderHomePage(items, groups) {
       <wa-accordion heading-level="3" appearance="outlined" mode="multiple">
         <wa-accordion-item label="Why do these behind-the-scenes scenes live in Backstage instead of inside the book chapters?" expanded>
           <p>
-            Every Ocean View Archives novel stays faithful to its narrator&rsquo;s lived point of view—such as Nathaniel Prairie&rsquo;s first-person narration in <em>Katie &amp; Nathaniel</em> or Jordan&rsquo;s close third-person perspective in <em>The Eleventh Child</em>. Housing closed-door meetings, staff dispatches, and across-town fallout inside <strong>RaggieSoft Backstage</strong> protects chapter immersion while rewarding curious readers with the full story behind the curtain.
+            Every Ocean View Archives novel stays faithful to its narrator&rsquo;s lived point of view—such as Michael&rsquo;s first-person narration in <em>The Rachel Narrative</em>, Nathaniel Prairie&rsquo;s first-person perspective in <em>Katie &amp; Nathaniel</em>, or Jordan&rsquo;s close third-person point of view in <em>The Eleventh Child</em>. Housing hallway briefings, closed-door meetings, and staff dispatches inside <strong>RaggieSoft Backstage</strong> protects chapter immersion while rewarding curious readers with the full story behind the curtain.
           </p>
         </wa-accordion-item>
         <wa-accordion-item label="How do Backstage bonus features work while reading on RaggieSoft Book Reader?">
@@ -3098,9 +4020,9 @@ function renderHomePage(items, groups) {
             Whenever a chapter on <a href="https://books.raggiesoft.com" class="bs-link">RaggieSoft Book Reader</a> has a companion dossier, a <strong>Behind the Scenes / Bonus Feature</strong> card appears at the end of the chapter. Selecting it opens the dossier right inside your reading view without losing your spot—or you can explore the complete archive directly here on <strong>RaggieSoft Backstage</strong>.
           </p>
         </wa-accordion-item>
-        <wa-accordion-item label="Can I customize the reading look or read offline on my phone or tablet?">
+        <wa-accordion-item label="Can I install RaggieSoft Backstage as an app or customize the reading look?">
           <p>
-            Yes! Select <strong>Appearance</strong> in the top bar at any time to switch between Light, Dark, or device-matched lighting, five distinct visual styles, and four editorial color palettes. You can also install <strong>RaggieSoft Backstage</strong> to your home screen for offline reading across all ${counts.total} records.
+            Yes! Select <strong>Install App</strong> in the top bar (or <strong>Share → Add to Home Screen</strong> on iPhone and iPad) to install <strong>RaggieSoft Backstage</strong> alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong> with offline access across all ${counts.total} records. Select <strong>Appearance</strong> at any time to switch between Light, Dark, or device-matched lighting, five distinct visual styles, and four editorial color palettes.
           </p>
         </wa-accordion-item>
       </wa-accordion>
@@ -3112,39 +4034,101 @@ function renderHomePage(items, groups) {
   return renderBackstageShell({
     title: 'RaggieSoft Backstage | Bonus Features & Lore Archive',
     description:
-      'Official behind-the-scenes bonus features, Katie & Nathaniel dossiers, CPI campus guide, and correspondence archive for RaggieSoft Books and Music.',
+      'Official behind-the-scenes bonus features, Rachel & Katie companion dossiers, CPI campus guide, and correspondence archive for RaggieSoft Books and Music.',
     canonicalPath: '/',
+    ogImage: `${OG_CDN_BASE}/backstage-hub-og.jpg`,
+    ogImageAlt:
+      'RaggieSoft Backstage — Illustrated 2x2 showcase featuring Bear and Bug Sanctuary, Katie and Nate in the U.S. Senate, CPI Preston Hall, and Ashley Raybourn with Bonnie Reed.',
     counts,
     bodyHtml
   });
 }
 
 /**
- * Generates `/manifest.json` and `/sw.js` for the RaggieSoft Backstage PWA.
+ * Generates `/manifest.json` and `/sw.js` for the RaggieSoft Backstage PWA,
+ * achieving full installable parity with RaggieSoft Book Reader & The Listening Room.
  */
 function buildPwaAssets(items) {
   const manifest = {
-    name: 'RaggieSoft Backstage — Bonus Features & Archive',
-    short_name: 'RS Backstage',
+    id: '/',
+    name: 'RaggieSoft Backstage — Bonus Features & Story Companion Archive',
+    short_name: 'Backstage',
     description:
-      'Immersive in-universe bonus features, Commonwealth Polytechnic Institute (CPI) campus guide, and companion dossiers for RaggieSoft Books and Music.',
+      'Immersive behind-the-scenes bonus features, The Rachel Narrative & Katie & Nathaniel dossiers, and Commonwealth Polytechnic Institute (CPI) campus guide for RaggieSoft Books and Music.',
     start_url: '/',
     scope: '/',
     display: 'standalone',
+    display_override: ['window-controls-overlay', 'standalone'],
+    orientation: 'any',
     background_color: '#070b14',
     theme_color: '#861f41',
+    categories: ['books', 'entertainment', 'music'],
     icons: [
       {
-        src: 'https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png',
+        src: `/icons/icon-192.png?v=${ASSET_VERSION}`,
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'any'
+      },
+      {
+        src: `/icons/icon-512.png?v=${ASSET_VERSION}`,
         sizes: '512x512',
         type: 'image/png',
-        purpose: 'any maskable'
+        purpose: 'any'
+      },
+      {
+        src: `/icons/manifest-icon-192.maskable.png?v=${ASSET_VERSION}`,
+        sizes: '192x192',
+        type: 'image/png',
+        purpose: 'maskable'
+      },
+      {
+        src: `/icons/manifest-icon-512.maskable.png?v=${ASSET_VERSION}`,
+        sizes: '512x512',
+        type: 'image/png',
+        purpose: 'maskable'
+      }
+    ],
+    shortcuts: [
+      {
+        name: 'The Rachel Narrative',
+        short_name: 'Rachel',
+        description: 'Bear & Bug sanctuary dossiers and Ashley & Bonnie’s 1999 briefing',
+        url: '/books/rachel',
+        icons: [{ src: `/icons/icon-192.png?v=${ASSET_VERSION}`, sizes: '192x192', type: 'image/png' }]
+      },
+      {
+        name: 'Katie & Nathaniel',
+        short_name: 'Katie & Nate',
+        description: 'Tidewater, Capitol Square, and U.S. Senate companion dossiers',
+        url: '/books/katie',
+        icons: [{ src: `/icons/icon-192.png?v=${ASSET_VERSION}`, sizes: '192x192', type: 'image/png' }]
+      },
+      {
+        name: 'The Eleventh Child',
+        short_name: 'Eleventh Child',
+        description: 'Suite 214/216 dossiers and CPI administrative dispatches',
+        url: '/books/aubrie',
+        icons: [{ src: `/icons/icon-192.png?v=${ASSET_VERSION}`, sizes: '192x192', type: 'image/png' }]
+      },
+      {
+        name: 'CPI Campus Guide',
+        short_name: 'CPI Campus',
+        description: 'Commonwealth Polytechnic Institute architecture & Poly Pass transit',
+        url: '/locations/cpi',
+        icons: [{ src: `/icons/icon-192.png?v=${ASSET_VERSION}`, sizes: '192x192', type: 'image/png' }]
       }
     ]
   };
 
   const preCacheUrls = [
     '/',
+    '/manifest.json',
+    `/favicon.ico?v=${ASSET_VERSION}`,
+    `/icons/icon.svg?v=${ASSET_VERSION}`,
+    `/icons/icon-192.png?v=${ASSET_VERSION}`,
+    `/icons/icon-512.png?v=${ASSET_VERSION}`,
+    `/icons/apple-icon-180.png?v=${ASSET_VERSION}`,
     `/assets/backstage.css?v=${ASSET_VERSION}`,
     `/assets/backstage-client.js?v=${ASSET_VERSION}`,
     '/api/v1/index.json',
@@ -3154,7 +4138,15 @@ function buildPwaAssets(items) {
 
   const swJs = `/**
  * @license MIT
- * sw.js — Offline-First Progressive Web App Service Worker for backstage.raggiesoft.com
+ * ============================================================================
+ * sw.js — Tiered Progressive Web App Service Worker for backstage.raggiesoft.com
+ * ============================================================================
+ * Caching Strategy:
+ * 1. HTML Navigations (\`request.mode === 'navigate'\`): NetworkFirst (always
+ *    serves the freshest application shell online, falling back to cache offline).
+ * 2. JSON Companion API (\`/api/v1/*.json\`): StaleWhileRevalidate.
+ * 3. Versioned Same-Origin Assets (\`/assets/*\`, \`/icons/*\`): CacheFirst.
+ * ============================================================================
  */
 const CACHE_NAME = 'raggiesoft-backstage-v${ASSET_VERSION}';
 const PRECACHE_URLS = ${JSON.stringify(preCacheUrls, null, 2)};
@@ -3176,6 +4168,7 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) return;
   if (
     url.pathname === '/robots.txt' ||
     url.pathname === '/sitemap.xml' ||
@@ -3184,9 +4177,11 @@ self.addEventListener('fetch', (event) => {
   ) {
     return;
   }
-  event.respondWith(
-    caches.match(event.request).then((cached) => {
-      const networkFetch = fetch(event.request)
+
+  // 1. HTML Documents: NetworkFirst for instant content freshness + offline fallback
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
         .then((response) => {
           if (response && response.status === 200 && response.type === 'basic') {
             const clone = response.clone();
@@ -3194,8 +4189,41 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         })
-        .catch(() => cached);
-      return cached || networkFetch;
+        .catch(() => caches.match(event.request).then((hit) => hit || caches.match('/')))
+    );
+    return;
+  }
+
+  // 2. JSON Companion API: StaleWhileRevalidate
+  if (url.pathname.startsWith('/api/v1/')) {
+    event.respondWith(
+      caches.match(event.request).then((cached) => {
+        const networkFetch = fetch(event.request)
+          .then((response) => {
+            if (response && response.status === 200 && response.type === 'basic') {
+              const clone = response.clone();
+              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+            }
+            return response;
+          })
+          .catch(() => cached);
+        return cached || networkFetch;
+      })
+    );
+    return;
+  }
+
+  // 3. Static Versioned Assets & Icons: CacheFirst
+  event.respondWith(
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
+      return fetch(event.request).then((response) => {
+        if (response && response.status === 200 && response.type === 'basic') {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        }
+        return response;
+      });
     })
   );
 });
@@ -3206,11 +4234,16 @@ self.addEventListener('fetch', (event) => {
 }
 
 /**
- * Executes the full RaggieSoft Backstage static site & JSON API build.
+ * Executes the full RaggieSoft Backstage static site, PWA & JSON API build.
  */
 function buildBackstageSite() {
   const items = loadBackstageItems();
   const groups = computeArchiveGroups(items);
+
+  // 0. Clean stale dist output and copy static PWA icons/favicon from `public/`
+  fs.rmSync(distDir, { recursive: true, force: true });
+  fs.mkdirSync(distDir, { recursive: true });
+  copyDirectoryRecursive(publicDir, distDir);
 
   // 1. Write CSS, Client JS, and PWA Manifest / Service Worker
   writeDistFile('assets/backstage.css', buildBackstageCss());
@@ -3226,6 +4259,7 @@ function buildBackstageSite() {
     siteName: 'RaggieSoft Backstage',
     baseUrl: 'https://backstage.raggiesoft.com',
     totalItems: items.length,
+    counts: groups.counts,
     items: {}
   };
 
@@ -3252,6 +4286,9 @@ function buildBackstageSite() {
       subject: item.subject,
       relatedBookUrl: item.relatedBookUrl,
       relatedBookLabel: item.relatedBookLabel,
+      image: item.image,
+      imageAlt: item.imageAlt,
+      ogImage: item.ogImage,
       summary: item.summary,
       html: item.html
     };
@@ -3274,6 +4311,8 @@ function buildBackstageSite() {
       time: item.time,
       sender: item.sender,
       subject: item.subject,
+      image: item.image,
+      ogImage: item.ogImage,
       summary: item.summary,
       canonicalUrl: item.canonicalUrl,
       apiUrl: item.apiUrl
@@ -3312,13 +4351,17 @@ function buildBackstageSite() {
               <wa-icon slot="start" family="duotone" name="film" aria-hidden="true"></wa-icon>
               Backstage Hub (${groups.counts.total})
             </wa-button>
+            <wa-button variant="neutral" appearance="outlined" href="/books/rachel">
+              <wa-icon slot="start" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+              The Rachel Narrative (${groups.counts.rachelDossiers})
+            </wa-button>
             <wa-button variant="neutral" appearance="outlined" href="/books/katie">
               <wa-icon slot="start" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
-              Katie &amp; Nathaniel (${groups.counts.katie})
+              Katie &amp; Nathaniel (${groups.counts.katieDossiers})
             </wa-button>
             <wa-button variant="neutral" appearance="outlined" href="/books/aubrie">
               <wa-icon slot="start" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
-              The Eleventh Child (${groups.counts.aubrie})
+              The Eleventh Child (${groups.counts.aubrieDossiers})
             </wa-button>
             <wa-button variant="neutral" appearance="outlined" href="https://books.raggiesoft.com">
               <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
@@ -3342,7 +4385,7 @@ function buildBackstageSite() {
   writeDistFile('726167676965736f6674696e6465786e.txt', '726167676965736f6674696e6465786e\n');
 
   console.log(
-    `✅ Built backstage.raggiesoft.com Web Awesome Pro 3.13.0 + Font Awesome Pro+ bundle in ${distDir} (${items.length} Backstage records compiled).`
+    `✅ Built backstage.raggiesoft.com Web Awesome Pro 3.13.0 (<wa-page>) + Font Awesome Pro+ PWA bundle in ${distDir} (${items.length} live Backstage records compiled).`
   );
 }
 
@@ -3369,7 +4412,13 @@ if (process.argv.includes('--serve')) {
             ? 'application/json; charset=utf-8'
             : ext === '.xml'
               ? 'application/xml; charset=utf-8'
-              : 'text/html; charset=utf-8';
+              : ext === '.svg'
+                ? 'image/svg+xml'
+                : ext === '.png'
+                  ? 'image/png'
+                  : ext === '.ico'
+                    ? 'image/x-icon'
+                    : 'text/html; charset=utf-8';
     res.writeHead(200, {
       'Content-Type': mime,
       'Access-Control-Allow-Origin': '*'

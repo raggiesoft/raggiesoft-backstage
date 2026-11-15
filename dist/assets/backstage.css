@@ -4,8 +4,8 @@
  * /assets/backstage.css — RaggieSoft Backstage (backstage.raggiesoft.com)
  * ============================================================================
  * Layered modern CSS architecture harmonizing directly with Web Awesome Pro
- * 3.13.0 themes (default, awesome, glossy, mellow, premium) and color palettes
- * (default, elegant, natural, vogue) alongside Font Awesome Pro+ iconography.
+ * 3.13.0 <wa-page>, themes (default, awesome, glossy, mellow, premium), and
+ * color palettes (default, elegant, natural, vogue) alongside Font Awesome Pro+.
  * ============================================================================
  */
 
@@ -134,8 +134,24 @@
     color: var(--bs-text);
     font-family: var(--wa-font-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
     line-height: 1.7;
+  }
+
+  /* Zero-FOUC fallback before <wa-page> custom element upgrades */
+  wa-page:not(:defined) {
     display: flex;
     flex-direction: column;
+    min-block-size: 100dvh;
+  }
+
+  wa-page:not(:defined) [slot="aside"] {
+    display: none;
+  }
+
+  /* Hide cross-property network bar when installed as a standalone Home Screen / Desktop App */
+  @media (display-mode: standalone) {
+    .rs-network-bar {
+      display: none !important;
+    }
   }
 
   :where(a:any-link, button, summary, [tabindex="0"]):focus-visible {
@@ -144,7 +160,67 @@
   }
 }
 
+@layer utilities {
+  .visually-hidden:where(:not(:focus-within, :active)) {
+    position: absolute !important;
+    clip-path: inset(50%) !important;
+    overflow: hidden !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+  }
+}
+
 @layer components {
+  /* Web Awesome Pro 3.13.0 <wa-page> Application Frame */
+  wa-page.bs-page {
+    --header-height: 2.95rem;
+    --main-width: minmax(0, 1fr);
+    --aside-width: 18.5rem;
+    min-block-size: 100dvh;
+    background-color: var(--bs-bg);
+    color: var(--bs-text);
+  }
+
+  wa-page.bs-page::part(banner),
+  wa-page.bs-page::part(header),
+  wa-page.bs-page::part(subheader),
+  wa-page.bs-page::part(footer) {
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  wa-page.bs-page::part(body) {
+    inline-size: 100%;
+    max-inline-size: 1280px;
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+
+  wa-page.bs-page::part(main),
+  wa-page.bs-page::part(main-content) {
+    min-inline-size: 0;
+    padding: 0;
+  }
+
+  wa-page.bs-page::part(aside) {
+    padding-block: 1.75rem 2rem;
+    padding-inline: 0 1.25rem;
+  }
+
+  @media (max-width: 1080px) {
+    wa-page.bs-page {
+      --aside-width: 0px;
+    }
+    wa-page.bs-page::part(aside) {
+      display: none;
+    }
+  }
+
   .skip-link {
     position: fixed;
     inset-block-start: 0.75rem;
@@ -181,9 +257,7 @@
 
   /* Ultra-Compact Single-Row Sticky Header (47px Desktop & Mobile via @container) */
   .bs-header {
-    position: sticky;
-    inset-block-start: 0;
-    z-index: 40;
+    inline-size: 100%;
     container: header / inline-size;
     background: color-mix(in oklab, var(--bs-surface) 92%, transparent);
     backdrop-filter: blur(12px);
@@ -195,8 +269,8 @@
     display: flex;
     align-items: safe center;
     justify-content: space-between;
-    gap: 0.6rem;
-    padding-block: 0.4rem;
+    gap: 0.55rem;
+    padding-block: 0.38rem;
     min-block-size: 2.9rem;
     flex-wrap: nowrap;
   }
@@ -208,24 +282,20 @@
     min-inline-size: 0;
     flex: 0 1 auto;
     font-weight: 900;
-    font-size: 0.98rem;
+    font-size: 0.96rem;
     letter-spacing: 0.01em;
     color: var(--bs-text);
     text-decoration: none;
     white-space: nowrap;
   }
 
-  .bs-brand-mark {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
+  .bs-brand-icon {
     inline-size: 1.8rem;
     block-size: 1.8rem;
-    border-radius: 0.48rem;
-    background: var(--bs-fallback-primary);
-    color: var(--bs-fallback-primary-fg);
-    font-size: 0.92rem;
+    border-radius: 0.44rem;
+    flex: 0 0 auto;
+    display: block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
   }
 
   .bs-brand-prefix {
@@ -248,7 +318,7 @@
   .bs-nav {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.22rem;
     flex-wrap: nowrap;
     list-style: none;
     margin: 0;
@@ -258,11 +328,11 @@
   .bs-nav-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.32rem;
     min-block-size: 2rem;
-    padding: 0.24rem 0.62rem;
+    padding: 0.22rem 0.56rem;
     border-radius: var(--bs-radius-m);
-    font-size: 0.84rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--bs-muted);
     background: transparent;
@@ -283,7 +353,8 @@
     border-color: var(--bs-fallback-primary);
   }
 
-  .bs-dropdown-desktop-label {
+  .bs-dropdown-desktop-label,
+  .bs-install-label {
     display: none;
   }
 
@@ -305,7 +376,7 @@
     }
   }
 
-  @container header (inline-size >= 540px) {
+  @container header (inline-size >= 560px) {
     .bs-appearance-label {
       position: static;
       clip-path: none;
@@ -314,9 +385,12 @@
       block-size: auto;
       margin: 0;
     }
+    .bs-install-label {
+      display: inline;
+    }
   }
 
-  @container header (inline-size >= 860px) {
+  @container header (inline-size >= 980px) {
     .bs-desktop-nav {
       display: block;
     }
@@ -328,9 +402,70 @@
     }
   }
 
+  /* <wa-page slot="subheader"> Breadcrumb Strip */
+  .bs-subheader {
+    inline-size: 100%;
+    background: color-mix(in oklab, var(--bs-elevated) 84%, transparent);
+    border-block-end: 1px solid var(--bs-border);
+  }
+
+  .bs-subheader-inner {
+    padding-block: 0.45rem;
+    font-size: 0.86rem;
+  }
+
+  /* <wa-page slot="aside"> Sticky Table of Contents & Story Companion Rail */
+  .bs-aside-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bs-aside-card {
+    --spacing: 1rem;
+  }
+
+  .bs-aside-heading {
+    margin: 0 0 0.55rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bs-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .bs-toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.87rem;
+  }
+
+  .bs-toc-link {
+    display: block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.4rem;
+    color: var(--bs-muted);
+    text-decoration: none;
+    border-inline-start: 2px solid var(--bs-border);
+    line-height: 1.35;
+  }
+
+  .bs-toc-link:hover {
+    color: var(--bs-text);
+    background: var(--bs-elevated);
+    border-inline-start-color: var(--bs-primary);
+  }
+
   /* Hero Showcase Stage */
   .bs-hero {
-    margin-block: 1.75rem 1.5rem;
+    margin-block: 1.5rem 1.5rem;
     padding: clamp(1.35rem, 3vw, 2.25rem);
     border-radius: var(--bs-radius-l);
     background-color: var(--bs-surface);
@@ -350,14 +485,14 @@
 
   .bs-title {
     margin: 0 0 0.55rem;
-    font-size: clamp(1.65rem, 3.1vw, 2.45rem);
+    font-size: clamp(1.6rem, 3vw, 2.38rem);
     line-height: 1.18;
     letter-spacing: -0.015em;
   }
 
   .bs-subtitle {
     margin: 0 0 1.1rem;
-    font-size: 1.08rem;
+    font-size: 1.06rem;
     color: var(--bs-muted);
     max-inline-size: 78ch;
   }
@@ -368,6 +503,119 @@
     gap: 0.6rem;
     flex-wrap: wrap;
     margin-block-start: 0.95rem;
+  }
+
+  /* Featured Scenes Showcase (<wa-carousel>) */
+  .bs-carousel-section {
+    margin-block-end: 2rem;
+  }
+
+  .bs-scene-carousel {
+    --aspect-ratio: 16 / 9;
+    border-radius: var(--bs-radius-l);
+  }
+
+  .bs-slide-frame {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: var(--bs-radius-l);
+    overflow: hidden;
+    border: 1px solid var(--bs-border);
+    background: #070b14;
+    margin: 0;
+  }
+
+  .bs-slide-img {
+    inline-size: 100%;
+    block-size: 100%;
+    max-block-size: 480px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bs-slide-overlay {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding: clamp(1rem, 2.5vw, 1.65rem);
+    background: linear-gradient(to top, rgba(7, 11, 20, 0.94) 0%, rgba(7, 11, 20, 0.72) 58%, transparent 100%);
+    color: #f8fafc;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .bs-slide-copy {
+    max-inline-size: 66ch;
+  }
+
+  .bs-slide-kicker {
+    display: inline-block;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #fbbf24;
+    margin-block-end: 0.2rem;
+  }
+
+  .bs-slide-title {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    line-height: 1.25;
+    color: #ffffff;
+  }
+
+  .bs-slide-desc {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #e2e8f0;
+  }
+
+  /* Dossier Hero Artwork & Inline Markdown Figures */
+  .bs-dossier-hero {
+    margin: 0 0 1.5rem;
+    border-radius: var(--bs-radius-l);
+    overflow: hidden;
+    border: 1px solid var(--bs-border);
+    background: var(--bs-surface);
+    box-shadow: var(--bs-shadow);
+  }
+
+  .bs-dossier-hero-img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1408 / 768;
+    object-fit: cover;
+    display: block;
+  }
+
+  .bs-dossier-hero-caption,
+  .bs-inline-caption {
+    padding: 0.75rem 1.15rem;
+    font-size: 0.88rem;
+    color: var(--bs-muted);
+    background: var(--bs-elevated);
+    border-block-start: 1px solid var(--bs-border);
+  }
+
+  .bs-inline-figure {
+    margin: 1.65rem 0;
+    border-radius: var(--bs-radius-m);
+    overflow: hidden;
+    border: 1px solid var(--bs-border);
+    background: var(--bs-surface);
+  }
+
+  .bs-inline-img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1408 / 768;
+    object-fit: cover;
+    display: block;
   }
 
   /* Search Stage */
@@ -417,32 +665,32 @@
   /* Archive Pulse Metric + Sparkline Strip */
   .bs-pulse-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
     gap: 1rem;
-    margin-block-end: 1.75rem;
+    margin-block-end: 1.85rem;
   }
 
   .bs-pulse-card {
-    --spacing: 1.1rem;
+    --spacing: 1.05rem;
   }
 
   .bs-pulse-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: 0.65rem;
     margin-block-end: 0.55rem;
   }
 
   .bs-pulse-value {
     display: block;
-    font-size: 1.8rem;
+    font-size: 1.68rem;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.12;
   }
 
   .bs-pulse-title {
-    font-size: 0.84rem;
+    font-size: 0.8rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -451,7 +699,7 @@
 
   .bs-pulse-caption {
     margin: 0.45rem 0 0;
-    font-size: 0.86rem;
+    font-size: 0.85rem;
     color: var(--bs-muted);
   }
 
@@ -550,6 +798,14 @@
     flex: 1;
   }
 
+  .bs-card-media-img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1408 / 768;
+    object-fit: cover;
+    display: block;
+  }
+
   .bs-card-meta {
     display: flex;
     align-items: center;
@@ -628,10 +884,6 @@
   }
 
   /* Dossier Metadata & Article Prose */
-  .bs-breadcrumb-wrap {
-    margin-block-start: 1.25rem;
-  }
-
   .bs-meta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -674,6 +926,7 @@
   .bs-heading {
     line-height: 1.3;
     margin-block: 1.65rem 0.65rem;
+    scroll-margin-block-start: 5.5rem;
   }
 
   .bs-article-prose > .bs-heading:first-child {
@@ -857,7 +1110,7 @@
     color: var(--bs-muted);
   }
 
-  /* Appearance Drawer Studio */
+  /* Appearance Drawer Studio & Install Dialog */
   .bs-studio-stack {
     display: flex;
     flex-direction: column;
@@ -868,6 +1121,12 @@
     margin: 0;
     font-size: 0.9rem;
     color: var(--bs-muted);
+  }
+
+  .bs-install-steps {
+    display: grid;
+    gap: 0.85rem;
+    margin-block: 0.5rem;
   }
 
   /* Quick View Dialog */
@@ -893,7 +1152,7 @@
 
   /* Footer & Mandatory Fictitious Disclaimer */
   .bs-footer {
-    margin-block-start: auto;
+    inline-size: 100%;
     padding-block: 2.25rem;
     background: var(--bs-surface);
     border-block-start: 1px solid var(--bs-border);

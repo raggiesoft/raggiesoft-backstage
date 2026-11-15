@@ -2,7 +2,7 @@
 <html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
     <script>
       try {
@@ -22,24 +22,140 @@
         root.setAttribute('data-theme', isDark ? 'dark' : 'light');
       } catch (e) {}
     </script>
-    <meta name="theme-color" content="#861f41" />
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
     <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261114d" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261114d" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261114d" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261114d" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261114d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261114d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261114d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261114d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261114d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261114d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261114d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261114d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261114d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261114d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261114d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261114d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261114d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261114d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261114d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261114d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261114d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261114d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261114d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261114d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261114d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261114d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261114d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261114d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261114d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261114d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261114d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261114d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261114d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261114d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
     <title>Inside Dirksen Room 511: Commissioner Sterling &amp; Director…</title>
     <meta name="description" content="What was going through DARS Commissioner Marcus Sterling&#39;s and RRC Director Evelyn Cross&#39;s minds inside Dirksen Room 511—and what happened in the hallway…" />
     <link rel="canonical" href="https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic" />
     <meta property="og:title" content="Inside Dirksen Room 511: Commissioner Sterling &amp; Director…" />
     <meta property="og:description" content="What was going through DARS Commissioner Marcus Sterling&#39;s and RRC Director Evelyn Cross&#39;s minds inside Dirksen Room 511—and what happened in the hallway…" />
-    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg" />
     <meta property="og:url" content="https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-dirksen-room-511-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-dirksen-room-511-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Inside Dirksen Senate Office Building Room 511, U.S. Senator Katie Prairie and Chief of Staff Nathaniel Prairie sit side by side in their SwiftChair power wheelchairs across from…" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Inside Dirksen Room 511: Commissioner Sterling &amp; Director…" />
     <meta name="twitter:description" content="What was going through DARS Commissioner Marcus Sterling&#39;s and RRC Director Evelyn Cross&#39;s minds inside Dirksen Room 511—and what happened in the hallway…" />
-    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg" />
-    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic#webpage","url":"https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic","name":"Inside Dirksen Room 511: Commissioner Sterling \u0026 Director…","description":"What was going through DARS Commissioner Marcus Sterling's and RRC Director Evelyn Cross's minds inside Dirksen Room 511—and what happened in the hallway…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-corporate/images/og/raggiesoft-corporate-og.jpg"},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
-    <link rel="icon" type="image/png" href="https://assets.raggiesoft.com/raggiesoft-corporate/images/logos/raggiesoft-logo.png" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-dirksen-room-511-og.jpg" />
+    <meta name="twitter:image:alt" content="Inside Dirksen Senate Office Building Room 511, U.S. Senator Katie Prairie and Chief of Staff Nathaniel Prairie sit side by side in their SwiftChair power wheelchairs across from…" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic#webpage","url":"https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic","name":"Inside Dirksen Room 511: Commissioner Sterling \u0026 Director…","description":"What was going through DARS Commissioner Marcus Sterling's and RRC Director Evelyn Cross's minds inside Dirksen Room 511—and what happened in the hallway…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-dirksen-room-511-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
 
     <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
     <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
@@ -58,7 +174,7 @@
     <!-- Font Awesome Pro+ Kit (ec060982d4) -->
     <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="/assets/backstage.css?v=20261114c" />
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261114d" />
     <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261029f" />
 
     <!-- Google Analytics 4 (GA4) -->
@@ -71,107 +187,120 @@
     </script>
   </head>
   <body>
-    <a href="#content" class="skip-link">Skip to Backstage main content</a>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
 
-    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
-      <div class="rs-network-bar-inner">
-        <span class="rs-network-label">✦ RaggieSoft Network:</span>
-        <ul class="rs-network-links">
-          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
-          <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
-          <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
-          <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
-          <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
-          <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
-          <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
-          <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
-          <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
-          <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
-        </ul>
-      </div>
-    </nav>
+      <nav slot="banner" class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+        <div class="rs-network-bar-inner">
+          <span class="rs-network-label">✦ RaggieSoft Network:</span>
+          <ul class="rs-network-links">
+            <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+            <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+            <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+            <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+            <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+            <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+            <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+            <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+            <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+            <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+          </ul>
+        </div>
+      </nav>
 
-    <header class="bs-header">
-      <div class="bs-container bs-header-inner">
-        <a href="/" class="bs-brand">
-          <span class="bs-brand-mark" aria-hidden="true">
-            <wa-icon family="duotone" name="film" swap-opacity></wa-icon>
-          </span>
-          <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
-        </a>
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261114d" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
 
-        <div class="bs-nav-row">
-          <nav class="bs-desktop-nav" aria-label="Backstage collections">
-            <ul class="bs-nav">
-              <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
-              <li><a href="/books/katie" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (15)</span></a></li>
-              <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
-            </ul>
-          </nav>
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (15)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
 
-          <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
-            <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
-              <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
-              <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (43 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (15 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
             </wa-button>
-            <wa-dropdown-item value="/">
-              <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
-              Backstage Hub (32 Records)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/books/katie">
-              <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
-              Katie &amp; Nathaniel (15 Dossiers)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/books/aubrie">
-              <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
-              The Eleventh Child (12 Files)
-            </wa-dropdown-item>
-            <wa-divider></wa-divider>
-            <wa-dropdown-item value="/locations/cpi">
-              <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
-              Commonwealth Polytechnic Institute (CPI)
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/music/stardust-engine-origins">
-              <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
-              The Stardust Engine: 1986 Origins
-            </wa-dropdown-item>
-            <wa-dropdown-item value="/corporations/vectron-question-the-rules">
-              <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
-              Vectron Energy Corp. Archive
-            </wa-dropdown-item>
-            <wa-divider></wa-divider>
-            <wa-dropdown-item value="https://books.raggiesoft.com">
-              <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
-              Open RaggieSoft Book Reader ↗
-            </wa-dropdown-item>
-            <wa-dropdown-item value="https://music.raggiesoft.com">
-              <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
-              Open The Listening Room ↗
-            </wa-dropdown-item>
-          </wa-dropdown>
 
-          <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
-          <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
-            <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
-            <span class="bs-appearance-label">Appearance</span>
-          </wa-button>
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
         </div>
       </div>
-    </header>
 
-    <main id="content" class="bs-container" tabindex="-1">
       
-    <div class="bs-breadcrumb-wrap">
-      <wa-breadcrumb label="Backstage Archive Path">
-        <wa-breadcrumb-item href="/">
-          <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
-          RaggieSoft Backstage
-        </wa-breadcrumb-item>
-        <wa-breadcrumb-item href="/books/katie">Katie &amp; Nathaniel Archive (15)</wa-breadcrumb-item>
-        <wa-breadcrumb-item>Inside Dirksen Room 511: Commissioner Sterling &amp; Director Cross&#39;s Panic</wa-breadcrumb-item>
-      </wa-breadcrumb>
-    </div>
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/books/katie">Katie &amp; Nathaniel (15 Dossiers)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>Inside Dirksen Room 511: Commissioner Sterling &amp; Director Cross&#39;s Panic</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
 
+      <div id="content" class="bs-container" tabindex="-1">
+        
     <div class="bs-hero">
       <div class="bs-badge-strip">
         <wa-badge variant="brand" appearance="filled" pill>
@@ -190,7 +319,7 @@
               </wa-button>
         <wa-button variant="neutral" appearance="outlined" href="/books/katie">
                 <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
-                Katie &amp; Nathaniel Archive (15)
+                Katie &amp; Nathaniel (15 Dossiers)
               </wa-button>
         <span class="bs-copy-pill">
           <span>Copy Link:</span>
@@ -232,11 +361,24 @@
     </div>
     </div>
 
+    
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/katie/b006/feb_2027_dirksen_room_511_rrc_dars_appropriation_showdown_katie_nate.jpg"
+        alt="Inside Dirksen Senate Office Building Room 511, U.S. Senator Katie Prairie and Chief of Staff Nathaniel Prairie sit side by side in their SwiftChair power wheelchairs across from stunned DARS and RRC officials."
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      <figcaption class="bs-dossier-hero-caption">Inside Dirksen Senate Office Building Room 511, U.S. Senator Katie Prairie and Chief of Staff Nathaniel Prairie sit side by side in their SwiftChair power wheelchairs across from stunned DARS and RRC officials.</figcaption>
+    </figure>
+
     <wa-card class="bs-article-card">
       <article class="bs-article-prose" aria-label="Inside Dirksen Room 511: Commissioner Sterling &amp; Director Cross&#39;s Panic">
         <blockquote class="bs-blockquote"><p><strong>Archival Note:</strong> In <a href="https://books.raggiesoft.com/katie/the-senator-from-virginia/first-train-from-norfolk-swearing-in-on-the-constitution-strings-attached-for-rrc/part-5-34-c-f-r-section-361-38-two-twelve-day-dropouts-in-room-511-strings-attached-at-the-subcommittee-hearing" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Katie &amp; Nathaniel — Episode 11, Chapter 3, Part 5</em></strong></a>, the confrontation in <strong>Room 511 of the Dirksen Senate Office Building</strong> on Tuesday, February 16, 2027 is told strictly from <strong>Nathaniel Prairie&#39;s</strong> first-person POV beside <strong>U.S. Senator Katie Prairie (<code class="bs-inline-code">D-Virginia</code>)</strong>. This Backstage dossier reveals what was going through the minds of <strong>DARS Commissioner Marcus Sterling</strong> and <strong>RRC Director Evelyn Cross</strong> on the other side of the mahogany desk—and what happened in the forty minutes after they stumbled out into the fifth-floor hallway.</p></blockquote>
 <hr class="bs-divider" />
-<h2 class="bs-heading bs-h2">1. The Nine Stages of Bureaucratic Collapse Inside Dirksen Room 511</h2>
+<h2 id="sec-1-the-nine-stages-of-bureaucratic-collapse-inside-dirksen-room-511" class="bs-heading bs-h2">1. The Nine Stages of Bureaucratic Collapse Inside Dirksen Room 511</h2>
 <ol class="bs-list"><li><strong>Stage 1 — Smug Bureaucratic Overconfidence Walking Down the Hallway:</strong><div class="bs-list-subline">Walking into Dirksen Room 511 with their glossy spiral-bound <code class="bs-inline-code">$18.5 million</code> Congressionally Directed Spending presentation, Sterling and Cross assumed this would be a ten-minute ceremonial photo-op: <em>&quot;Senator Prairie is a forty-one-year-old wheelchair user from Virginia Beach. What disabled Senator on earth wouldn&#39;t rubber-stamp $18.5 million for Virginia&#39;s flagship rehabilitation center?&quot;</em> Having checked the <em>Congressional Directory</em>—which listed only <strong>Northwood High School (<code class="bs-inline-code">VBCPS</code>)</strong> and the <strong>Community College of Hampton Roads (<code class="bs-inline-code">CCHR</code>)</strong>—neither executive had the slightest inkling that Katie or Nate had ever set foot in Fishersville.</div></li>
 <li>*<em>Stage 2 — Condescending Dismissal at Question #1 (</em>&quot;Some Activist Sent Her an Email&quot;<em>):</em>*<div class="bs-list-subline">When Senator Prairie first asked about a twenty-one-year-old twin brother and sister in wheelchairs having their push-handles grabbed at <strong>Barton Hall</strong> in March 2007, Director Cross internally rolled her eyes—assuming a disgruntled former client had sent an email to the Senator&#39;s constituent inbox—and tried to brush it off with a canned line about modern staff training.</div></li>
 <li>*<em>Stage 3 — Baffled Unease at Questions #2 &amp; #3 (</em>&quot;Why Is a U.S. Senator Being So Forensically Hyperspecific About 2007?&quot;<em>):</em>*<div class="bs-list-subline">When Katie refused to let them pivot and drilled into hyper-granular 2007 operational details—two <code class="bs-inline-code">CCHR</code> computer-science graduates forced to tour the <strong>auto mechanics, woodworking, and nursing shops</strong>, a Vocational Evaluator pitching a <strong>Waynesboro ValueMart door-greeter partnership</strong>, <strong>VITA&#39;s seven-year-old <code class="bs-inline-code">Quantum OS 2000 Professional</code></strong> locking down local web servers in the Bates-Harding lab, and staying stuck on <strong><code class="bs-inline-code">Level 2</code> in Barton Hall</strong> with <strong>signed yellow paper Passes</strong> because moving to <strong>Cantor Hall</strong> required earning <strong><code class="bs-inline-code">Level 3</code></strong>—alarm bells started ringing inside both executives&#39; heads:</div><div class="bs-list-subline">&gt; <em>&quot;Wait... why does a United States Senator know the exact color of the 2007 Level 2 paper passes in Barton Hall and VITA&#39;s desktop permissions in the Bates-Harding computer lab?! No K Street lobbyist or constituent form letter would ever know that!&quot;</em></div></li>
@@ -246,7 +388,7 @@
 <li><strong>Stage 7 — How DARS&#39;s Own 2007 Black-Marker Redaction Blindfolded Them in 2027:</strong><div class="bs-list-subline">Commissioner Sterling&#39;s mind raced wondering why his legislative liaison in Richmond hadn&#39;t flagged <code class="bs-inline-code">&quot;Prairie, Katie&quot;</code> and <code class="bs-inline-code">&quot;Prairie, Nathaniel&quot;</code> before letting him walk into Dirksen Room 511—only to realize the supreme poetic justice: back in April 2007, when DARS General Counsel blacked out Katie and Nate&#39;s names on the Tuesday pool log with a thick black magic marker as <code class="bs-inline-code">[REDACTED UNDER 34 C.F.R. § 361.38 — STATUS 28 DROPOUT]</code> so <strong>Evelyn Brooks&#39;s</strong> lawyer couldn&#39;t locate them as witnesses, <strong>DARS had also guaranteed that its own 2027 leadership wouldn&#39;t recognize the two redacted <code class="bs-inline-code">Status 28</code> dropouts on that page until they were sitting across Senator Prairie&#39;s mahogany desk!</strong></div></li>
 <li>*<em>Stage 8 — The Second Nuclear Bomb (</em>Eyewitnesses to the 48 Hours Before Natalie Brooks Was Raped<em>):</em>*<div class="bs-list-subline">When Nate quietly added <em>&quot;And wait until you hear why our Thursday morning Level 1 restriction meeting with our counselor never happened on March 15, 2007,&quot;</em> and Katie laid <strong>Evelyn Brooks&#39;s notarized Guardianship/Conservatorship waiver and March 16, 2007 hospital ER/SANE report</strong> on top of their funding binder, Sterling and Cross realized the Senator sitting on the Appropriations Subcommittee was a <strong>firsthand eyewitness</strong> proving that the exact male client who had broken her nose in the pool on Tuesday (<code class="bs-inline-code">March 13</code>) had been left on campus by RRC, had used a scrambled keycard to rape <strong>Natalie Brooks</strong> on Wednesday night (<code class="bs-inline-code">March 14</code>), and had been whisked onto a bus in Staunton at <code class="bs-inline-code">7:50 AM</code> on Thursday (<code class="bs-inline-code">March 15</code>) while housekeeping bleached the sheets.</div></li></ol>
 <hr class="bs-divider" />
-<h2 class="bs-heading bs-h2">2. Stage 9 — The Frantic Hallway Calls to Richmond &amp; The Governor&#39;s Chief of Staff Reading Them the Riot Act (<code class="bs-inline-code">3:10 PM – 4:15 PM</code>)</h2>
+<h2 id="sec-2-stage-9-the-frantic-hallway-calls-to-richmond-the-governor-s-chief-of-staff-reading-them-the-riot-act-3-10-pm-4-15-pm" class="bs-heading bs-h2">2. Stage 9 — The Frantic Hallway Calls to Richmond &amp; The Governor&#39;s Chief of Staff Reading Them the Riot Act (<code class="bs-inline-code">3:10 PM – 4:15 PM</code>)</h2>
 <p>Stumbling out of Dirksen Room 511 with shaking hands—and forgetting their glossy spiral-bound <code class="bs-inline-code">$18.5 million</code> funding binder on Katie&#39;s desk—Sterling and Cross started speed-dialing Richmond and Fishersville before they even reached the fifth-floor elevators:</p>
 <ul class="bs-list"><li>Within forty minutes, the basement archives in Richmond and Fishersville pulled the unredacted March 2007 (<code class="bs-inline-code">03/04/2007 – 03/16/2007</code>) paper files for <code class="bs-inline-code">Prairie, Katie</code> and <code class="bs-inline-code">Prairie, Nathaniel</code> alongside the unredacted Tuesday pool log and Thursday infirmary/van dispatch records, confirming that <strong>every single word Senator Prairie and Nate had said was 100% true</strong>.</li>
 <li>Terrified of being annihilated on live television cameras in front of Natalie and her mother in <strong>Dirksen Room 124</strong> on Wednesday morning, both Sterling and Cross begged the <strong>Virginia Secretary of Health and Human Resources</strong> and <strong>Governor&#39;s Chief of Staff Arthur Lawrence</strong> for permission to withdraw from Wednesday&#39;s Subcommittee witness panel and drive straight back to Richmond.</li>
@@ -268,57 +410,34 @@
       <wa-scroller orientation="horizontal">
         <div class="bs-scroller-track">
           <div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Arthur Lawrence&#39;s 12:38 PM Fishersville Sweep, VITA&#39;s 120-Day Unsigned Form, &amp; The 5:00 PM Resignations What Happened in Fishersville After Katie and Nate Caught the Bus Back to Staunton—and Why Cross and Saunders Resigned Before 5:00 PM Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 11, Chapter 5, Part 1) Bates-Harding Building &amp; Barton Hall, Roosevelt Rehabilitation Center, Fishersville, Virginia Behind-the-scenes chronicle of Chief of Staff Arthur Lawrence, State Inspector General Kenneth Dalton, VITA CIO Rajiv Patel, and Acting DARS Commissioner Angela Thornton arriving in Fishersville at 12:38 PM—uncovering VITA&#39;s 120-day unsigned VLAN form, lobby video of Greg Saunders, and two more 5:00 PM resignations. 2027-07-22">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname Inside Attorney Arthur Vance&#39;s Settlement Trap, the $6,400 Cruise Credit-Card Debt, &amp; The Va. Code § 20-121.4 Maiden Name Restoration Order Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 3, Chapter 2, Part 5 &amp; Chapter 3, Part 1) Law Offices of Arthur Vance, Independence Boulevard &amp; Virginia Beach Circuit Court, Virginia Beach, Virginia What happened behind closed doors when Brenda&#39;s attorney walked into Arthur Vance&#39;s conference room to view the M/S Sunward Tropics Deck 4 security tape—and how Katie and Nate&#39;s request cost Brenda the Prairie family name. 2001-10-19">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="brand" appearance="filled-outlined" pill>
             <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
           </wa-badge>
-          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2027-07-22</wa-tag>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-10-19</wa-tag>
         </div>
-        <h3 class="bs-card-title"><a href="/books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations" class="bs-link">Arthur Lawrence&#39;s 12:38 PM Fishersville Sweep, VITA&#39;s 120-Day Unsigned Form, &amp; The 5:00 PM Resignations</a></h3>
-        <div class="bs-card-subtitle">What Happened in Fishersville After Katie and Nate Caught the Bus Back to Staunton—and Why Cross and Saunders Resigned Before 5:00 PM</div>
-        <p class="bs-card-summary">Behind-the-scenes chronicle of Chief of Staff Arthur Lawrence, State Inspector General Kenneth Dalton, VITA CIO Rajiv Patel, and Acting DARS Commissioner Angela Thornton arriving in Fishersville at 12:38 PM—uncovering VITA&#39;s 120-day unsigned VLAN form, lobby video of Greg Saunders, and two more 5:00 PM resignations.</p>
+        <h3 class="bs-card-title"><a href="/books/katie/sunward-tropics-divorce-and-maiden-name-order" class="bs-link">The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</a></h3>
+        <div class="bs-card-subtitle">Inside Attorney Arthur Vance&#39;s Settlement Trap, the $6,400 Cruise Credit-Card Debt, &amp; The Va. Code § 20-121.4 Maiden Name Restoration Order</div>
+        <p class="bs-card-summary">What happened behind closed doors when Brenda&#39;s attorney walked into Arthur Vance&#39;s conference room to view the M/S Sunward Tropics Deck 4 security tape—and how Katie and Nate&#39;s request cost Brenda the Prairie family name.</p>
       </div>
       <div class="bs-card-actions">
-        <wa-button variant="brand" size="small" href="/books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations">
+        <wa-button variant="brand" size="small" href="/books/katie/sunward-tropics-divorce-and-maiden-name-order">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</span>
         </wa-button>
-        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations">
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/sunward-tropics-divorce-and-maiden-name-order">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
-        </wa-button>
-      </div>
-    </wa-card>
-  </div>
-<div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Brenda Walsh&#39;s Suite 756 Cease-and-Desist, Thorne&#39;s Gag Order, &amp; The 2044 Route 15 Bus-Stop Primary How Thorne Enterprises Shut Down Brenda&#39;s Store After the Senate Convictions, the U.S. Capitol Police Trap-and-Trace File, &amp; Why Senator Katie Prairie Refused to Run for President in 2044 Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 11, Chapter 4, Parts 1–3) Suite 756, Timberline Shopping Center &amp; Military Highway &amp; Providence Road Bus Stop (CVTA Route #15), Virginia Beach, Virginia Complete behind-the-scenes dossier on Brenda Walsh&#39;s unauthorized &#39;Tidewater Thorne &amp; RTR Superstore&#39; in Suite 756, the Cease-and-Desist letter that bankrupted it ten days after Katie voted to convict and disqualify Garrett Thorne, and the 2044 epilogue where three-term Senator Katie Prairie conducts live-bus Presidential endorsement interviews on CVTA Route #15. 2027-04-26">
-      <div>
-        <div class="bs-card-meta">
-          <wa-badge variant="brand" appearance="filled-outlined" pill>
-            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
-          </wa-badge>
-          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2027-04-26</wa-tag>
-        </div>
-        <h3 class="bs-card-title"><a href="/books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary" class="bs-link">Brenda Walsh&#39;s Suite 756 Cease-and-Desist, Thorne&#39;s Gag Order, &amp; The 2044 Route 15 Bus-Stop Primary</a></h3>
-        <div class="bs-card-subtitle">How Thorne Enterprises Shut Down Brenda&#39;s Store After the Senate Convictions, the U.S. Capitol Police Trap-and-Trace File, &amp; Why Senator Katie Prairie Refused to Run for President in 2044</div>
-        <p class="bs-card-summary">Complete behind-the-scenes dossier on Brenda Walsh&#39;s unauthorized &#39;Tidewater Thorne &amp; RTR Superstore&#39; in Suite 756, the Cease-and-Desist letter that bankrupted it ten days after Katie voted to convict and disqualify Garrett Thorne, and the 2044 epilogue where three-term Senator Katie Prairie conducts live-bus Presidential endorsement interviews on CVTA Route #15.</p>
-      </div>
-      <div class="bs-card-actions">
-        <wa-button variant="brand" size="small" href="/books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary">
-          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
-        </wa-button>
-        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary">
-          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</span>
         </wa-button>
       </div>
     </wa-card>
   </div>
 <div class="bs-scroller-card">
     <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer What Happened Between Katie and Nate&#39;s Six-Bus Escape from Williamsburg and Brandon&#39;s Arrest on Cass Avenue in Detroit Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 5, Chapter 1, Parts 2 &amp; 3) 555 Goyeau Street &amp; 35 Park Street East, Windsor, Ontario; East Jefferson Avenue, Randolph Street, &amp; Cass Avenue, Detroit, Michigan Behind-the-scenes reconstruction of Brandon Mercer&#39;s flight from Williamsburg to the Detroit-Windsor Tunnel, his ripped-up ticket on East Jefferson Avenue, his refusal of entry into Canada at 555 Goyeau Street / 35 Park Street East, and his arrest by Deputy U.S. Marshals on Cass Avenue. 2004-10-17">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="brand" appearance="filled-outlined" pill>
@@ -333,17 +452,18 @@
       <div class="bs-card-actions">
         <wa-button variant="brand" size="small" href="/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer</span>
         </wa-button>
         <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer</span>
         </wa-button>
       </div>
     </wa-card>
   </div>
 <div class="bs-scroller-card">
     <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg Why Cousin Chelsea Held All the Legal Cards in Newport—and the Two Transit Rules Brandon Mercer Never Bothered to Read Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 5, Chapter 1, Part 3 &amp; Chapter 2, Part 2) Tonomy Hill, Newport, Rhode Island &amp; Williamsburg Transportation Center, Williamsburg, Virginia Behind-the-scenes look at the legal irony inside Cousin Chelsea&#39;s apartment on Tonomy Hill during Christmas 2004—and the two transit tariff traps that doomed Brandon Mercer&#39;s flight from Williamsburg. 2004-12-27">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="brand" appearance="filled-outlined" pill>
@@ -358,61 +478,89 @@
       <div class="bs-card-actions">
         <wa-button variant="brand" size="small" href="/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg</span>
         </wa-button>
         <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg</span>
         </wa-button>
       </div>
     </wa-card>
   </div>
 <div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The $14 Million DSCC Primary Shock, Opposing Leader Schuman, The 211–204 Lame-Duck False Dawn, &amp; The Senate Wheelchair Caucus Inside Retiring Senator Martin Warren&#39;s Office, Uncle Richard&#39;s Live Beacon News Takedown, Forcing a Ballot Against Charles Schuman, Bret Halverson&#39;s Premature Pentagon Victory Lap, &amp; VPOTUS Conrad Drayton&#39;s Fury in S-216 Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 10, Chapter 3 &amp; Episode 11, Chapters 1–4) DSCC Headquarters, Mansfield Room (S-207), Dirksen Basement (SD-B14), U.S. Capitol Chamber, &amp; S-216, Washington, D.C. Behind-the-scenes look at Katie&#39;s primary upset over the DSCC, Uncle Richard defending her on Beacon News, her public No vote against Leader Charles Schuman, Defense Secretary Bret Halverson&#39;s premature 211–204 impeachment escape, the three-member Senate Wheelchair Caucus, and S-216. 2027-01-03">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Unopened RRC Staff Dossier: Form A vs. Form B &amp; The Unsigned Level 1 Contract How Nate and Katie Presented on Paper to Fishersville Staff, the 1996 Exam Battery Trap, &amp; The Punishment Contract Destroyed by Wednesday Night&#39;s Chaos Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 6, Chapters 1–3) Testing Table Two &amp; Bates-Harding Administration Building, Roosevelt Rehabilitation Center, Fishersville, Virginia Inside the internal RRC staff notes on &#39;Prairie, Nathaniel&#39; and &#39;Prairie, Katie&#39;—why Ms. Hollis and Mr. Miller handed them alternating Form A and Form B test booklets expecting them to cheat, why VITA locked down the lab on Quantum OS 2000 Professional, and the drafted Level 1 Restriction Contract sitting on their counselor&#39;s desk on Thursday morning. 2007-03-08">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="brand" appearance="filled-outlined" pill>
             <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
           </wa-badge>
-          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2027-01-03</wa-tag>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2007-03-08</wa-tag>
         </div>
-        <h3 class="bs-card-title"><a href="/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus" class="bs-link">The $14 Million DSCC Primary Shock, Opposing Leader Schuman, The 211–204 Lame-Duck False Dawn, &amp; The Senate Wheelchair Caucus</a></h3>
-        <div class="bs-card-subtitle">Inside Retiring Senator Martin Warren&#39;s Office, Uncle Richard&#39;s Live Beacon News Takedown, Forcing a Ballot Against Charles Schuman, Bret Halverson&#39;s Premature Pentagon Victory Lap, &amp; VPOTUS Conrad Drayton&#39;s Fury in S-216</div>
-        <p class="bs-card-summary">Behind-the-scenes look at Katie&#39;s primary upset over the DSCC, Uncle Richard defending her on Beacon News, her public No vote against Leader Charles Schuman, Defense Secretary Bret Halverson&#39;s premature 211–204 impeachment escape, the three-member Senate Wheelchair Caucus, and S-216.</p>
+        <h3 class="bs-card-title"><a href="/books/katie/rrc-staff-file-voc-eval-and-level-1-contract" class="bs-link">The Unopened RRC Staff Dossier: Form A vs. Form B &amp; The Unsigned Level 1 Contract</a></h3>
+        <div class="bs-card-subtitle">How Nate and Katie Presented on Paper to Fishersville Staff, the 1996 Exam Battery Trap, &amp; The Punishment Contract Destroyed by Wednesday Night&#39;s Chaos</div>
+        <p class="bs-card-summary">Inside the internal RRC staff notes on &#39;Prairie, Nathaniel&#39; and &#39;Prairie, Katie&#39;—why Ms. Hollis and Mr. Miller handed them alternating Form A and Form B test booklets expecting them to cheat, why VITA locked down the lab on Quantum OS 2000 Professional, and the drafted Level 1 Restriction Contract sitting on their counselor&#39;s desk on Thursday morning.</p>
       </div>
       <div class="bs-card-actions">
-        <wa-button variant="brand" size="small" href="/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus">
+        <wa-button variant="brand" size="small" href="/books/katie/rrc-staff-file-voc-eval-and-level-1-contract">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: The Unopened RRC Staff Dossier: Form A vs. Form B &amp; The Unsigned Level 1 Contract</span>
         </wa-button>
-        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus">
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/rrc-staff-file-voc-eval-and-level-1-contract">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: The Unopened RRC Staff Dossier: Form A vs. Form B &amp; The Unsigned Level 1 Contract</span>
         </wa-button>
       </div>
     </wa-card>
   </div>
 <div class="bs-scroller-card">
-    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Governor Langford&#39;s Capitol Square Reckoning With Commissioner Sterling &amp; Secretary Alcott Thirty-Seven Minutes of Panic at DARS, the June 14 &#39;Run Out the Clock&#39; Email, &amp; Two Pieces of Paper on the Governor&#39;s Mahogany Table Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 11, Chapter 5, Part 1) Governor&#39;s Working Office, Third Floor, Patrick Henry Building, Capitol Square, Richmond, Virginia What happened in Richmond between 9:03 AM and 10:25 AM on Thursday, July 22, 2027—when a volcanically irate Governor Rebecca Langford summoned DARS Commissioner Marcus Sterling and Secretary of Health and Human Resources Dr. Miriam Alcott across Capitol Square for lying to U.S. Senator Katie Prairie. 2027-07-22">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The 11:00 PM Curfew Search &amp; Why Locking the Closet Door Got Them Caught What Happened Across the Courtyard in Barton Hall &amp; The Hookup Closet Irony Neither Twin Ever Knew Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 6, Chapter 2, Part 2) Barton Hall &amp; Campus Recreation Hall, Roosevelt Rehabilitation Center, Fishersville, Virginia Behind-the-scenes breakdown of how Barton Hall staff knew to search the Rec Hall after the 11:00 PM Level 2 bed check—and why locking the normally unlocked door of a notorious student hookup closet is what actually got Nate and Katie caught. 2007-03-13">
+      
       <div>
         <div class="bs-card-meta">
           <wa-badge variant="brand" appearance="filled-outlined" pill>
             <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
           </wa-badge>
-          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2027-07-22</wa-tag>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2007-03-13</wa-tag>
         </div>
-        <h3 class="bs-card-title"><a href="/books/katie/governor-langford-capitol-square-reckoning-with-sterling" class="bs-link">Governor Langford&#39;s Capitol Square Reckoning With Commissioner Sterling &amp; Secretary Alcott</a></h3>
-        <div class="bs-card-subtitle">Thirty-Seven Minutes of Panic at DARS, the June 14 &#39;Run Out the Clock&#39; Email, &amp; Two Pieces of Paper on the Governor&#39;s Mahogany Table</div>
-        <p class="bs-card-summary">What happened in Richmond between 9:03 AM and 10:25 AM on Thursday, July 22, 2027—when a volcanically irate Governor Rebecca Langford summoned DARS Commissioner Marcus Sterling and Secretary of Health and Human Resources Dr. Miriam Alcott across Capitol Square for lying to U.S. Senator Katie Prairie.</p>
+        <h3 class="bs-card-title"><a href="/books/katie/rrc-seasonal-closet-curfew-search" class="bs-link">The 11:00 PM Curfew Search &amp; Why Locking the Closet Door Got Them Caught</a></h3>
+        <div class="bs-card-subtitle">What Happened Across the Courtyard in Barton Hall &amp; The Hookup Closet Irony Neither Twin Ever Knew</div>
+        <p class="bs-card-summary">Behind-the-scenes breakdown of how Barton Hall staff knew to search the Rec Hall after the 11:00 PM Level 2 bed check—and why locking the normally unlocked door of a notorious student hookup closet is what actually got Nate and Katie caught.</p>
       </div>
       <div class="bs-card-actions">
-        <wa-button variant="brand" size="small" href="/books/katie/governor-langford-capitol-square-reckoning-with-sterling">
+        <wa-button variant="brand" size="small" href="/books/katie/rrc-seasonal-closet-curfew-search">
           <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
-          Open Dossier
+          Open Dossier<span class="visually-hidden">: The 11:00 PM Curfew Search &amp; Why Locking the Closet Door Got Them Caught</span>
         </wa-button>
-        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/governor-langford-capitol-square-reckoning-with-sterling">
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/rrc-seasonal-closet-curfew-search">
           <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
-          Quick View
+          Quick View<span class="visually-hidden">: The 11:00 PM Curfew Search &amp; Why Locking the Closet Door Got Them Caught</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="How Christopher Vance Scrambled the Dorm Roster &amp; The Thursday Cover-Up Behind the Scenes of Wednesday Night&#39;s Keycard Swap &amp; Why Thursday&#39;s Counselor Meeting Never Happened Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 6, Chapter 3, Parts 1–2) Bates-Harding Building &amp; Barton Hall, Roosevelt Rehabilitation Center, Fishersville, Virginia What happened outside Nate&#39;s first-person POV when Christopher Vance stole an open admin login to scramble the Barton Hall room database, and how RRC administration swept Natalie Brooks&#39;s assault under the rug on Thursday morning. 2007-03-14">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2007-03-14</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/rrc-dorm-database-hack-and-coverup" class="bs-link">How Christopher Vance Scrambled the Dorm Roster &amp; The Thursday Cover-Up</a></h3>
+        <div class="bs-card-subtitle">Behind the Scenes of Wednesday Night&#39;s Keycard Swap &amp; Why Thursday&#39;s Counselor Meeting Never Happened</div>
+        <p class="bs-card-summary">What happened outside Nate&#39;s first-person POV when Christopher Vance stole an open admin login to scramble the Barton Hall room database, and how RRC administration swept Natalie Brooks&#39;s assault under the rug on Thursday morning.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/rrc-dorm-database-hack-and-coverup">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: How Christopher Vance Scrambled the Dorm Roster &amp; The Thursday Cover-Up</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/rrc-dorm-database-hack-and-coverup">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: How Christopher Vance Scrambled the Dorm Roster &amp; The Thursday Cover-Up</span>
         </wa-button>
       </div>
     </wa-card>
@@ -421,7 +569,63 @@
       </wa-scroller>
     </section>
   
-    </main>
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        <wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  <li><a href="#sec-1-the-nine-stages-of-bureaucratic-collapse-inside-dirksen-room-511" class="bs-toc-link">1. The Nine Stages of Bureaucratic Collapse Inside Dirksen Room 511</a></li>
+                  <li><a href="#sec-2-stage-9-the-frantic-hallway-calls-to-richmond-the-governor-s-chief-of-staff-reading-them-the-riot-act-3-10-pm-4-15-pm" class="bs-toc-link">2. Stage 9 — The Frantic Hallway Calls to Richmond &amp; The Governor&#39;s Chief of Staff Reading Them the Riot Act (3:10 PM – 4:15 PM)</a></li>
+                </ul>
+              </wa-card>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/first-train-from-norfolk-swearing-in-on-the-constitution-strings-attached-for-rrc/part-5-34-c-f-r-section-361-38-two-twelve-day-dropouts-in-room-511-strings-attached-at-the-subcommittee-hearing">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Episode 11, Chapter 3, Part 5: 34 C.F.R. § 361.38 &amp; Strings Attached ↗
+                  </wa-button>
+            <wa-button variant="neutral" appearance="outlined" size="small" href="/books/katie">
+                    <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                    Katie &amp; Nathaniel (15 Dossiers)
+                  </wa-button>
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/books/katie/dirksen-room-511-sterling-and-cross-panic" label="QR code to open Inside Dirksen Room 511: Commissioner Sterling &amp; Director Cross&#39;s Panic on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
 
     <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
     <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
@@ -469,6 +673,26 @@
       </div>
     </wa-drawer>
 
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your iPhone or iPad Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
     <!-- Quick View Dossier Modal (<wa-dialog>) -->
     <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
       <div id="bs-preview-meta" class="bs-dialog-meta"></div>
@@ -490,28 +714,7 @@
       </div>
     </wa-dialog>
 
-    <footer class="bs-footer">
-      <div class="bs-container">
-        <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
-          <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, and Kincaid Commons), corporations (including OmniCorp, Vectron Energy Corp., Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
-        </div>
-        <div class="bs-footer-bar">
-          <p>
-            &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
-            <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
-            Creative content licensed under
-            <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
-          </p>
-          <div class="bs-footer-links">
-            <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
-            <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
-            <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="/assets/backstage-client.js?v=20261114c" defer></script>
+    <script src="/assets/backstage-client.js?v=20261114d" defer></script>
     <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261109a" defer></script>
   </body>
 </html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var root = document.documentElement;
+        root.className = 'wa-theme-' + t + ' wa-palette-' + p + (isDark ? ' wa-dark' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261114d" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261114d" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261114d" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261114d" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261114d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261114d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261114d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261114d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261114d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261114d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261114d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261114d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261114d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261114d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261114d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261114d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261114d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261114d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261114d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261114d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261114d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261114d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261114d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261114d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261114d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261114d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261114d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261114d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261114d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261114d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261114d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261114d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261114d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261114d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261114d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261114d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261114d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261114d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>The Wingman Briefing: Ashley Raybourn Explains Rachel &amp;…</title>
+    <meta name="description" content="Two days before the Brewster Gardens Spring Sound Showcase, Ashley Raybourn pulls Bonnie Reed into the quiet hallway outside the Morrison Band…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/books/rachel/the-wingman-briefing-ashley-and-bonnie" />
+    <meta property="og:title" content="The Wingman Briefing: Ashley Raybourn Explains Rachel &amp;…" />
+    <meta property="og:description" content="Two days before the Brewster Gardens Spring Sound Showcase, Ashley Raybourn pulls Bonnie Reed into the quiet hallway outside the Morrison Band…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/books/rachel/the-wingman-briefing-ashley-and-bonnie" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/rachel-wingman-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/rachel-wingman-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Fourteen-year-old eighth-grader Ashley Raybourn in her light sky-blue crewneck t-shirt and golden-blonde ponytail holding wooden snare drumsticks outside the Morrison Middle…" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Wingman Briefing: Ashley Raybourn Explains Rachel &amp;…" />
+    <meta name="twitter:description" content="Two days before the Brewster Gardens Spring Sound Showcase, Ashley Raybourn pulls Bonnie Reed into the quiet hallway outside the Morrison Band…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/rachel-wingman-og.jpg" />
+    <meta name="twitter:image:alt" content="Fourteen-year-old eighth-grader Ashley Raybourn in her light sky-blue crewneck t-shirt and golden-blonde ponytail holding wooden snare drumsticks outside the Morrison Middle…" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/rachel/the-wingman-briefing-ashley-and-bonnie#webpage","url":"https://backstage.raggiesoft.com/books/rachel/the-wingman-briefing-ashley-and-bonnie","name":"The Wingman Briefing: Ashley Raybourn Explains Rachel \u0026…","description":"Two days before the Brewster Gardens Spring Sound Showcase, Ashley Raybourn pulls Bonnie Reed into the quiet hallway outside the Morrison Band…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/rachel-wingman-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261114d" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261029f" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+
+      <nav slot="banner" class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+        <div class="rs-network-bar-inner">
+          <span class="rs-network-label">✦ RaggieSoft Network:</span>
+          <ul class="rs-network-links">
+            <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+            <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+            <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+            <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+            <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+            <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+            <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+            <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+            <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+            <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261114d" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (15)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (43 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (15 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/books/rachel">The Rachel Narrative (10 Dossiers)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>The Wingman Briefing: Ashley Raybourn Explains Rachel &amp; &#39;The Trio&#39; to Bonnie Reed</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="success" appearance="filled" pill>
+          <wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Rachel Narrative — Behind the Scenes
+        </wa-badge>
+        <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="clock" aria-hidden="true"></wa-icon>&nbsp;1999-05-13</wa-tag>
+      </div>
+
+      <h1 class="bs-title">The Wingman Briefing: Ashley Raybourn Explains Rachel &amp; &#39;The Trio&#39; to Bonnie Reed</h1>
+      <p class="bs-subtitle">Thursday, May 13, 1999 — Outside the Morrison Middle School Band Room</p>
+
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/rachel/middle-school/the-spring-sound-showcase-friday-may-14-1999/the-friday-commute-deploying-base-camp">
+                <wa-icon slot="start" family="duotone" name="book-open-cover" swap-opacity aria-hidden="true"></wa-icon>
+                Episode 4, Chapter 1: The Friday Commute &amp; Deploying Base Camp ↗
+              </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/books/rachel">
+                <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-button>
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button value="https://backstage.raggiesoft.com/books/rachel/the-wingman-briefing-ashley-and-bonnie" copy-label="Copy direct link to this dossier" success-label="Link copied!"></wa-copy-button>
+        </span>
+
+        <wa-button id="bs-qr-trigger" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="qrcode" aria-hidden="true"></wa-icon>
+          Read on Phone
+        </wa-button>
+        <wa-popover for="bs-qr-trigger" placement="bottom">
+          <div class="bs-qr-panel">
+            <wa-qr-code value="https://backstage.raggiesoft.com/books/rachel/the-wingman-briefing-ashley-and-bonnie" label="QR code to open The Wingman Briefing: Ashley Raybourn Explains Rachel &amp; &#39;The Trio&#39; to Bonnie Reed on a phone or tablet" size="148"></wa-qr-code>
+            <p class="bs-qr-caption">Scan with your camera to continue reading this dossier on your phone or tablet.</p>
+          </div>
+        </wa-popover>
+      </div>
+
+      <div class="bs-meta-grid">
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="calendar-day" aria-hidden="true"></wa-icon> Story Date &amp; Time</span>
+        <strong>1999-05-13</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="location-dot" aria-hidden="true"></wa-icon> Setting</span>
+        <strong>Morrison Middle School Band Corridor, Virginia Beach, Virginia</strong>
+      </div>
+    </div>
+    </div>
+
+    
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/rachel-wingman-briefing-ashley-bonnie-1999.jpg"
+        alt="Fourteen-year-old eighth-grader Ashley Raybourn in her light sky-blue crewneck t-shirt and golden-blonde ponytail holding wooden snare drumsticks outside the Morrison Middle School band room doors as she talks earnestly with Bonnie Reed, who wears a deep-burgundy long-sleeve top with straight center-parted dark hair and cradles her matte-black sheet-music binder."
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      <figcaption class="bs-dossier-hero-caption">Fourteen-year-old eighth-grader Ashley Raybourn in her light sky-blue crewneck t-shirt and golden-blonde ponytail holding wooden snare drumsticks outside the Morrison Middle School band room doors as she talks earnestly with Bonnie Reed, who wears a deep-burgundy long-sleeve top with straight center-parted dark hair and cradles her matte-black sheet-music binder.</figcaption>
+    </figure>
+
+    <wa-card class="bs-article-card">
+      <article class="bs-article-prose" aria-label="The Wingman Briefing: Ashley Raybourn Explains Rachel &amp; &#39;The Trio&#39; to Bonnie Reed">
+        <p>When eighth-grade dismissal rings on <strong>Friday, May 14, 1999</strong> in <a href="https://books.raggiesoft.com/rachel/middle-school/the-spring-sound-showcase-friday-may-14-1999/the-friday-commute-deploying-base-camp" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Episode 4, Chapter 1: &quot;The Friday Commute &amp; Deploying Base Camp&quot;</em></strong></a>, Michael notices that <strong>Ashley Raybourn&#39;s</strong> blue eyes are shining with <em>&quot;a strange, frantic excitement that felt dialed up way past her usual Friday energy&quot;</em>—and twenty-four hours later at <strong>Brewster Gardens</strong> (<a href="https://books.raggiesoft.com/rachel/middle-school/the-old-world-saturday-may-15-1999/part-3-josephine-s-and-the-ghost-the-translation-in-the-grand-hall" class="bs-link" target="_blank" rel="noopener noreferrer"><em>Episode 4, Chapter 2, Part 3: &quot;Josephine&#39;s and the Ghost &amp; The Translation in the Grand Hall&quot;</em></a>), <strong>Bonnie Reed</strong> suddenly holds onto Michael&#39;s hug longer than usual and interlaces her fingers with his.</p>
+<p>Michael has no idea why the social math changed overnight—because he was still inside the band room untangling xylophone mallets on <strong>Thursday afternoon, May 13, 1999</strong>, when Ashley pulled Bonnie out into the hallway.</p>
+<hr class="bs-divider" />
+<h2 id="sec-background-seven-months-inside-the-percussion-perimeter" class="bs-heading bs-h2">Background: Seven Months Inside the Percussion Perimeter</h2>
+<p>For the past seven months of eighth grade, <strong>Bonnie Reed</strong> had been fully welcomed into the physical baseline of the Morrison Middle School percussion section. She had shared deep-pressure group hugs before concerts, leaned into grounding bus-ride shoulder rests, and held Michael&#39;s hand in crowded hallways.</p>
+<p>To fourteen-year-old Michael—operating four years after the 1995 trauma and a decade before his formal autism diagnosis—every single one of those gestures was purely an extension of his survival routine: adding a trusted, safe friend to his physical tether.</p>
+<p>To Bonnie, however, who had developed a massive crush on him since autumn, that constant platonic closeness was agonizingly confusing—especially because she watched Michael do the exact same things every single day with <strong>Ashley Raybourn</strong>.</p>
+<hr class="bs-divider" />
+<h2 id="sec-thursday-may-13-1999-outside-the-band-room-double-doors" class="bs-heading bs-h2">Thursday, May 13, 1999 — Outside the Band Room Double Doors</h2>
+<p>The final dismissal bell hadn&#39;t rung yet, and <strong>Ms. Pitizer</strong> had given the eighth-grade percussion section the last ten minutes of period eight to pack up their concert gear. At the back of the band room, snare drums were being zipped into canvas cases while <strong>Sloane</strong> bragged loudly to nobody in particular. Across the room, Michael stood bent over the mallet percussion rack, methodically untangling yarn xylophone mallets in complete, oblivious concentration.</p>
+<p>Ashley shut her instrument locker, slung her backpack over one shoulder, and caught the exact hesitant, pining expression on Bonnie&#39;s face as Bonnie watched Michael from behind the concert chimes.</p>
+<p>Ashley didn&#39;t believe in middle-school guessing games. Reaching out, she lightly tapped the sleeve of Bonnie&#39;s shirt.</p>
+<p>&quot;Hey, Bonnie. Walk with me for a second. Let the boys finish the mallets.&quot;</p>
+<p>Startled, Bonnie hugged her black sheet-music binder to her chest and followed Ashley through the heavy double doors into the quiet, sunlit terrazzo corridor. The moment the pneumatic door closers clicked shut—cutting off the rattle of snare stands inside—Ashley leaned back against the painted cinderblock wall and crossed her arms over her drumsticks.</p>
+<p>&quot;So,&quot; Ashley said casually. &quot;When are you going to make a move?&quot;</p>
+<p>Bonnie froze on the polished floor. Her cheeks flushed crimson from collar to hairline, and she glanced frantically down the empty row of slate-blue lockers. &quot;What? Make a move on who?&quot;</p>
+<p>&quot;Don&#39;t do that,&quot; Ashley said, her voice warm but unmistakably direct. &quot;I see the way you look at him, Bonnie. And I see the way you hold back. Every time we lean together on a trip bus, or every time he reaches for your hand to get through the hallway crowd, you tense up. You like him.&quot;</p>
+<p>Bonnie swallowed hard and stared down at the rubber toes of her sneakers. All seven months of quiet anxiety spilled out in a rushed whisper.</p>
+<p>&quot;Ashley, I swear I&#39;m not trying to cause problems,&quot; Bonnie stammered. &quot;I know how close you two are. I see the way he holds onto you in the lobby. I see the way you guys protect each other. I would never try to step in the middle of whatever you two have going on—&quot;</p>
+<p>&quot;Stop right there,&quot; Ashley interrupted, holding up a hand as her face scrunched into genuine, theatrical horror. &quot;Ew. Bonnie, no. <em>Gross.</em>&quot;</p>
+<p>Bonnie blinked, completely thrown off balance. &quot;Gross?&quot;</p>
+<p>&quot;Michael is my brother,&quot; Ashley stated with iron-clad certainty. &quot;He is my best friend in the entire world, and he is my brother. Thinking about him any other way makes me want to throw up.&quot;</p>
+<p>Bonnie let out a long, shaky breath, her shoulders dropping an inch as seven months of tension evaporated at once. &quot;But... the hugs? Holding hands between classes? You guys are always touching.&quot;</p>
+<p>Ashley&#39;s expression softened as she stepped effortlessly into her lifelong role as the pack&#39;s translator and sentinel.</p>
+<p>&quot;Because that&#39;s how his brain works,&quot; Ashley explained quietly. &quot;Michael operates on physical anchors. School hallways are really loud and really chaotic for him, and heavy, grounding touch is how he resets his nervous system so his chest stops racing. He holds my hand so he knows exactly where I am in a crowd without having to look up. He hugs me tight because the pressure calms him down. It&#39;s how he stays safe, Bonnie. It isn&#39;t romantic.&quot;</p>
+<p>Ashley paused, letting that sink in before offering the single most important truth about Michael&#39;s life—and a warm, genuine smile broke across her face.</p>
+<p>&quot;And for the record,&quot; Ashley added, &quot;he does the exact same thing with Rachel.&quot;</p>
+<p>Bonnie tilted her head slightly. &quot;Who is Rachel?&quot;</p>
+<p>&quot;His little sister,&quot; Ashley said softly. &quot;His actual, biological sister. She&#39;s in sixth grade down in the sixth-grade wing, so she isn&#39;t on our band schedule—but she&#39;s the center of his universe. Everything Michael does, every single day, starts and ends with making sure Rachel is safe, and Rachel does the exact same thing for him. The three of us—me, Michael, and Rachel—we&#39;re the Trio. That&#39;s his core family. I&#39;m his honorary sister, and I&#39;m telling you right now: the perimeter is wide open. I&#39;m not your competition, Bonnie. I&#39;m your wingman.&quot;</p>
+<p>Bonnie stared at her in quiet wonder as every confusing piece of the percussion section suddenly clicked into focus.</p>
+<p>&quot;He likes you, Bonnie,&quot; Ashley continued gently. &quot;I see the way he looks at you, too. He just doesn&#39;t have the vocabulary for romance yet. Right now, his brain has you filed under <em>really great safe person in my section</em>—and unless somebody changes the input, he will leave you in that folder until graduation.&quot;</p>
+<p>&quot;So... what do I do?&quot; Bonnie asked, her voice finally steadying.</p>
+<p>&quot;You upgrade the math,&quot; Ashley grinned, her blue eyes lighting up at the thought of Saturday&#39;s field trip. &quot;We have the <strong>Brewster Gardens</strong> trip on Saturday. When he hugs you? Don&#39;t just give him the quick percussion-section squeeze—hold on a couple seconds longer. When he reaches for your hand walking through the park? Interlace your fingers instead of holding palm-to-palm. Give his brain new data so he realizes something is different. And when he inevitably panics because he doesn&#39;t know what that new feeling is called?&quot;</p>
+<p>Ashley pushed off the cinderblock wall and adjusted her backpack strap with a triumphant grin.</p>
+<p>&quot;I&#39;ll be sitting right across the booth to translate it for him. You have my complete blessing, Reed. Go get my brother.&quot;</p>
+<hr class="bs-divider" />
+<h2 id="sec-companion-chapters-in-the-rachel-narrative" class="bs-heading bs-h2">Companion Chapters in <em>The Rachel Narrative</em></h2>
+<ul class="bs-list"><li><a href="https://books.raggiesoft.com/rachel/middle-school/the-spring-sound-showcase-friday-may-14-1999/the-friday-commute-deploying-base-camp" class="bs-link" target="_blank" rel="noopener noreferrer">*<em>Episode 4, Chapter 1: </em>The Friday Commute &amp; Deploying Base Camp<em> ()</em>*</a> — Friday afternoon dismissal in the Morrison lobby with Michael, Ashley, and sixth-grader Rachel (<em>the Trio</em>) walking home via Delaney Street to Rich Court.</li>
+<li><a href="https://books.raggiesoft.com/rachel/middle-school/the-old-world-saturday-may-15-1999/part-3-josephine-s-and-the-ghost-the-translation-in-the-grand-hall" class="bs-link" target="_blank" rel="noopener noreferrer">*<em>Episode 4, Chapter 2, Part 3: </em>Josephine&#39;s and the Ghost &amp; The Translation in the Grand Hall<em> ()</em>*</a> — Saturday at Brewster Gardens when Bonnie executes Ashley&#39;s exact advice, interlacing her fingers with Michael&#39;s while Ashley translates what his racing heart means.</li>
+<li><a href="/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage" class="bs-link">*<em>Next in Backstage: </em>Sloane&#39;s Brewster Gardens Ban &amp; The Brigadoon Rumor Sabotage<em> ()</em>*</a> — What happened to Sloane on Monday morning after park security escorted him out, and how Mary McCullough&#39;s January 2000 rumor tore Michael and Bonnie apart in ninth grade.</li></ul>
+      </article>
+    </wa-card>
+
+    
+    
+    <section aria-labelledby="related-backstage-heading">
+      <wa-divider></wa-divider>
+      <div class="bs-section-head">
+        <h2 id="related-backstage-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="folder-tree" swap-opacity aria-hidden="true"></wa-icon>
+          More in This Behind-the-Scenes Collection
+        </h2>
+      </div>
+      <wa-scroller orientation="horizontal">
+        <div class="bs-scroller-track">
+          <div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="David Miller&#39;s Norfolk Precinct Tape, The Warehouse Warrant, &amp; The 3:00 PM Arrest Friday, August 18, 1995 — How One Witness Shattered the Offsite Wall of Silence The Rachel Narrative — Behind the Scenes Norfolk Police Precinct &amp; Chesapeake Industrial Park, Virginia Reconstructs Friday, August 18, 1995 outside the hospital walls: David Miller&#39;s voluntary morning confession to Norfolk PD Detective Carter, why Thursday classes were unsupervised, the 2:15 PM Chesapeake warehouse search warrant, and the 3:00 PM arrest. 1995-08-18">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/rachel/b003/chesapeake_courthouse_gavel_1995.jpg" alt="Inside a wood-paneled 1995 Tidewater Virginia courtroom and judicial precinct corridor, a judge&#39;s gavel and formal case files rest on the bench symbolizing the swift criminal prosecution and search warrants executed in August 1995." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="success" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Rachel Narrative
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1995-08-18</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/rachel/david-miller-precinct-interview-and-warehouse-raid" class="bs-link">David Miller&#39;s Norfolk Precinct Tape, The Warehouse Warrant, &amp; The 3:00 PM Arrest</a></h3>
+        <div class="bs-card-subtitle">Friday, August 18, 1995 — How One Witness Shattered the Offsite Wall of Silence</div>
+        <p class="bs-card-summary">Reconstructs Friday, August 18, 1995 outside the hospital walls: David Miller&#39;s voluntary morning confession to Norfolk PD Detective Carter, why Thursday classes were unsupervised, the 2:15 PM Chesapeake warehouse search warrant, and the 3:00 PM arrest.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/rachel/david-miller-precinct-interview-and-warehouse-raid">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: David Miller&#39;s Norfolk Precinct Tape, The Warehouse Warrant, &amp; The 3:00 PM Arrest</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/rachel/david-miller-precinct-interview-and-warehouse-raid">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: David Miller&#39;s Norfolk Precinct Tape, The Warehouse Warrant, &amp; The 3:00 PM Arrest</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Origin of &#39;Bear&#39; and &#39;Bug&#39;, Base Camp Wedge Protocols, &amp; The Approved Visitor List August 1995 — Rewriting Trauma Into Sanctuary on Delaney Street The Rachel Narrative — Behind the Scenes Delaney Street Base Camp, Virginia Beach, Virginia How eight-year-old Rachel transformed an abuser&#39;s insult into her brother&#39;s sacred title (&#39;Bear&#39;) and earned her own (&#39;Bug&#39;), why no third party is ever permitted to speak those names, and the medical mechanics of Delaney Street Base Camp. 1995-08-20">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/rachel-bug-and-bear-sanctuary.jpg" alt="Michael and his younger sister Rachel—Bear and Bug—sitting side by side on the living-room sofa sharing a wholesome sibling hug while their black Labrador Retrievers Baby and Archie rest calmly on the rug in front of them." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="success" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Rachel Narrative
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1995-08-20</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/rachel/the-bug-and-bear-dynamic-and-base-camp-protocols" class="bs-link">The Origin of &#39;Bear&#39; and &#39;Bug&#39;, Base Camp Wedge Protocols, &amp; The Approved Visitor List</a></h3>
+        <div class="bs-card-subtitle">August 1995 — Rewriting Trauma Into Sanctuary on Delaney Street</div>
+        <p class="bs-card-summary">How eight-year-old Rachel transformed an abuser&#39;s insult into her brother&#39;s sacred title (&#39;Bear&#39;) and earned her own (&#39;Bug&#39;), why no third party is ever permitted to speak those names, and the medical mechanics of Delaney Street Base Camp.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/rachel/the-bug-and-bear-dynamic-and-base-camp-protocols">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Origin of &#39;Bear&#39; and &#39;Bug&#39;, Base Camp Wedge Protocols, &amp; The Approved Visitor List</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/rachel/the-bug-and-bear-dynamic-and-base-camp-protocols">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Origin of &#39;Bear&#39; and &#39;Bug&#39;, Base Camp Wedge Protocols, &amp; The Approved Visitor List</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Tiered IEP Addenda &amp; Closed-Door School Nurse Authority Transfer Briefing August 21, 1995 – January 1996 — How the School District Engineered a Zero-Failure Return The Rachel Narrative — Behind the Scenes Virginia Beach City Public Schools — Special Education &amp; Clinic Operations Inside the confidential Tier 0–3 IEP Dissemination Plans and closed-door January 1996 School Nurse Authority Transfer Briefing—granting unilateral EMS override, Kehr&#39;s Sign watch, sibling non-separation, and the Zero-Reaction Mutism Rule. 1995-08-21">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/rachel/b003/living_room_base_camp_1995.jpg" alt="Inside the sunlit Delaney Street living room in August 1995, ten-year-old Michael and eight-year-old Rachel rest side by side propped on 45-degree medical wedges on the sleeper sofa Base Camp." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="success" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Rachel Narrative
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1995-08-21</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/rachel/confidential-school-nurse-briefing-and-tiered-iep-addenda" class="bs-link">The Tiered IEP Addenda &amp; Closed-Door School Nurse Authority Transfer Briefing</a></h3>
+        <div class="bs-card-subtitle">August 21, 1995 – January 1996 — How the School District Engineered a Zero-Failure Return</div>
+        <p class="bs-card-summary">Inside the confidential Tier 0–3 IEP Dissemination Plans and closed-door January 1996 School Nurse Authority Transfer Briefing—granting unilateral EMS override, Kehr&#39;s Sign watch, sibling non-separation, and the Zero-Reaction Mutism Rule.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/rachel/confidential-school-nurse-briefing-and-tiered-iep-addenda">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Tiered IEP Addenda &amp; Closed-Door School Nurse Authority Transfer Briefing</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/rachel/confidential-school-nurse-briefing-and-tiered-iep-addenda">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Tiered IEP Addenda &amp; Closed-Door School Nurse Authority Transfer Briefing</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Chesapeake Anomaly, Title 22 Diplomatic Shield, &amp; Seoul&#39;s Unanimous &#39;Pamyun&#39; Verdict August – November 1995 — Why Master April Stayed in Chesapeake &amp; How the Seonduwon Erased Curtis Maddox The Rachel Narrative — Behind the Scenes Chesapeake &amp; Virginia Beach, Virginia • Seoul, Republic of Korea Why one of only twelve global Sunhoe Sabomnim Emissaries kept teaching in a suburban Chesapeake gymnastics building, how her Title 22 Diplomatic Pouch carried the upgraded petition to Seoul, and the November 1995 Pamyun excommunication verdict. 1995-11-15">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/rachel/b003/midnight_blue_shield_shadow_arts_1995.jpg" alt="Master April in her midnight-blue Seondu dobok with the silver Sunhoe Sabomnim thread down her lapel standing respectfully as a protective guardian for young Michael and Rachel during autumn 1995." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="success" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Rachel Narrative
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1995-11-15</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/rachel/seonduwon-diplomatic-shield-and-pamyun-verdict" class="bs-link">The Chesapeake Anomaly, Title 22 Diplomatic Shield, &amp; Seoul&#39;s Unanimous &#39;Pamyun&#39; Verdict</a></h3>
+        <div class="bs-card-subtitle">August – November 1995 — Why Master April Stayed in Chesapeake &amp; How the Seonduwon Erased Curtis Maddox</div>
+        <p class="bs-card-summary">Why one of only twelve global Sunhoe Sabomnim Emissaries kept teaching in a suburban Chesapeake gymnastics building, how her Title 22 Diplomatic Pouch carried the upgraded petition to Seoul, and the November 1995 Pamyun excommunication verdict.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/rachel/seonduwon-diplomatic-shield-and-pamyun-verdict">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Chesapeake Anomaly, Title 22 Diplomatic Shield, &amp; Seoul&#39;s Unanimous &#39;Pamyun&#39; Verdict</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/rachel/seonduwon-diplomatic-shield-and-pamyun-verdict">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Chesapeake Anomaly, Title 22 Diplomatic Shield, &amp; Seoul&#39;s Unanimous &#39;Pamyun&#39; Verdict</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Unprocessed Guilt of Black Friday &amp; Tom Ragsdale&#39;s 2:00 AM Christmas Drop November 26 – December 25, 1999 — Delaney Street, Virginia Beach, Virginia The Rachel Narrative — Behind the Scenes Delaney Street, Virginia Beach, Virginia Examines how nineteen-year-old Jessica&#39;s frosted portico roof fall on Black Friday 1999 fractured Tom Ragsdale under the weight of unprocessed guilt, paired with Tom&#39;s out-of-POV 2:00 AM Christmas morning Santa operation sneaking past Archie and Baby. 1999-12-25">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/rachel/b005/christmas_1999_living_room_fortress.jpg" alt="Inside the Delaney Street living room bathed in the multicolored glow of the Christmas tree, Jessica, Michael, and Rachel sleep side by side under winter quilts on the deployed pull-out sofa bed while black Labradors Archie and Baby stand watch at the foot of the mattress." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="success" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Rachel Narrative
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1999-12-25</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/rachel/black-friday-1999-and-toms-two-am-christmas-drop" class="bs-link">The Unprocessed Guilt of Black Friday &amp; Tom Ragsdale&#39;s 2:00 AM Christmas Drop</a></h3>
+        <div class="bs-card-subtitle">November 26 – December 25, 1999 — Delaney Street, Virginia Beach, Virginia</div>
+        <p class="bs-card-summary">Examines how nineteen-year-old Jessica&#39;s frosted portico roof fall on Black Friday 1999 fractured Tom Ragsdale under the weight of unprocessed guilt, paired with Tom&#39;s out-of-POV 2:00 AM Christmas morning Santa operation sneaking past Archie and Baby.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/rachel/black-friday-1999-and-toms-two-am-christmas-drop">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Unprocessed Guilt of Black Friday &amp; Tom Ragsdale&#39;s 2:00 AM Christmas Drop</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/rachel/black-friday-1999-and-toms-two-am-christmas-drop">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Unprocessed Guilt of Black Friday &amp; Tom Ragsdale&#39;s 2:00 AM Christmas Drop</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Sloane&#39;s Brewster Gardens Ban &amp; The January 2000 Brigadoon Rumor Sabotage May 1999 – January 2000 — Administrative Consequences &amp; How Northwood&#39;s Seniors Defended the Pack The Rachel Narrative — Behind the Scenes Brewster Gardens (Williamsburg) • Morrison Middle School &amp; Northwood High School (Virginia Beach) What happened to Sloane after Brewster Gardens security detained him on May 15, 1999—and how Mary McCullough&#39;s January 2000 Brigadoon rumor hack backfired when Northwood High&#39;s Senior Class rallied around Jessica, Michael, and Rachel. 2000-01-18">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/rachel/b004/sovereign_palace_trophy_1999.jpg" alt="Eighth-grade percussionists Ashley Raybourn with her snare drumsticks, Michael in the center holding the towering gold Brewster Gardens Outstanding Percussion Section trophy, and Bonnie Reed with her blue timpani mallets smiling on the outdoor Sovereign Palace stage." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="success" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Rachel Narrative
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2000-01-18</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage" class="bs-link">Sloane&#39;s Brewster Gardens Ban &amp; The January 2000 Brigadoon Rumor Sabotage</a></h3>
+        <div class="bs-card-subtitle">May 1999 – January 2000 — Administrative Consequences &amp; How Northwood&#39;s Seniors Defended the Pack</div>
+        <p class="bs-card-summary">What happened to Sloane after Brewster Gardens security detained him on May 15, 1999—and how Mary McCullough&#39;s January 2000 Brigadoon rumor hack backfired when Northwood High&#39;s Senior Class rallied around Jessica, Michael, and Rachel.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Sloane&#39;s Brewster Gardens Ban &amp; The January 2000 Brigadoon Rumor Sabotage</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Sloane&#39;s Brewster Gardens Ban &amp; The January 2000 Brigadoon Rumor Sabotage</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+        </div>
+      </wa-scroller>
+    </section>
+  
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        <wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  <li><a href="#sec-background-seven-months-inside-the-percussion-perimeter" class="bs-toc-link">Background: Seven Months Inside the Percussion Perimeter</a></li>
+                  <li><a href="#sec-thursday-may-13-1999-outside-the-band-room-double-doors" class="bs-toc-link">Thursday, May 13, 1999 — Outside the Band Room Double Doors</a></li>
+                  <li><a href="#sec-companion-chapters-in-the-rachel-narrative" class="bs-toc-link">Companion Chapters in The Rachel Narrative</a></li>
+                </ul>
+              </wa-card>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/rachel/middle-school/the-spring-sound-showcase-friday-may-14-1999/the-friday-commute-deploying-base-camp">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Episode 4, Chapter 1: The Friday Commute &amp; Deploying Base Camp ↗
+                  </wa-button>
+            <wa-button variant="neutral" appearance="outlined" size="small" href="/books/rachel">
+                    <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                    The Rachel Narrative (10 Dossiers)
+                  </wa-button>
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/books/rachel/the-wingman-briefing-ashley-and-bonnie" label="QR code to open The Wingman Briefing: Ashley Raybourn Explains Rachel &amp; &#39;The Trio&#39; to Bonnie Reed on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your iPhone or iPad Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261114d" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261109a" defer></script>
+  </body>
+</html>

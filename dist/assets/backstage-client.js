@@ -4,9 +4,9 @@
  * /assets/backstage-client.js — RaggieSoft Backstage Progressive Controller
  * ============================================================================
  * Orchestrates Web Awesome Pro 3.13.0 interactive components, the Reading
- * Appearance Studio (themes, palettes, and 3-state lighting), debounced search
- * live-region announcements, the Archival Ledger data grid, Folder Explorer,
- * and Quick View modal.
+ * Appearance Studio (themes, palettes, and 3-state lighting), Install App
+ * progressive prompts, debounced search live-region announcements, the
+ * Archival Ledger data grid, Folder Explorer, and Quick View modal.
  * ============================================================================
  */
 (function () {
@@ -161,6 +161,56 @@
       safeSetStorage('bs-wa-theme', null);
       safeSetStorage('bs-wa-palette', null);
       syncAppearanceDom('system', 'default', 'default');
+    });
+  }
+
+  // Install App Controller (Desktop/Android beforeinstallprompt + iOS/iPadOS Home Screen guide)
+  var installBtn = document.getElementById('bs-install-app');
+  var iosInstallDialog = document.getElementById('bs-ios-install-dialog');
+  var closeIosInstallBtn = document.getElementById('bs-close-ios-install');
+  var deferredInstallPrompt = null;
+
+  var isStandalone =
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+    window.navigator.standalone === true;
+
+  var ua = window.navigator.userAgent || '';
+  var isIosSafari =
+    (/iPad|iPhone|iPod/.test(ua) ||
+      (window.navigator.platform === 'MacIntel' && window.navigator.maxTouchPoints > 1)) &&
+    !/CriOS|FxiOS|EdgiOS/.test(ua);
+
+  if (!isStandalone && installBtn) {
+    if (isIosSafari) {
+      installBtn.hidden = false;
+    }
+
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      installBtn.hidden = false;
+    });
+
+    window.addEventListener('appinstalled', function () {
+      deferredInstallPrompt = null;
+      installBtn.hidden = true;
+    });
+
+    installBtn.addEventListener('click', function () {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.finally(function () {
+          deferredInstallPrompt = null;
+        });
+      } else if (iosInstallDialog) {
+        iosInstallDialog.open = true;
+      }
+    });
+  }
+
+  if (closeIosInstallBtn && iosInstallDialog) {
+    closeIosInstallBtn.addEventListener('click', function () {
+      iosInstallDialog.open = false;
     });
   }
 
@@ -464,7 +514,16 @@
           if (data.location) addPill(data.location, 'neutral');
         }
         if (previewBody) {
-          previewBody.innerHTML = '<div class="bs-article-prose">' + (data.html || '') + '</div>';
+          var heroHtml = '';
+          if (data.image) {
+            var safeSrc = String(data.image).replace(/"/g, '&quot;');
+            var safeAlt = String(data.imageAlt || data.title || '').replace(/"/g, '&quot;');
+            heroHtml =
+              '<figure class="bs-inline-figure" style="margin-block-start:0">' +
+              '<img src="' + safeSrc + '" alt="' + safeAlt + '" width="1408" height="768" loading="lazy" class="bs-inline-img" />' +
+              '</figure>';
+          }
+          previewBody.innerHTML = heroHtml + '<div class="bs-article-prose">' + (data.html || '') + '</div>';
         }
         if (previewFullLink && data.slug) {
           previewFullLink.setAttribute('href', '/' + data.slug);
