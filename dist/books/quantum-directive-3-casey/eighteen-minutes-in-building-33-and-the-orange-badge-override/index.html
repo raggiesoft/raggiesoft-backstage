@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var root = document.documentElement;
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261115d" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261115d" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261115d" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261115d" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261115d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261115d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261115d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261115d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261115d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261115d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261115d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261115d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261115d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261115d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261115d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261115d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261115d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261115d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261115d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261115d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261115d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261115d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261115d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261115d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261115d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261115d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261115d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261115d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261115d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261115d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261115d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261115d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261115d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261115d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261115d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261115d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261115d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261115d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>Eighteen Minutes Behind Frosted Glass: The Building 33…</title>
+    <meta name="description" content="Steps inside the frosted-glass Building 33 boardroom during the eighteen-minute succession vote on January 15, 2014—as William Keswick and Steve…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override" />
+    <meta property="og:title" content="Eighteen Minutes Behind Frosted Glass: The Building 33…" />
+    <meta property="og:description" content="Steps inside the frosted-glass Building 33 boardroom during the eighteen-minute succession vote on January 15, 2014—as William Keswick and Steve…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-2014-bellevue-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-2014-bellevue-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Inside Quantum Corporation&#39;s sunlit twelfth-floor communal workspace in Downtown Bellevue on January 15, 2014, newly named CEO-designate Cassandra Vance sits in her manual…" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Eighteen Minutes Behind Frosted Glass: The Building 33…" />
+    <meta name="twitter:description" content="Steps inside the frosted-glass Building 33 boardroom during the eighteen-minute succession vote on January 15, 2014—as William Keswick and Steve…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-2014-bellevue-og.jpg" />
+    <meta name="twitter:image:alt" content="Inside Quantum Corporation&#39;s sunlit twelfth-floor communal workspace in Downtown Bellevue on January 15, 2014, newly named CEO-designate Cassandra Vance sits in her manual…" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override#webpage","url":"https://backstage.raggiesoft.com/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override","name":"Eighteen Minutes Behind Frosted Glass: The Building 33…","description":"Steps inside the frosted-glass Building 33 boardroom during the eighteen-minute succession vote on January 15, 2014—as William Keswick and Steve…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-2014-bellevue-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261115d" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261115h" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+
+      <div slot="banner" class="bs-banner-slot">
+        <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+          <div class="rs-network-bar-inner">
+            <span class="rs-network-label">✦ RaggieSoft Network:</span>
+            <ul class="rs-network-links">
+              <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+              <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+              <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+              <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+              <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+              <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261115d" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (16)</span></a></li>
+                <li><a href="/books/quantum-directive-3-casey" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon><span>The Caretakers (6)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (51 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (16 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/books/quantum-directive-3-casey">The Quantum Directive: The Caretakers (6 Dossiers)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>Eighteen Minutes Behind Frosted Glass: The Building 33 Board Vote, The v-davanc Orange-Badge Override, &amp; The TAPS Physics Clause</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="warning" appearance="filled" pill>
+          <wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Quantum Directive: The Caretakers — Behind the Scenes
+        </wa-badge>
+        <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="clock" aria-hidden="true"></wa-icon>&nbsp;2014-01-15</wa-tag>
+      </div>
+
+      <h1 class="bs-title">Eighteen Minutes Behind Frosted Glass: The Building 33 Board Vote, The v-davanc Orange-Badge Override, &amp; The TAPS Physics Clause</h1>
+      <p class="bs-subtitle">January 15, 2014 — Quantum Campus Building 33 &amp; Downtown Bellevue Tower, Washington</p>
+
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/quantum-directive-3-casey/book-4-the-sovereign-empire/chapter-2-the-ground-truth/part-3-the-route-230-protocol-the-express-route" target="_blank" rel="noopener">
+                <wa-icon slot="start" family="duotone" name="book-open-cover" swap-opacity aria-hidden="true"></wa-icon>
+                Book 4, Chapter 2, Part 3: The Route 230 Protocol &amp; The Express Route ↗
+              </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/books/quantum-directive-3-casey">
+                <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-button>
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button value="https://backstage.raggiesoft.com/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override" copy-label="Copy direct link to this dossier" success-label="Link copied!"></wa-copy-button>
+        </span>
+
+        <wa-button id="bs-qr-trigger" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="qrcode" aria-hidden="true"></wa-icon>
+          Read on Phone
+        </wa-button>
+        <wa-popover for="bs-qr-trigger" placement="bottom">
+          <div class="bs-qr-panel">
+            <wa-qr-code value="https://backstage.raggiesoft.com/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override" label="QR code to open Eighteen Minutes Behind Frosted Glass: The Building 33 Board Vote, The v-davanc Orange-Badge Override, &amp; The TAPS Physics Clause on a phone or tablet" size="148"></wa-qr-code>
+            <p class="bs-qr-caption">Scan with your camera to continue reading this dossier on your phone or tablet.</p>
+          </div>
+        </wa-popover>
+      </div>
+
+      <div class="bs-meta-grid">
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="calendar-day" aria-hidden="true"></wa-icon> Story Date &amp; Time</span>
+        <strong>2014-01-15 • 09:00</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="location-dot" aria-hidden="true"></wa-icon> Setting</span>
+        <strong>Executive Boardroom, Building 33, Redmond &amp; 12th Floor Bullpen, Bellevue, Washington</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="user-pen" aria-hidden="true"></wa-icon> Archival Source</span>
+        <strong>Quantum Corporation Board of Directors, Corporate Security, &amp; Vanguard Global Underwriting</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="users" aria-hidden="true"></wa-icon> Addressed To</span>
+        <strong>SEC Form 8-K Succession Archive — Chief Executive Officer Appointment</strong>
+      </div>
+    </div>
+    </div>
+
+    
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-2014-bellevue-bullpen-lpn-check.jpg"
+        alt="Inside Quantum Corporation&#39;s sunlit twelfth-floor communal workspace in Downtown Bellevue on January 15, 2014, newly named CEO-designate Cassandra Vance sits in her manual wheelchair with her noise-canceling headphones resting flat on the wooden table and points out a line of code on a rookie developer&#39;s laptop while her brother, LPN David Vance wearing his bright Orange Contractor Badge, calmly logs her 2:00 PM pulse-oximeter check."
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      <figcaption class="bs-dossier-hero-caption">Inside Quantum Corporation&#39;s sunlit twelfth-floor communal workspace in Downtown Bellevue on January 15, 2014, newly named CEO-designate Cassandra Vance sits in her manual wheelchair with her noise-canceling headphones resting flat on the wooden table and points out a line of code on a rookie developer&#39;s laptop while her brother, LPN David Vance wearing his bright Orange Contractor Badge, calmly logs her 2:00 PM pulse-oximeter check.</figcaption>
+    </figure>
+
+    <wa-card class="bs-article-card">
+      <article class="bs-article-prose" aria-label="Eighteen Minutes Behind Frosted Glass: The Building 33 Board Vote, The v-davanc Orange-Badge Override, &amp; The TAPS Physics Clause">
+        <p>On the morning of <strong>Wednesday, January 15, 2014</strong>, in <a href="https://books.raggiesoft.com/quantum-directive-3-casey/book-4-the-sovereign-empire/chapter-2-the-ground-truth/part-2-the-shadow-wallet-the-actuarial-risk" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Book 4, Chapter 2: &quot;The Ground Truth&quot;</em></strong></a>, <strong>Quantum Corporation</strong> files its historic SEC <code class="bs-inline-code">Form 8-K</code> naming thirty-five-year-old <strong>Cassandra Vance</strong> its third Chief Executive Officer—whereupon Cassandra signs for a black titanium <strong>Meridian Obsidian Card</strong>, demolishes Chief Risk Officer <strong>Sterling&#39;s</strong> actuarial objection to public buses, and rides <strong>TAPS King County Route 230</strong> down <code class="bs-inline-code">156th Avenue NE</code> to spend her afternoon debugging asynchronous routing code with rookie developers in Bellevue.</p>
+<p>Because <strong>David Vance</strong> remains stationed outside the frosted-glass boardroom doors during the <code class="bs-inline-code">9:00 AM</code> formal vote, and because junior engineers in Bellevue only see an inscrutable man in an <strong>Orange Contractor Badge</strong> clip a pulse oximeter onto the new CEO&#39;s finger at <code class="bs-inline-code">2:00 PM</code>, this dossier preserves the three institutional shocks unfolding behind the scenes that day.</p>
+<hr class="bs-divider" />
+<h2 id="sec-1-eighteen-minutes-behind-frosted-glass-january-15-2014-9-00-am" class="bs-heading bs-h2">1. Eighteen Minutes Behind Frosted Glass (<code class="bs-inline-code">January 15, 2014 • 9:00 AM</code>)</h2>
+<p>Although <strong>William Keswick</strong> and <strong>Steve Ballantine</strong> had already informed Cassandra in the empty <strong>Building 33 Vault</strong> at <code class="bs-inline-code">9:30 PM</code> the night before (<a href="https://books.raggiesoft.com/quantum-directive-3-casey/book-4-the-sovereign-empire/chapter-1-the-mandate/the-deviation-the-sovereign-news" class="bs-link" target="_blank" rel="noopener noreferrer"><em>Chapter 1: &quot;The Deviation&quot;</em></a>), corporate governance required a formal roll-call resolution of Quantum&#39;s eleven-member <strong>Board of Directors</strong> at <code class="bs-inline-code">9:00 AM</code> sharp before the <code class="bs-inline-code">8-K</code> hit the financial wires.</p>
+<p>Nine directors arrived already aligned behind the founders. Two external directors—Wall Street private-equity veteran <strong>Richard</strong> and legacy consumer-packaged-goods chairwoman <strong>Evelyn</strong>—cleared their throats before the ballot was called.</p>
+<p>&quot;Nobody in this room questions Cassandra&#39;s mastery of the enterprise cloud stack,&quot; Richard began carefully, tapping his leather portfolio. &quot;She built the revenue engine keeping our margins vertical. My concern is Wall Street&#39;s opening-bell optics. She just turned thirty-five in November. Every institutional fund manager in Manhattan is expecting a fifty-five-year-old Fortune 50 statesperson.&quot;</p>
+<p>&quot;And there is the cultural posture,&quot; Evelyn added, glancing out the fifth-floor glass toward the central campus commons. &quot;When I walked in from the visitor car service twenty minutes ago, half the engineers in <strong>Building 16</strong> told me they call her the <em>Courtyard CEO</em> because she sits at outdoor picnic tables in denim jeans with her laptop bolted to her wheelchair—and carries a <strong>MagnaByte mPhone</strong> in her blazer pocket. If financial television catches Quantum&#39;s incoming CEO pulling our rival&#39;s flagship phone out at a bus shelter, how does Communications spin that?&quot;</p>
+<p>Steve Ballantine didn&#39;t shout. Leaning both palms against the mahogany table, he answered in a low, lethal baritone while William Keswick slid a single printed retention ledger across the polished wood.</p>
+<p>&quot;First,&quot; Keswick said mildly, adjusting his glasses, &quot;I founded this company at twenty, and Steve took operational command before forty. Wall Street doesn&#39;t buy gray hair, Richard; Wall Street buys architecture. Look at Page 1 of the sheet in front of you. Across Silicon Valley, annual senior kernel and cloud-infrastructure attrition averages twenty-two percent. Inside Cassandra&#39;s organization—and across allied <strong>Building 35</strong> divisions—engineer retention sits at <strong>ninety-eight point four percent</strong>.&quot;</p>
+<p>&quot;Do you know why ninety-eight percent of our sharpest architects refuse recruiter calls?&quot; Steve picked up seamlessly. &quot;Because when a twenty-three-year-old compiler engineer hits a deadlock, they don&#39;t have to file six layers of slide decks to beg a vice president for air cover. They walk out into the courtyard, check whether Cass&#39;s noise-canceling headphones are resting on the picnic table, sit down next to her wheelchair, and watch the woman running the division rewrite the memory allocation alongside them.&quot;</p>
+<p>Keswick tapped Page 2 of the brief.</p>
+<p>&quot;And as for the <strong>mPhone</strong> in her pocket, Evelyn—that is not an optics problem. That is the entire thesis of her CEO tenure. For seven years we burned billions trying to wall our productivity and cloud suites inside proprietary mobile hardware while MagnaByte won the glass in consumers&#39; pockets. Six months ago, Cassandra stood at my whiteboard and proved that the day we put flawless, native <strong>Quantum</strong> enterprise applications and <strong>Aegis</strong> cloud hooks onto every single <strong>mPhone</strong> and <strong>mPad</strong> on Earth, MagnaByte becomes our global hardware distributor for free. She isn&#39;t carrying a competitor&#39;s phone out of disloyalty. She is colonizing it.&quot;</p>
+<p>Richard and Evelyn stared down at the margin projections for five quiet seconds. Neither raised a second question.</p>
+<p>At <code class="bs-inline-code">9:18 AM</code>—exactly eighteen minutes after the gavel tapped—the Board Secretary recorded an <strong>11–0 unanimous vote</strong> appointing Cassandra Vance Chief Executive Officer of Quantum Corporation.</p>
+<hr class="bs-divider" />
+<h2 id="sec-2-the-v-davanc-anomaly-inside-corporate-security-10-15-am" class="bs-heading bs-h2">2. The <code class="bs-inline-code">v-davanc</code> Anomaly inside Corporate Security (<code class="bs-inline-code">10:15 AM</code>)</h2>
+<p>Forty-five minutes later, as automated HR scripts began elevating <code class="bs-inline-code">c-vance</code> to Tier-0 Chief Executive physical and digital sovereignty across every Quantum facility worldwide, an automated security exception chime lit up the operations console inside <strong>Henderson&#39;s</strong> Corporate Security bunker in the sub-basement of Building 33.</p>
+<p>Linked hard-coded as a mandatory co-requisite to <code class="bs-inline-code">c-vance</code>&#39;s physical badge profile was a non-employee vendor credential: <strong><code class="bs-inline-code">v-davanc</code> (<code class="bs-inline-code">Vance, David — External Clinical Contractor / Orange Badge</code>)</strong>.</p>
+<p>At Quantum Corporation, badge color was corporate caste law: <strong>Blue Badges</strong> denoted full-time employees, whereas <strong>Orange Badges</strong> marked temporary vendors, cafeteria staff, and external contractors—automatically barred by turnstile firmware from unescorted entry into <strong>Building 33&#39;s</strong> executive floors, restricted server vaults, and boardroom corridors.</p>
+<p>When a newly hired security systems analyst attempted to strip Building 33 Vault access from <code class="bs-inline-code">v-davanc</code> assuming it was a database permissions bug, Henderson lunged across the console desk and aborted the commit with two seconds to spare.</p>
+
+          <div class="bs-email-card" role="group" aria-label="Encrypted CPI Administrative Mail Dispatch">
+            <div class="bs-email-card-bar">
+              <span class="bs-email-card-badge">
+                <i class="fa-solid fa-envelope-open-text" aria-hidden="true"></i> Encrypted CPI Administrative Mail Dispatch
+              </span>
+              <span class="bs-email-card-seal"><i class="fa-solid fa-badge-check" aria-hidden="true"></i> VERIFIED ARCHIVE</span>
+            </div>
+            <div class="bs-email-card-body">
+              <p><strong>Quantum Corporate Security — Permanent Access Control Directive (<code class="bs-inline-code">#B33-0001-MED</code>)</strong><br /> <strong>Issued By:</strong> R. Henderson, Director of Executive &amp; Campus Security<br /> <strong>Subject:</strong> DO NOT MODIFY Physical Badge Profile <code class="bs-inline-code">v-davanc</code> (<code class="bs-inline-code">David Vance, LPN</code>)<br /></p>
+<p>Effective immediately, any physical security analyst who alters, throttles, or flags badge ID <strong><code class="bs-inline-code">v-davanc</code></strong> will be reassigned to checking parking permits in Fargo.<br /><br /> Yes, <code class="bs-inline-code">v-davanc</code> carries an <strong>Orange Badge</strong> because Ms. Vance refuses to put a personal family nurse onto shareholder <code class="bs-inline-code">W-2</code> headcount—paying his clinical agency contract 100% out of her private funds so corporate ledgers stay spotless. And yes, <code class="bs-inline-code">v-davanc</code>&#39;s personal laptop stays permanently sandboxed on <strong><code class="bs-inline-code">Quantum_Guest</code></strong> because he has zero interest in touching a single byte of Quantum intellectual property.<br /><br /> Physically, however, <strong><code class="bs-inline-code">v-davanc</code> holds identical biometric and proximity door clearance to the Chief Executive Officer across 100% of Quantum&#39;s global footprint</strong>, including the Building 33 Vault and executive elevators. If his medical telemetry tablet alerts, there will never be a locked door between Nurse Vance and Ms. Vance on my watch.</p>
+            </div>
+          </div>
+        
+<hr class="bs-divider" />
+<h2 id="sec-3-vanguard-global-s-3-45-pm-capitulation-the-fifteen-ton-chassis-rider" class="bs-heading bs-h2">3. Vanguard Global&#39;s 3:45 PM Capitulation (<code class="bs-inline-code">&quot;The Fifteen-Ton Chassis Rider&quot;</code>)</h2>
+<p>At <code class="bs-inline-code">12:22 PM</code>—seven minutes after Cassandra rolled past Henderson&#39;s idling <strong>Apex Mountaineers</strong> and tapped her blue <strong>TAPS Pass</strong> onto <strong>King County Route 230</strong> while eating a cafeteria deli sandwich—Chief Risk Officer <strong>Sterling</strong> placed a speakerphone call from Redmond to the Senior Managing Underwriter at <strong>Vanguard Global Insurance</strong> in Hartford.</p>
+<p>Sterling didn&#39;t soften a syllable of Cassandra&#39;s ultimatum: either bind Quantum&#39;s <strong><code class="bs-inline-code">$250,000,000</code> Key-Person CEO Policy</strong> inclusive of unescorted municipal bus and light-rail transit before the <code class="bs-inline-code">4:00 PM EST</code> closing bell, or lose Quantum&#39;s entire nine-figure global enterprise casualty portfolio before dinner.</p>
+<p>In a frantic ninety-minute actuarial huddle, Vanguard Global&#39;s transportation statisticians pulled ten years of <strong>Federal Transit Administration</strong> and <strong>King County TAPS</strong> collision telemetry along the <code class="bs-inline-code">156th Avenue NE</code>, <code class="bs-inline-code">SR-520</code>, and <code class="bs-inline-code">I-405</code> corridors—and discovered to their acute embarrassment that Cassandra&#39;s off-the-cuff physics lecture had been mathematically conservative. Per passenger-mile traveled in King County, a seated occupant locked into a rear-facing or securement-strapped ADA bay aboard a <code class="bs-inline-code">38,000-pound</code> articulated municipal coach carried an <strong><code class="bs-inline-code">84%</code> lower severe-injury probability</strong> than a passenger riding in a <code class="bs-inline-code">6,200-pound</code> executive SUV.</p>
+<p>At <code class="bs-inline-code">3:45 PM EST</code> (<code class="bs-inline-code">12:45 PM PST</code>—just as Cassandra was hugging her gray-haired year-2000 mentors on the twelfth floor in Bellevue), Vanguard Global transmitted the bound policy featuring the first <strong>Municipal Mass-Transit Autonomy Endorsement</strong> in Fortune 50 history, alongside one face-saving actuarial footnote dubbed internally by Henderson&#39;s team as <strong><em>The Fifteen-Minute Rule</em></strong>:</p>
+<ul class="bs-list"><li><em>So long as Licensed Practical Nurse David Vance remains within a fifteen-minute physical or transit intercept radius monitoring continuous Mobile Cardiac Telemetry (MCT), all public bus, commuter rail, subway, and ferry networks in North America are classified as Approved Tier-1 Executive Transport.</em></li></ul>
+<hr class="bs-divider" />
+<h2 id="sec-companion-chapters-in-the-quantum-directive-the-caretakers" class="bs-heading bs-h2">Companion Chapters in <em>The Quantum Directive: The Caretakers</em></h2>
+<ul class="bs-list"><li><a href="https://books.raggiesoft.com/quantum-directive-3-casey/book-4-the-sovereign-empire/chapter-1-the-mandate/the-deviation-the-sovereign-news" class="bs-link" target="_blank" rel="noopener noreferrer"><strong>Book 4, Chapter 1: <em>The Deviation &amp; The Sovereign News</em> (<code class="bs-inline-code">January 14, 2014</code>)</strong></a> — David adjusts Cassandra&#39;s <code class="bs-inline-code">8:00 PM</code> Gabapentin/Guanfacine window so she stays razor-sharp when William Keswick and Steve Ballantine hand her the succession mandate in the empty Building 33 Vault.</li>
+<li><a href="https://books.raggiesoft.com/quantum-directive-3-casey/book-4-the-sovereign-empire/chapter-2-the-ground-truth/part-2-the-shadow-wallet-the-actuarial-risk" class="bs-link" target="_blank" rel="noopener noreferrer"><strong>Book 4, Chapter 2, Part 2: <em>The Shadow Wallet &amp; The Actuarial Risk</em> (<code class="bs-inline-code">January 15, 2014</code>)</strong></a> — Cassandra activates the Meridian Obsidian Card, secures winter helicopter airlift capability for Ruby Mountain, and crushes Vanguard Global&#39;s anti-bus ultimatum with fifteen-ton collision math.</li>
+<li><a href="https://books.raggiesoft.com/quantum-directive-3-casey/book-4-the-sovereign-empire/chapter-2-the-ground-truth/part-3-the-route-230-protocol-the-express-route" class="bs-link" target="_blank" rel="noopener noreferrer"><strong>Book 4, Chapter 2, Part 3: <em>The Route 230 Protocol &amp; The Express Route</em> (<code class="bs-inline-code">January 15, 2014</code>)</strong></a> — Cassandra rides Route 230 to Downtown Bellevue, establishes her <em>Headphones OFF = Open Perimeter</em> mentorship rule with rookie coders, and catches the TAPS Express 564 home at rush hour.</li></ul>
+      </article>
+    </wa-card>
+
+    
+    
+    <section aria-labelledby="related-backstage-heading">
+      <wa-divider></wa-divider>
+      <div class="bs-section-head">
+        <h2 id="related-backstage-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="folder-tree" swap-opacity aria-hidden="true"></wa-icon>
+          More in This Behind-the-Scenes Collection
+        </h2>
+      </div>
+      <wa-scroller orientation="horizontal">
+        <div class="bs-scroller-track">
+          <div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Forty Polygons Without a Coprocessor: Inside Building 26&#39;s 1996 Catalyst Judging Lab &amp; William Keswick&#39;s Override August 24, 1995 – April 21, 1996 — Northwest Pacific University &amp; Quantum Campus Building 26, Redmond, Washington The Quantum Directive: The Caretakers — Behind the Scenes Quantum Catalyst Initiative Technical Jury &amp; NPU Office of Disability Services Office of the Chief Executive Officer (Building 33) &amp; Incoming Cohort File — Vance, Cassandra Bare-Metal 80486 Verification Audit &amp; Fall 1996 Single-Occupancy ADA Housing Mandate Quantum Campus Building 26, Redmond &amp; Northwest Pacific University, Seattle, Washington Reveals what happened behind closed doors in Redmond between Steve Ballantine&#39;s August 1995 handshake on the NPU Engineering Quad and William Keswick&#39;s April 1996 phone call: why Building 26 kernel engineers physically disabled the math coprocessor on an 80486 test rig trying to break Cassandra Vance&#39;s 45-kilobyte rendering engine, why Keswick personally sealed the unbranded black velvet box, and how NPU Disability Services unlocked an upperclassman one-bedroom apartment for an incoming freshman. 1996-04-12">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-1995-npu-quad-ballantine.jpg" alt="On a crisp August 1995 morning on the Northwest Pacific University Engineering Quad in Seattle, Quantum President Steve Ballantine leans forward with hands on his knees at eye level with seventeen-year-old Cassandra Vance in her manual wheelchair outside the black-and-cobalt Quantum Catalyst Initiative pavilion while ten-year-old David, eight-year-old Casey holding a campus map, and parents Wendy and Tom watch proudly." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Quantum Directive: The Caretakers
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1996-04-12</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/quantum-directive-3-casey/catalyst-judging-room-and-the-disabled-486-rig" class="bs-link">Forty Polygons Without a Coprocessor: Inside Building 26&#39;s 1996 Catalyst Judging Lab &amp; William Keswick&#39;s Override</a></h3>
+        <div class="bs-card-subtitle">August 24, 1995 – April 21, 1996 — Northwest Pacific University &amp; Quantum Campus Building 26, Redmond, Washington</div>
+        <p class="bs-card-summary">Reveals what happened behind closed doors in Redmond between Steve Ballantine&#39;s August 1995 handshake on the NPU Engineering Quad and William Keswick&#39;s April 1996 phone call: why Building 26 kernel engineers physically disabled the math coprocessor on an 80486 test rig trying to break Cassandra Vance&#39;s 45-kilobyte rendering engine, why Keswick personally sealed the unbranded black velvet box, and how NPU Disability Services unlocked an upperclassman one-bedroom apartment for an incoming freshman.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/quantum-directive-3-casey/catalyst-judging-room-and-the-disabled-486-rig">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Forty Polygons Without a Coprocessor: Inside Building 26&#39;s 1996 Catalyst Judging Lab &amp; William Keswick&#39;s Override</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/quantum-directive-3-casey/catalyst-judging-room-and-the-disabled-486-rig">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Forty Polygons Without a Coprocessor: Inside Building 26&#39;s 1996 Catalyst Judging Lab &amp; William Keswick&#39;s Override</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Twenty-One-Day Firewall, Kristine&#39;s Blocked Calls, &amp; Permitting the Mount Hope Bridge Réveillon November 26 – December 24, 2004 — Virginia Beach, Virginia • Redmond, Washington • Portsmouth, Rhode Island The Quantum Directive: The Caretakers — Behind the Scenes Delaney-Vance East Coast Perimeter &amp; Portsmouth Neighborhood Réveillon Committee David Vance, Casey Vance, Cassandra Vance, &amp; Elizabeth Carter Three-Week Finals Interception Log &amp; Mussel Bed Shoal Road Christmas Eve Closure Permit Vance Residence, Virginia Beach • Town of Portsmouth Under the Mount Hope Bridge, Rhode Island Uncovers the two behind-the-scenes operations shielding David Vance between Thanksgiving night and Christmas Eve 2004: how Wendy Vance, the Virginia Beach Delaneys, and Cassandra&#39;s legal firewall intercepted Kristine&#39;s three-week campaign to ambush David during community college finals, and how the Bouchard and Delaney families permitted the 6:00 PM Mussel Bed Shoal Road closure beneath the Mount Hope Bridge. 2004-12-24">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-reveillon-mount-hope-bridge.jpg" alt="Underneath the towering concrete piers and sweeping green steel span of the Mount Hope Bridge in Portsmouth, Rhode Island on Christmas Eve 2004, Cassandra Vance in her manual wheelchair, David Vance, Liz Carter, Casey Vance, and the Delaney sisters laugh around a folding table piled with steaming poutine and hot cider beside a glowing propane patio heater and golden string lights." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Quantum Directive: The Caretakers
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2004-12-24</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit" class="bs-link">The Twenty-One-Day Firewall, Kristine&#39;s Blocked Calls, &amp; Permitting the Mount Hope Bridge Réveillon</a></h3>
+        <div class="bs-card-subtitle">November 26 – December 24, 2004 — Virginia Beach, Virginia • Redmond, Washington • Portsmouth, Rhode Island</div>
+        <p class="bs-card-summary">Uncovers the two behind-the-scenes operations shielding David Vance between Thanksgiving night and Christmas Eve 2004: how Wendy Vance, the Virginia Beach Delaneys, and Cassandra&#39;s legal firewall intercepted Kristine&#39;s three-week campaign to ambush David during community college finals, and how the Bouchard and Delaney families permitted the 6:00 PM Mussel Bed Shoal Road closure beneath the Mount Hope Bridge.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Twenty-One-Day Firewall, Kristine&#39;s Blocked Calls, &amp; Permitting the Mount Hope Bridge Réveillon</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Twenty-One-Day Firewall, Kristine&#39;s Blocked Calls, &amp; Permitting the Mount Hope Bridge Réveillon</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Alert at Milepost 138: Victoria Vance&#39;s Pre-Arrival Threat Dossier on the &#39;Redmond Vance&#39; Buyout &amp; The Form 709 Ledger April 6 – April 8, 2005 — The Prospector&#39;s Keep, Ruby Mountain, North Cascades, Washington The Quantum Directive: The Caretakers — Behind the Scenes Victoria Vance, Johnny Vance, Morgan Foster, &amp; Emma Bennett — The Ruby Mountain Vanguard Internal Perimeter Archive — The Prospector&#39;s Keep Conservation Trust Forensic Trace on Off-Season Buyout (&#39;Vance, Cassandra — Redmond, WA&#39;) &amp; Clean-Ledger Accord Residential Command Wing, The Prospector&#39;s Keep (7,000 ft), Ruby Mountain, Washington Reveals what happened on Ruby Mountain forty-eight hours before the East Coast minivan convoy arrived at the Lower Motorpool blast doors: why Victoria Vance initially treated Cassandra Vance&#39;s triple-rate cash buyout as a hostile corporate reconnaissance trap, how nineteen-year-old Johnny Vance traced the severed 1920s Virginia bloodline overnight, and how Cassandra&#39;s Form 709 executive ledger kept both fortresses financially sovereign. 2005-04-07">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-2005-prospectors-keep-great-hall.jpg" alt="Inside the towering 1903 timber-and-river-stone Great Hall of The Prospector&#39;s Keep on Ruby Mountain, twenty-six-year-old Cassandra Vance sits poised in her manual wheelchair backed by David, Liz, Casey, and their parents across a crimson Persian rug from Matriarch Victoria Vance, Johnny Vance in his laptop-equipped wheelchair, twin sister Amanda, and the Ruby Mountain Vanguard." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Quantum Directive: The Caretakers
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2005-04-07</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger" class="bs-link">Alert at Milepost 138: Victoria Vance&#39;s Pre-Arrival Threat Dossier on the &#39;Redmond Vance&#39; Buyout &amp; The Form 709 Ledger</a></h3>
+        <div class="bs-card-subtitle">April 6 – April 8, 2005 — The Prospector&#39;s Keep, Ruby Mountain, North Cascades, Washington</div>
+        <p class="bs-card-summary">Reveals what happened on Ruby Mountain forty-eight hours before the East Coast minivan convoy arrived at the Lower Motorpool blast doors: why Victoria Vance initially treated Cassandra Vance&#39;s triple-rate cash buyout as a hostile corporate reconnaissance trap, how nineteen-year-old Johnny Vance traced the severed 1920s Virginia bloodline overnight, and how Cassandra&#39;s Form 709 executive ledger kept both fortresses financially sovereign.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Alert at Milepost 138: Victoria Vance&#39;s Pre-Arrival Threat Dossier on the &#39;Redmond Vance&#39; Buyout &amp; The Form 709 Ledger</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Alert at Milepost 138: Victoria Vance&#39;s Pre-Arrival Threat Dossier on the &#39;Redmond Vance&#39; Buyout &amp; The Form 709 Ledger</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Clearing the Cascades Air-Gap: Meridian&#39;s Twin-Rotor Ruby Mountain Extraction &amp; The Courtyard Headphone Protocol February 14, 2014 — The Prospector&#39;s Keep (7,000 ft), Ruby Mountain &amp; Quantum Campus, Redmond, Washington The Quantum Directive: The Caretakers — Behind the Scenes Meridian Global Aviation Desk, Morgan Foster (Ruby Mountain), &amp; Marcus Chen (Chief of Staff, Building 33) Flight Operations Manifest #MGD-2014-0214 &amp; Quantum Campus-Wide Operations Predawn Winter Helipad De-Icing, Barometric RespiraCore Flight Profile, &amp; Day-One Cultural Directives Rooftop Helipad, The Prospector&#39;s Keep &amp; Keswick Auditorium / Zero-Proof Pavilion, Redmond, Washington Documents the predawn Valentine&#39;s Day 2014 engineering feat at 7,000 feet on snowbound Ruby Mountain—as Morgan Foster diverts 1903 steam boilers to clear thirty-foot Cascades Concrete drifts for Meridian&#39;s twin-engine helicopters and Johnny Vance&#39;s barometric flight profile—alongside Chief of Staff Marcus Chen&#39;s Day-One campus memo codifying CEO Cassandra Vance&#39;s Zero-Proof Pavilion and Courtyard Headphone rules. 2014-02-14">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/casey/feb_2014_keswick_auditorium_cassandra_ceo_handover.jpg" alt="On the stage of the William Keswick Auditorium in Building 33 on February 14, 2014, retiring CEO Steve Ballantine hands incoming CEO Cassandra Vance in her manual wheelchair the ceremonial brass master key while Jessica Ragsdale and her Virginia Beach pack applaud from the middle aisle." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Quantum Directive: The Caretakers
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2014-02-14</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/quantum-directive-3-casey/meridian-obsidian-ruby-mountain-airlift-and-courtyard-protocol" class="bs-link">Clearing the Cascades Air-Gap: Meridian&#39;s Twin-Rotor Ruby Mountain Extraction &amp; The Courtyard Headphone Protocol</a></h3>
+        <div class="bs-card-subtitle">February 14, 2014 — The Prospector&#39;s Keep (7,000 ft), Ruby Mountain &amp; Quantum Campus, Redmond, Washington</div>
+        <p class="bs-card-summary">Documents the predawn Valentine&#39;s Day 2014 engineering feat at 7,000 feet on snowbound Ruby Mountain—as Morgan Foster diverts 1903 steam boilers to clear thirty-foot Cascades Concrete drifts for Meridian&#39;s twin-engine helicopters and Johnny Vance&#39;s barometric flight profile—alongside Chief of Staff Marcus Chen&#39;s Day-One campus memo codifying CEO Cassandra Vance&#39;s Zero-Proof Pavilion and Courtyard Headphone rules.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/quantum-directive-3-casey/meridian-obsidian-ruby-mountain-airlift-and-courtyard-protocol">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Clearing the Cascades Air-Gap: Meridian&#39;s Twin-Rotor Ruby Mountain Extraction &amp; The Courtyard Headphone Protocol</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/quantum-directive-3-casey/meridian-obsidian-ruby-mountain-airlift-and-courtyard-protocol">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Clearing the Cascades Air-Gap: Meridian&#39;s Twin-Rotor Ruby Mountain Extraction &amp; The Courtyard Headphone Protocol</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Stranded at the DCA Faregate: K Street&#39;s Motorcade Meltdown, Senator Thomas&#39;s Briefing Binder, &amp; The Telescope Emoji June 10, 2014 — Ronald Reagan Washington National Airport, Dirksen Senate Office Building, &amp; The National Mall, D.C. The Quantum Directive: The Caretakers — Behind the Scenes K Street Government Affairs Dispatch, Senate Judiciary Staff, &amp; Marcus Chen (Building 33) Deployment Postmortem — Washington, D.C. Congressional Testimony How Four CapitalPass Cards Beat an Armored Convoy Across the Potomac &amp; Neutralized a Senate Ambush DCA Capital Transit Mezzanine • Dirksen Senate Office Building • Building 33 Chief of Staff Desk Follows Quantum&#39;s panicked K Street handlers and Senator Thomas&#39;s opposition staffers across June 10, 2014—from the moment the DCA faregates locked chief lobbyist Greg out on the mezzanine and trapped his four Apex Mountaineers on the 14th Street Bridge, through the collapse of Senator Thomas&#39;s Willard hotel smear and Chairman Hayes&#39;s quiet praise for Nurse David Vance&#39;s 10:05 AM MAR check, to Chief of Staff Marcus Chen calmly refereeing ninety minutes of Finch Museum radio silence. 2014-06-10">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-2014-senate-witness-table-ledger.jpg" alt="Inside the marble U.S. Senate Judiciary Committee hearing room on June 10, 2014, Quantum CEO Cassandra Vance testifies poised in her manual wheelchair at the witness table with her zero-dollar shareholder reimbursement ledger projected on the wall monitors overhead while LPN David Vance calmly checks her wrist blood-pressure cuff directly beside her and Liz and Casey watch proudly behind four empty lobbyist seats." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Quantum Directive: The Caretakers
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2014-06-10</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/quantum-directive-3-casey/k-street-motorcade-meltdown-and-the-fenwick-bridge-bypass" class="bs-link">Stranded at the DCA Faregate: K Street&#39;s Motorcade Meltdown, Senator Thomas&#39;s Briefing Binder, &amp; The Telescope Emoji</a></h3>
+        <div class="bs-card-subtitle">June 10, 2014 — Ronald Reagan Washington National Airport, Dirksen Senate Office Building, &amp; The National Mall, D.C.</div>
+        <p class="bs-card-summary">Follows Quantum&#39;s panicked K Street handlers and Senator Thomas&#39;s opposition staffers across June 10, 2014—from the moment the DCA faregates locked chief lobbyist Greg out on the mezzanine and trapped his four Apex Mountaineers on the 14th Street Bridge, through the collapse of Senator Thomas&#39;s Willard hotel smear and Chairman Hayes&#39;s quiet praise for Nurse David Vance&#39;s 10:05 AM MAR check, to Chief of Staff Marcus Chen calmly refereeing ninety minutes of Finch Museum radio silence.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/quantum-directive-3-casey/k-street-motorcade-meltdown-and-the-fenwick-bridge-bypass">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Stranded at the DCA Faregate: K Street&#39;s Motorcade Meltdown, Senator Thomas&#39;s Briefing Binder, &amp; The Telescope Emoji</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/quantum-directive-3-casey/k-street-motorcade-meltdown-and-the-fenwick-bridge-bypass">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Stranded at the DCA Faregate: K Street&#39;s Motorcade Meltdown, Senator Thomas&#39;s Briefing Binder, &amp; The Telescope Emoji</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+        </div>
+      </wa-scroller>
+    </section>
+  
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        <wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  <li><a href="#sec-1-eighteen-minutes-behind-frosted-glass-january-15-2014-9-00-am" class="bs-toc-link">1. Eighteen Minutes Behind Frosted Glass (January 15, 2014 • 9:00 AM)</a></li>
+                  <li><a href="#sec-2-the-v-davanc-anomaly-inside-corporate-security-10-15-am" class="bs-toc-link">2. The v-davanc Anomaly inside Corporate Security (10:15 AM)</a></li>
+                  <li><a href="#sec-3-vanguard-global-s-3-45-pm-capitulation-the-fifteen-ton-chassis-rider" class="bs-toc-link">3. Vanguard Global&#39;s 3:45 PM Capitulation (&quot;The Fifteen-Ton Chassis Rider&quot;)</a></li>
+                  <li><a href="#sec-companion-chapters-in-the-quantum-directive-the-caretakers" class="bs-toc-link">Companion Chapters in The Quantum Directive: The Caretakers</a></li>
+                </ul>
+              </wa-card>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/quantum-directive-3-casey/book-4-the-sovereign-empire/chapter-2-the-ground-truth/part-3-the-route-230-protocol-the-express-route" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Book 4, Chapter 2, Part 3: The Route 230 Protocol &amp; The Express Route ↗
+                  </wa-button>
+            <wa-button variant="neutral" appearance="outlined" size="small" href="/books/quantum-directive-3-casey">
+                    <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                    The Quantum Directive: The Caretakers (6 Dossiers)
+                  </wa-button>
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override" label="QR code to open Eighteen Minutes Behind Frosted Glass: The Building 33 Board Vote, The v-davanc Orange-Badge Override, &amp; The TAPS Physics Clause on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261115d" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261115h" defer></script>
+  </body>
+</html>

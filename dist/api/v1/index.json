@@ -1,21 +1,38 @@
 {
-  "generatedAt": "2026-11-15T14:37:42.316Z",
+  "generatedAt": "2026-11-15T15:13:45.938Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 44,
+  "totalItems": 51,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
     "katie": 17,
     "katieDossiers": 16,
+    "casey": 7,
+    "caseyDossiers": 6,
     "aubrie": 13,
     "aubrieDossiers": 12,
     "aubrieCorrespondence": 10,
     "lore": 3,
-    "hubs": 3,
-    "total": 44
+    "hubs": 4,
+    "total": 51
   },
   "items": {
+    "books/quantum-directive-3-casey": {
+      "slug": "books/quantum-directive-3-casey",
+      "title": "The Quantum Directive: The Caretakers — Bonus Features & Behind-the-Scenes Archive",
+      "subtitle": "Six Archival Dossiers Revealing What Happened Outside David & Cassandra Vance's Point of View (1995–2014)",
+      "category": "The Quantum Directive: The Caretakers — Behind the Scenes",
+      "date": "2014-06-10",
+      "time": "",
+      "sender": "",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-reveillon-mount-hope-bridge.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-collection-og.jpg",
+      "summary": "Complete behind-the-scenes companion archive for The Quantum Directive: The Caretakers—spanning Building 26's 1996 bare-metal 80486 Catalyst verification lab, Portsmouth's Christmas Eve Réveillon street-closure permit under the Mount Hope Bridge, Victoria Vance's pre-arrival Ruby Mountain threat trace, the eighteen-minute Building 33 CEO succession vote and v-davanc Orange-Badge override, Meridian's predawn winter helicopter extraction off The Prospector's Keep, and K Street's DCA faregate meltdown.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey.json"
+    },
     "books/aubrie": {
       "slug": "books/aubrie",
       "title": "The Eleventh Child: Bonus Features & Archive",
@@ -151,6 +168,21 @@
       "canonicalUrl": "https://backstage.raggiesoft.com/books/rachel/seonduwon-diplomatic-shield-and-pamyun-verdict",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/rachel/seonduwon-diplomatic-shield-and-pamyun-verdict.json"
     },
+    "books/quantum-directive-3-casey/catalyst-judging-room-and-the-disabled-486-rig": {
+      "slug": "books/quantum-directive-3-casey/catalyst-judging-room-and-the-disabled-486-rig",
+      "title": "Forty Polygons Without a Coprocessor: Inside Building 26's 1996 Catalyst Judging Lab & William Keswick's Override",
+      "subtitle": "August 24, 1995 – April 21, 1996 — Northwest Pacific University & Quantum Campus Building 26, Redmond, Washington",
+      "category": "The Quantum Directive: The Caretakers — Behind the Scenes",
+      "date": "1996-04-12",
+      "time": "16:40",
+      "sender": "Quantum Catalyst Initiative Technical Jury & NPU Office of Disability Services",
+      "subject": "Bare-Metal 80486 Verification Audit & Fall 1996 Single-Occupancy ADA Housing Mandate",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-1995-npu-quad-ballantine.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-1996-catalyst-og.jpg",
+      "summary": "Reveals what happened behind closed doors in Redmond between Steve Ballantine's August 1995 handshake on the NPU Engineering Quad and William Keswick's April 1996 phone call: why Building 26 kernel engineers physically disabled the math coprocessor on an 80486 test rig trying to break Cassandra Vance's 45-kilobyte rendering engine, why Keswick personally sealed the unbranded black velvet box, and how NPU Disability Services unlocked an upperclassman one-bedroom apartment for an incoming freshman.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey/catalyst-judging-room-and-the-disabled-486-rig",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey/catalyst-judging-room-and-the-disabled-486-rig.json"
+    },
     "books/rachel/the-wingman-briefing-ashley-and-bonnie": {
       "slug": "books/rachel/the-wingman-briefing-ashley-and-bonnie",
       "title": "The Wingman Briefing: Ashley Raybourn Explains Rachel & 'The Trio' to Bonnie Reed",
@@ -256,6 +288,21 @@
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file.json"
     },
+    "books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit": {
+      "slug": "books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit",
+      "title": "The Twenty-One-Day Firewall, Kristine's Blocked Calls, & Permitting the Mount Hope Bridge Réveillon",
+      "subtitle": "November 26 – December 24, 2004 — Virginia Beach, Virginia • Redmond, Washington • Portsmouth, Rhode Island",
+      "category": "The Quantum Directive: The Caretakers — Behind the Scenes",
+      "date": "2004-12-24",
+      "time": "18:00",
+      "sender": "Delaney-Vance East Coast Perimeter & Portsmouth Neighborhood Réveillon Committee",
+      "subject": "Three-Week Finals Interception Log & Mussel Bed Shoal Road Christmas Eve Closure Permit",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-reveillon-mount-hope-bridge.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-reveillon-og.jpg",
+      "summary": "Uncovers the two behind-the-scenes operations shielding David Vance between Thanksgiving night and Christmas Eve 2004: how Wendy Vance, the Virginia Beach Delaneys, and Cassandra's legal firewall intercepted Kristine's three-week campaign to ambush David during community college finals, and how the Bouchard and Delaney families permitted the 6:00 PM Mussel Bed Shoal Road closure beneath the Mount Hope Bridge.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit.json"
+    },
     "books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if": {
       "slug": "books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if",
       "title": "Dirty Old Tonomy Hill & Why Brandon's Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg",
@@ -270,6 +317,21 @@
       "summary": "Behind-the-scenes look at the legal irony inside Cousin Chelsea's apartment on Tonomy Hill during Christmas 2004—and the two transit tariff traps that doomed Brandon Mercer's flight from Williamsburg.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if.json"
+    },
+    "books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger": {
+      "slug": "books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger",
+      "title": "Alert at Milepost 138: Victoria Vance's Pre-Arrival Threat Dossier on the 'Redmond Vance' Buyout & The Form 709 Ledger",
+      "subtitle": "April 6 – April 8, 2005 — The Prospector's Keep, Ruby Mountain, North Cascades, Washington",
+      "category": "The Quantum Directive: The Caretakers — Behind the Scenes",
+      "date": "2005-04-07",
+      "time": "21:15",
+      "sender": "Victoria Vance, Johnny Vance, Morgan Foster, & Emma Bennett — The Ruby Mountain Vanguard",
+      "subject": "Forensic Trace on Off-Season Buyout ('Vance, Cassandra — Redmond, WA') & Clean-Ledger Accord",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-2005-prospectors-keep-great-hall.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-ruby-mountain-og.jpg",
+      "summary": "Reveals what happened on Ruby Mountain forty-eight hours before the East Coast minivan convoy arrived at the Lower Motorpool blast doors: why Victoria Vance initially treated Cassandra Vance's triple-rate cash buyout as a hostile corporate reconnaissance trap, how nineteen-year-old Johnny Vance traced the severed 1920s Virginia bloodline overnight, and how Cassandra's Form 709 executive ledger kept both fortresses financially sovereign.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger.json"
     },
     "books/rachel/the-quantum-dossier-jessica-progman-and-william-keswick": {
       "slug": "books/rachel/the-quantum-dossier-jessica-progman-and-william-keswick",
@@ -360,6 +422,51 @@
       "summary": "Behind-the-scenes look inside CVTA headquarters on 18th Street, the real municipal history behind the Newtown Road bus-border cliff that haunted Mayor Myra E. Overton, and the internal campaign polling collapse that drove Incumbent Councilman Harold Dietz to attack Katie's wheelchair ramp on live talk radio.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown.json"
+    },
+    "books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override": {
+      "slug": "books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override",
+      "title": "Eighteen Minutes Behind Frosted Glass: The Building 33 Board Vote, The v-davanc Orange-Badge Override, & The TAPS Physics Clause",
+      "subtitle": "January 15, 2014 — Quantum Campus Building 33 & Downtown Bellevue Tower, Washington",
+      "category": "The Quantum Directive: The Caretakers — Behind the Scenes",
+      "date": "2014-01-15",
+      "time": "09:00",
+      "sender": "Quantum Corporation Board of Directors, Corporate Security, & Vanguard Global Underwriting",
+      "subject": "Unanimous Succession Deliberation, Contractor Root Physical Clearance (v-davanc), & Key-Person Transit Binding",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-2014-bellevue-bullpen-lpn-check.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-2014-bellevue-og.jpg",
+      "summary": "Steps inside the frosted-glass Building 33 boardroom during the eighteen-minute succession vote on January 15, 2014—as William Keswick and Steve Ballantine dismantle board objections over Cassandra Vance's age, courtyard coding habits, and MagnaByte mPhone—paired with Corporate Security's v-davanc Orange-Badge physical clearance anomaly and Vanguard Global's 3:45 PM Key-Person bus rider.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override.json"
+    },
+    "books/quantum-directive-3-casey/meridian-obsidian-ruby-mountain-airlift-and-courtyard-protocol": {
+      "slug": "books/quantum-directive-3-casey/meridian-obsidian-ruby-mountain-airlift-and-courtyard-protocol",
+      "title": "Clearing the Cascades Air-Gap: Meridian's Twin-Rotor Ruby Mountain Extraction & The Courtyard Headphone Protocol",
+      "subtitle": "February 14, 2014 — The Prospector's Keep (7,000 ft), Ruby Mountain & Quantum Campus, Redmond, Washington",
+      "category": "The Quantum Directive: The Caretakers — Behind the Scenes",
+      "date": "2014-02-14",
+      "time": "05:30",
+      "sender": "Meridian Global Aviation Desk, Morgan Foster (Ruby Mountain), & Marcus Chen (Chief of Staff, Building 33)",
+      "subject": "Predawn Winter Helipad De-Icing, Barometric RespiraCore Flight Profile, & Day-One Cultural Directives",
+      "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/casey/feb_2014_keswick_auditorium_cassandra_ceo_handover.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-2014-keswick-og.jpg",
+      "summary": "Documents the predawn Valentine's Day 2014 engineering feat at 7,000 feet on snowbound Ruby Mountain—as Morgan Foster diverts 1903 steam boilers to clear thirty-foot Cascades Concrete drifts for Meridian's twin-engine helicopters and Johnny Vance's barometric flight profile—alongside Chief of Staff Marcus Chen's Day-One campus memo codifying CEO Cassandra Vance's Zero-Proof Pavilion and Courtyard Headphone rules.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey/meridian-obsidian-ruby-mountain-airlift-and-courtyard-protocol",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey/meridian-obsidian-ruby-mountain-airlift-and-courtyard-protocol.json"
+    },
+    "books/quantum-directive-3-casey/k-street-motorcade-meltdown-and-the-fenwick-bridge-bypass": {
+      "slug": "books/quantum-directive-3-casey/k-street-motorcade-meltdown-and-the-fenwick-bridge-bypass",
+      "title": "Stranded at the DCA Faregate: K Street's Motorcade Meltdown, Senator Thomas's Briefing Binder, & The Telescope Emoji",
+      "subtitle": "June 10, 2014 — Ronald Reagan Washington National Airport, Dirksen Senate Office Building, & The National Mall, D.C.",
+      "category": "The Quantum Directive: The Caretakers — Behind the Scenes",
+      "date": "2014-06-10",
+      "time": "08:21",
+      "sender": "K Street Government Affairs Dispatch, Senate Judiciary Staff, & Marcus Chen (Building 33)",
+      "subject": "How Four CapitalPass Cards Beat an Armored Convoy Across the Potomac & Neutralized a Senate Ambush",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-2014-senate-witness-table-ledger.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/casey-2014-senate-og.jpg",
+      "summary": "Follows Quantum's panicked K Street handlers and Senator Thomas's opposition staffers across June 10, 2014—from the moment the DCA faregates locked chief lobbyist Greg out on the mezzanine and trapped his four Apex Mountaineers on the 14th Street Bridge, through the collapse of Senator Thomas's Willard hotel smear and Chairman Hayes's quiet praise for Nurse David Vance's 10:05 AM MAR check, to Chief of Staff Marcus Chen calmly refereeing ninety minutes of Finch Museum radio silence.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey/k-street-motorcade-meltdown-and-the-fenwick-bridge-bypass",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey/k-street-motorcade-meltdown-and-the-fenwick-bridge-bypass.json"
     },
     "books/aubrie/correspondence/the-accommodation-file": {
       "slug": "books/aubrie/correspondence/the-accommodation-file",

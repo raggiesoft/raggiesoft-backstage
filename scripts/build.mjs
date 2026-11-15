@@ -57,7 +57,7 @@ const snapshotPath = path.join(projectRoot, 'src', 'data', 'backstage-snapshot.j
 /**
  * Cache-buster revision token shared by HTML asset links, PWA splash screens, and `/sw.js`.
  */
-const ASSET_VERSION = '20261115c';
+const ASSET_VERSION = '20261115d';
 
 /**
  * Web Awesome Pro 3.13.0 CDN base URL (`bb765cf132c5414e`) & Font Awesome Pro+ Kit (`ec060982d4`).
@@ -207,6 +207,13 @@ function resolveOgImageForSlug(slug, explicitOg = '') {
     'books/rachel/code-susquehanna-and-the-bear-and-bug-vault': `${OG_CDN_BASE}/rachel-susquehanna-og.jpg`,
     'books/katie': `${OG_CDN_BASE}/katie-collection-og.jpg`,
     'books/katie/dirksen-room-511-sterling-and-cross-panic': `${OG_CDN_BASE}/katie-dirksen-room-511-og.jpg`,
+    'books/quantum-directive-3-casey': `${OG_CDN_BASE}/casey-collection-og.jpg`,
+    'books/quantum-directive-3-casey/catalyst-judging-room-and-the-disabled-486-rig': `${OG_CDN_BASE}/casey-1996-catalyst-og.jpg`,
+    'books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit': `${OG_CDN_BASE}/casey-reveillon-og.jpg`,
+    'books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger': `${OG_CDN_BASE}/casey-ruby-mountain-og.jpg`,
+    'books/quantum-directive-3-casey/eighteen-minutes-in-building-33-and-the-orange-badge-override': `${OG_CDN_BASE}/casey-2014-bellevue-og.jpg`,
+    'books/quantum-directive-3-casey/meridian-obsidian-ruby-mountain-airlift-and-courtyard-protocol': `${OG_CDN_BASE}/casey-2014-keswick-og.jpg`,
+    'books/quantum-directive-3-casey/k-street-motorcade-meltdown-and-the-fenwick-bridge-bypass': `${OG_CDN_BASE}/casey-2014-senate-og.jpg`,
     'books/aubrie': `${OG_CDN_BASE}/aubrie-collection-og.jpg`,
     'locations/cpi': `${OG_CDN_BASE}/cpi-campus-og.jpg`,
     'music/stardust-engine-origins': `${OG_CDN_BASE}/stardust-origins-og.jpg`,
@@ -215,6 +222,7 @@ function resolveOgImageForSlug(slug, explicitOg = '') {
   if (exactMap[slug]) return exactMap[slug];
   if (slug.startsWith('books/rachel/')) return `${OG_CDN_BASE}/rachel-collection-og.jpg`;
   if (slug.startsWith('books/katie/')) return `${OG_CDN_BASE}/katie-collection-og.jpg`;
+  if (slug.startsWith('books/quantum-directive-3-casey/')) return `${OG_CDN_BASE}/casey-collection-og.jpg`;
   if (slug.startsWith('books/aubrie/')) return `${OG_CDN_BASE}/aubrie-collection-og.jpg`;
   return `${OG_CDN_BASE}/backstage-hub-og.jpg`;
 }
@@ -768,6 +776,15 @@ function describeCollection(item) {
       iconName: 'wheelchair-move'
     };
   }
+  if (item.slug.startsWith('books/quantum-directive-3-casey')) {
+    return {
+      key: 'casey',
+      label: 'The Quantum Directive: The Caretakers',
+      badgeVariant: 'warning',
+      iconFamily: 'duotone',
+      iconName: 'microchip'
+    };
+  }
   if (item.slug.startsWith('books/aubrie/correspondence/')) {
     return {
       key: 'aubrie',
@@ -881,8 +898,20 @@ function loadBackstageItems() {
 
     // Sort items chronologically within collections when dates are present while keeping hubs deterministic
     items.sort((a, b) => {
-      const aHub = a.slug === 'books/rachel' || a.slug === 'books/katie' || a.slug === 'books/aubrie' ? 0 : 1;
-      const bHub = b.slug === 'books/rachel' || b.slug === 'books/katie' || b.slug === 'books/aubrie' ? 0 : 1;
+      const aHub =
+        a.slug === 'books/rachel' ||
+        a.slug === 'books/katie' ||
+        a.slug === 'books/quantum-directive-3-casey' ||
+        a.slug === 'books/aubrie'
+          ? 0
+          : 1;
+      const bHub =
+        b.slug === 'books/rachel' ||
+        b.slug === 'books/katie' ||
+        b.slug === 'books/quantum-directive-3-casey' ||
+        b.slug === 'books/aubrie'
+          ? 0
+          : 1;
       if (aHub !== bHub) return aHub - bHub;
       if (a.date && b.date && a.date !== b.date) return a.date.localeCompare(b.date);
       return a.slug.localeCompare(b.slug);
@@ -1423,7 +1452,7 @@ function buildBackstageCss() {
     }
   }
 
-  @container header (inline-size >= 1020px) {
+  @container header (inline-size >= 1140px) {
     .bs-desktop-nav {
       display: block;
     }
@@ -3511,6 +3540,7 @@ function renderBackstageShell({
     { href: '/', label: 'Hub', icon: 'clapperboard-play' },
     { href: '/books/rachel', label: `Rachel (${counts.rachelDossiers})`, icon: 'shield-heart' },
     { href: '/books/katie', label: `Katie & Nathaniel (${counts.katieDossiers})`, icon: 'wheelchair-move' },
+    { href: '/books/quantum-directive-3-casey', label: `The Caretakers (${counts.caseyDossiers})`, icon: 'microchip' },
     { href: '/books/aubrie', label: `Eleventh Child (${counts.aubrieDossiers})`, icon: 'book-sparkles' }
   ];
 
@@ -3736,6 +3766,10 @@ ${splashLinksHtml}
                 <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
                 Katie &amp; Nathaniel (${counts.katieDossiers} Dossiers)
               </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (${counts.caseyDossiers} Dossiers)
+              </wa-dropdown-item>
               <wa-dropdown-item value="/books/aubrie">
                 <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
                 The Eleventh Child (${counts.aubrieDossiers} Files)
@@ -3912,6 +3946,10 @@ function computeArchiveGroups(items) {
   const rachelDossiers = items.filter((i) => i.slug.startsWith('books/rachel/') && i.slug !== 'books/rachel');
   const katieAll = items.filter((i) => i.slug.startsWith('books/katie'));
   const katieDossiers = items.filter((i) => i.slug.startsWith('books/katie/') && i.slug !== 'books/katie');
+  const caseyAll = items.filter((i) => i.slug.startsWith('books/quantum-directive-3-casey'));
+  const caseyDossiers = items.filter(
+    (i) => i.slug.startsWith('books/quantum-directive-3-casey/') && i.slug !== 'books/quantum-directive-3-casey'
+  );
   const aubrieAll = items.filter((i) => i.slug.startsWith('books/aubrie'));
   const aubrieDossiers = items.filter((i) => i.slug.startsWith('books/aubrie/') && i.slug !== 'books/aubrie');
   const aubrieCorrespondence = items.filter((i) => i.slug.startsWith('books/aubrie/correspondence/'));
@@ -3919,10 +3957,15 @@ function computeArchiveGroups(items) {
     (i) =>
       !i.slug.startsWith('books/rachel') &&
       !i.slug.startsWith('books/katie') &&
+      !i.slug.startsWith('books/quantum-directive-3-casey') &&
       !i.slug.startsWith('books/aubrie')
   );
   const hubs = items.filter(
-    (i) => i.slug === 'books/rachel' || i.slug === 'books/katie' || i.slug === 'books/aubrie'
+    (i) =>
+      i.slug === 'books/rachel' ||
+      i.slug === 'books/katie' ||
+      i.slug === 'books/quantum-directive-3-casey' ||
+      i.slug === 'books/aubrie'
   );
 
   const eras = [
@@ -3965,6 +4008,11 @@ function computeArchiveGroups(items) {
       [2026, 2027],
       [2028, 2044]
     ]),
+    casey: computeSeriesBuckets(caseyDossiers, [
+      [1995, 1996],
+      [2004, 2005],
+      [2014, 2014]
+    ]),
     aubrie: `${aubrieCorrespondence.length} ${Math.max(1, aubrieDossiers.length - aubrieCorrespondence.length)} ${aubrieDossiers.length}`,
     lore: `1 ${Math.max(1, loreItems.length - 1)} ${loreItems.length}`
   };
@@ -3974,6 +4022,8 @@ function computeArchiveGroups(items) {
     rachelDossiers,
     katieAll,
     katieDossiers,
+    caseyAll,
+    caseyDossiers,
     aubrieAll,
     aubrieDossiers,
     aubrieCorrespondence,
@@ -3985,6 +4035,8 @@ function computeArchiveGroups(items) {
       rachelDossiers: rachelDossiers.length,
       katie: katieAll.length,
       katieDossiers: katieDossiers.length,
+      casey: caseyAll.length,
+      caseyDossiers: caseyDossiers.length,
       aubrie: aubrieAll.length,
       aubrieDossiers: aubrieDossiers.length,
       aubrieCorrespondence: aubrieCorrespondence.length,
@@ -4038,18 +4090,24 @@ function renderItemPage(item, allItems, groups) {
 
   const isRachel = item.slug.startsWith('books/rachel');
   const isKatie = item.slug.startsWith('books/katie');
+  const isCasey = item.slug.startsWith('books/quantum-directive-3-casey');
   const isAubrie = item.slug.startsWith('books/aubrie');
   const isCollectionHub =
-    item.slug === 'books/rachel' || item.slug === 'books/katie' || item.slug === 'books/aubrie';
+    item.slug === 'books/rachel' ||
+    item.slug === 'books/katie' ||
+    item.slug === 'books/quantum-directive-3-casey' ||
+    item.slug === 'books/aubrie';
 
   const hubChildren =
     item.slug === 'books/rachel'
       ? groups.rachelDossiers
       : item.slug === 'books/katie'
         ? groups.katieDossiers
-        : item.slug === 'books/aubrie'
-          ? groups.aubrieDossiers
-          : [];
+        : item.slug === 'books/quantum-directive-3-casey'
+          ? groups.caseyDossiers
+          : item.slug === 'books/aubrie'
+            ? groups.aubrieDossiers
+            : [];
 
   const hubGridHtml =
     hubChildren.length > 0
@@ -4075,16 +4133,19 @@ function renderItemPage(item, allItems, groups) {
             other.slug === item.slug ||
             other.slug === 'books/rachel' ||
             other.slug === 'books/katie' ||
+            other.slug === 'books/quantum-directive-3-casey' ||
             other.slug === 'books/aubrie'
           ) {
             return false;
           }
           if (isRachel) return other.slug.startsWith('books/rachel/');
           if (isKatie) return other.slug.startsWith('books/katie/');
+          if (isCasey) return other.slug.startsWith('books/quantum-directive-3-casey/');
           if (isAubrie) return other.slug.startsWith('books/aubrie/');
           return (
             !other.slug.startsWith('books/rachel') &&
             !other.slug.startsWith('books/katie') &&
+            !other.slug.startsWith('books/quantum-directive-3-casey') &&
             !other.slug.startsWith('books/aubrie')
           );
         })
@@ -4117,17 +4178,21 @@ function renderItemPage(item, allItems, groups) {
       ? '/books/rachel'
       : isKatie
         ? '/books/katie'
-        : isAubrie
-          ? '/books/aubrie'
-          : null;
+        : isCasey
+          ? '/books/quantum-directive-3-casey'
+          : isAubrie
+            ? '/books/aubrie'
+            : null;
 
   const parentCollectionLabel = isRachel
     ? `The Rachel Narrative (${groups.counts.rachelDossiers} Dossiers)`
     : isKatie
       ? `Katie & Nathaniel (${groups.counts.katieDossiers} Dossiers)`
-      : isAubrie
-        ? `The Eleventh Child (${groups.counts.aubrieDossiers} Files)`
-        : '';
+      : isCasey
+        ? `The Quantum Directive: The Caretakers (${groups.counts.caseyDossiers} Dossiers)`
+        : isAubrie
+          ? `The Eleventh Child (${groups.counts.aubrieDossiers} Files)`
+          : '';
 
   const subheaderHtml = `
       <div slot="subheader" class="bs-subheader">
@@ -4313,6 +4378,8 @@ function renderHomePage(items, groups) {
     rachelDossiers,
     katieAll,
     katieDossiers,
+    caseyAll,
+    caseyDossiers,
     aubrieAll,
     aubrieDossiers,
     aubrieCorrespondence,
@@ -4355,13 +4422,14 @@ function renderHomePage(items, groups) {
       labels: [
         `The Rachel Narrative (${counts.rachel})`,
         `Katie & Nathaniel (${counts.katie})`,
+        `The Caretakers (${counts.casey})`,
         `The Eleventh Child (${counts.aubrie})`,
         `Campus, Music & Corporate (${counts.lore})`
       ],
       datasets: [
         {
           label: 'Records by Collection',
-          data: [counts.rachel, counts.katie, counts.aubrie, counts.lore]
+          data: [counts.rachel, counts.katie, counts.casey, counts.aubrie, counts.lore]
         }
       ]
     }
@@ -4369,13 +4437,14 @@ function renderHomePage(items, groups) {
 
   const searchChips = [
     'Bear and Bug',
+    'Mount Hope Bridge',
+    'Cassandra Vance',
     'Ashley Raybourn',
     'Dirksen Room 511',
     'HB 663',
     'Suite 214/216',
     'Commonwealth Polytechnic',
-    'Stardust Engine',
-    'Code Susquehanna'
+    'Stardust Engine'
   ];
 
   const featuredSlides = [
@@ -4405,6 +4474,15 @@ function renderHomePage(items, groups) {
       alt: 'Senators Katie and Nathaniel Prairie rolling side-by-side in their custom power wheelchairs down a sunlit marble corridor in the United States Senate.',
       href: '/books/katie',
       cta: `Explore Katie & Nathaniel (${counts.katieDossiers} Dossiers)`
+    },
+    {
+      kicker: 'The Quantum Directive: The Caretakers • Christmas Eve 2004',
+      title: 'Réveillon Under the Mount Hope Bridge & Building 33',
+      desc: 'Six companion dossiers spanning Portsmouth’s 6:00 PM bridge festival, 1996 Catalyst lab tests, Ruby Mountain, and Cassandra Vance’s Senate ledger.',
+      src: 'https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/casey-reveillon-mount-hope-bridge.jpg',
+      alt: 'Underneath the towering concrete piers and sweeping green steel span of the Mount Hope Bridge in Portsmouth, Rhode Island on Christmas Eve 2004, Cassandra Vance in her manual wheelchair, David Vance, Liz Carter, Casey Vance, and the Delaney sisters laugh over steaming poutine and hot cider beside glowing propane heaters.',
+      href: '/books/quantum-directive-3-casey',
+      cta: `Explore The Caretakers (${counts.caseyDossiers} Dossiers)`
     },
     {
       kicker: 'Locations & Architecture • Founded 1872',
@@ -4489,6 +4567,9 @@ function renderHomePage(items, groups) {
         <wa-badge variant="neutral" appearance="filled-outlined" pill>
           <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>&nbsp;${counts.katieDossiers} Katie &amp; Nathaniel Dossiers
         </wa-badge>
+        <wa-badge variant="warning" appearance="filled-outlined" pill>
+          <wa-icon family="duotone" name="microchip" aria-hidden="true"></wa-icon>&nbsp;${counts.caseyDossiers} Caretakers Dossiers
+        </wa-badge>
         <wa-badge variant="neutral" appearance="filled-outlined" pill>
           <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>&nbsp;${counts.aubrieDossiers} Eleventh Child Files
         </wa-badge>
@@ -4506,12 +4587,16 @@ function renderHomePage(items, groups) {
 
       <wa-callout variant="brand">
         <wa-icon slot="icon" family="duotone" name="stars" swap-opacity aria-hidden="true"></wa-icon>
-        <strong>New Addition — <em>The Rachel Narrative</em> Behind-the-Scenes Archive (${counts.rachelDossiers} Dossiers, 1995–2026):</strong>
-        Step into the hallway outside the Morrison Band Room as <strong>Ashley Raybourn</strong> explains to <strong>Bonnie Reed</strong> who sixth-grader Rachel is and why she is the center of Michael&rsquo;s universe—alongside David Miller&rsquo;s 1995 precinct interview, the confidential school-nurse briefing, Jessica Miller&rsquo;s 1999 bare-metal discovery inside <em>PROGMAN.EXE</em>, and <strong>Code Susquehanna</strong>.
+        <strong>New Addition — <em>The Quantum Directive: The Caretakers</em> Archive (${counts.caseyDossiers} Dossiers, 1995–2014):</strong>
+        Explore Portsmouth&rsquo;s Christmas Eve <em>Réveillon</em> permit beneath the <strong>Mount Hope Bridge</strong>, Building 26&rsquo;s 1996 Catalyst judging lab, <strong>Victoria Vance&rsquo;s</strong> pre-arrival Ruby Mountain threat trace, the eighteen-minute <strong>Building 33</strong> CEO vote &amp; Orange-Badge clearance, and K Street&rsquo;s DCA faregate meltdown.
         <div class="bs-action-row">
-          <wa-button variant="brand" size="small" href="/books/rachel/the-wingman-briefing-ashley-and-bonnie">
-            <wa-icon slot="start" family="duotone" name="comments" swap-opacity aria-hidden="true"></wa-icon>
-            Read Ashley &amp; Bonnie&rsquo;s Briefing
+          <wa-button variant="brand" size="small" href="/books/quantum-directive-3-casey">
+            <wa-icon slot="start" family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon>
+            The Caretakers (${counts.caseyDossiers})
+          </wa-button>
+          <wa-button variant="neutral" appearance="outlined" size="small" href="/books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit">
+            <wa-icon slot="start" family="duotone" name="bridge-suspension" aria-hidden="true"></wa-icon>
+            Mount Hope Bridge Réveillon
           </wa-button>
           <wa-button variant="neutral" appearance="outlined" size="small" href="/books/rachel">
             <wa-icon slot="start" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
@@ -4520,10 +4605,6 @@ function renderHomePage(items, groups) {
           <wa-button variant="neutral" appearance="outlined" size="small" href="/books/katie">
             <wa-icon slot="start" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
             Katie &amp; Nathaniel (${counts.katieDossiers})
-          </wa-button>
-          <wa-button variant="neutral" appearance="outlined" size="small" href="/locations/cpi">
-            <wa-icon slot="start" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
-            CPI Campus Guide
           </wa-button>
         </div>
       </wa-callout>
@@ -4627,6 +4708,18 @@ function renderHomePage(items, groups) {
         <wa-card class="bs-pulse-card">
           <div class="bs-pulse-top">
             <div>
+              <span class="bs-pulse-title">The Caretakers</span>
+              <span class="bs-pulse-value">${counts.caseyDossiers} Dossiers</span>
+            </div>
+            <wa-badge variant="warning" appearance="filled-outlined" pill>1995–2014</wa-badge>
+          </div>
+          <wa-sparkline data="${sparklines.casey}" appearance="gradient" curve="natural" trend="positive" label="The Quantum Directive: The Caretakers dossiers from 1995 through 2014"></wa-sparkline>
+          <p class="bs-pulse-caption">1996 Catalyst lab, Mount Hope Bridge Réveillon, Ruby Mountain, Building 33, and the U.S. Senate.</p>
+        </wa-card>
+
+        <wa-card class="bs-pulse-card">
+          <div class="bs-pulse-top">
+            <div>
               <span class="bs-pulse-title">The Eleventh Child</span>
               <span class="bs-pulse-value">${counts.aubrieDossiers} Files</span>
             </div>
@@ -4667,6 +4760,9 @@ function renderHomePage(items, groups) {
         <wa-tab slot="nav" panel="katie">
           <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel (${counts.katieDossiers})
         </wa-tab>
+        <wa-tab slot="nav" panel="casey">
+          <wa-icon family="duotone" name="microchip" aria-hidden="true"></wa-icon>&nbsp;The Caretakers (${counts.caseyDossiers})
+        </wa-tab>
         <wa-tab slot="nav" panel="aubrie">
           <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>&nbsp;Eleventh Child (${counts.aubrieDossiers})
         </wa-tab>
@@ -4698,6 +4794,15 @@ function renderHomePage(items, groups) {
           </p>
           <div class="bs-grid">
             ${katieDossiers.map((i) => renderDossierCard(i, false)).join('\n')}
+          </div>
+        </wa-tab-panel>
+
+        <wa-tab-panel name="casey">
+          <p class="bs-section-lead">
+            Companion dossiers to <a href="https://books.raggiesoft.com/quantum-directive-3-casey" class="bs-link"><em>The Quantum Directive: The Caretakers</em></a> revealing what unfolded outside David Vance&rsquo;s point of view—from Building 26&rsquo;s 1996 Catalyst hardware lab and Portsmouth&rsquo;s Christmas Eve <em>Réveillon</em> under the Mount Hope Bridge to Ruby Mountain, Building 33, and the U.S. Senate Judiciary Committee.
+          </p>
+          <div class="bs-grid">
+            ${caseyDossiers.map((i) => renderDossierCard(i, false)).join('\n')}
           </div>
         </wa-tab-panel>
 
@@ -4781,6 +4886,16 @@ function renderHomePage(items, groups) {
                   <wa-icon family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
                   Katie &amp; Nathaniel (${counts.katie})
                   ${katieAll
+                    .map(
+                      (item) =>
+                        `<wa-tree-item data-slug="${escapeHtml(item.slug)}">${escapeHtml(item.date ? `${item.date} — ${item.title}` : item.title)}</wa-tree-item>`
+                    )
+                    .join('\n                  ')}
+                </wa-tree-item>
+                <wa-tree-item expanded>
+                  <wa-icon family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                  The Quantum Directive: The Caretakers (${counts.casey})
+                  ${caseyAll
                     .map(
                       (item) =>
                         `<wa-tree-item data-slug="${escapeHtml(item.slug)}">${escapeHtml(item.date ? `${item.date} — ${item.title}` : item.title)}</wa-tree-item>`
@@ -4911,6 +5026,7 @@ function renderHomePage(items, groups) {
                 .join('\n              ')}
               <tr><td>Collection</td><td>The Rachel Narrative</td><td>${counts.rachel}</td></tr>
               <tr><td>Collection</td><td>Katie &amp; Nathaniel</td><td>${counts.katie}</td></tr>
+              <tr><td>Collection</td><td>The Quantum Directive: The Caretakers</td><td>${counts.casey}</td></tr>
               <tr><td>Collection</td><td>The Eleventh Child</td><td>${counts.aubrie}</td></tr>
               <tr><td>Collection</td><td>Campus, Music &amp; Corporate Lore</td><td>${counts.lore}</td></tr>
             </tbody>
@@ -5025,6 +5141,13 @@ function buildPwaAssets(items) {
         short_name: 'Katie & Nate',
         description: 'Tidewater, Capitol Square, and U.S. Senate companion dossiers',
         url: '/books/katie',
+        icons: [{ src: `/icons/icon-192.png?v=${ASSET_VERSION}`, sizes: '192x192', type: 'image/png' }]
+      },
+      {
+        name: 'The Quantum Directive: The Caretakers',
+        short_name: 'The Caretakers',
+        description: 'Mount Hope Bridge Réveillon, Ruby Mountain, Building 33, and U.S. Senate dossiers',
+        url: '/books/quantum-directive-3-casey',
         icons: [{ src: `/icons/icon-192.png?v=${ASSET_VERSION}`, sizes: '192x192', type: 'image/png' }]
       },
       {
@@ -5281,6 +5404,10 @@ function buildBackstageSite() {
             <wa-button variant="neutral" appearance="outlined" href="/books/katie">
               <wa-icon slot="start" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
               Katie &amp; Nathaniel (${groups.counts.katieDossiers})
+            </wa-button>
+            <wa-button variant="neutral" appearance="outlined" href="/books/quantum-directive-3-casey">
+              <wa-icon slot="start" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+              The Caretakers (${groups.counts.caseyDossiers})
             </wa-button>
             <wa-button variant="neutral" appearance="outlined" href="/books/aubrie">
               <wa-icon slot="start" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>

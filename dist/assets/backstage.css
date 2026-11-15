@@ -513,7 +513,7 @@
     }
   }
 
-  @container header (inline-size >= 1020px) {
+  @container header (inline-size >= 1140px) {
     .bs-desktop-nav {
       display: block;
     }
