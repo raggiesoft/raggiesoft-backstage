@@ -57,7 +57,7 @@ const snapshotPath = path.join(projectRoot, 'src', 'data', 'backstage-snapshot.j
 /**
  * Cache-buster revision token shared by HTML asset links, PWA splash screens, and `/sw.js`.
  */
-const ASSET_VERSION = '20261114g';
+const ASSET_VERSION = '20261115a';
 
 /**
  * Web Awesome Pro 3.13.0 CDN base URL (`bb765cf132c5414e`) & Font Awesome Pro+ Kit (`ec060982d4`).
@@ -1027,6 +1027,60 @@ function buildBackstageCss() {
 }
 
 @layer base {
+  :root {
+    --bs-safe-top: env(safe-area-inset-top, 0px);
+    --bs-safe-right: env(safe-area-inset-right, 0px);
+    --bs-safe-bottom: env(safe-area-inset-bottom, 0px);
+    --bs-safe-left: env(safe-area-inset-left, 0px);
+  }
+
+  /*
+   * Guaranteed iOS / iPadOS Standalone PWA Dynamic Island & Notch Clearance:
+   * On cold launch of an iOS Home Screen WebClip ('apple-mobile-web-app-status-bar-style:
+   * black-translucent' + 'viewport-fit=cover'), WebKit can briefly report 0px for
+   * env(safe-area-inset-top). Enforce a minimum 3.75rem (60px > 59pt iPhone 16 Pro
+   * Dynamic Island) on portrait phones and 1.65rem on iPads while adapting seamlessly
+   * in phone landscape where the Dynamic Island shifts to left/right horizontal insets.
+   */
+  html[data-os="ios"][data-pwa="standalone"],
+  html[data-os="ios"].is-pwa-standalone {
+    --bs-safe-top: max(3.75rem, calc(env(safe-area-inset-top, 0px) + 0.25rem));
+  }
+
+  @media (min-width: 744px) {
+    html[data-os="ios"][data-pwa="standalone"],
+    html[data-os="ios"].is-pwa-standalone {
+      --bs-safe-top: max(1.65rem, calc(env(safe-area-inset-top, 0px) + 0.2rem));
+    }
+  }
+
+  @media (orientation: landscape) and (max-height: 500px) {
+    html[data-os="ios"][data-pwa="standalone"],
+    html[data-os="ios"].is-pwa-standalone {
+      --bs-safe-top: env(safe-area-inset-top, 0px);
+    }
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    @media (display-mode: standalone), (display-mode: fullscreen) {
+      :root {
+        --bs-safe-top: max(3.75rem, calc(env(safe-area-inset-top, 0px) + 0.25rem));
+      }
+    }
+    @media (min-width: 744px) and (display-mode: standalone),
+      (min-width: 744px) and (display-mode: fullscreen) {
+      :root {
+        --bs-safe-top: max(1.65rem, calc(env(safe-area-inset-top, 0px) + 0.2rem));
+      }
+    }
+    @media (orientation: landscape) and (max-height: 500px) and (display-mode: standalone),
+      (orientation: landscape) and (max-height: 500px) and (display-mode: fullscreen) {
+      :root {
+        --bs-safe-top: env(safe-area-inset-top, 0px);
+      }
+    }
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -1057,11 +1111,25 @@ function buildBackstageCss() {
     display: none;
   }
 
-  /* Hide cross-property network bar when installed as a standalone Home Screen / Desktop App */
-  @media (display-mode: standalone) {
-    .rs-network-bar {
+  /* Hide cross-property network & memorial bars when installed as a standalone Home Screen / Desktop App */
+  @media (display-mode: standalone),
+    (display-mode: window-controls-overlay),
+    (display-mode: minimal-ui),
+    (display-mode: fullscreen) {
+    .rs-network-bar,
+    .rs-memoriam-bar,
+    wa-page.bs-page::part(banner) {
       display: none !important;
     }
+  }
+
+  html[data-pwa="standalone"] .rs-network-bar,
+  html[data-pwa="standalone"] .rs-memoriam-bar,
+  html[data-pwa="standalone"] wa-page.bs-page::part(banner),
+  html.is-pwa-standalone .rs-network-bar,
+  html.is-pwa-standalone .rs-memoriam-bar,
+  html.is-pwa-standalone wa-page.bs-page::part(banner) {
+    display: none !important;
   }
 
   :where(a:any-link, button, summary, [tabindex="0"]):focus-visible {
@@ -1087,7 +1155,7 @@ function buildBackstageCss() {
 @layer components {
   /* Web Awesome Pro 3.13.0 <wa-page> Application Frame */
   wa-page.bs-page {
-    --header-height: 2.95rem;
+    --header-height: calc(3.35rem + var(--bs-safe-top));
     --main-width: minmax(0, 1fr);
     --aside-width: 18.5rem;
     min-block-size: 100dvh;
@@ -1108,6 +1176,7 @@ function buildBackstageCss() {
     inline-size: 100%;
     max-inline-size: 1280px;
     margin-inline: auto;
+    padding-inline: var(--bs-safe-left) var(--bs-safe-right);
     box-sizing: border-box;
   }
 
@@ -1133,8 +1202,8 @@ function buildBackstageCss() {
 
   .skip-link {
     position: fixed;
-    inset-block-start: 0.75rem;
-    inset-inline-start: 0.75rem;
+    inset-block-start: calc(0.75rem + var(--bs-safe-top));
+    inset-inline-start: calc(0.75rem + var(--bs-safe-left));
     z-index: 9999;
     padding: 0.65rem 1.15rem;
     background: var(--bs-fallback-primary);
@@ -1165,12 +1234,16 @@ function buildBackstageCss() {
     box-sizing: border-box;
   }
 
-  /* Ultra-Compact Single-Row Sticky Header (47px Desktop & Mobile via @container) */
+  /* Ultra-Compact Single-Row Sticky Header with Full Dynamic Island Safe-Area Clearance */
   .bs-header {
     inline-size: 100%;
+    box-sizing: border-box;
+    padding-block-start: var(--bs-safe-top);
+    padding-inline: var(--bs-safe-left) var(--bs-safe-right);
     container: header / inline-size;
-    background: color-mix(in oklab, var(--bs-surface) 92%, transparent);
-    backdrop-filter: blur(12px);
+    background: color-mix(in oklab, var(--bs-surface) 95%, var(--bs-bg));
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
     border-block-end: 1px solid var(--bs-border);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   }
@@ -1181,7 +1254,8 @@ function buildBackstageCss() {
     justify-content: space-between;
     gap: 0.55rem;
     padding-block: 0.38rem;
-    min-block-size: 2.9rem;
+    min-block-size: 3.3rem;
+    box-sizing: border-box;
     flex-wrap: nowrap;
   }
 
@@ -1315,7 +1389,11 @@ function buildBackstageCss() {
   /* <wa-page slot="subheader"> Breadcrumb Strip */
   .bs-subheader {
     inline-size: 100%;
-    background: color-mix(in oklab, var(--bs-elevated) 84%, transparent);
+    box-sizing: border-box;
+    padding-inline: var(--bs-safe-left) var(--bs-safe-right);
+    background: color-mix(in oklab, var(--bs-elevated) 96%, var(--bs-bg));
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
     border-block-end: 1px solid var(--bs-border);
   }
 
@@ -1836,7 +1914,7 @@ function buildBackstageCss() {
   .bs-heading {
     line-height: 1.3;
     margin-block: 1.65rem 0.65rem;
-    scroll-margin-block-start: 5.5rem;
+    scroll-margin-block-start: calc(6rem + var(--bs-safe-top));
   }
 
   .bs-article-prose > .bs-heading:first-child {
@@ -2178,6 +2256,12 @@ function buildBackstageCss() {
   }
 
   /* Appearance Drawer Studio & Install Dialog */
+  wa-drawer#bs-appearance-drawer::part(panel) {
+    padding-block-start: var(--bs-safe-top);
+    padding-block-end: var(--bs-safe-bottom);
+    box-sizing: border-box;
+  }
+
   .bs-studio-stack {
     display: flex;
     flex-direction: column;
@@ -2220,7 +2304,9 @@ function buildBackstageCss() {
   /* Footer & Mandatory Fictitious Disclaimer */
   .bs-footer {
     inline-size: 100%;
-    padding-block: 2.25rem;
+    box-sizing: border-box;
+    padding-block: 2.25rem calc(2.25rem + var(--bs-safe-bottom));
+    padding-inline: var(--bs-safe-left) var(--bs-safe-right);
     background: var(--bs-surface);
     border-block-start: 1px solid var(--bs-border);
     font-size: 0.9rem;
@@ -2350,8 +2436,18 @@ function buildBackstageClientJs() {
     }
 
     var root = document.documentElement;
+    var pwaSuffix =
+      root.getAttribute('data-pwa') === 'standalone' ||
+      root.classList.contains('is-pwa-standalone')
+        ? ' is-pwa-standalone'
+        : '';
     root.className =
-      'wa-theme-' + theme + ' wa-palette-' + palette + (resolved === 'dark' ? ' wa-dark' : '');
+      'wa-theme-' +
+      theme +
+      ' wa-palette-' +
+      palette +
+      (resolved === 'dark' ? ' wa-dark' : '') +
+      pwaSuffix;
     root.setAttribute('data-theme', resolved);
 
     if (systemHint) {
@@ -2965,9 +3061,27 @@ function renderBackstageShell({
           (s === 'light' || s === 'dark') ? s : 'light dark';
         var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
         var root = document.documentElement;
-        root.className = 'wa-theme-' + t + ' wa-palette-' + p + (isDark ? ' wa-dark' : '');
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
         root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
       } catch (e) {}
     </script>
 

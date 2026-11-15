@@ -79,8 +79,18 @@
     }
 
     var root = document.documentElement;
+    var pwaSuffix =
+      root.getAttribute('data-pwa') === 'standalone' ||
+      root.classList.contains('is-pwa-standalone')
+        ? ' is-pwa-standalone'
+        : '';
     root.className =
-      'wa-theme-' + theme + ' wa-palette-' + palette + (resolved === 'dark' ? ' wa-dark' : '');
+      'wa-theme-' +
+      theme +
+      ' wa-palette-' +
+      palette +
+      (resolved === 'dark' ? ' wa-dark' : '') +
+      pwaSuffix;
     root.setAttribute('data-theme', resolved);
 
     if (systemHint) {
