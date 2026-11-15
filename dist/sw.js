@@ -10,17 +10,16 @@
  * 3. Versioned Same-Origin Assets (`/assets/*`, `/icons/*`): CacheFirst.
  * ============================================================================
  */
-const CACHE_NAME = 'raggiesoft-backstage-v20261115a';
+const CACHE_NAME = 'raggiesoft-backstage-v20261115b';
 const PRECACHE_URLS = [
   "/",
-  "/manifest.json",
-  "/favicon.ico?v=20261115a",
-  "/icons/icon.svg?v=20261115a",
-  "/icons/icon-192.png?v=20261115a",
-  "/icons/icon-512.png?v=20261115a",
-  "/icons/apple-icon-180.png?v=20261115a",
-  "/assets/backstage.css?v=20261115a",
-  "/assets/backstage-client.js?v=20261115a",
+  "/favicon.ico?v=20261115b",
+  "/icons/icon.svg?v=20261115b",
+  "/icons/icon-192.png?v=20261115b",
+  "/icons/icon-512.png?v=20261115b",
+  "/icons/apple-icon-180.png?v=20261115b",
+  "/assets/backstage.css?v=20261115b",
+  "/assets/backstage-client.js?v=20261115b",
   "/api/v1/index.json",
   "/books/aubrie",
   "/books/rachel",
@@ -129,6 +128,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
   if (
+    url.pathname === '/manifest.json' ||
     url.pathname === '/robots.txt' ||
     url.pathname === '/sitemap.xml' ||
     url.pathname === '/404.html' ||

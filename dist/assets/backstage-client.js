@@ -181,8 +181,80 @@
   var deferredInstallPrompt = null;
 
   var isStandalone =
-    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
-    window.navigator.standalone === true;
+    (window.matchMedia &&
+      window.matchMedia(
+        '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+      ).matches) ||
+    window.navigator.standalone === true ||
+    (document.referrer && document.referrer.indexOf('android-app://') === 0);
+
+  // Cross-PWA Incoming Link Consumer (Launch Handler API: window.launchQueue):
+  // Reuses an already-open RaggieSoft Backstage PWA window when Book Reader or
+  // The Listening Room hands off a dossier or collection URL.
+  if ('launchQueue' in window && window.launchQueue && typeof window.launchQueue.setConsumer === 'function') {
+    window.launchQueue.setConsumer(function (launchParams) {
+      if (!launchParams || !launchParams.targetURL) return;
+      try {
+        var incoming = new URL(launchParams.targetURL, window.location.origin);
+        if (incoming.origin !== window.location.origin) return;
+        var dest = incoming.pathname + incoming.search + incoming.hash;
+        var here = window.location.pathname + window.location.search + window.location.hash;
+        if (dest !== here) {
+          window.location.assign(dest);
+        }
+      } catch (e) {}
+    });
+  }
+
+  // Sibling RaggieSoft PWA Outbound Handoff Enhancer:
+  // When running as an installed standalone PWA, stamp target="_blank" rel="noopener"
+  // onto sibling PWA links (books.raggiesoft.com, music.raggiesoft.com) across both
+  // standard <a> tags and Web Awesome <wa-button href="..."> Shadow DOM controls so
+  // Chromium & Android PWA Link Capturing hands them cleanly to the sibling PWA window.
+  if (isStandalone) {
+    var siblingHosts = { 'books.raggiesoft.com': true, 'music.raggiesoft.com': true };
+    var upgradeSiblingControl = function (el) {
+      if (!el || typeof el.getAttribute !== 'function') return;
+      var rawHref = el.getAttribute('href');
+      if (!rawHref) return;
+      try {
+        var parsed = new URL(rawHref, window.location.href);
+        if (parsed.hostname !== window.location.hostname && siblingHosts[parsed.hostname]) {
+          el.setAttribute('target', '_blank');
+          if ('target' in el) el.target = '_blank';
+          var existingRel = (el.getAttribute('rel') || '').trim();
+          var relParts = existingRel ? existingRel.split(/s+/) : [];
+          if (relParts.indexOf('noopener') === -1) relParts.push('noopener');
+          var nextRel = relParts.join(' ');
+          el.setAttribute('rel', nextRel);
+          if ('rel' in el) el.rel = nextRel;
+        }
+      } catch (e) {}
+    };
+
+    Array.prototype.slice
+      .call(document.querySelectorAll('a[href], wa-button[href]'))
+      .forEach(upgradeSiblingControl);
+
+    var handleSiblingInteraction = function (event) {
+      if (event.defaultPrevented) return;
+      var path = typeof event.composedPath === 'function' ? event.composedPath() : [];
+      for (var i = 0; i < path.length; i++) {
+        var node = path[i];
+        if (node && node.nodeType === 1) {
+          var tag = node.tagName ? node.tagName.toLowerCase() : '';
+          if (tag === 'a' || tag === 'wa-button') {
+            upgradeSiblingControl(node);
+          }
+        }
+      }
+      var targetNode = event.target && event.target.closest ? event.target.closest('a[href], wa-button[href]') : null;
+      if (targetNode) upgradeSiblingControl(targetNode);
+    };
+
+    document.addEventListener('pointerdown', handleSiblingInteraction, true);
+    document.addEventListener('click', handleSiblingInteraction, true);
+  }
 
   var ua = window.navigator.userAgent || '';
   var isIosSafari =
@@ -230,7 +302,17 @@
     navDropdown.addEventListener('wa-select', function (e) {
       var item = e.detail && e.detail.item;
       var href = item && item.value;
-      if (href) {
+      if (!href) return;
+      if (/^https?:///i.test(href)) {
+        var extAnchor = document.createElement('a');
+        extAnchor.href = href;
+        extAnchor.target = '_blank';
+        extAnchor.rel = 'noopener';
+        extAnchor.style.display = 'none';
+        document.body.appendChild(extAnchor);
+        extAnchor.click();
+        extAnchor.remove();
+      } else {
         window.location.href = href;
       }
     });
