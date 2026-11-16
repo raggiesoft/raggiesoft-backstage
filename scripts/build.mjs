@@ -53,11 +53,12 @@ const projectRoot = path.resolve(__dirname, '..');
 const publicDir = path.join(projectRoot, 'public');
 const distDir = path.join(projectRoot, 'dist');
 const snapshotPath = path.join(projectRoot, 'src', 'data', 'backstage-snapshot.json');
+const storyArcsSnapshotPath = path.join(projectRoot, 'src', 'data', 'story-arcs-snapshot.json');
 
 /**
  * Cache-buster revision token shared by HTML asset links, PWA splash screens, and `/sw.js`.
  */
-const ASSET_VERSION = '20261115d';
+const ASSET_VERSION = '20261116a';
 
 /**
  * Web Awesome Pro 3.13.0 CDN base URL (`bb765cf132c5414e`) & Font Awesome Pro+ Kit (`ec060982d4`).
@@ -927,6 +928,35 @@ function loadBackstageItems() {
   }
 
   throw new Error('Could not locate raggiesoft-narratives/backstage or backstage-snapshot.json');
+}
+
+/**
+ * Loads compiled multi-arc Story Arcs (`story-arcs.json` produced by `paige.php`),
+ * persisting `src/data/story-arcs-snapshot.json` so remote Droplet builds (`sarah-deploy.sh`)
+ * have 100% of Story Arc playlists even when `raggiesoft-narratives` is not mounted.
+ */
+function loadStoryArcs() {
+  const candidates = [
+    path.resolve(projectRoot, '../../../raggiesoft-assets/raggiesoft-books/json/story-arcs.json'),
+    path.resolve(projectRoot, '../../raggiesoft-assets/raggiesoft-books/json/story-arcs.json'),
+    path.resolve(projectRoot, '../books/data/story-arcs.json')
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+      const parsed = JSON.parse(fs.readFileSync(candidate, 'utf-8'));
+      const arcs = Array.isArray(parsed?.arcs) ? parsed.arcs : [];
+      fs.mkdirSync(path.dirname(storyArcsSnapshotPath), { recursive: true });
+      fs.writeFileSync(storyArcsSnapshotPath, JSON.stringify(arcs, null, 2), 'utf-8');
+      return arcs;
+    }
+  }
+
+  if (fs.existsSync(storyArcsSnapshotPath)) {
+    return JSON.parse(fs.readFileSync(storyArcsSnapshotPath, 'utf-8'));
+  }
+
+  return [];
 }
 
 /**
@@ -2711,6 +2741,82 @@ function buildBackstageCss() {
     --width: min(54rem, calc(100dvw - 1.5rem));
   }
 
+  /* Story Arcs (Director's Cut Reading Playlists) */
+  .bs-arc-stop-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-block-start: 1rem;
+  }
+
+  .bs-arc-stop-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border-radius: var(--bs-radius-m);
+    background: var(--bs-surface);
+    border: 1px solid var(--bs-border);
+    box-shadow: var(--bs-shadow);
+  }
+
+  .bs-arc-stop-card.is-backstage {
+    border-inline-start: 4px solid var(--bs-primary);
+  }
+
+  .bs-arc-stop-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    flex: 1;
+    min-inline-size: min(100%, 260px);
+  }
+
+  .bs-arc-stop-num {
+    flex-shrink: 0;
+    inline-size: 2rem;
+    block-size: 2rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.84rem;
+    background: var(--bs-elevated);
+    border: 1px solid var(--bs-border);
+    color: var(--bs-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bs-arc-stop-body {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .bs-arc-stop-title {
+    margin: 0.25rem 0 0.2rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--bs-text);
+  }
+
+  .bs-arc-stop-excerpt {
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--bs-muted);
+  }
+
+  .bs-arc-stop-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
   .bs-dialog-meta {
     display: flex;
     align-items: center;
@@ -3538,6 +3644,7 @@ function renderBackstageShell({
 
   const navItems = [
     { href: '/', label: 'Hub', icon: 'clapperboard-play' },
+    { href: '/arcs', label: `Story Arcs (${counts.storyArcs ?? 12})`, icon: 'timeline' },
     { href: '/books/rachel', label: `Rachel (${counts.rachelDossiers})`, icon: 'shield-heart' },
     { href: '/books/katie', label: `Katie & Nathaniel (${counts.katieDossiers})`, icon: 'wheelchair-move' },
     { href: '/books/quantum-directive-3-casey', label: `The Caretakers (${counts.caseyDossiers})`, icon: 'microchip' },
@@ -3758,6 +3865,10 @@ ${splashLinksHtml}
                 <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
                 Backstage Hub (${counts.total} Records)
               </wa-dropdown-item>
+              <wa-dropdown-item value="/arcs">
+                <wa-icon slot="icon" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc Playlists (${counts.storyArcs ?? 12} Arcs)
+              </wa-dropdown-item>
               <wa-dropdown-item value="/books/rachel">
                 <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
                 The Rachel Narrative (${counts.rachelDossiers} Dossiers)
@@ -3941,7 +4052,7 @@ ${splashLinksHtml}
  * tallies directly from the compiled Markdown dataset (zero hardcoded counts).
  * @param {Record<string, any>[]} items
  */
-function computeArchiveGroups(items) {
+function computeArchiveGroups(items, storyArcs = []) {
   const rachelAll = items.filter((i) => i.slug.startsWith('books/rachel'));
   const rachelDossiers = items.filter((i) => i.slug.startsWith('books/rachel/') && i.slug !== 'books/rachel');
   const katieAll = items.filter((i) => i.slug.startsWith('books/katie'));
@@ -4042,9 +4153,277 @@ function computeArchiveGroups(items) {
       aubrieCorrespondence: aubrieCorrespondence.length,
       lore: loreItems.length,
       hubs: hubs.length,
-      total: items.length
-    }
+      total: items.length,
+      storyArcs: storyArcs.length
+    },
+    storyArcs
   };
+}
+
+/**
+ * Renders a Web Awesome `<wa-card>` for a curated Story Arc (Director's Cut Reading Playlist).
+ * @param {Record<string, any>} arc
+ */
+function renderStoryArcCard(arc) {
+  const rawImg = String(arc.image || '');
+  const imgSrc = rawImg.startsWith('http')
+    ? rawImg
+    : `https://assets.raggiesoft.com/${rawImg.replace(/^\/+/, '')}`;
+  const detailHref = `/arcs/${arc.backstage_playlist_slug}`;
+  const startBookUrl = `https://books.raggiesoft.com${arc.start_url || `/${arc.series_slug}`}`;
+  const readTimeLabel =
+    Number(arc.reading_hours || 0) >= 1
+      ? `~${Number(arc.reading_hours).toFixed(1)} hrs`
+      : `~${Number(arc.reading_minutes || 1)} min`;
+
+  return `
+    <wa-card class="bs-dossier-card">
+      <a href="${escapeHtml(detailHref)}" slot="media" class="bs-card-media-link" tabindex="-1" aria-hidden="true">
+        <img
+          src="${escapeHtml(imgSrc)}"
+          alt=""
+          width="800"
+          height="450"
+          loading="lazy"
+          decoding="async"
+          class="bs-card-media-img"
+        />
+      </a>
+      <div class="bs-card-meta">
+        <wa-badge variant="brand" appearance="filled-outlined" pill>
+          <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>&nbsp;${escapeHtml(arc.series_title)}
+        </wa-badge>
+        <wa-tag size="small" pill>${Number(arc.part_count || 0)} Chapters${Number(arc.backstage_count || 0) > 0 ? ` + ${Number(arc.backstage_count)} Bonus` : ''} • ${escapeHtml(readTimeLabel)}</wa-tag>
+      </div>
+      <h3 class="bs-card-title">
+        <a href="${escapeHtml(detailHref)}" class="bs-card-title-link">${escapeHtml(arc.title)}</a>
+      </h3>
+      ${arc.subtitle ? `<p class="bs-card-subtitle">${escapeHtml(arc.subtitle)}</p>` : ''}
+      <p class="bs-card-summary">${escapeHtml(arc.description || '')}</p>
+      <div slot="footer" class="bs-card-footer">
+        <wa-button variant="brand" size="small" href="${escapeHtml(detailHref)}">
+          <wa-icon slot="start" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+          View Story Arc (${Number(arc.stop_count || 0)})
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" href="${escapeHtml(startBookUrl)}" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+          Start in Reader ↗
+        </wa-button>
+      </div>
+    </wa-card>`;
+}
+
+/**
+ * Renders the top-level Story Arcs Hub (`/arcs/index.html`) on RaggieSoft Backstage.
+ */
+function renderStoryArcsHubPage(storyArcs, groups) {
+  const totalChapters = storyArcs.reduce((sum, a) => sum + Number(a.part_count || 0), 0);
+  const totalBonus = storyArcs.reduce((sum, a) => sum + Number(a.backstage_count || 0), 0);
+  const subheaderHtml = `
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item>Story Arcs &amp; Reading Playlists</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>`;
+
+  const bodyHtml = `
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>&nbsp;Director&rsquo;s Cut Reading Playlists
+        </wa-badge>
+        <wa-tag size="small" pill>${storyArcs.length} Curated Story Arcs • ${totalChapters} Chapters • ${totalBonus} Bonus Scenes</wa-tag>
+      </div>
+      <h1 class="bs-title">Follow a Story Arc Across Books &amp; Backstage</h1>
+      <p class="bs-subtitle">
+        Every Story Arc below works like a chronological reading playlist—uniting key book chapters on <strong>RaggieSoft Book Reader</strong> with the behind-the-scenes bonus dossiers that unfolded off-camera here on <strong>RaggieSoft Backstage</strong>.
+      </p>
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/arcs" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+          Open Story Arcs in Book Reader ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/">
+          <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+          All ${groups.counts.total} Backstage Records
+        </wa-button>
+      </div>
+    </div>
+
+    <section aria-labelledby="all-story-arcs-heading">
+      <div class="bs-section-head">
+        <h2 id="all-story-arcs-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="timeline" swap-opacity aria-hidden="true"></wa-icon>
+          All ${storyArcs.length} Story Arc Playlists
+        </h2>
+        <p class="bs-section-lead">Select any Story Arc to inspect its full stop-by-stop timeline or start reading immediately.</p>
+      </div>
+      <div class="bs-grid">
+        ${storyArcs.map((arc) => renderStoryArcCard(arc)).join('\n')}
+      </div>
+    </section>
+  `;
+
+  return renderBackstageShell({
+    title: 'Story Arcs & Reading Playlists | RaggieSoft Backstage',
+    description:
+      'Follow curated Director’s Cut Story Arc playlists uniting Ocean View Archives chapters with behind-the-scenes RaggieSoft Backstage dossiers.',
+    canonicalPath: '/arcs',
+    ogImage: `${OG_CDN_BASE}/katie-collection-og.jpg`,
+    ogImageAlt: 'Story Arcs and Director’s Cut Reading Playlists on RaggieSoft Backstage',
+    counts: groups.counts,
+    subheaderHtml,
+    bodyHtml
+  });
+}
+
+/**
+ * Renders an individual Story Arc Director's Cut Playlist page (`/arcs/<series>-<slug>/index.html`).
+ */
+function renderStoryArcDetailPage(arc, groups) {
+  const rawImg = String(arc.image || '');
+  const heroImgSrc = rawImg.startsWith('http')
+    ? rawImg
+    : `https://assets.raggiesoft.com/${rawImg.replace(/^\/+/, '')}`;
+  const startBookUrl = `https://books.raggiesoft.com${arc.start_url || `/${arc.series_slug}`}`;
+  const bookLandingUrl = `https://books.raggiesoft.com/${arc.series_slug}`;
+  const readTimeLabel =
+    Number(arc.reading_hours || 0) >= 1
+      ? `~${Number(arc.reading_hours).toFixed(1)} hours`
+      : `~${Number(arc.reading_minutes || 1)} minutes`;
+  const stops = Array.isArray(arc.stops) ? arc.stops : [];
+
+  const subheaderHtml = `
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/arcs">Story Arcs (${groups.counts.storyArcs})</wa-breadcrumb-item>
+            <wa-breadcrumb-item>${escapeHtml(arc.title)}</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>`;
+
+  const stopsHtml = stops
+    .map((stop) => {
+      const isBs = stop.kind === 'backstage';
+      const bookStopUrl = `https://books.raggiesoft.com${stop.arc_url || stop.url || ''}`;
+      const bsLocalPath = stop.backstage_slug ? `/${stop.backstage_slug}` : stop.url;
+      return `
+        <article class="bs-arc-stop-card ${isBs ? 'is-backstage' : 'is-part'}">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">${Number(stop.stop_num || 0)}</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="${isBs ? 'warning' : 'brand'}" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="${isBs ? 'film' : 'book-open-cover'}" aria-hidden="true"></wa-icon>&nbsp;${isBs ? 'Behind-the-Scenes Bonus Scene' : 'Book Chapter'}
+                </wa-badge>
+                ${stop.date ? `<wa-tag size="small" pill>${escapeHtml(stop.date)}</wa-tag>` : ''}
+                <wa-tag size="small" pill>~${Number(stop.reading_minutes || 1)} min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">${escapeHtml(stop.title)}</h3>
+              ${stop.subtitle ? `<div class="bs-card-subtitle">${escapeHtml(stop.subtitle)}</div>` : ''}
+              ${stop.excerpt ? `<p class="bs-arc-stop-excerpt">${escapeHtml(stop.excerpt)}</p>` : ''}
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            ${
+              isBs
+                ? `<wa-button variant="brand" size="small" href="${escapeHtml(bsLocalPath)}">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  ${
+                    stop.backstage_slug
+                      ? `<wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="${escapeHtml(stop.backstage_slug)}">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>`
+                      : ''
+                  }`
+                : `<wa-button variant="brand" appearance="filled-outlined" size="small" href="${escapeHtml(bookStopUrl)}" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>`
+            }
+          </div>
+        </article>`;
+    })
+    .join('\n');
+
+  const bodyHtml = `
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>&nbsp;${escapeHtml(arc.series_title)} • Story Arc
+        </wa-badge>
+        <wa-tag size="small" pill>${Number(arc.part_count || 0)} Chapters${Number(arc.backstage_count || 0) > 0 ? ` • ${Number(arc.backstage_count)} Bonus Scenes` : ''} • ${escapeHtml(readTimeLabel)}</wa-tag>
+      </div>
+      <h1 class="bs-title">${escapeHtml(arc.title)}</h1>
+      ${arc.subtitle ? `<p class="bs-subtitle">${escapeHtml(arc.subtitle)}</p>` : ''}
+      <p class="bs-section-lead" style="margin-block: 0.5rem 1.1rem;">${escapeHtml(arc.description || '')}</p>
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="${escapeHtml(startBookUrl)}" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+          Start Story Arc in Book Reader ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="${escapeHtml(bookLandingUrl)}" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="books" aria-hidden="true"></wa-icon>
+          Full ${escapeHtml(arc.series_title)} Overview ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/arcs">
+          <wa-icon slot="start" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+          All ${groups.counts.storyArcs} Story Arcs
+        </wa-button>
+      </div>
+    </div>
+
+    <figure class="bs-dossier-hero">
+      <img
+        src="${escapeHtml(heroImgSrc)}"
+        alt="${escapeHtml(arc.title)}"
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+    </figure>
+
+    <section aria-labelledby="arc-stops-heading">
+      <div class="bs-section-head">
+        <h2 id="arc-stops-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="list-tree" swap-opacity aria-hidden="true"></wa-icon>
+          Complete Story Arc Playlist (${stops.length} Stops)
+        </h2>
+        <p class="bs-section-lead">
+          Opening any chapter stop launches <strong>RaggieSoft Book Reader</strong> directly in <em>Story Arc Playlist Mode</em> so the Next button steps straight through this storyline.
+        </p>
+      </div>
+      <div class="bs-arc-stop-stack">
+        ${stopsHtml}
+      </div>
+    </section>
+  `;
+
+  return renderBackstageShell({
+    title: `${arc.title} — Story Arc | RaggieSoft Backstage`,
+    description: arc.description || arc.subtitle || arc.title,
+    canonicalPath: `/arcs/${arc.backstage_playlist_slug}`,
+    ogImage: resolveOgImageForSlug(`books/${arc.series_slug}`),
+    ogImageAlt: `${arc.title} — ${arc.series_title} Story Arc Playlist`,
+    counts: groups.counts,
+    subheaderHtml,
+    bodyHtml
+  });
 }
 
 /**
@@ -4109,9 +4488,68 @@ function renderItemPage(item, allItems, groups) {
             ? groups.aubrieDossiers
             : [];
 
+  const hubSeriesSlug =
+    item.slug === 'books/rachel'
+      ? 'rachel'
+      : item.slug === 'books/katie'
+        ? 'katie'
+        : item.slug === 'books/quantum-directive-3-casey'
+          ? 'quantum-directive-3-casey'
+          : item.slug === 'books/aubrie'
+            ? 'aubrie'
+            : '';
+
+  const hubStoryArcs = hubSeriesSlug
+    ? (groups.storyArcs || []).filter((arc) => arc.series_slug === hubSeriesSlug)
+    : [];
+
+  const hubArcsHtml =
+    hubStoryArcs.length > 0
+      ? `
+    <section aria-labelledby="collection-arcs-heading" style="margin-block-end: 2rem;">
+      <div class="bs-section-head">
+        <h2 id="collection-arcs-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="timeline" swap-opacity aria-hidden="true"></wa-icon>
+          Follow a Story Arc (${hubStoryArcs.length} ${hubStoryArcs.length === 1 ? 'Reading Playlist' : 'Reading Playlists'})
+        </h2>
+        <p class="bs-section-lead">Follow a curated storyline chronologically across chapters and behind-the-scenes bonus scenes.</p>
+      </div>
+      <div class="bs-grid">
+        ${hubStoryArcs.map((arc) => renderStoryArcCard(arc)).join('\n')}
+      </div>
+    </section>`
+      : '';
+
+  // Identify any Story Arcs in which this individual dossier appears as a behind-the-scenes bonus stop
+  const matchingDossierArcs = isCollectionHub
+    ? []
+    : (groups.storyArcs || [])
+        .map((arc) => {
+          const stopIdx = (arc.stops || []).findIndex(
+            (st) => st.kind === 'backstage' && st.backstage_slug === item.slug
+          );
+          if (stopIdx === -1) return null;
+          const stop = arc.stops[stopIdx];
+          let nextPartArcUrl = '';
+          for (let f = stopIdx + 1; f < arc.stops.length; f++) {
+            if (arc.stops[f].kind === 'part') {
+              nextPartArcUrl = `https://books.raggiesoft.com${arc.stops[f].arc_url || arc.stops[f].url}`;
+              break;
+            }
+          }
+          return {
+            arc,
+            stopNum: stop.stop_num,
+            totalStops: arc.stop_count || arc.stops.length,
+            nextPartArcUrl
+          };
+        })
+        .filter(Boolean);
+
   const hubGridHtml =
     hubChildren.length > 0
       ? `
+    ${hubArcsHtml}
     <section aria-labelledby="collection-cards-heading">
       <div class="bs-section-head">
         <h2 id="collection-cards-heading" class="bs-section-title">
@@ -4258,6 +4696,29 @@ function renderItemPage(item, allItems, groups) {
                   </wa-button>`
                 : ''
             }
+            ${matchingDossierArcs
+              .map(
+                (m) => `
+              <wa-divider></wa-divider>
+              <div style="font-size: 0.78rem; font-weight: 800; color: var(--bs-primary);">
+                <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc • Stop ${m.stopNum} of ${m.totalStops}
+              </div>
+              <div style="font-size: 0.88rem; font-weight: 700; line-height: 1.35;">${escapeHtml(m.arc.title)}</div>
+              <wa-button variant="neutral" appearance="outlined" size="small" href="/arcs/${escapeHtml(m.arc.backstage_playlist_slug)}">
+                <wa-icon slot="start" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Full Story Arc Playlist
+              </wa-button>
+              ${
+                m.nextPartArcUrl
+                  ? `<wa-button variant="brand" appearance="filled-outlined" size="small" href="${escapeHtml(m.nextPartArcUrl)}" target="_blank" rel="noopener">
+                      <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                      Next Chapter in Arc ↗
+                    </wa-button>`
+                  : ''
+              }`
+              )
+              .join('\n')}
             <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
               <wa-qr-code value="${escapeHtml(item.canonicalUrl)}" label="QR code to open ${escapeHtml(item.title)} on a phone or tablet" size="124"></wa-qr-code>
               <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
@@ -4754,6 +5215,9 @@ function renderHomePage(items, groups) {
       </div>
 
       <wa-tab-group id="bs-main-tabs">
+        <wa-tab slot="nav" panel="arcs">
+          <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>&nbsp;Story Arcs (${counts.storyArcs})
+        </wa-tab>
         <wa-tab slot="nav" panel="rachel">
           <wa-icon family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>&nbsp;Rachel (${counts.rachelDossiers})
         </wa-tab>
@@ -4778,6 +5242,15 @@ function renderHomePage(items, groups) {
         <wa-tab slot="nav" panel="all">
           <wa-icon family="duotone" name="layer-group" aria-hidden="true"></wa-icon>&nbsp;All Records (${counts.total})
         </wa-tab>
+
+        <wa-tab-panel name="arcs">
+          <p class="bs-section-lead">
+            Follow curated chapter-by-chapter <strong>Story Arcs</strong> uniting <a href="https://books.raggiesoft.com/arcs" class="bs-link">RaggieSoft Book Reader</a> chapters with behind-the-scenes Backstage dossiers—like a Director&rsquo;s Cut reading playlist across the years.
+          </p>
+          <div class="bs-grid">
+            ${(groups.storyArcs || []).map((arc) => renderStoryArcCard(arc)).join('\n')}
+          </div>
+        </wa-tab-panel>
 
         <wa-tab-panel name="rachel">
           <p class="bs-section-lead">
@@ -5083,7 +5556,7 @@ function renderHomePage(items, groups) {
  * Generates `/manifest.json` and `/sw.js` for the RaggieSoft Backstage PWA,
  * achieving full installable parity with RaggieSoft Book Reader & The Listening Room.
  */
-function buildPwaAssets(items) {
+function buildPwaAssets(items, storyArcs = []) {
   const manifest = {
     id: '/',
     name: 'RaggieSoft Backstage — Bonus Features & Story Companion Archive',
@@ -5177,6 +5650,9 @@ function buildPwaAssets(items) {
     `/assets/backstage.css?v=${ASSET_VERSION}`,
     `/assets/backstage-client.js?v=${ASSET_VERSION}`,
     '/api/v1/index.json',
+    '/api/v1/story-arcs.json',
+    '/arcs',
+    ...storyArcs.map((arc) => `/arcs/${arc.backstage_playlist_slug}`),
     ...items.map((i) => i.routePath),
     ...items.map((i) => `/api/v1/${i.slug}.json`)
   ];
@@ -5284,7 +5760,8 @@ self.addEventListener('fetch', (event) => {
  */
 function buildBackstageSite() {
   const items = loadBackstageItems();
-  const groups = computeArchiveGroups(items);
+  const storyArcs = loadStoryArcs();
+  const groups = computeArchiveGroups(items, storyArcs);
 
   // 0. Clean stale dist output and copy static PWA icons/favicon from `public/`
   fs.rmSync(distDir, { recursive: true, force: true });
@@ -5294,10 +5771,14 @@ function buildBackstageSite() {
   // 1. Write CSS, Client JS, and PWA Manifest / Service Worker
   writeDistFile('assets/backstage.css', buildBackstageCss());
   writeDistFile('assets/backstage-client.js', buildBackstageClientJs());
-  buildPwaAssets(items);
+  buildPwaAssets(items, storyArcs);
 
-  // 2. Write Home Page (`/index.html`)
+  // 2. Write Home Page (`/index.html`) + Story Arcs Hub (`/arcs/index.html`) + per-Arc Director's Cut pages
   writeDistFile('index.html', renderHomePage(items, groups));
+  writeDistFile('arcs/index.html', renderStoryArcsHubPage(storyArcs, groups));
+  for (const arc of storyArcs) {
+    writeDistFile(`arcs/${arc.backstage_playlist_slug}/index.html`, renderStoryArcDetailPage(arc, groups));
+  }
 
   // 3. Write each item route (`/<slug>/index.html`) and JSON API (`/api/v1/<slug>.json`)
   const apiIndex = {
@@ -5367,9 +5848,21 @@ function buildBackstageSite() {
 
   const indexJsonStr = JSON.stringify(apiIndex, null, 2);
   writeDistFile('api/v1/index.json', indexJsonStr);
+  const storyArcsApiPayload = JSON.stringify(
+    {
+      generatedAt: new Date().toISOString(),
+      siteName: 'RaggieSoft Backstage',
+      arcCount: storyArcs.length,
+      arcs: storyArcs
+    },
+    null,
+    2
+  );
+  writeDistFile('api/v1/story-arcs.json', storyArcsApiPayload);
   if (canMirrorToAssets) {
     fs.mkdirSync(sharedAssetsRoot, { recursive: true });
     fs.writeFileSync(path.join(sharedAssetsRoot, 'index.json'), indexJsonStr, 'utf-8');
+    fs.writeFileSync(path.join(sharedAssetsRoot, 'story-arcs.json'), storyArcsApiPayload, 'utf-8');
   }
 
   // 4. Generate 404.html, sitemap.xml, robots.txt, and IndexNow key
@@ -5423,7 +5916,12 @@ function buildBackstageSite() {
   );
 
   const today = new Date().toISOString().split('T')[0];
-  const urls = ['https://backstage.raggiesoft.com/', ...items.map((i) => i.canonicalUrl)];
+  const urls = [
+    'https://backstage.raggiesoft.com/',
+    'https://backstage.raggiesoft.com/arcs',
+    ...storyArcs.map((arc) => `https://backstage.raggiesoft.com/arcs/${arc.backstage_playlist_slug}`),
+    ...items.map((i) => i.canonicalUrl)
+  ];
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
     .map((u) => `  <url>\n    <loc>${escapeHtml(u)}</loc>\n    <lastmod>${today}</lastmod>\n  </url>`)
     .join('\n')}\n</urlset>\n`;

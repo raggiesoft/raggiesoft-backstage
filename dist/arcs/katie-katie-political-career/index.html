@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var root = document.documentElement;
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261116a" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261116a" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261116a" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261116a" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>Katie&#39;s Political Career: From the 5:30 Bus Curfew to the…</title>
+    <meta name="description" content="Trace Katie Prairie&#39;s public-service journey alongside Nate—from a 2007 White House and Capitol visit and Virginia Beach&#39;s 5:30 PM bus curfew to City…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/arcs/katie-katie-political-career" />
+    <meta property="og:title" content="Katie&#39;s Political Career: From the 5:30 Bus Curfew to the…" />
+    <meta property="og:description" content="Trace Katie Prairie&#39;s public-service journey alongside Nate—from a 2007 White House and Capitol visit and Virginia Beach&#39;s 5:30 PM bus curfew to City…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/arcs/katie-katie-political-career" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Katie&#39;s Political Career: From the 5:30 Bus Curfew to the U.S. Senate — Katie &amp; Nathaniel Story Arc Playlist" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Katie&#39;s Political Career: From the 5:30 Bus Curfew to the…" />
+    <meta name="twitter:description" content="Trace Katie Prairie&#39;s public-service journey alongside Nate—from a 2007 White House and Capitol visit and Virginia Beach&#39;s 5:30 PM bus curfew to City…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta name="twitter:image:alt" content="Katie&#39;s Political Career: From the 5:30 Bus Curfew to the U.S. Senate — Katie &amp; Nathaniel Story Arc Playlist" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/arcs/katie-katie-political-career#webpage","url":"https://backstage.raggiesoft.com/arcs/katie-katie-political-career","name":"Katie's Political Career: From the 5:30 Bus Curfew to the…","description":"Trace Katie Prairie's public-service journey alongside Nate—from a 2007 White House and Capitol visit and Virginia Beach's 5:30 PM bus curfew to City…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261116a" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261115h" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+
+      <div slot="banner" class="bs-banner-slot">
+        <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+          <div class="rs-network-bar-inner">
+            <span class="rs-network-label">✦ RaggieSoft Network:</span>
+            <ul class="rs-network-links">
+              <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+              <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+              <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+              <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+              <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+              <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261116a" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/arcs" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="timeline" swap-opacity aria-hidden="true"></wa-icon><span>Story Arcs (12)</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (20)</span></a></li>
+                <li><a href="/books/quantum-directive-3-casey" class="bs-nav-link"><wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon><span>The Caretakers (6)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (55 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/arcs">
+                <wa-icon slot="icon" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc Playlists (12 Arcs)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (20 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/arcs">Story Arcs (12)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>Katie&#39;s Political Career: From the 5:30 Bus Curfew to the U.S. Senate</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel • Story Arc
+        </wa-badge>
+        <wa-tag size="small" pill>31 Chapters • 5 Bonus Scenes • ~7.3 hours</wa-tag>
+      </div>
+      <h1 class="bs-title">Katie&#39;s Political Career: From the 5:30 Bus Curfew to the U.S. Senate</h1>
+      <p class="bs-subtitle">2007–2044 • City Council, House of Delegates, Madam Chair &amp; Senator From Virginia</p>
+      <p class="bs-section-lead" style="margin-block: 0.5rem 1.1rem;">Trace Katie Prairie&#39;s public-service journey alongside Nate—from a 2007 White House and Capitol visit and Virginia Beach&#39;s 5:30 PM bus curfew to City Council, the viral House Bill 663 speech, flipping the State Senate, and riding every bus in Virginia to the United States Senate.</p>
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/katie/unofficial-homeowners-back-home-in-virginia-beach-2007-2008/twenty-two-in-alexandria-riding-dmv-transit-touring-the-white-house-the-u-s-capitol-meeting-senator-james-west-the-spark-to-run-for-city-council-two-blue-passports/part-2-unclipping-our-backpacks-where-is-president-george-w-walker-today-the-white-house-tour-that-sparked-a-political-calling?arc=katie-political-career" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+          Start Story Arc in Book Reader ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="https://books.raggiesoft.com/katie" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="books" aria-hidden="true"></wa-icon>
+          Full Katie &amp; Nathaniel Overview ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/arcs">
+          <wa-icon slot="start" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+          All 12 Story Arcs
+        </wa-button>
+      </div>
+    </div>
+
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/katie/b005/senator_katie_prairie_age_41_us_senate_portrait_og.jpg"
+        alt="Katie&#39;s Political Career: From the 5:30 Bus Curfew to the U.S. Senate"
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+    </figure>
+
+    <section aria-labelledby="arc-stops-heading">
+      <div class="bs-section-head">
+        <h2 id="arc-stops-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="list-tree" swap-opacity aria-hidden="true"></wa-icon>
+          Complete Story Arc Playlist (36 Stops)
+        </h2>
+        <p class="bs-section-lead">
+          Opening any chapter stop launches <strong>RaggieSoft Book Reader</strong> directly in <em>Story Arc Playlist Mode</em> so the Next button steps straight through this storyline.
+        </p>
+      </div>
+      <div class="bs-arc-stop-stack">
+        
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">1</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2007-04-10</wa-tag>
+                <wa-tag size="small" pill>~10 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Unclipping Our Backpacks, Where Is President George W. Walker Today?, &amp; The White House Tour That Sparked a Political Calling</h3>
+              <div class="bs-card-subtitle">Twenty-Two in Alexandria: Riding DMV Transit, Touring the White House &amp; the U.S. Capitol, Meeting Senator James West, The Spark to Run for City Council, &amp; Two Blue Passports • Unofficial Homeowners: Back Home in Virginia Beach (2007–2008)</div>
+              <p class="bs-arc-stop-excerpt">&quot;Hold it right there before you two roll out the front door,&quot; Dad said with a grin at eight-fifteen on Tuesday morning in the hallway of his brick house on Sunset Drive, holding up the printed instruction sheet…</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/unofficial-homeowners-back-home-in-virginia-beach-2007-2008/twenty-two-in-alexandria-riding-dmv-transit-touring-the-white-house-the-u-s-capitol-meeting-senator-james-west-the-spark-to-run-for-city-council-two-blue-passports/part-2-unclipping-our-backpacks-where-is-president-george-w-walker-today-the-white-house-tour-that-sparked-a-political-calling?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">2</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2007-04-10</wa-tag>
+                <wa-tag size="small" pill>~8 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 4: Meeting Senator James West, Watching the U.S. Senate From the Gallery, &amp; Why Can&#39;t We Ride the Bus to City Hall?</h3>
+              <div class="bs-card-subtitle">Twenty-Two in Alexandria: Riding DMV Transit, Touring the White House &amp; the U.S. Capitol, Meeting Senator James West, The Spark to Run for City Council, &amp; Two Blue Passports • Unofficial Homeowners: Back Home in Virginia Beach (2007–2008)</div>
+              <p class="bs-arc-stop-excerpt">At one-forty-five, after eating lunch with Dad in the Senate cafeteria, the three of us rolled down the marble corridor of the Senate Office Building and turned through the tall wooden double doors of United…</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/unofficial-homeowners-back-home-in-virginia-beach-2007-2008/twenty-two-in-alexandria-riding-dmv-transit-touring-the-white-house-the-u-s-capitol-meeting-senator-james-west-the-spark-to-run-for-city-council-two-blue-passports/part-4-meeting-senator-james-west-watching-the-u-s-senate-from-the-gallery-why-can-t-we-ride-the-bus-to-city-hall?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">3</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2008-04-14</wa-tag>
+                <wa-tag size="small" pill>~14 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Does the Bus Run? Calling Out CVTA&#39;s Complacency &amp; The 2008 Regional Mayoral Challenge</h3>
+              <div class="bs-card-subtitle">Do Better: Ideas for CVTA &amp; The Four-Bus Mayoral Loop • Do Better: Ideas for CVTA &amp; The Kempsville City Council</div>
+              <p class="bs-arc-stop-excerpt">As Ideas for Coastal Virginia Transit gains regional attention and confronts CVTA&#39;s &#39;good enough&#39; complacency, Nate and Katie issue an open 2008 transit challenge to mayoral candidates across Virginia Beach, Chesapeake, Portsmouth, and Hampton—receiving a single acceptance from a Virginia Beach mayoral candidate.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/do-better-ideas-for-cvta-the-kempsville-city-council/do-better-ideas-for-cvta-the-four-bus-mayoral-loop/part-1-does-the-bus-run-calling-out-cvta-s-complacency-the-2008-regional-mayoral-challenge?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">4</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2008-09-16</wa-tag>
+                <wa-tag size="small" pill>~11 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: The Four-Bus Mayoral Loop, Silenced at Eighteenth Street, &amp; Choosing to Run for the Kempsville Seat</h3>
+              <div class="bs-card-subtitle">Do Better: Ideas for CVTA &amp; The Four-Bus Mayoral Loop • Do Better: Ideas for CVTA &amp; The Kempsville City Council</div>
+              <p class="bs-arc-stop-excerpt">Riding a four-bus circuit (#29 -&gt; #20 -&gt; #15 -&gt; #12) with Virginia Beach mayoral candidate Scott Tanner, Nate and Katie expose the expired two-hour transfer penalty and the 5:48 PM evening bus curfew—and after CVTA executives cut off Nate&#39;s microphone and blackball him from TRAC while Councilman Harold Dietz kills evening bus service, Katie decides to run for the Kempsville City Council seat.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/do-better-ideas-for-cvta-the-kempsville-city-council/do-better-ideas-for-cvta-the-four-bus-mayoral-loop/part-2-the-four-bus-mayoral-loop-silenced-at-eighteenth-street-choosing-to-run-for-the-kempsville-seat?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">5</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2010-10-14</wa-tag>
+                <wa-tag size="small" pill>~15 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: The Empty Podium on WHRC TV-15, The 8:24 PM Three-Bus Sprint Home, &amp; The Front-Page Metro Headline</h3>
+              <div class="bs-card-subtitle">The Empty Podium on WHRC TV-15, The 94.1% Landslide, &amp; Councilwoman Prairie • Do Better: Ideas for CVTA &amp; The Kempsville City Council</div>
+              <p class="bs-arc-stop-excerpt">When incumbent Councilman Harold Dietz fails to RSVP for the live WHRC TV-15 debate, twenty-five-year-old Katie commands the studio broadcast beside his brightly lit empty mahogany podium—and then stunned Tidewater Pilot reporter Greg Mercer sprints across six lanes of Hampton Boulevard with Katie and Nate as they race to catch the 8:24 PM Route 2 bus home.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/do-better-ideas-for-cvta-the-kempsville-city-council/the-empty-podium-on-whrc-tv-15-the-94-1-landslide-councilwoman-prairie/part-1-the-empty-podium-on-whrc-tv-15-the-8-24-pm-three-bus-sprint-home-the-front-page-metro-headline?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">6</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2010-10-28</wa-tag>
+                <wa-tag size="small" pill>~19 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: The WTGA 790 AM Disability Attack, The 94.1% Landslide, &amp; The Eighteenth Street Reckoning</h3>
+              <div class="bs-card-subtitle">The Empty Podium on WHRC TV-15, The 94.1% Landslide, &amp; Councilwoman Prairie • Do Better: Ideas for CVTA &amp; The Kempsville City Council</div>
+              <p class="bs-arc-stop-excerpt">Five days before the election, a desperate Councilman Harold Dietz calls into conservative talk radio WTGA 790 AM to attack Katie&#39;s wheelchair and question the taxpayer cost of a City Hall dais ramp—triggering a nuclear backlash across Hampton Roads, an unprecedented 94.1% to 5.9% Election Night landslide, and a historic reckoning for CVTA&#39;s executive suite.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/do-better-ideas-for-cvta-the-kempsville-city-council/the-empty-podium-on-whrc-tv-15-the-94-1-landslide-councilwoman-prairie/part-2-the-wtga-790-am-disability-attack-the-94-1-landslide-the-eighteenth-street-reckoning?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">7</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2010-10-28</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">The 509 East 18th Street Executive Suite, Mayor Overton&#39;s Bus, &amp; Harold Dietz&#39;s 0.4% Collapse</h3>
+              <div class="bs-card-subtitle">Why CVTA Blackballed Nate From TRAC, the Political Folklore of the Newtown Road Transfer, &amp; How an Empty Podium on WHRC TV-15 Triggered the WTGA 790 AM Meltdown</div>
+              <p class="bs-arc-stop-excerpt">Behind-the-scenes look inside CVTA headquarters on 18th Street, the real municipal history behind the Newtown Road bus-border cliff that haunted Mayor Myra E. Overton, and the internal campaign polling collapse that drove Incumbent Councilman Harold Dietz to attack Katie&#39;s wheelchair ramp on live talk radio.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">8</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2012-02-09</wa-tag>
+                <wa-tag size="small" pill>~10 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Stopped at the Third-Floor Gallery by Capitol Police, Seated on the House Floor Near Delegate Ronald Villa, &amp; The Spark to Run</h3>
+              <div class="bs-card-subtitle">Stopped at the Third-Floor Gallery, Seated by Delegate Ronald Villa, &amp; Winning the 85th District • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">Visiting Richmond in February 2012 during her second year on the Virginia Beach City Council to testify for state transit funding, twenty-six-year-old Katie and Nate head upstairs to the third-floor public viewing gallery—only to be stopped by Capitol Police over emergency-evacuation safety concerns and granted the rare honor by House Leadership of sitting right on the Floor of the Virginia House of Delegates near former Virginia Beach City Councilman and State Delegate Ronald Villa.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/stopped-at-the-third-floor-gallery-seated-by-delegate-ronald-villa-winning-the-85th-district/part-1-stopped-at-the-third-floor-gallery-by-capitol-police-seated-on-the-house-floor-near-delegate-ronald-villa-the-spark-to-run?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">9</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2012-11-23</wa-tag>
+                <wa-tag size="small" pill>~12 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Telling Dad at Our Kempsville Kitchen Table, The 125-Signature Ballot Petition at CCHR, &amp; Winning the Eighty-Fifth House District</h3>
+              <div class="bs-card-subtitle">Stopped at the Third-Floor Gallery, Seated by Delegate Ronald Villa, &amp; Winning the 85th District • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">Sitting down with their father David at their Kempsville kitchen table, Katie and Nate brainstorm every legal and grassroots step of a 2013 Virginia House of Delegates campaign—from filing her candidate qualification paperwork and collecting 400 voter signatures at CCHR to defeating Delegate Richard Tatum in the 85th District and wrapping up her service on the Virginia Beach City Council.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/stopped-at-the-third-floor-gallery-seated-by-delegate-ronald-villa-winning-the-85th-district/part-2-telling-dad-at-our-kempsville-kitchen-table-the-125-signature-ballot-petition-at-cchr-winning-the-eighty-fifth-house-district?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">10</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2014-01-06</wa-tag>
+                <wa-tag size="small" pill>~14 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Gold License Plates vs. JRTC Route 6, Turning Down the Parking Deck Pass, &amp; The 60-Inch ADA Restroom Showdown</h3>
+              <div class="bs-card-subtitle">Freshman Session on West Broad Street &amp; Riding JRTC Route 6 to the Capitol • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">Arriving for New Member Orientation on Monday morning, Freshman Delegate Katie Prairie and Nate shock veteran lawmakers and lobbyists by rolling down the front ramp of a JRTC Route 6 city bus at Ninth and Broad—before turning down her legislative parking pass and forcing Capitol Facilities to fix the non-compliant restroom stalls before Opening Day.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/freshman-session-on-west-broad-street-riding-jrtc-route-6-to-the-capitol/part-2-gold-license-plates-vs-jrtc-route-6-turning-down-the-parking-deck-pass-the-60-inch-ada-restroom-showdown?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">11</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-02-04</wa-tag>
+                <wa-tag size="small" pill>~21 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Line 18, Seated by Delegate Ronald Villa on the Floor, &amp; A Question Across the Chamber</h3>
+              <div class="bs-card-subtitle">House Bill 663 &amp; Live on Meet the Nation • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">Before the Thursday noon session of the Virginia House of Delegates, Nate and Delegate Katie Prairie review the printed text of House Bill 663 as they roll through the Capitol tunnel—before Katie takes her accessible desk on the minority aisle and Nate rolls to his designated ADA floor bay beside Virginia Beach Delegate Ronald Villa to record her floor question.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-1-line-18-seated-by-delegate-ronald-villa-on-the-floor-a-question-across-the-chamber?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">12</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-02-04</wa-tag>
+                <wa-tag size="small" pill>~31 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Transit Legislative Day in Room 518, The Six-O&#39;Clock News, &amp; Two Meltdowns Answered by Page Forty-Two</h3>
+              <div class="bs-card-subtitle">House Bill 663 &amp; Live on Meet the Nation • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">After Transit Legislative Day, a staffer&#39;s outburst triggers a dual meltdown in Room 518—until both floor leaders and the House Page triplets step in.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-2-transit-legislative-day-in-room-518-the-six-o-clock-news-two-meltdowns-answered-by-page-forty-two?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">13</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2016-02-04</wa-tag>
+                <wa-tag size="small" pill>~6 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Majority Leader Callaway&#39;s Closed-Door Post-Mortem on HB 663 &amp; The Pre-Floor Review That Never Happened</h3>
+              <div class="bs-card-subtitle">What Uncle Richard Wished Delegate Martin Cobb Had Done Before Bringing His Bill to the Floor—and What Would Have Happened in Room 518 If He Had</div>
+              <p class="bs-arc-stop-excerpt">Behind-the-scenes look inside Majority Leader Richard Callaway&#39;s office after Delegate Katie Prairie and the thirteen-year-old Hawkins triplets dismantled HB 663 on the House floor—plus the alternate pre-floor QA review in Room 518 that could have spared the patron his televised humiliation.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/hb-663-majority-leader-hawkins-postmortem">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/hb-663-majority-leader-hawkins-postmortem">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">14</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2016-02-05</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Why the House Page Triplets Bolted From Room 518 &amp; How Uncle Richard Rescued Them</h3>
+              <div class="bs-card-subtitle">The Story of Sam, Mandy, and Sarah Hawkins, Why Their Badges Didn&#39;t Match Majority Leader Callaway&#39;s Nameplate, &amp; Inside Studio 6B at Saturday Night Sketch</div>
+              <p class="bs-arc-stop-excerpt">Behind-the-scenes backstory explaining why thirteen-year-old autistic House Page triplets Sam, Mandy, and Sarah Hawkins bolted from the doorway of Room 518 during Katie and Nate&#39;s Friday morning meltdown—plus how Saturday Night Sketch wrote the viral HB 663 cold open without &#39;cripping up.&#39;</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/room-518-house-page-triplets-and-uncle-richard">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/room-518-house-page-triplets-and-uncle-richard">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">15</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-02-22</wa-tag>
+                <wa-tag size="small" pill>~10 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Watching Senator Ward Kill Our Bills Across the Rotunda, Brainstorming the 7th Senate District with Dad, &amp; The 250-Signature Rule</h3>
+              <div class="bs-card-subtitle">Watching Senator Ward Kill Our Bills Across the Rotunda, The 250-Signature Petition, &amp; Cutting the Ribbon on Route 64 in Maplewood • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">After watching twenty-year incumbent State Senator Franklin Ward of Virginia Beach casually gavel her hard-won House transit and developmental-disability waiver bills to death in a Senate committee, thirty-two-year-old Delegate Katie Prairie sits down with Nate and their dad David to map out her 2019 campaign for the 7th Senate District.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-1-watching-senator-ward-kill-our-bills-across-the-rotunda-brainstorming-the-7th-senate-district-with-dad-the-250-signature-rule?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">16</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2019-11-05</wa-tag>
+                <wa-tag size="small" pill>~13 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Flipping the Seventh Senate District, Custom-Milling the Mahogany Senate Ramp, &amp; Swearing In as Madam Chair</h3>
+              <div class="bs-card-subtitle">Flipping the Seventh Senate District, The Mahogany Senate Ramp, &amp; Madam Chair • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">On November 5, 2019, thirty-four-year-old Katie Prairie wins the 7th Senate District to help flip the Senate of Virginia into a new majority—working with the Clerk of the Senate to install a permanent custom-milled mahogany wheelchair ramp on the Senate Floor before swearing her oath on the Constitution of Virginia as Chair of Rehabilitation and Social Services.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/flipping-the-seventh-senate-district-the-mahogany-senate-ramp-madam-chair/flipping-the-seventh-senate-district-custom-milling-the-mahogany-senate-ramp-swearing-in-as-madam-chair?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">17</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-01-10</wa-tag>
+                <wa-tag size="small" pill>~12 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: The Living Room Decision in Kempsville, The 10,000-Signature Rule, &amp; The Accessibility Project</h3>
+              <div class="bs-card-subtitle">The Accessibility Project: Riding Every Bus Across the Commonwealth for the United States Senate • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">When retiring U.S. Senator Martin Warren attempts to coronate a wealthy McLean venture capitalist businessman and President Garrett Thorne mocks &#39;Broken Katie Prairie&#39; from the White House, Katie sits down in Kempsville with Nate and their father David to launch her 2026 U.S. Senate campaign—backed by &#39;The Accessibility Project&#39; from The Paper Wall and the Brooks family.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/the-accessibility-project-riding-every-bus-across-the-commonwealth-for-the-united-states-senate/part-1-the-living-room-decision-in-kempsville-the-10-000-signature-rule-the-accessibility-project?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">18</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-03-28</wa-tag>
+                <wa-tag size="small" pill>~10 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: The Jammed Ramp on Victoria Boulevard, ShoreLine Transit Across the Bay, &amp; Wearing the NFA&#39;s &#39;F&#39; Grade in Fairfax</h3>
+              <div class="bs-card-subtitle">The Accessibility Project: Riding Every Bus Across the Commonwealth for the United States Senate • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Riding local transit statewide for 24,812 signatures, Katie turns a jammed Hampton bus ramp and an NFA &#39;F&#39; grade into defining campaign moments.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/the-accessibility-project-riding-every-bus-across-the-commonwealth-for-the-united-states-senate/part-2-the-jammed-ramp-on-victoria-boulevard-shoreline-transit-across-the-bay-wearing-the-nfa-s-f-grade-in-fairfax?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">19</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-05-18</wa-tag>
+                <wa-tag size="small" pill>~16 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: The Roanoke Express, The Brooks Family Compound on Lee Highway, The Maroon Express to Bluewater, &amp; Winning the June Primary</h3>
+              <div class="bs-card-subtitle">The Accessibility Project: Riding Every Bus Across the Commonwealth for the United States Senate • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Riding ARTS The Patriot to Roanoke&#39;s Third Street Station and tapping their Blue Ridge Go-Cards aboard RVT&#39;s Train Connector and Roanoke Express into the New River Valley, Katie, Nate, and David visit the Brooks family on Lee Highway and ride Bluewater Transit&#39;s Maroon Express with Madison Elizabeth Scott into Bluewater before defeating Preston Holloway in the June 16 Democratic Primary.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/the-accessibility-project-riding-every-bus-across-the-commonwealth-for-the-united-states-senate/part-3-the-roanoke-express-the-brooks-family-compound-on-lee-highway-the-maroon-express-to-bluewater-winning-the-june-primary?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">20</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-07-24</wa-tag>
+                <wa-tag size="small" pill>~7 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 4: Riding Into Deep-Red RTR Country: Mountain Empire Transit, The Coalfields, &amp; Cumberland Gap With Dad</h3>
+              <div class="bs-card-subtitle">The Accessibility Project: Riding Every Bus Across the Commonwealth for the United States Senate • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Refusing to write off a single rural voter after winning the Democratic nomination, Katie, Nate, David, Brittany, and Chelsea ride Mountain Empire Transit and Cumberland Coalfield Transit buses straight into 75%-plus Restore the Republic counties in Southwest Virginia—before Dad rents a wheelchair-accessible minivan to bridge the gap to Cumberland Gap National Historical Park.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/the-accessibility-project-riding-every-bus-across-the-commonwealth-for-the-united-states-senate/part-4-riding-into-deep-red-rtr-country-mountain-empire-transit-the-coalfields-cumberland-gap-with-dad?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">21</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-09-19</wa-tag>
+                <wa-tag size="small" pill>~8 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 5: Katie&#39;s Favorite Place in Virginia: The Cassini Center in Highland County &amp; The October WHRC TV-15 Three-Bus Sprint</h3>
+              <div class="bs-card-subtitle">The Accessibility Project: Riding Every Bus Across the Commonwealth for the United States Senate • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">After riding Shenandoah Valley Transit past Roosevelt Rehabilitation Center in Fishersville, David drives Katie, Nate, Brittany, and Chelsea in a rented wheelchair-accessible minivan over Shenandoah Mountain for their very first visit to The Cassini Center for Space Exploration in Palo Alto, Highland County—which becomes Katie&#39;s favorite place in the Commonwealth—before she commands the October WHRC TV-15 debate stage in Norfolk and makes a three-bus sprint home to Kempsville.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/the-accessibility-project-riding-every-bus-across-the-commonwealth-for-the-united-states-senate/part-5-katie-s-favorite-place-in-virginia-the-cassini-center-in-highland-county-the-october-whrc-tv-15-three-bus-sprint?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">22</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-11-03</wa-tag>
+                <wa-tag size="small" pill>~13 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Polls Close at Seven, The 8:42 PM Decision Desk Call, &amp; Victory in Virginia Beach</h3>
+              <div class="bs-card-subtitle">Election Night, The Decision Desk Call, &amp; The Referendum Mandate • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">On Election Night in Virginia Beach, Nate tracks precinct returns on their custom PHP dashboard until the GNN, GBS, and Beacon News Decision Desks project forty-one-year-old State Senator Katie Prairie as the newest United States Senator from Virginia.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/election-night-the-decision-desk-call-the-referendum-mandate/part-1-polls-close-at-seven-the-8-42-pm-decision-desk-call-victory-in-virginia-beach?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">23</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-11-16</wa-tag>
+                <wa-tag size="small" pill>~25 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: U.S. Senate New Member Orientation, Senator Tess Dunmore&#39;s Ramp, &amp; Making the Vice President Swear Her In</h3>
+              <div class="bs-card-subtitle">Election Night, The Decision Desk Call, &amp; The Referendum Mandate • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Arriving on Capitol Hill via public transit for U.S. Senate New Member Orientation after defeating retiring Senator Martin Warren&#39;s handpicked corporate stooge in the primary and winning the general election by nine points, Senator-Elect Katie Prairie and Nate meet Senator Tess Dunmore of Illinois on the Senate floor, claim Room 511 in the Dirksen Building, and confront Vice President Conrad Drayton face-to-face over her upcoming secular affirmation on the U.S. Constitution.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/election-night-the-decision-desk-call-the-referendum-mandate/part-3-u-s-senate-new-member-orientation-senator-tess-dunmore-s-ramp-making-the-vice-president-swear-her-in?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">24</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-12-01</wa-tag>
+                <wa-tag size="small" pill>~15 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 4: Opposing Leader Schuman, The 211–204 Lame-Duck False Dawn in the Dirksen Basement, &amp; Home Across the Fenwick Bridge</h3>
+              <div class="bs-card-subtitle">Election Night, The Decision Desk Call, &amp; The Referendum Mandate • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Senator-Elect Katie Prairie opposes Leader Charles Schuman, watches SecDef Halverson survive a 211-204 vote, and rides home over the Fenwick Bridge.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/election-night-the-decision-desk-call-the-referendum-mandate/part-4-opposing-leader-schuman-the-211-204-lame-duck-false-dawn-in-the-dirksen-basement-home-across-the-fenwick-bridge?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">25</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2027-01-03</wa-tag>
+                <wa-tag size="small" pill>~7 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">The $14 Million DSCC Primary Shock, Opposing Leader Schuman, The 211–204 Lame-Duck False Dawn, &amp; The Senate Wheelchair Caucus</h3>
+              <div class="bs-card-subtitle">Inside Retiring Senator Martin Warren&#39;s Office, Uncle Richard&#39;s Live Beacon News Takedown, Forcing a Ballot Against Charles Schuman, Bret Halverson&#39;s Premature Pentagon Victory Lap, &amp; VPOTUS Conrad Drayton&#39;s Fury in S-216</div>
+              <p class="bs-arc-stop-excerpt">Behind-the-scenes look at Katie&#39;s primary upset over the DSCC, Uncle Richard defending her on Beacon News, her public No vote against Leader Charles Schuman, Defense Secretary Bret Halverson&#39;s premature 211–204 impeachment escape, the three-member Senate Wheelchair Caucus, and S-216.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">26</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2026-12-15</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Article IV Section 4, Hand-Delivering Her Resignation in Richmond, &amp; The Writ of Special Election</h3>
+              <div class="bs-card-subtitle">The Minified ZIP File, The Raw HTML Takedown, &amp; Resigning from Richmond • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Because Article IV, Section 4 of the Constitution of Virginia forbids holding both a state legislative seat and federal office, State Senator Katie Prairie travels to the Virginia State Capitol in Richmond with Nate to formally hand-deliver her resignation to the Clerk of the Senate.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/the-minified-zip-file-the-raw-html-takedown-resigning-from-richmond/part-2-article-iv-section-4-hand-delivering-her-resignation-in-richmond-the-writ-of-special-election?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">27</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2027-01-03</wa-tag>
+                <wa-tag size="small" pill>~15 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: The Yellow Line Over the Fenwick Bridge, The Full-Chair Portrait, &amp; Swearing In on the Constitution</h3>
+              <div class="bs-card-subtitle">First Train from Norfolk, Swearing In on the Constitution, &amp; Strings Attached for RRC • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Proving her transit-insider credentials by taking the Capital Transit Yellow Line across the Charles R. Fenwick Bridge to L&#39;Enfant Plaza instead of the long Blue Line detour via Rosslyn, Katie refuses to hide her powerchair in her official Senate portrait and swears her oath on the Constitution of the United States of America.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/first-train-from-norfolk-swearing-in-on-the-constitution-strings-attached-for-rrc/part-2-the-yellow-line-over-the-fenwick-bridge-the-full-chair-portrait-swearing-in-on-the-constitution?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">28</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2027-03-18</wa-tag>
+                <wa-tag size="small" pill>~11 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: The South Lawn Tirade, The Norfolk Carrier Leak, &amp; Why the Order of the Trials Matters</h3>
+              <div class="bs-card-subtitle">The Norfolk Carrier Leak, Suite 756 at Timberline Shopping Center, &amp; Three Convictions in the Senate • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">After Thorne&#39;s South Lawn tirade, Halverson&#39;s Tomb of the Unknown Soldier disgrace, and the Norfolk carrier leak, Katie sets an impeachment trial trap.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/the-norfolk-carrier-leak-suite-756-at-timberline-shopping-center-three-convictions-in-the-senate/part-1-the-south-lawn-tirade-the-norfolk-carrier-leak-why-the-order-of-the-trials-matters?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">29</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2027-07-17</wa-tag>
+                <wa-tag size="small" pill>~25 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: The Words of Mason, Madison, and Lincoln, Three Guilty Votes, &amp; From Capitol Police Protection Back to Normal Life at Pleasure House Road</h3>
+              <div class="bs-card-subtitle">The Norfolk Carrier Leak, Suite 756 at Timberline Shopping Center, &amp; Three Convictions in the Senate • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Watched by Nate, Dad, Brittany, and Chelsea, Senator Katie Prairie votes Guilty to remove Halverson, Drayton, and Thorne—and rides CBBT transit home.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/the-norfolk-carrier-leak-suite-756-at-timberline-shopping-center-three-convictions-in-the-senate/part-3-the-words-of-mason-madison-and-lincoln-three-guilty-votes-from-capitol-police-protection-back-to-normal-life-at-pleasure-house-road?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">30</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2027-10-13</wa-tag>
+                <wa-tag size="small" pill>~15 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Chambers Field, Four Hundred Million Restored on Pier 12, &amp; Tapping In at King Street the Next Morning</h3>
+              <div class="bs-card-subtitle">Joint Base Andrews to Chambers Field: Flying Home on Air Force One • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Invited aboard Air Force One by President Clara Morales to restore Norfolk&#39;s stolen fleet funds at Chambers Field, Katie and Nate ride Metro Friday.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/joint-base-andrews-to-chambers-field-flying-home-on-air-force-one/chambers-field-four-hundred-million-restored-on-pier-12-tapping-in-at-king-street-the-next-morning?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">31</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2043-10-24</wa-tag>
+                <wa-tag size="small" pill>~15 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Refusing the 2045 Presidency From Home, Five Statutory Shields Against the Bubble, &amp; Out of the Closet Into Our Four-Person Nest</h3>
+              <div class="bs-card-subtitle">Three Senate Terms, Refusing the 2044 Nomination, &amp; The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Surrounded at home by Nate, Brittany, and Chelsea, Senator Katie Prairie uploads a quiet video refusing the 2045 Presidency and Secret Service bubble.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/three-senate-terms-refusing-the-2044-nomination-the-stop-0812-four-seat-presidential-endorsement-loop/part-1-refusing-the-2045-presidency-from-home-five-statutory-shields-against-the-bubble-out-of-the-closet-into-our-four-person-nest?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">32</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2044-01-29</wa-tag>
+                <wa-tag size="small" pill>~11 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: The Biggest Prize in the Primary: Sam, Mandy, &amp; Sarah&#39;s Bus-Loop Plan &amp; Stop #0812</h3>
+              <div class="bs-card-subtitle">Three Senate Terms, Refusing the 2044 Nomination, &amp; The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">When 2044 presidential hopefuls call for Senator Katie Prairie&#39;s endorsement, Sam, Mandy, and Sarah propose a four-seat CVTA loop starting at Stop #0812.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/three-senate-terms-refusing-the-2044-nomination-the-stop-0812-four-seat-presidential-endorsement-loop/part-2-the-biggest-prize-in-the-primary-sam-mandy-sarah-s-bus-loop-plan-stop-0812?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">33</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2044-02-09</wa-tag>
+                <wa-tag size="small" pill>~8 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: The First Tuesday on the Loop: Governor Harrison Caldwell on Routes 15, 800, 25, &amp; 12</h3>
+              <div class="bs-card-subtitle">Three Senate Terms, Refusing the 2044 Nomination, &amp; The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Governor Harrison Caldwell arrives at Stop #0812 expecting a private suite, then rides the four-seat CVTA bus and light-rail loop with Katie and Nate.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/three-senate-terms-refusing-the-2044-nomination-the-stop-0812-four-seat-presidential-endorsement-loop/part-3-the-first-tuesday-on-the-loop-governor-harrison-caldwell-on-routes-15-800-25-12?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">34</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2044-02-16</wa-tag>
+                <wa-tag size="small" pill>~10 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 4: The Second Tuesday on the Loop: Representative Devon Pierce on Routes 15, 800, 25, &amp; 12</h3>
+              <div class="bs-card-subtitle">Three Senate Terms, Refusing the 2044 Nomination, &amp; The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Representative Devon Pierce meets Senator Katie Prairie, Nate, Sam, Mandy, and Sarah at CVTA Stop #0812 for the four-seat bus and light-rail loop.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/three-senate-terms-refusing-the-2044-nomination-the-stop-0812-four-seat-presidential-endorsement-loop/part-4-the-second-tuesday-on-the-loop-representative-devon-pierce-on-routes-15-800-25-12?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">35</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2044-02-18</wa-tag>
+                <wa-tag size="small" pill>~13 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 5: The Thursday Morning Loop: Governor Elena Delgado &amp; The Six O&#39;Clock Upload</h3>
+              <div class="bs-card-subtitle">Three Senate Terms, Refusing the 2044 Nomination, &amp; The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia</div>
+              <p class="bs-arc-stop-excerpt">Governor Elena Delgado arrives at Stop #0812 expecting a corner suite—and rides the four-seat CVTA transit loop with Katie, Nate, Sam, Mandy, and Sarah.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-senator-from-virginia/three-senate-terms-refusing-the-2044-nomination-the-stop-0812-four-seat-presidential-endorsement-loop/part-5-the-thursday-morning-loop-governor-elena-delgado-the-six-o-clock-upload?arc=katie-political-career" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">36</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2027-04-26</wa-tag>
+                <wa-tag size="small" pill>~15 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Brenda Walsh&#39;s Suite 756 Cease-and-Desist, Thorne&#39;s Gag Order, &amp; The 2044 Route 15 Bus-Stop Primary</h3>
+              <div class="bs-card-subtitle">How Thorne Enterprises Shut Down Brenda&#39;s Store After the Senate Convictions, the U.S. Capitol Police Trap-and-Trace File, &amp; Why Senator Katie Prairie Refused to Run for President in 2044</div>
+              <p class="bs-arc-stop-excerpt">Complete behind-the-scenes dossier on Brenda Walsh&#39;s unauthorized &#39;Tidewater Thorne &amp; RTR Superstore&#39; in Suite 756, the Cease-and-Desist letter that bankrupted it ten days after Katie voted to convict and disqualify Garrett Thorne, and the 2044 epilogue where three-term Senator Katie Prairie conducts live-bus Presidential endorsement interviews on CVTA Route #15.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+      </div>
+    </section>
+  
+      </div>
+
+      
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261116a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261115h" defer></script>
+  </body>
+</html>

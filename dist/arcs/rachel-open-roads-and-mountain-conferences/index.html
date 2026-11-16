@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var root = document.documentElement;
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261116a" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261116a" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261116a" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261116a" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>Open Roads &amp; Mountain Horizons: SAACURC 2016, Ferrell…</title>
+    <meta name="description" content="Ride along on Michael and Rachel&#39;s adult milestones across Virginia—representing VDU at the SAACURC conference in Blacksburg, earning independence behind…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/arcs/rachel-open-roads-and-mountain-conferences" />
+    <meta property="og:title" content="Open Roads &amp; Mountain Horizons: SAACURC 2016, Ferrell…" />
+    <meta property="og:description" content="Ride along on Michael and Rachel&#39;s adult milestones across Virginia—representing VDU at the SAACURC conference in Blacksburg, earning independence behind…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/arcs/rachel-open-roads-and-mountain-conferences" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/rachel-collection-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/rachel-collection-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Open Roads &amp; Mountain Horizons: SAACURC 2016, Ferrell Parkway &amp; The Horizon Avalon — The Rachel Narrative Story Arc Playlist" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Open Roads &amp; Mountain Horizons: SAACURC 2016, Ferrell…" />
+    <meta name="twitter:description" content="Ride along on Michael and Rachel&#39;s adult milestones across Virginia—representing VDU at the SAACURC conference in Blacksburg, earning independence behind…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/rachel-collection-og.jpg" />
+    <meta name="twitter:image:alt" content="Open Roads &amp; Mountain Horizons: SAACURC 2016, Ferrell Parkway &amp; The Horizon Avalon — The Rachel Narrative Story Arc Playlist" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/arcs/rachel-open-roads-and-mountain-conferences#webpage","url":"https://backstage.raggiesoft.com/arcs/rachel-open-roads-and-mountain-conferences","name":"Open Roads \u0026 Mountain Horizons: SAACURC 2016, Ferrell…","description":"Ride along on Michael and Rachel's adult milestones across Virginia—representing VDU at the SAACURC conference in Blacksburg, earning independence behind…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/rachel-collection-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261116a" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261115h" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+
+      <div slot="banner" class="bs-banner-slot">
+        <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+          <div class="rs-network-bar-inner">
+            <span class="rs-network-label">✦ RaggieSoft Network:</span>
+            <ul class="rs-network-links">
+              <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+              <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+              <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+              <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+              <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+              <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261116a" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/arcs" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="timeline" swap-opacity aria-hidden="true"></wa-icon><span>Story Arcs (12)</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (20)</span></a></li>
+                <li><a href="/books/quantum-directive-3-casey" class="bs-nav-link"><wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon><span>The Caretakers (6)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (55 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/arcs">
+                <wa-icon slot="icon" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc Playlists (12 Arcs)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (20 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/arcs">Story Arcs (12)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>Open Roads &amp; Mountain Horizons: SAACURC 2016, Ferrell Parkway &amp; The Horizon Avalon</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>&nbsp;The Rachel Narrative • Story Arc
+        </wa-badge>
+        <wa-tag size="small" pill>15 Chapters • ~1.4 hours</wa-tag>
+      </div>
+      <h1 class="bs-title">Open Roads &amp; Mountain Horizons: SAACURC 2016, Ferrell Parkway &amp; The Horizon Avalon</h1>
+      <p class="bs-subtitle">2016–2020 • Blacksburg, 55 MPH Behind the Wheel, Luray &amp; Buying a Car on Our Own Terms</p>
+      <p class="bs-section-lead" style="margin-block: 0.5rem 1.1rem;">Ride along on Michael and Rachel&#39;s adult milestones across Virginia—representing VDU at the SAACURC conference in Blacksburg, earning independence behind the wheel, Thanksgiving in Luray, and bringing home the 2020 Horizon Avalon.</p>
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/rachel/the-mountain-conference-saacurc-2016/the-bear-the-bug-and-the-forger/part-1-friday-arrival-struggling-up-the-steep-hills-of-cpi-two-queen-beds-at-the-hotel-at-poly?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+          Start Story Arc in Book Reader ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="https://books.raggiesoft.com/rachel" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="books" aria-hidden="true"></wa-icon>
+          Full The Rachel Narrative Overview ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/arcs">
+          <wa-icon slot="start" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+          All 12 Story Arcs
+        </wa-button>
+      </div>
+    </div>
+
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-books/images/covers/2x3/rachel.jpg"
+        alt="Open Roads &amp; Mountain Horizons: SAACURC 2016, Ferrell Parkway &amp; The Horizon Avalon"
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+    </figure>
+
+    <section aria-labelledby="arc-stops-heading">
+      <div class="bs-section-head">
+        <h2 id="arc-stops-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="list-tree" swap-opacity aria-hidden="true"></wa-icon>
+          Complete Story Arc Playlist (15 Stops)
+        </h2>
+        <p class="bs-section-lead">
+          Opening any chapter stop launches <strong>RaggieSoft Book Reader</strong> directly in <em>Story Arc Playlist Mode</em> so the Next button steps straight through this storyline.
+        </p>
+      </div>
+      <div class="bs-arc-stop-stack">
+        
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">1</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-02-12</wa-tag>
+                <wa-tag size="small" pill>~10 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Friday Arrival, Struggling Up the Steep Hills of CPI, &amp; Two Queen Beds at The Hotel at Poly</h3>
+              <div class="bs-card-subtitle">The Bear, The Bug, and The Forger • The Mountain Conference (SAACURC 2016)</div>
+              <p class="bs-arc-stop-excerpt">Arriving at CPI in Blacksburg for SAACURC 2016, Rachel struggles to push Michael&#39;s post-op wheelchair up the steep mountain hills before they settle into their school-sanctioned two-queen GIH hotel room at The Hotel at Poly—and share one bed in private.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-mountain-conference-saacurc-2016/the-bear-the-bug-and-the-forger/part-1-friday-arrival-struggling-up-the-steep-hills-of-cpi-two-queen-beds-at-the-hotel-at-poly?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">2</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-02-13</wa-tag>
+                <wa-tag size="small" pill>~9 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Saturday at SAACURC: Visiting School Colors, The Clothespin Gauntlet, &amp; The GIH Pilot Roundtable</h3>
+              <div class="bs-card-subtitle">The Bear, The Bug, and The Forger • The Mountain Conference (SAACURC 2016)</div>
+              <p class="bs-arc-stop-excerpt">Inside Kincaid Student Center at CPI, Michael and Rachel trade clothespins with delegates repping their respective school colors and shirts—and use their shared Information Systems &amp; Technology background to champion VDU&#39;s Gender-Inclusive Housing pilot.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-mountain-conference-saacurc-2016/the-bear-the-bug-and-the-forger/part-2-saturday-at-saacurc-visiting-school-colors-the-clothespin-gauntlet-the-gih-pilot-roundtable?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">3</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-02-14</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: Sunday Wrap-Up: Closing Banquet, The SAACURC Documentation Plaque, &amp; Back to Flat VDU</h3>
+              <div class="bs-card-subtitle">The Bear, The Bug, and The Forger • The Mountain Conference (SAACURC 2016)</div>
+              <p class="bs-arc-stop-excerpt">At the SAACURC 2016 Closing Banquet, Michael and Rachel win the Operational &amp; Documentation Excellence Recognition plaque surrounded by cheering delegations in their school colors—before heading home to flat, sea-level VDU in Norfolk.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-mountain-conference-saacurc-2016/the-bear-the-bug-and-the-forger/part-3-sunday-wrap-up-closing-banquet-the-saacurc-documentation-plaque-back-to-flat-vdu?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">4</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-06-14</wa-tag>
+                <wa-tag size="small" pill>~7 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Ellen&#39;s Gift, Upgrading from State IDs, &amp; Passing the DMV Knowledge Test on the First Try</h3>
+              <div class="bs-card-subtitle">The DMV Knowledge Test &amp; 55 MPH on Session One • Behind the Wheel: 55 MPH on Ferrell Parkway (Summer 2016)</div>
+              <p class="bs-arc-stop-excerpt">With Ellen paying for Adult Behind-the-Wheel lessons in June 2016, Michael and Rachel pass both parts of the Virginia DMV Knowledge Exam on their first try.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/behind-the-wheel-55-mph-on-ferrell-parkway-summer-2016/the-dmv-knowledge-test-55-mph-on-session-one/part-1-ellen-s-gift-upgrading-from-state-ids-passing-the-dmv-knowledge-test-on-the-first-try?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">5</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-06-21</wa-tag>
+                <wa-tag size="small" pill>~7 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Session One: Fifty-Five Miles Per Hour on Ferrell Parkway</h3>
+              <div class="bs-card-subtitle">The DMV Knowledge Test &amp; 55 MPH on Session One • Behind the Wheel: 55 MPH on Ferrell Parkway (Summer 2016)</div>
+              <p class="bs-arc-stop-excerpt">On his very first Behind-the-Wheel session in charge of the car, Michael hits 55 MPH on Ferrell Parkway where it merges with Princess Anne Road at Salem Road.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/behind-the-wheel-55-mph-on-ferrell-parkway-summer-2016/the-dmv-knowledge-test-55-mph-on-session-one/part-2-session-one-fifty-five-miles-per-hour-on-ferrell-parkway?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">6</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-07-19</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">45 MPH on the Kempsville &amp; Lynnhaven Curves &amp; Passing the Road Test on the First Try</h3>
+              <div class="bs-card-subtitle">The 45 MPH Curves &amp; Passing the Road Test on the First Try • Behind the Wheel: 55 MPH on Ferrell Parkway (Summer 2016)</div>
+              <p class="bs-arc-stop-excerpt">Mastering the notorious 45 MPH curves on Kempsville Road and Lynnhaven Parkway, Michael and Rachel both pass their Virginia road test on the first try.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/behind-the-wheel-55-mph-on-ferrell-parkway-summer-2016/the-45-mph-curves-passing-the-road-test-on-the-first-try/45-mph-on-the-kempsville-lynnhaven-curves-passing-the-road-test-on-the-first-try?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">7</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2017-11-23</wa-tag>
+                <wa-tag size="small" pill>~4 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Borrowing Mom&#39;s Car, Thanksgiving with Terry in Luray, &amp; The Single-Queen Bed on US-211</h3>
+              <div class="bs-card-subtitle">Thanksgiving in the Page Valley: U.S. Route 211, Dinner with Terry, &amp; The Single-Queen Sanctuary • Thanksgiving in Luray &amp; The Court Square Crosswalk (November 2017)</div>
+              <p class="bs-arc-stop-excerpt">On Thanksgiving 2017, Michael and Rachel borrow Ellen&#39;s car to visit their friend Terry in Luray, Virginia—sharing a single-queen motel room along US-211 under their open-door policy.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/thanksgiving-in-luray-the-court-square-crosswalk-november-2017/thanksgiving-in-the-page-valley-u-s-route-211-dinner-with-terry-the-single-queen-sanctuary/borrowing-mom-s-car-thanksgiving-with-terry-in-luray-the-single-queen-bed-on-us-211?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">8</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2017-11-26</wa-tag>
+                <wa-tag size="small" pill>~6 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: The VDOT Message Board (MM 244), Exit 251 onto Southbound US-11, &amp; Rear-Ended at the Harrisonburg Courthouse Crosswalk</h3>
+              <div class="bs-card-subtitle">The Sunday Return: Exit 251, Court Square (US-11 at US-33), &amp; The Call to Mom • Thanksgiving in Luray &amp; The Court Square Crosswalk (November 2017)</div>
+              <p class="bs-arc-stop-excerpt">On Sunday after Thanksgiving 2017, Michael detours off I-81 South at Exit 251 onto southbound US-11 to avoid a wreck at Milepost 244—and is rear-ended by a distracted driver while stopped for two pedestrians at a 25 MPH crosswalk by the Harrisonburg courthouse.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/thanksgiving-in-luray-the-court-square-crosswalk-november-2017/the-sunday-return-exit-251-court-square-us-11-at-us-33-the-call-to-mom/part-1-the-vdot-message-board-mm-244-exit-251-onto-southbound-us-11-rear-ended-at-the-harrisonburg-courthouse-crosswalk?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">9</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2017-11-26</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Scared of Getting in Trouble, Calling Ellen, &amp; Rejoining I-81 South at Exit 243</h3>
+              <div class="bs-card-subtitle">The Sunday Return: Exit 251, Court Square (US-11 at US-33), &amp; The Call to Mom • Thanksgiving in Luray &amp; The Court Square Crosswalk (November 2017)</div>
+              <p class="bs-arc-stop-excerpt">Cleared 100% by the Sheriff&#39;s Deputy with a drivable car, Michael is still a nervous wreck calling Ellen—scared he and Rachel will be in trouble because their mother&#39;s car got rear-ended—before Ellen calms them down and they rejoin I-81 South at Exit 243.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/thanksgiving-in-luray-the-court-square-crosswalk-november-2017/the-sunday-return-exit-251-court-square-us-11-at-us-33-the-call-to-mom/part-2-scared-of-getting-in-trouble-calling-ellen-rejoining-i-81-south-at-exit-243?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">10</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2020-02-08</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: January 2020 Train Tickets, The Rainy Bus Stop, &amp; Anchor Federal Credit Union</h3>
+              <div class="bs-card-subtitle">Anchor Federal Credit Union &amp; The Five Accounts • The 2020 Horizon Avalon (February 2020)</div>
+              <p class="bs-arc-stop-excerpt">Tired of riding buses in the February cold, Michael Thomas Ragsdale and Rachel Anna Ragsdale go with Ellen to Anchor Federal Credit Union to open their accounts—including a joint savings account where Jessica wires $30,000 for a car.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-2020-horizon-avalon-february-2020/anchor-federal-credit-union-the-five-accounts/part-1-january-2020-train-tickets-the-rainy-bus-stop-anchor-federal-credit-union?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">11</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2020-02-09</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Command Center Reconnaissance: Comparing Four Family Sedans</h3>
+              <div class="bs-card-subtitle">Anchor Federal Credit Union &amp; The Five Accounts • The 2020 Horizon Avalon (February 2020)</div>
+              <p class="bs-arc-stop-excerpt">Sitting side by side in their Command Center at the Moosewood Drive home, Michael and Rachel research four family sedans within their $30,000 cash budget—agreeing that every test drive and decision will be 50/50.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-2020-horizon-avalon-february-2020/anchor-federal-credit-union-the-five-accounts/part-2-command-center-reconnaissance-comparing-four-family-sedans?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">12</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2020-02-15</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Stop 1 (Holt Automotive): Holding Hands, The &#39;Husband &amp; Wife&#39; Assumption, &amp; Dismissing Rachel&#39;s Voice</h3>
+              <div class="bs-card-subtitle">The Dealership Gauntlet: &#39;You and the Missus,&#39; The Four-Square Trap, &amp; The Addendum Markup • The 2020 Horizon Avalon (February 2020)</div>
+              <p class="bs-arc-stop-excerpt">Walking onto the Holt lot holding hands with fingers laced together, Michael and Rachel are mistaken for husband and wife—and walk out when the salesman refuses to address Rachel or take her opinions seriously.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-2020-horizon-avalon-february-2020/the-dealership-gauntlet-you-and-the-missus-the-four-square-trap-the-addendum-markup/part-1-stop-1-holt-automotive-holding-hands-the-husband-wife-assumption-dismissing-rachel-s-voice?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">13</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2020-02-15</wa-tag>
+                <wa-tag size="small" pill>~7 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Stops 2 &amp; 3 (Summit Motors &amp; Coastal Horizon): The Four-Square Financing Trap, Test-Driving the Avalon, &amp; Reverse-Engineering the Out-the-Door Price</h3>
+              <div class="bs-card-subtitle">The Dealership Gauntlet: &#39;You and the Missus,&#39; The Four-Square Trap, &amp; The Addendum Markup • The 2020 Horizon Avalon (February 2020)</div>
+              <p class="bs-arc-stop-excerpt">After test-driving a Summit Verve and falling in love with the 2020 Horizon Avalon, Michael and Rachel encounter the Four-Square monthly-payment trap and $3,800 in bogus add-ons—figuring out the Out-the-Door cash rules on the fly.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-2020-horizon-avalon-february-2020/the-dealership-gauntlet-you-and-the-missus-the-four-square-trap-the-addendum-markup/part-2-stops-2-3-summit-motors-coastal-horizon-the-four-square-financing-trap-test-driving-the-avalon-reverse-engineering-the-out-the-door-price?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">14</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2020-02-15</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Stop 4 (Bayside Horizon): Treating Brother &amp; Sister as Equals &amp; The Clean Out-the-Door Buyer&#39;s Order</h3>
+              <div class="bs-card-subtitle">Bayside Horizon: Equal Co-Owners, Cashier&#39;s Check, &amp; Two Sets of Keys • The 2020 Horizon Avalon (February 2020)</div>
+              <p class="bs-arc-stop-excerpt">At Bayside Horizon, saleswoman Denise Carter respects that Michael and Rachel are brother and sister making a 50/50 cash decision—printing a clean, honest $26,840 Out-the-Door Buyer&#39;s Order for their royal blue 2020 Horizon Avalon.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-2020-horizon-avalon-february-2020/bayside-horizon-equal-co-owners-cashier-s-check-two-sets-of-keys/part-1-stop-4-bayside-horizon-treating-brother-sister-as-equals-the-clean-out-the-door-buyer-s-order?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">15</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2020-02-15</wa-tag>
+                <wa-tag size="small" pill>~7 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: The Cashier&#39;s Check, Joint Virginia Title (VSA 17A), &amp; Driving Our Avalon Home</h3>
+              <div class="bs-card-subtitle">Bayside Horizon: Equal Co-Owners, Cashier&#39;s Check, &amp; Two Sets of Keys • The 2020 Horizon Avalon (February 2020)</div>
+              <p class="bs-arc-stop-excerpt">With a $26,840 Cashier&#39;s Check from Anchor Federal Credit Union, Michael Thomas Ragsdale and Rachel Anna Ragsdale sign the Virginia DMV title (VSA 17A) as equal co-owners and drive their royal blue 2020 Horizon Avalon home.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/rachel/the-2020-horizon-avalon-february-2020/bayside-horizon-equal-co-owners-cashier-s-check-two-sets-of-keys/part-2-the-cashier-s-check-joint-virginia-title-vsa-17a-driving-our-avalon-home?arc=open-roads-and-mountain-conferences" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+      </div>
+    </section>
+  
+      </div>
+
+      
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261116a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261115h" defer></script>
+  </body>
+</html>

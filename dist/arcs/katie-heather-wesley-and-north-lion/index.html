@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var root = document.documentElement;
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261116a" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261116a" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261116a" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261116a" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>From Northwood High to North Lion: Heather, Wesley &amp;…</title>
+    <meta name="description" content="Follow Heather Collins from Nate&#39;s high school girlfriend at Emerald Creek Mall and Tyler&#39;s senior-year lie through ten years building North Lion Scales…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/arcs/katie-heather-wesley-and-north-lion" />
+    <meta property="og:title" content="From Northwood High to North Lion: Heather, Wesley &amp;…" />
+    <meta property="og:description" content="Follow Heather Collins from Nate&#39;s high school girlfriend at Emerald Creek Mall and Tyler&#39;s senior-year lie through ten years building North Lion Scales…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/arcs/katie-heather-wesley-and-north-lion" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="From Northwood High to North Lion: Heather, Wesley &amp; Chelsea — Katie &amp; Nathaniel Story Arc Playlist" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="From Northwood High to North Lion: Heather, Wesley &amp;…" />
+    <meta name="twitter:description" content="Follow Heather Collins from Nate&#39;s high school girlfriend at Emerald Creek Mall and Tyler&#39;s senior-year lie through ten years building North Lion Scales…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta name="twitter:image:alt" content="From Northwood High to North Lion: Heather, Wesley &amp; Chelsea — Katie &amp; Nathaniel Story Arc Playlist" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/arcs/katie-heather-wesley-and-north-lion#webpage","url":"https://backstage.raggiesoft.com/arcs/katie-heather-wesley-and-north-lion","name":"From Northwood High to North Lion: Heather, Wesley \u0026…","description":"Follow Heather Collins from Nate's high school girlfriend at Emerald Creek Mall and Tyler's senior-year lie through ten years building North Lion Scales…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261116a" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261115h" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+
+      <div slot="banner" class="bs-banner-slot">
+        <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+          <div class="rs-network-bar-inner">
+            <span class="rs-network-label">✦ RaggieSoft Network:</span>
+            <ul class="rs-network-links">
+              <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+              <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+              <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+              <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+              <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+              <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261116a" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/arcs" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="timeline" swap-opacity aria-hidden="true"></wa-icon><span>Story Arcs (12)</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (20)</span></a></li>
+                <li><a href="/books/quantum-directive-3-casey" class="bs-nav-link"><wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon><span>The Caretakers (6)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (55 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/arcs">
+                <wa-icon slot="icon" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc Playlists (12 Arcs)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (20 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/arcs">Story Arcs (12)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>From Northwood High to North Lion: Heather, Wesley &amp; Chelsea</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel • Story Arc
+        </wa-badge>
+        <wa-tag size="small" pill>25 Chapters • 5 Bonus Scenes • ~4.1 hours</wa-tag>
+      </div>
+      <h1 class="bs-title">From Northwood High to North Lion: Heather, Wesley &amp; Chelsea</h1>
+      <p class="bs-subtitle">2001–2018 • Teenage Heartbreak, Ten Years Behind the Lens &amp; Two Special Friends</p>
+      <p class="bs-section-lead" style="margin-block: 0.5rem 1.1rem;">Follow Heather Collins from Nate&#39;s high school girlfriend at Emerald Creek Mall and Tyler&#39;s senior-year lie through ten years building North Lion Scales &amp; Tails in Minnesota, the Maplewood zoo reunion, and Wesley and Chelsea&#39;s deep-pressure bond.</p>
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/katie/sixteen-summer-sanctuary/sixteen-on-four-wheels-finding-dates/part-1-navigating-northwood-high-on-four-wheels-two-first-dates-why-we-ride-on-saturday?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+          Start Story Arc in Book Reader ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="https://books.raggiesoft.com/katie" target="_blank" rel="noopener">
+          <wa-icon slot="start" family="duotone" name="books" aria-hidden="true"></wa-icon>
+          Full Katie &amp; Nathaniel Overview ↗
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/arcs">
+          <wa-icon slot="start" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+          All 12 Story Arcs
+        </wa-button>
+      </div>
+    </div>
+
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/katie/b005/jun_2018_maplewood_north_lion_ribbon_cutting_earned_hug_nate_heather_wesley.jpg"
+        alt="From Northwood High to North Lion: Heather, Wesley &amp; Chelsea"
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+    </figure>
+
+    <section aria-labelledby="arc-stops-heading">
+      <div class="bs-section-head">
+        <h2 id="arc-stops-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="list-tree" swap-opacity aria-hidden="true"></wa-icon>
+          Complete Story Arc Playlist (30 Stops)
+        </h2>
+        <p class="bs-section-lead">
+          Opening any chapter stop launches <strong>RaggieSoft Book Reader</strong> directly in <em>Story Arc Playlist Mode</em> so the Next button steps straight through this storyline.
+        </p>
+      </div>
+      <div class="bs-arc-stop-stack">
+        
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">1</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2001-10-15</wa-tag>
+                <wa-tag size="small" pill>~9 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Navigating Northwood High on Four Wheels, Two First Dates, &amp; Why We Ride on Saturday</h3>
+              <div class="bs-card-subtitle">Sixteen on Four Wheels &amp; Finding Dates • Sixteen &amp; Summer Sanctuary</div>
+              <p class="bs-arc-stop-excerpt">Navigating Northwood High in their powerchairs, Nate and Katie line up Saturday dates at Emerald Creek Mall—Nate loving Heather, Katie cautious of Ryan.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/sixteen-summer-sanctuary/sixteen-on-four-wheels-finding-dates/part-1-navigating-northwood-high-on-four-wheels-two-first-dates-why-we-ride-on-saturday?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">2</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2001-10-20</wa-tag>
+                <wa-tag size="small" pill>~11 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Cousin Wesley, Ryan&#39;s Escalator Exit, &amp; Two Dates at Emerald Creek Mall</h3>
+              <div class="bs-card-subtitle">Sixteen on Four Wheels &amp; Finding Dates • Sixteen &amp; Summer Sanctuary</div>
+              <p class="bs-arc-stop-excerpt">On their first high-school double date at Emerald Creek Mall, Heather proves why she loves Nate and respects the twins&#39; bond because of her disabled cousin Wesley—while Ryan bails down the escalator when Katie puts her brother first.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/sixteen-summer-sanctuary/sixteen-on-four-wheels-finding-dates/part-2-cousin-wesley-ryan-s-escalator-exit-two-dates-at-emerald-creek-mall?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">3</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2001-11-17</wa-tag>
+                <wa-tag size="small" pill>~7 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Cousin Wesley at Emerald Creek Mall, Annie&#39;s Pretzels, &amp; The Same Deep-Pressure Squeeze</h3>
+              <div class="bs-card-subtitle">Cousin Wesley, Annie&#39;s Pretzels, &amp; Coding Side by Side • Sixteen &amp; Summer Sanctuary</div>
+              <p class="bs-arc-stop-excerpt">Heather brings her cousin Wesley to Emerald Creek Mall for soft pretzels, showing why she understands Nate and Katie&#39;s twin bond effortlessly.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/sixteen-summer-sanctuary/cousin-wesley-annie-s-pretzels-coding-side-by-side/part-1-cousin-wesley-at-emerald-creek-mall-annie-s-pretzels-the-same-deep-pressure-squeeze?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">4</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2002-04-13</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Two Buses to Chesapeake Bay Mall, The Center Court Carousel, &amp; Seventeen on Four Wheels</h3>
+              <div class="bs-card-subtitle">Seventeen at Chesapeake Bay Mall &amp; Senior Fall With Heather • Seventeen, Senior Year, &amp; Greenway Court</div>
+              <p class="bs-arc-stop-excerpt">Turning seventeen, Nate and Katie take their first two-bus powerchair trip to Chesapeake Bay Mall to celebrate by the Center Court carousel with Heather.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/seventeen-at-chesapeake-bay-mall-senior-fall-with-heather/part-1-two-buses-to-chesapeake-bay-mall-the-center-court-carousel-seventeen-on-four-wheels?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">5</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2002-08-24</wa-tag>
+                <wa-tag size="small" pill>~6 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Saturday Afternoon on Arvin Road, Two Copies Open at Once, &amp; The Most Important Bond You Have</h3>
+              <div class="bs-card-subtitle">Seventeen at Chesapeake Bay Mall &amp; Senior Fall With Heather • Seventeen, Senior Year, &amp; Greenway Court</div>
+              <p class="bs-arc-stop-excerpt">On Arvin Road before senior year, Heather hugs Nate tightly on the sofa beside Katie—celebrating that his twin bond with Katie always comes first.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/seventeen-at-chesapeake-bay-mall-senior-fall-with-heather/part-2-saturday-afternoon-on-arvin-road-two-copies-open-at-once-the-most-important-bond-you-have?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">6</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2002-12-20</wa-tag>
+                <wa-tag size="small" pill>~6 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: Senior Gold Day in Room 204, Paper Snowflakes, &amp; One Tight Hug Before Winter Break</h3>
+              <div class="bs-card-subtitle">Seventeen at Chesapeake Bay Mall &amp; Senior Fall With Heather • Seventeen, Senior Year, &amp; Greenway Court</div>
+              <p class="bs-arc-stop-excerpt">On the final Friday before senior winter break at Northwood High, Katie, Nate, and Heather ace Room 204 and share a tight holiday hug at the bus loop.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/seventeen-at-chesapeake-bay-mall-senior-fall-with-heather/part-3-senior-gold-day-in-room-204-paper-snowflakes-one-tight-hug-before-winter-break?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">7</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2003-01-06</wa-tag>
+                <wa-tag size="small" pill>~8 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: The Drunken New Year Lie, Heather&#39;s Bitter Goodbye, &amp; Twin Sisters Always Stay</h3>
+              <div class="bs-card-subtitle">Drunken New Year • Seventeen, Senior Year, &amp; Greenway Court</div>
+              <p class="bs-arc-stop-excerpt">A spiteful lie from one of Brittany&#39;s New Year&#39;s Eve partygoers turns Heather bitter against a blindsided Nate—and Katie holds her twin brother together.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-2-the-drunken-new-year-lie-heather-s-bitter-goodbye-twin-sisters-always-stay?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">8</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2003-01-08</wa-tag>
+                <wa-tag size="small" pill>~16 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: The Back Corner of Room 204, A Song in My Head, &amp; Stairway A</h3>
+              <div class="bs-card-subtitle">Drunken New Year • Seventeen, Senior Year, &amp; Greenway Court</div>
+              <p class="bs-arc-stop-excerpt">In the back corner of Room 204, Crimson Node plays clear in Nate&#39;s mind—and even after Tyler&#39;s lie unravels, part of Nate still aches for Heather.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">9</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2003-02-11</wa-tag>
+                <wa-tag size="small" pill>~11 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point</h3>
+              <div class="bs-card-subtitle">Inside Senior Homeroom 212 on January 6, Five Weeks of Empty Floor in Room 204, &amp; The Cafeteria Lie That Left Heather Sick With Herself</div>
+              <p class="bs-arc-stop-excerpt">What happened outside Nathaniel&#39;s first-person view between January and June 2003—from Tyler&#39;s homeroom ambush on January 6 and five weeks of silence in Mr. Callahan&#39;s Room 204 lab to Cousin Hannah&#39;s green parka, Wesley&#39;s Pomp and Circumstance heartbreak at graduation, and one final pretzel afternoon at Emerald Creek Mall before Heather and Wesley moved home to Minnesota.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/room-204-unhandled-exception-and-tylers-cousin-lie">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">10</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2003-06-14</wa-tag>
+                <wa-tag size="small" pill>~16 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 4: Purple Gowns at the Pavilion, Pomp and Circumstance, &amp; One Chance Strictly for Wesley</h3>
+              <div class="bs-card-subtitle">Drunken New Year • Seventeen, Senior Year, &amp; Greenway Court</div>
+              <p class="bs-arc-stop-excerpt">After Pomp and Circumstance echoes through Northwood High&#39;s graduation at the Virginia Beach Pavilion, Katie and Nate tell Heather they cannot reform their relationship—breaking Wesley&#39;s heart until the twins agree to one strictly bounded Saturday at Emerald Creek Mall for Wesley&#39;s sake.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-4-purple-gowns-at-the-pavilion-pomp-and-circumstance-one-chance-strictly-for-wesley?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">11</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2003-06-28</wa-tag>
+                <wa-tag size="small" pill>~13 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 5: Waiting by the Route 15 Stop, If You Walked Away, &amp; Wesley&#39;s Laminated Buddy Card</h3>
+              <div class="bs-card-subtitle">Drunken New Year • Seventeen, Senior Year, &amp; Greenway Court</div>
+              <p class="bs-arc-stop-excerpt">Before Heather and Wesley move home to Minnesota, Katie and Nate meet them off CVTA Route 15 at Emerald Creek Mall to give Wesley a proper buddy farewell.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-5-waiting-by-the-route-15-stop-if-you-walked-away-wesley-s-laminated-buddy-card?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">12</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2004-10-15</wa-tag>
+                <wa-tag size="small" pill>~8 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: Closed Bedroom Doors, The Three-by-Six Closet Sanctuary, &amp; Unwritten Couple Rules</h3>
+              <div class="bs-card-subtitle">North Henry Street, Six Buses from Williamsburg, &amp; The Goyeau Street Tunnel File • Six Buses from Williamsburg, Sea Breeze West, &amp; Coming Home to Arvin Road</div>
+              <p class="bs-arc-stop-excerpt">Inside Brandon Mercer&#39;s Williamsburg house, slow-building emotional and physical abuse collides with Katie and Nate&#39;s three-by-six closet sanctuary.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/six-buses-from-williamsburg-sea-breeze-west-coming-home-to-arvin-road/north-henry-street-six-buses-from-williamsburg-the-goyeau-street-tunnel-file/part-1-closed-bedroom-doors-the-three-by-six-closet-sanctuary-unwritten-couple-rules?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">13</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2005-11-13</wa-tag>
+                <wa-tag size="small" pill>~14 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: Milk Isn&#39;t Allowed in This Fridge, Tiffany&#39;s Sunday Morning Accusation, &amp; Yes-or-No Questions Through Tears</h3>
+              <div class="bs-card-subtitle">Tiffany&#39;s Sea Breeze West Apartment, Dirty Old Tonomy Hill, &amp; Coming Home to Arvin Road • Six Buses from Williamsburg, Sea Breeze West, &amp; Coming Home to Arvin Road</div>
+              <p class="bs-arc-stop-excerpt">When Tiffany screams a false accusation and throws Katie and Nate out on a Sunday morning, Dad talks his sobbing twins through simple yes-or-no questions.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/six-buses-from-williamsburg-sea-breeze-west-coming-home-to-arvin-road/tiffany-s-sea-breeze-west-apartment-dirty-old-tonomy-hill-coming-home-to-arvin-road/part-3-milk-isn-t-allowed-in-this-fridge-tiffany-s-sunday-morning-accusation-yes-or-no-questions-through-tears?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">14</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2007-08-18</wa-tag>
+                <wa-tag size="small" pill>~9 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: The Arvin Road Networking Closet, A Fail-Safe Thermostat Relay, &amp; Sheer Random Luck on StreamTube</h3>
+              <div class="bs-card-subtitle">Associate Degrees in Hand, &#39;Not the Right Skill Match,&#39; Launching Prairie Twin Interactive, &amp; The Arvin Road Networking Closet • Unofficial Homeowners: Back Home in Virginia Beach (2007–2008)</div>
+              <p class="bs-arc-stop-excerpt">Wiring a fail-safe thermostat for their Arvin Road networking closet, Nate randomly finds a StreamTube turtle video that makes him think of Chelsea.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/unofficial-homeowners-back-home-in-virginia-beach-2007-2008/associate-degrees-in-hand-not-the-right-skill-match-launching-prairie-twin-interactive-the-arvin-road-networking-closet/part-2-the-arvin-road-networking-closet-a-fail-safe-thermostat-relay-sheer-random-luck-on-streamtube?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">15</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2016-02-07</wa-tag>
+                <wa-tag size="small" pill>~6 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Thirteen Hundred Miles Away in Maplewood: Missing Postcards, Seeing Katie on TV, &amp; A Very Cautious Request</h3>
+              <div class="bs-card-subtitle">Why Twenty-Eight-Year-Old Wesley Was Overjoyed Watching Meet the Nation, How Heather Explained State Government Without Big Words, &amp; Ten Quiet Weeks Waiting in Filtered Requests</div>
+              <p class="bs-arc-stop-excerpt">What happened inside Heather and Dan Lindstrom&#39;s snowy Maplewood, Minnesota home in February and March 2016—from twenty-eight-year-old Wesley missing his Virginia bus postcards and cheering at Katie and Nate on Sunday morning television to trying to figure out what state government is and convincing Heather to send one very cautious message across thirteen years.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">16</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2016-06-04</wa-tag>
+                <wa-tag size="small" pill>~9 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: A Filtered Request on The Grid, What Tyler&#39;s Lie Cost All of Us, &amp; A Very Cautious Reply</h3>
+              <div class="bs-card-subtitle">Keeping Our High-School Promise, A Cautious Request on The Grid, Rescuing Cousin Chelsea, Out of the Closet Into Our Four-Person Nest, &amp; Chelsea&#39;s Turtle Tank Reveal • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">Discovering Heather&#39;s filtered Grid message for Wesley, Brittany sees the full cost of Tyler&#39;s 2003 lie before Katie and Nate send a very cautious reply.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/keeping-our-high-school-promise-a-cautious-request-on-the-grid-rescuing-cousin-chelsea-out-of-the-closet-into-our-four-person-nest-chelsea-s-turtle-tank-reveal/part-2-a-filtered-request-on-the-grid-what-tyler-s-lie-cost-all-of-us-a-very-cautious-reply?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">17</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2017-03-25</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 8: Chelsea&#39;s Living-Room Turtle Habitat, Two Friends for Shelly Turtle, &amp; The Nice Glove Man on StreamTube</h3>
+              <div class="bs-card-subtitle">Keeping Our High-School Promise, A Cautious Request on The Grid, Rescuing Cousin Chelsea, Out of the Closet Into Our Four-Person Nest, &amp; Chelsea&#39;s Turtle Tank Reveal • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">Safe at home on Arvin Road, Cousin Chelsea falls in love with North Lion Scales &amp; Tails&#39; hands-only StreamTube tutorials to build her own turtle habitat.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/keeping-our-high-school-promise-a-cautious-request-on-the-grid-rescuing-cousin-chelsea-out-of-the-closet-into-our-four-person-nest-chelsea-s-turtle-tank-reveal/part-8-chelsea-s-living-room-turtle-habitat-two-friends-for-shelly-turtle-the-nice-glove-man-on-streamtube?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">18</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2017-05-20</wa-tag>
+                <wa-tag size="small" pill>~8 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 9: Pouring the Foundation on Route 64, Staff Member Wesley, &amp; The Jolt Across Ten Years</h3>
+              <div class="bs-card-subtitle">Keeping Our High-School Promise, A Cautious Request on The Grid, Rescuing Cousin Chelsea, Out of the Closet Into Our Four-Person Nest, &amp; Chelsea&#39;s Turtle Tank Reveal • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">As contractors pour North Lion&#39;s Maplewood foundation on video, Nate and Katie get the jolt of ten years seeing Heather, Dan, and staff member Wesley.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/keeping-our-high-school-promise-a-cautious-request-on-the-grid-rescuing-cousin-chelsea-out-of-the-closet-into-our-four-person-nest-chelsea-s-turtle-tank-reveal/part-9-pouring-the-foundation-on-route-64-staff-member-wesley-the-jolt-across-ten-years?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">19</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2017-05-21</wa-tag>
+                <wa-tag size="small" pill>~9 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 10: Staff Member Wesley&#39;s Reply, Proving It When Nobody Was Looking, &amp; Full Speaking Terms</h3>
+              <div class="bs-card-subtitle">Keeping Our High-School Promise, A Cautious Request on The Grid, Rescuing Cousin Chelsea, Out of the Closet Into Our Four-Person Nest, &amp; Chelsea&#39;s Turtle Tank Reveal • The Gentlewoman from Virginia Beach: The House of Delegates</div>
+              <p class="bs-arc-stop-excerpt">After Staff Member Wesley replies, Katie realizes Heather proved she changed when nobody was looking—putting both families on full speaking terms.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/keeping-our-high-school-promise-a-cautious-request-on-the-grid-rescuing-cousin-chelsea-out-of-the-closet-into-our-four-person-nest-chelsea-s-turtle-tank-reveal/part-10-staff-member-wesley-s-reply-proving-it-when-nobody-was-looking-full-speaking-terms?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">20</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-06-16</wa-tag>
+                <wa-tag size="small" pill>~11 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Route 64 to Maplewood, Seeing Wesley in Person After Fifteen Years, The Earned Hug, &amp; Sale Number One in the Store</h3>
+              <div class="bs-card-subtitle">Watching Senator Ward Kill Our Bills Across the Rotunda, The 250-Signature Petition, &amp; Cutting the Ribbon on Route 64 in Maplewood • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Riding Route 64 to Maplewood, Katie, Nate, Brittany, and Chelsea reunite with Staff Member Wesley, share an earned hug, and shop for Sunny and Pebble.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-2-route-64-to-maplewood-seeing-wesley-in-person-after-fifteen-years-the-earned-hug-sale-number-one-in-the-store?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">21</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2018-06-16</wa-tag>
+                <wa-tag size="small" pill>~3 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Architectural Blueprint &amp; Visitor Guide: Inside North Lion Scales &amp; Tails (Maplewood, MN)</h3>
+              <div class="bs-card-subtitle">Zero-Step Automatic Sliding Doors, The Front Supply Store &amp; Customer Service Counter, Dr. Meyer&#39;s Vet Clinic, &amp; Three Barrier-Free Zoo Wings for Turtles, Reptiles, and Small Mammals</div>
+              <p class="bs-arc-stop-excerpt">A complete room-by-room architectural guide to Heather and Dan Lindstrom&#39;s barrier-free Maplewood facility—explaining how the front retail store, customer service counter, exotic vet clinic, skylit greenhouse conservatory, reptile galleries, and small mammal meadow fit together under one zero-step roof.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">22</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-06-16</wa-tag>
+                <wa-tag size="small" pill>~8 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: Turtles, Reptiles, and Small Mammals: Touring the Three Zoo Wings &amp; Talking About Wesley&#39;s Turtles</h3>
+              <div class="bs-card-subtitle">Watching Senator Ward Kill Our Bills Across the Rotunda, The 250-Signature Petition, &amp; Cutting the Ribbon on Route 64 in Maplewood • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Touring the Small Mammal Meadow, Reptile Galleries, and Skylit Greenhouse at thirty-inch wheelchair height, Chelsea and Wesley bond over his rescued turtles.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-3-turtles-reptiles-and-small-mammals-touring-the-three-zoo-wings-talking-about-wesley-s-turtles?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">23</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2018-06-16</wa-tag>
+                <wa-tag size="small" pill>~6 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">While the Classroom Door Was Closed: Staff Member Wesley, Cousin Chelsea, &amp; Matching Blue Gloves at the Turtle Lagoon</h3>
+              <div class="bs-card-subtitle">The Full Twenty-Minute Conservatory Scene Between Wesley, Chelsea, Jonas, Nora, Molly, Brittany, and Dan During Nate, Katie, and Heather&#39;s Private Reckoning</div>
+              <p class="bs-arc-stop-excerpt">Because Katie &amp; Nathaniel is told strictly in Nathaniel&#39;s first-person perspective, the main novel follows Nate, Katie, and Heather behind the closed door of the Education Classroom. This Backstage scene stays out in the sunlit conservatory to show the joyful twenty minutes Staff Member Wesley and Cousin Chelsea spend feeding Clover, Scooter, and Barnaby in matching blue gloves.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/chelsea-and-wesley-at-the-turtle-lagoon">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/chelsea-and-wesley-at-the-turtle-lagoon">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">24</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-06-16</wa-tag>
+                <wa-tag size="small" pill>~12 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 4: Behind the Education Classroom Door: Fifteen Years Off Our Chests &amp; Cutting the Ribbon on Route 64</h3>
+              <div class="bs-card-subtitle">Watching Senator Ward Kill Our Bills Across the Rotunda, The 250-Signature Petition, &amp; Cutting the Ribbon on Route 64 in Maplewood • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Alone inside the Education Classroom without Wesley, Nate, Katie, and Heather lay fifteen years of truth on the table before cutting the ribbon outside.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-4-behind-the-education-classroom-door-fifteen-years-off-our-chests-cutting-the-ribbon-on-route-64?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">25</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-06-16</wa-tag>
+                <wa-tag size="small" pill>~9 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 5: Chelsea&#39;s Magical First Non-Family Hug, Riding Route 54 to Terminal 2, &amp; A Three-Way Hug Outside TSA</h3>
+              <div class="bs-card-subtitle">Watching Senator Ward Kill Our Bills Across the Rotunda, The 250-Signature Petition, &amp; Cutting the Ribbon on Route 64 in Maplewood • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Chelsea hugs someone outside her family for the first time, Heather and Wesley ride to MSP, and Katie surprises everyone with a three-way hug at TSA.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-5-chelsea-s-magical-first-non-family-hug-riding-route-54-to-terminal-2-a-three-way-hug-outside-tsa?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-backstage">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">26</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="warning" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="film" aria-hidden="true"></wa-icon>&nbsp;Behind-the-Scenes Bonus Scene
+                </wa-badge>
+                <wa-tag size="small" pill>2018-06-16</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Alternate &#39;What If&#39; Dossier: Marriage in the North Star State — And Why Brittany &amp; Chelsea Would Never Have Been Rescued</h3>
+              <div class="bs-card-subtitle">What Would Have Happened If Tyler&#39;s 2003 Lie Never Ended Nate and Heather—and the Hidden Cost Two Cousins Back East Would Have Paid</div>
+              <p class="bs-arc-stop-excerpt">An official Alternate &#39;What If&#39; exploration: had Nate and Heather never broken up in January 2003—or had Katie and Nate taken Heather back at graduation—Nate and Heather would have married and built a happy life together in the North Star State, sparing the twins from Brandon and Tiffany at the devastating cost of never rescuing Cousin Brittany or Cousin Chelsea.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" size="small" href="/books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins">
+                    <wa-icon slot="start" family="duotone" name="folder-open" aria-hidden="true"></wa-icon>
+                    Read Bonus Scene
+                  </wa-button>
+                  <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins">
+                          <wa-icon slot="start" family="duotone" name="expand" aria-hidden="true"></wa-icon>
+                          Quick View
+                        </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">27</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-06-17</wa-tag>
+                <wa-tag size="small" pill>~9 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 6: Father&#39;s Day on Arvin Road, Two Guardians&#39; Blessing, &amp; Making It Official Between Chelsea and &#39;My Sweet Wes&#39;</h3>
+              <div class="bs-card-subtitle">Watching Senator Ward Kill Our Bills Across the Rotunda, The 250-Signature Petition, &amp; Cutting the Ribbon on Route 64 in Maplewood • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">On Father&#39;s Day, guardians David Prairie and Heather Lindstrom set protective conservatorship rules and bless Wesley and Chelsea as special friends.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-6-father-s-day-on-arvin-road-two-guardians-blessing-making-it-official-between-chelsea-and-my-sweet-wes?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">28</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-10-12</wa-tag>
+                <wa-tag size="small" pill>~8 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 1: MSP to RIC, Sensory Overload at the Coastal Virginia Convention Center, &amp; Deep-Pressure Hugs at Bayshore Town Center</h3>
+              <div class="bs-card-subtitle">MSP to RIC, Deep-Pressure Hugs at Bayshore Town Center, &amp; Wesley Meeting Sunny and Pebble on Arvin Road • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">When the Hampton Reptile Expo overwhelms Wesley, Chelsea&#39;s deep-pressure hugs at Bayshore Town Center press both of their frayed nerves back together.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/msp-to-ric-deep-pressure-hugs-at-bayshore-town-center-wesley-meeting-sunny-and-pebble-on-arvin-road/part-1-msp-to-ric-sensory-overload-at-the-coastal-virginia-convention-center-deep-pressure-hugs-at-bayshore-town-center?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">29</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-10-12</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 2: Ahead of Friday&#39;s Closing Bell, Under the Bay to Virginia Beach, &amp; Wesley Meeting Sunny and Pebble on Arvin Road</h3>
+              <div class="bs-card-subtitle">MSP to RIC, Deep-Pressure Hugs at Bayshore Town Center, &amp; Wesley Meeting Sunny and Pebble on Arvin Road • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Returning ahead of Friday closing, everyone heads to Virginia Beach so Wesley can meet Sunny and Pebble in person before dining on Arvin Road.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/msp-to-ric-deep-pressure-hugs-at-bayshore-town-center-wesley-meeting-sunny-and-pebble-on-arvin-road/part-2-ahead-of-friday-s-closing-bell-under-the-bay-to-virginia-beach-wesley-meeting-sunny-and-pebble-on-arvin-road?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+
+        <article class="bs-arc-stop-card is-part">
+          <div class="bs-arc-stop-main">
+            <span class="bs-arc-stop-num">30</span>
+            <div class="bs-arc-stop-body">
+              <div class="bs-card-meta" style="margin-block-end: 0.2rem;">
+                <wa-badge variant="brand" appearance="filled-outlined" pill>
+                  <wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>&nbsp;Book Chapter
+                </wa-badge>
+                <wa-tag size="small" pill>2018-10-13</wa-tag>
+                <wa-tag size="small" pill>~5 min</wa-tag>
+              </div>
+              <h3 class="bs-arc-stop-title">Part 3: Inseparable Across Saturday and Sunday, Zero Guarding Left Between Them, &amp; Seeing the Lindstroms Off at RIC</h3>
+              <div class="bs-card-subtitle">MSP to RIC, Deep-Pressure Hugs at Bayshore Town Center, &amp; Wesley Meeting Sunny and Pebble on Arvin Road • Across the Rotunda: The Senate of Virginia</div>
+              <p class="bs-arc-stop-excerpt">Inseparable across Saturday and Sunday with zero guarding left between them, Chelsea and Wesley share a sad yet understanding goodbye at Richmond Airport.</p>
+            </div>
+          </div>
+          <div class="bs-arc-stop-actions">
+            <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/msp-to-ric-deep-pressure-hugs-at-bayshore-town-center-wesley-meeting-sunny-and-pebble-on-arvin-road/part-3-inseparable-across-saturday-and-sunday-zero-guarding-left-between-them-seeing-the-lindstroms-off-at-ric?arc=heather-wesley-and-north-lion" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Read in Story Arc ↗
+                  </wa-button>
+          </div>
+        </article>
+      </div>
+    </section>
+  
+      </div>
+
+      
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261116a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261115h" defer></script>
+  </body>
+</html>

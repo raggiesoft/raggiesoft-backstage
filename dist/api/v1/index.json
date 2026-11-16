@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T22:09:25.999Z",
+  "generatedAt": "2026-11-16T23:02:21.206Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
   "totalItems": 55,
@@ -15,7 +15,8 @@
     "aubrieCorrespondence": 10,
     "lore": 3,
     "hubs": 4,
-    "total": 55
+    "total": 55,
+    "storyArcs": 12
   },
   "items": {
     "books/quantum-directive-3-casey": {

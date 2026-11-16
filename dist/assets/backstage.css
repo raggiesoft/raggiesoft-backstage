@@ -1772,6 +1772,82 @@
     --width: min(54rem, calc(100dvw - 1.5rem));
   }
 
+  /* Story Arcs (Director's Cut Reading Playlists) */
+  .bs-arc-stop-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-block-start: 1rem;
+  }
+
+  .bs-arc-stop-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.15rem;
+    border-radius: var(--bs-radius-m);
+    background: var(--bs-surface);
+    border: 1px solid var(--bs-border);
+    box-shadow: var(--bs-shadow);
+  }
+
+  .bs-arc-stop-card.is-backstage {
+    border-inline-start: 4px solid var(--bs-primary);
+  }
+
+  .bs-arc-stop-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    flex: 1;
+    min-inline-size: min(100%, 260px);
+  }
+
+  .bs-arc-stop-num {
+    flex-shrink: 0;
+    inline-size: 2rem;
+    block-size: 2rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.84rem;
+    background: var(--bs-elevated);
+    border: 1px solid var(--bs-border);
+    color: var(--bs-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bs-arc-stop-body {
+    flex: 1;
+    min-inline-size: 0;
+  }
+
+  .bs-arc-stop-title {
+    margin: 0.25rem 0 0.2rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--bs-text);
+  }
+
+  .bs-arc-stop-excerpt {
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--bs-muted);
+  }
+
+  .bs-arc-stop-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
   .bs-dialog-meta {
     display: flex;
     align-items: center;
