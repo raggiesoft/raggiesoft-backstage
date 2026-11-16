@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-16T00:10:19.662Z",
+  "generatedAt": "2026-11-16T00:35:37.111Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 51,
+  "totalItems": 52,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 17,
-    "katieDossiers": 16,
+    "katie": 18,
+    "katieDossiers": 17,
     "casey": 7,
     "caseyDossiers": 6,
     "aubrie": 13,
@@ -15,7 +15,7 @@
     "aubrieCorrespondence": 10,
     "lore": 3,
     "hubs": 4,
-    "total": 51
+    "total": 52
   },
   "items": {
     "books/quantum-directive-3-casey": {
@@ -692,6 +692,21 @@
       "summary": "Behind-the-scenes backstory explaining why thirteen-year-old autistic House Page triplets Sam, Mandy, and Sarah Hawkins bolted from the doorway of Room 518 during Katie and Nate's Friday morning meltdown—plus how Saturday Night Sketch wrote the viral HB 663 cold open without 'cripping up.'",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/room-518-house-page-triplets-and-uncle-richard",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/room-518-house-page-triplets-and-uncle-richard.json"
+    },
+    "books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request": {
+      "slug": "books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request",
+      "title": "Thirteen Hundred Miles Away in Maplewood: Missing Postcards, Seeing Katie on TV, & A Very Cautious Request",
+      "subtitle": "Why Twenty-Eight-Year-Old Wesley Was Overjoyed Watching Meet the Nation, How Heather Explained State Government Without Big Words, & Ten Quiet Weeks Waiting in Filtered Requests",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2016-02-07",
+      "time": "08:05 CST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-maplewood-wesley-sees-katie-on-tv.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "What happened inside Heather and Dan Lindstrom's snowy Maplewood, Minnesota home in February and March 2016—from twenty-eight-year-old Wesley missing his Virginia bus postcards and cheering at Katie and Nate on Sunday morning television to trying to figure out what state government is and convincing Heather to send one very cautious message across thirteen years.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request.json"
     },
     "books/rachel/code-susquehanna-and-the-bear-and-bug-vault": {
       "slug": "books/rachel/code-susquehanna-and-the-bear-and-bug-vault",
