@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-16T00:57:25.565Z",
+  "generatedAt": "2026-11-16T01:31:48.282Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 52,
+  "totalItems": 53,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 18,
-    "katieDossiers": 17,
+    "katie": 19,
+    "katieDossiers": 18,
     "casey": 7,
     "caseyDossiers": 6,
     "aubrie": 13,
@@ -15,7 +15,7 @@
     "aubrieCorrespondence": 10,
     "lore": 3,
     "hubs": 4,
-    "total": 52
+    "total": 53
   },
   "items": {
     "books/quantum-directive-3-casey": {
@@ -707,6 +707,21 @@
       "summary": "What happened inside Heather and Dan Lindstrom's snowy Maplewood, Minnesota home in February and March 2016—from twenty-eight-year-old Wesley missing his Virginia bus postcards and cheering at Katie and Nate on Sunday morning television to trying to figure out what state government is and convincing Heather to send one very cautious message across thirteen years.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request.json"
+    },
+    "books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins": {
+      "slug": "books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins",
+      "title": "Alternate 'What If' Dossier: Marriage in the North Star State — And Why Brittany & Chelsea Would Never Have Been Rescued",
+      "subtitle": "What Would Have Happened If Tyler's 2003 Lie Never Ended Nate and Heather—and the Hidden Cost Two Cousins Back East Would Have Paid",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2018-06-16",
+      "time": "10:30 CDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-what-if-north-lion-grand-opening.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "An official Alternate 'What If' exploration: had Nate and Heather never broken up in January 2003—or had Katie and Nate taken Heather back at graduation—Nate and Heather would have married and built a happy life together in the North Star State, sparing the twins from Brandon and Tiffany at the devastating cost of never rescuing Cousin Brittany or Cousin Chelsea.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins.json"
     },
     "books/rachel/code-susquehanna-and-the-bear-and-bug-vault": {
       "slug": "books/rachel/code-susquehanna-and-the-bear-and-bug-vault",
