@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var root = document.documentElement;
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261115d" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261115d" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261115d" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261115d" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261115d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261115d" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261115d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261115d" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261115d" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261115d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261115d" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261115d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261115d" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261115d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261115d" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261115d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261115d" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261115d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261115d" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261115d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261115d" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261115d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261115d" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261115d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261115d" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261115d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261115d" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261115d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261115d" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261115d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261115d" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261115d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261115d" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261115d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261115d" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261115d" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261115d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261115d" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261115d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261115d" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261115d" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>Architectural Blueprint &amp; Visitor Guide: Inside North Lion…</title>
+    <meta name="description" content="A complete room-by-room architectural guide to Heather and Dan Lindstrom&#39;s barrier-free Maplewood facility—explaining how the front retail store…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings" />
+    <meta property="og:title" content="Architectural Blueprint &amp; Visitor Guide: Inside North Lion…" />
+    <meta property="og:description" content="A complete room-by-room architectural guide to Heather and Dan Lindstrom&#39;s barrier-free Maplewood facility—explaining how the front retail store…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="An illustrated architectural cutaway visitor map and accessible floor plan of North Lion Scales &amp; Tails on White Bear Avenue in Maplewood, Minnesota, showing the Route 64 bus…" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Architectural Blueprint &amp; Visitor Guide: Inside North Lion…" />
+    <meta name="twitter:description" content="A complete room-by-room architectural guide to Heather and Dan Lindstrom&#39;s barrier-free Maplewood facility—explaining how the front retail store…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta name="twitter:image:alt" content="An illustrated architectural cutaway visitor map and accessible floor plan of North Lion Scales &amp; Tails on White Bear Avenue in Maplewood, Minnesota, showing the Route 64 bus…" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings#webpage","url":"https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings","name":"Architectural Blueprint \u0026 Visitor Guide: Inside North Lion…","description":"A complete room-by-room architectural guide to Heather and Dan Lindstrom's barrier-free Maplewood facility—explaining how the front retail store…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261115d" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261115h" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+
+      <div slot="banner" class="bs-banner-slot">
+        <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+          <div class="rs-network-bar-inner">
+            <span class="rs-network-label">✦ RaggieSoft Network:</span>
+            <ul class="rs-network-links">
+              <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+              <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+              <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+              <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+              <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+              <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261115d" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (20)</span></a></li>
+                <li><a href="/books/quantum-directive-3-casey" class="bs-nav-link"><wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon><span>The Caretakers (6)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (55 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (20 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/books/katie">Katie &amp; Nathaniel (20 Dossiers)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>Architectural Blueprint &amp; Visitor Guide: Inside North Lion Scales &amp; Tails (Maplewood, MN)</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel — Behind the Scenes
+        </wa-badge>
+        <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="clock" aria-hidden="true"></wa-icon>&nbsp;2018-06-16</wa-tag>
+      </div>
+
+      <h1 class="bs-title">Architectural Blueprint &amp; Visitor Guide: Inside North Lion Scales &amp; Tails (Maplewood, MN)</h1>
+      <p class="bs-subtitle">Zero-Step Automatic Sliding Doors, The Front Supply Store &amp; Customer Service Counter, Dr. Meyer&#39;s Vet Clinic, &amp; Three Barrier-Free Zoo Wings for Turtles, Reptiles, and Small Mammals</p>
+
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-2-route-64-to-maplewood-seeing-wesley-in-person-after-fifteen-years-the-earned-hug-sale-number-one-in-the-store" target="_blank" rel="noopener">
+                <wa-icon slot="start" family="duotone" name="book-open-cover" swap-opacity aria-hidden="true"></wa-icon>
+                Episode 10, Chapter 1, Part 2: Route 64 to Maplewood &amp; Inside North Lion Scales &amp; Tails ↗
+              </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/books/katie">
+                <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (20 Dossiers)
+              </wa-button>
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button value="https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings" copy-label="Copy direct link to this dossier" success-label="Link copied!"></wa-copy-button>
+        </span>
+
+        <wa-button id="bs-qr-trigger" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="qrcode" aria-hidden="true"></wa-icon>
+          Read on Phone
+        </wa-button>
+        <wa-popover for="bs-qr-trigger" placement="bottom">
+          <div class="bs-qr-panel">
+            <wa-qr-code value="https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings" label="QR code to open Architectural Blueprint &amp; Visitor Guide: Inside North Lion Scales &amp; Tails (Maplewood, MN) on a phone or tablet" size="148"></wa-qr-code>
+            <p class="bs-qr-caption">Scan with your camera to continue reading this dossier on your phone or tablet.</p>
+          </div>
+        </wa-popover>
+      </div>
+
+      <div class="bs-meta-grid">
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="calendar-day" aria-hidden="true"></wa-icon> Story Date &amp; Time</span>
+        <strong>2018-06-16 • 10:00 CDT</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="location-dot" aria-hidden="true"></wa-icon> Setting</span>
+        <strong>1618 White Bear Avenue, Maplewood, Minnesota (Twin Cities Transit Route 64)</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="user-pen" aria-hidden="true"></wa-icon> Archival Source</span>
+        <strong>RaggieSoft Backstage Architectural Dossier</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="users" aria-hidden="true"></wa-icon> Addressed To</span>
+        <strong>Readers of Katie &amp; Nathaniel (Episode 10, Chapter 1, Parts 2–5)</strong>
+      </div>
+    </div>
+    </div>
+
+    
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/north-lion-scales-and-tails-floorplan-2018.jpg"
+        alt="An illustrated architectural cutaway visitor map and accessible floor plan of North Lion Scales &amp; Tails on White Bear Avenue in Maplewood, Minnesota, showing the Route 64 bus pad, zero-step front automatic sliding glass doors, the front Public Retail Supply Store, Front Customer Service and Tickets Counter with lowered wheelchair bay, Checkout Registers, Adoption Center, Dr. Meyer&#39;s Onsite Exotic Pets Vet Clinic, interior automatic sliding Zoo Entrance doors, the central Skylit Greenhouse Conservatory with Wesley&#39;s Painted-Turtle Lagoon and Tortoise Pasture, the Woodland and Arid Reptile Galleries, the Small Mammal Meadow, Education Classroom, Accessible Restrooms, and Animal Kitchen."
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      <figcaption class="bs-dossier-hero-caption">An illustrated architectural cutaway visitor map and accessible floor plan of North Lion Scales &amp; Tails on White Bear Avenue in Maplewood, Minnesota, showing the Route 64 bus pad, zero-step front automatic sliding glass doors, the front Public Retail Supply Store, Front Customer Service and Tickets Counter with lowered wheelchair bay, Checkout Registers, Adoption Center, Dr. Meyer&#39;s Onsite Exotic Pets Vet Clinic, interior automatic sliding Zoo Entrance doors, the central Skylit Greenhouse Conservatory with Wesley&#39;s Painted-Turtle Lagoon and Tortoise Pasture, the Woodland and Arid Reptile Galleries, the Small Mammal Meadow, Education Classroom, Accessible Restrooms, and Animal Kitchen.</figcaption>
+    </figure>
+
+    <wa-card class="bs-article-card">
+      <article class="bs-article-prose" aria-label="Architectural Blueprint &amp; Visitor Guide: Inside North Lion Scales &amp; Tails (Maplewood, MN)">
+        <blockquote class="bs-blockquote"><p><strong>Archival Note:</strong> Across <a href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-2-route-64-to-maplewood-seeing-wesley-in-person-after-fifteen-years-the-earned-hug-sale-number-one-in-the-store" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Katie &amp; Nathaniel — Episode 10, Chapter 1, Parts 2–5</em></strong></a>, <strong>Katie Prairie</strong>, <strong>Nathaniel Prairie</strong>, <strong>Brittany Fletcher</strong>, and <strong>Cousin Chelsea</strong> tour <strong>Heather and Dan Lindstrom&#39;s</strong> newly opened Maplewood facility alongside <strong>Staff Member Wesley Collins</strong>. This Backstage guide lays out the complete architectural floor plan of <strong><em>North Lion Scales &amp; Tails</em></strong>—showing how both halves of <em>&quot;Scales &amp; Tails&quot;</em> (turtles and reptiles alongside small mammals) share one barrier-free building right on <strong>Twin Cities Transit Route 64</strong>.</p></blockquote>
+<hr class="bs-divider" />
+<h2 id="sec-1-chamfered-corner-street-frontage-universal-entry-1618-white-bear-avenue" class="bs-heading bs-h2">1. Chamfered Corner Street Frontage &amp; Universal Entry (<code class="bs-inline-code">1618 White Bear Avenue</code>)</h2>
+<ul class="bs-list"><li><strong>Signature 45-Degree Chamfered Corner Entrance &amp; Transit Pad:</strong> Built on a prominent Maplewood corner lot served directly by <strong>Twin Cities Transit Route 64</strong>, the red-brick building greets arriving bus passengers with a welcoming <strong>45-degree chamfered corner entrance bay</strong> flanked by young white birch trees and two angled storefront wings—with the peaked glass roofline of the central <strong>Greenhouse Conservatory</strong> rising directly centered behind the green <em>North Lion Scales &amp; Tails</em> sign.</li>
+<li><strong>Wide Automatic Sliding Glass Doors:</strong> Both the chamfered corner street entrance and the interior <strong>Zoo Entrance</strong> directly behind the retail floor use wide, motion-activated biparting automatic sliding glass doors—never heavy hinged push-doors—so powerchair users, parents with strollers, and shoppers carrying substrate bags glide straight through hands-free.</li></ul>
+<hr class="bs-divider" />
+<h2 id="sec-2-front-building-zone-open-to-the-public-no-zoo-ticket-required" class="bs-heading bs-h2">2. Front Building Zone (<code class="bs-inline-code">Open to the Public — No Zoo Ticket Required</code>)</h2>
+<p>Anyone in the Twin Cities can walk or roll through the front automatic sliding doors any day <em>North Lion</em> is open without buying a zoo admission ticket:</p>
+<ol class="bs-list"><li><strong>Front Customer Service Counter &amp; Retail Checkout Registers:</strong><div class="bs-list-subline">Positioned immediately inside the front entrance with a <strong>lowered 34-inch wheelchair-accessible bay</strong>. Guests heading into the zoo can purchase <strong>Zoo Admission Wristbands right at the Front Customer Service Counter—or add Zoo Tickets at any retail checkout register</strong> while buying supplies.</div></li>
+<li><strong>Full-Line Supply Store (<code class="bs-inline-code">Turtles, Reptiles, &amp; Small Mammals</code>):</strong><div class="bs-list-subline">Six-foot-wide barrier-free aisles stocked with vetted lighting, fail-safe digital thermostats, whisper-quiet filter grommets, cork bark, freeze-dried aquatic turtle treats, orchard Timothy hay, wooden hideaways, and chinchilla dust-bath sand.</div></li>
+<li><strong>Surrender &amp; Adoption Center + 100% Captive-Bred Animal Enclosures:</strong><div class="bs-list-subline">Houses rescued turtles, reptiles, and small mammals waiting for vetted forever homes alongside animals offered for sale under Dan and Heather&#39;s ironclad ethical standard: <strong>100% captive-bred animals only—never wild-caught, ever—with every breeder and supplier personally audited and inspected</strong>.</div></li>
+<li><strong>Onsite Exotic Pets Veterinary Clinic (<code class="bs-inline-code">Dr. Sarah Meyer</code>):</strong><div class="bs-list-subline">Accessible directly off the front store without a zoo ticket, offering full wellness exams, shell care, small-mammal dental trims, and X-rays on a hydraulic lift exam table while providing daily in-house veterinary care for every animal in the store, adoption center, and zoo.</div></li></ol>
+<hr class="bs-divider" />
+<h2 id="sec-3-behind-the-interior-sliding-zoo-entrance-doors-three-barrier-free-animal-wings" class="bs-heading bs-h2">3. Behind the Interior Sliding <code class="bs-inline-code">Zoo Entrance</code> Doors: Three Barrier-Free Animal Wings</h2>
+<p>Every single exhibit across all three ticketed zoo wings is built on a low plinth with <strong>28-to-30-inch seated wheelchair-height viewing glass</strong>, vibration-isolated filtration, and zero strobe lighting:</p>
+<ol class="bs-list"><li><strong>Center Wing — The Skylit Greenhouse Conservatory (<code class="bs-inline-code">Turtles &amp; Tortoises</code>):</strong><div class="bs-list-subline">Crowned by a soaring glass botanical greenhouse roof visible above the brick parapet from the street. Home to <strong>Staff Member Wesley&#39;s</strong> flagship <strong>1,000-Gallon Rescued Painted-Turtle Lagoon</strong> (<em>Clover</em>, <em>Scooter</em>, and <em>Barnaby</em>), wooded box-turtle glades, and <em>Tank</em>&#39;s fifty-foot radiant-heated <strong>Sulcata Tortoise Pasture</strong>.</div></li>
+<li><strong>East Brick Wing — Woodland &amp; Arid Reptile Galleries (<code class="bs-inline-code">Reptiles &amp; Amphibians</code>):</strong><div class="bs-list-subline">Climate-zoned indoor brick-and-stone habitats housing captive-bred and rescued bearded dragons, leopard geckos, blue-tongued skinks, corn snakes, rosy boas, and bioactive misted tree-frog waterfalls.</div></li>
+<li><strong>North Acoustic-Buffered Wing — The Small Mammal Meadow (<code class="bs-inline-code">Small Mammals</code>):</strong><div class="bs-list-subline">Separated from the reptile and greenhouse wings by double sliding airlock glass doors with dedicated cool-air ventilation (<code class="bs-inline-code">68°F</code>, so zero predator or prey scent ever crosses between wings). Home to multi-ledge chinchilla habitats, bonded guinea-pig meadows, Holland lop rabbits, and African pygmy hedgehogs.</div></li>
+<li><strong>Central Support Hub (<code class="bs-inline-code">Classroom, Restrooms, &amp; Animal Kitchen</code>):</strong><div class="bs-list-subline">Along the rear brick spine sit the sound-buffered <strong>Education Classroom</strong> (for school programs, sensory breaks, and quiet talks), <strong>Barrier-Free Restrooms</strong>, and the stainless-steel <strong>Animal Kitchen &amp; Greens-Prep Commissary</strong> where Staff Member Wesley preps uniform romaine trays every morning.</div></li></ol>
+      </article>
+    </wa-card>
+
+    
+    
+    <section aria-labelledby="related-backstage-heading">
+      <wa-divider></wa-divider>
+      <div class="bs-section-head">
+        <h2 id="related-backstage-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="folder-tree" swap-opacity aria-hidden="true"></wa-icon>
+          More in This Behind-the-Scenes Collection
+        </h2>
+      </div>
+      <wa-scroller orientation="horizontal">
+        <div class="bs-scroller-track">
+          <div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname Inside Attorney Arthur Vance&#39;s Settlement Trap, the $6,400 Cruise Credit-Card Debt, &amp; The Va. Code § 20-121.4 Maiden Name Restoration Order Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 3, Chapter 2, Part 5 &amp; Chapter 3, Part 1) Law Offices of Arthur Vance, Independence Boulevard &amp; Virginia Beach Circuit Court, Virginia Beach, Virginia What happened behind closed doors when Brenda&#39;s attorney walked into Arthur Vance&#39;s conference room to view the M/S Sunward Tropics Deck 4 security tape—and how Katie and Nate&#39;s request cost Brenda the Prairie family name. 2001-10-19">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-10-19</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/sunward-tropics-divorce-and-maiden-name-order" class="bs-link">The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</a></h3>
+        <div class="bs-card-subtitle">Inside Attorney Arthur Vance&#39;s Settlement Trap, the $6,400 Cruise Credit-Card Debt, &amp; The Va. Code § 20-121.4 Maiden Name Restoration Order</div>
+        <p class="bs-card-summary">What happened behind closed doors when Brenda&#39;s attorney walked into Arthur Vance&#39;s conference room to view the M/S Sunward Tropics Deck 4 security tape—and how Katie and Nate&#39;s request cost Brenda the Prairie family name.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/sunward-tropics-divorce-and-maiden-name-order">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/sunward-tropics-divorce-and-maiden-name-order">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point Inside Senior Homeroom 212 on January 6, Five Weeks of Empty Floor in Room 204, &amp; The Cafeteria Lie That Left Heather Sick With Herself Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 4, Chapter 2, Parts 2–5) Northwood High School (Homeroom 212, Room 204 Computer Lab, Commons Cafeteria, &amp; Stairway A Bus Loop), Virginia Beach, Virginia What happened outside Nathaniel&#39;s first-person view between January and June 2003—from Tyler&#39;s homeroom ambush on January 6 and five weeks of silence in Mr. Callahan&#39;s Room 204 lab to Cousin Hannah&#39;s green parka, Wesley&#39;s Pomp and Circumstance heartbreak at graduation, and one final pretzel afternoon at Emerald Creek Mall before Heather and Wesley moved home to Minnesota. 2003-02-11">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg" alt="Inside the second-floor Room 204 computer lab at Northwood High School in winter 2003 directly against the painted cinderblock back corner wall beneath Northwood Lions and Class of 2003 pennants, seventeen-year-old blonde twins Katie and Nathaniel Prairie sit side by side in matching black SwiftChair power wheelchairs at two separate side-by-side CRT workstations glowing with word-processor and coding windows while holding inner hands, as rows of students work at lit monitors ahead of them and Heather Collins sits alone two rows forward glancing back with pale regret." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2003-02-11</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie" class="bs-link">Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point</a></h3>
+        <div class="bs-card-subtitle">Inside Senior Homeroom 212 on January 6, Five Weeks of Empty Floor in Room 204, &amp; The Cafeteria Lie That Left Heather Sick With Herself</div>
+        <p class="bs-card-summary">What happened outside Nathaniel&#39;s first-person view between January and June 2003—from Tyler&#39;s homeroom ambush on January 6 and five weeks of silence in Mr. Callahan&#39;s Room 204 lab to Cousin Hannah&#39;s green parka, Wesley&#39;s Pomp and Circumstance heartbreak at graduation, and one final pretzel afternoon at Emerald Creek Mall before Heather and Wesley moved home to Minnesota.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/room-204-unhandled-exception-and-tylers-cousin-lie">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer What Happened Between Katie and Nate&#39;s Six-Bus Escape from Williamsburg and Brandon&#39;s Arrest on Cass Avenue in Detroit Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 5, Chapter 1, Parts 2 &amp; 3) 555 Goyeau Street &amp; 35 Park Street East, Windsor, Ontario; East Jefferson Avenue, Randolph Street, &amp; Cass Avenue, Detroit, Michigan Behind-the-scenes reconstruction of Brandon Mercer&#39;s flight from Williamsburg to the Detroit-Windsor Tunnel, his ripped-up ticket on East Jefferson Avenue, his refusal of entry into Canada at 555 Goyeau Street / 35 Park Street East, and his arrest by Deputy U.S. Marshals on Cass Avenue. 2004-10-17">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2004-10-17</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file" class="bs-link">CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer</a></h3>
+        <div class="bs-card-subtitle">What Happened Between Katie and Nate&#39;s Six-Bus Escape from Williamsburg and Brandon&#39;s Arrest on Cass Avenue in Detroit</div>
+        <p class="bs-card-summary">Behind-the-scenes reconstruction of Brandon Mercer&#39;s flight from Williamsburg to the Detroit-Windsor Tunnel, his ripped-up ticket on East Jefferson Avenue, his refusal of entry into Canada at 555 Goyeau Street / 35 Park Street East, and his arrest by Deputy U.S. Marshals on Cass Avenue.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg Why Cousin Chelsea Held All the Legal Cards in Newport—and the Two Transit Rules Brandon Mercer Never Bothered to Read Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 5, Chapter 1, Part 3 &amp; Chapter 2, Part 2) Tonomy Hill, Newport, Rhode Island &amp; Williamsburg Transportation Center, Williamsburg, Virginia Behind-the-scenes look at the legal irony inside Cousin Chelsea&#39;s apartment on Tonomy Hill during Christmas 2004—and the two transit tariff traps that doomed Brandon Mercer&#39;s flight from Williamsburg. 2004-12-27">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2004-12-27</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if" class="bs-link">Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg</a></h3>
+        <div class="bs-card-subtitle">Why Cousin Chelsea Held All the Legal Cards in Newport—and the Two Transit Rules Brandon Mercer Never Bothered to Read</div>
+        <p class="bs-card-summary">Behind-the-scenes look at the legal irony inside Cousin Chelsea&#39;s apartment on Tonomy Hill during Christmas 2004—and the two transit tariff traps that doomed Brandon Mercer&#39;s flight from Williamsburg.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Unopened RRC Staff Dossier: Form A vs. Form B &amp; The Unsigned Level 1 Contract How Nate and Katie Presented on Paper to Fishersville Staff, the 1996 Exam Battery Trap, &amp; The Punishment Contract Destroyed by Wednesday Night&#39;s Chaos Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 6, Chapters 1–3) Testing Table Two &amp; Bates-Harding Administration Building, Roosevelt Rehabilitation Center, Fishersville, Virginia Inside the internal RRC staff notes on &#39;Prairie, Nathaniel&#39; and &#39;Prairie, Katie&#39;—why Ms. Hollis and Mr. Miller handed them alternating Form A and Form B test booklets expecting them to cheat, why VITA locked down the lab on Quantum OS 2000 Professional, and the drafted Level 1 Restriction Contract sitting on their counselor&#39;s desk on Thursday morning. 2007-03-08">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2007-03-08</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/rrc-staff-file-voc-eval-and-level-1-contract" class="bs-link">The Unopened RRC Staff Dossier: Form A vs. Form B &amp; The Unsigned Level 1 Contract</a></h3>
+        <div class="bs-card-subtitle">How Nate and Katie Presented on Paper to Fishersville Staff, the 1996 Exam Battery Trap, &amp; The Punishment Contract Destroyed by Wednesday Night&#39;s Chaos</div>
+        <p class="bs-card-summary">Inside the internal RRC staff notes on &#39;Prairie, Nathaniel&#39; and &#39;Prairie, Katie&#39;—why Ms. Hollis and Mr. Miller handed them alternating Form A and Form B test booklets expecting them to cheat, why VITA locked down the lab on Quantum OS 2000 Professional, and the drafted Level 1 Restriction Contract sitting on their counselor&#39;s desk on Thursday morning.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/rrc-staff-file-voc-eval-and-level-1-contract">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Unopened RRC Staff Dossier: Form A vs. Form B &amp; The Unsigned Level 1 Contract</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/rrc-staff-file-voc-eval-and-level-1-contract">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Unopened RRC Staff Dossier: Form A vs. Form B &amp; The Unsigned Level 1 Contract</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The 11:00 PM Curfew Search &amp; Why Locking the Closet Door Got Them Caught What Happened Across the Courtyard in Barton Hall &amp; The Hookup Closet Irony Neither Twin Ever Knew Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 6, Chapter 2, Part 2) Barton Hall &amp; Campus Recreation Hall, Roosevelt Rehabilitation Center, Fishersville, Virginia Behind-the-scenes breakdown of how Barton Hall staff knew to search the Rec Hall after the 11:00 PM Level 2 bed check—and why locking the normally unlocked door of a notorious student hookup closet is what actually got Nate and Katie caught. 2007-03-13">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2007-03-13</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/rrc-seasonal-closet-curfew-search" class="bs-link">The 11:00 PM Curfew Search &amp; Why Locking the Closet Door Got Them Caught</a></h3>
+        <div class="bs-card-subtitle">What Happened Across the Courtyard in Barton Hall &amp; The Hookup Closet Irony Neither Twin Ever Knew</div>
+        <p class="bs-card-summary">Behind-the-scenes breakdown of how Barton Hall staff knew to search the Rec Hall after the 11:00 PM Level 2 bed check—and why locking the normally unlocked door of a notorious student hookup closet is what actually got Nate and Katie caught.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/rrc-seasonal-closet-curfew-search">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The 11:00 PM Curfew Search &amp; Why Locking the Closet Door Got Them Caught</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/rrc-seasonal-closet-curfew-search">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The 11:00 PM Curfew Search &amp; Why Locking the Closet Door Got Them Caught</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+        </div>
+      </wa-scroller>
+    </section>
+  
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        <wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  <li><a href="#sec-1-chamfered-corner-street-frontage-universal-entry-1618-white-bear-avenue" class="bs-toc-link">1. Chamfered Corner Street Frontage &amp; Universal Entry (1618 White Bear Avenue)</a></li>
+                  <li><a href="#sec-2-front-building-zone-open-to-the-public-no-zoo-ticket-required" class="bs-toc-link">2. Front Building Zone (Open to the Public — No Zoo Ticket Required)</a></li>
+                  <li><a href="#sec-3-behind-the-interior-sliding-zoo-entrance-doors-three-barrier-free-animal-wings" class="bs-toc-link">3. Behind the Interior Sliding Zoo Entrance Doors: Three Barrier-Free Animal Wings</a></li>
+                </ul>
+              </wa-card>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-2-route-64-to-maplewood-seeing-wesley-in-person-after-fifteen-years-the-earned-hug-sale-number-one-in-the-store" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Episode 10, Chapter 1, Part 2: Route 64 to Maplewood &amp; Inside North Lion Scales &amp; Tails ↗
+                  </wa-button>
+            <wa-button variant="neutral" appearance="outlined" size="small" href="/books/katie">
+                    <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                    Katie &amp; Nathaniel (20 Dossiers)
+                  </wa-button>
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings" label="QR code to open Architectural Blueprint &amp; Visitor Guide: Inside North Lion Scales &amp; Tails (Maplewood, MN) on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261115d" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261115h" defer></script>
+  </body>
+</html>

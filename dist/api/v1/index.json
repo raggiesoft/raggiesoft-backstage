@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-16T03:19:47.995Z",
+  "generatedAt": "2026-11-16T21:22:30.644Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 54,
+  "totalItems": 55,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 20,
-    "katieDossiers": 19,
+    "katie": 21,
+    "katieDossiers": 20,
     "casey": 7,
     "caseyDossiers": 6,
     "aubrie": 13,
@@ -15,7 +15,7 @@
     "aubrieCorrespondence": 10,
     "lore": 3,
     "hubs": 4,
-    "total": 54
+    "total": 55
   },
   "items": {
     "books/quantum-directive-3-casey": {
@@ -66,7 +66,7 @@
     "books/katie": {
       "slug": "books/katie",
       "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
-      "subtitle": "Nineteen Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
+      "subtitle": "Twenty Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
       "category": "Katie & Nathaniel — Behind the Scenes",
       "date": "2027-07-22",
       "time": "",
@@ -74,7 +74,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "Complete collection of nineteen behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Heather Collins's 2003 Room 204 reckoning, and the 2018 North Lion Scales & Tails reunion in Maplewood to Governor Rebecca Langford's July 2027 Capitol Square sweep and the 2044 Route 15 Bus-Stop Primary.",
+      "summary": "Complete collection of twenty behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Heather Collins's 2003 Room 204 reckoning, and the 2018 North Lion Scales & Tails floor plan and reunion in Maplewood to Governor Rebecca Langford's July 2027 Capitol Square sweep and the 2044 Route 15 Bus-Stop Primary.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
     },
@@ -722,6 +722,21 @@
       "summary": "Because Katie & Nathaniel is told strictly in Nathaniel's first-person perspective, the main novel follows Nate, Katie, and Heather behind the closed door of the Education Classroom. This Backstage scene stays out in the sunlit conservatory to show the joyful twenty minutes Staff Member Wesley and Cousin Chelsea spend feeding Clover, Scooter, and Barnaby in matching blue gloves.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/chelsea-and-wesley-at-the-turtle-lagoon",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/chelsea-and-wesley-at-the-turtle-lagoon.json"
+    },
+    "books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings": {
+      "slug": "books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings",
+      "title": "Architectural Blueprint & Visitor Guide: Inside North Lion Scales & Tails (Maplewood, MN)",
+      "subtitle": "Zero-Step Automatic Sliding Doors, The Front Supply Store & Customer Service Counter, Dr. Meyer's Vet Clinic, & Three Barrier-Free Zoo Wings for Turtles, Reptiles, and Small Mammals",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2018-06-16",
+      "time": "10:00 CDT",
+      "sender": "RaggieSoft Backstage Architectural Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/north-lion-scales-and-tails-floorplan-2018.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "A complete room-by-room architectural guide to Heather and Dan Lindstrom's barrier-free Maplewood facility—explaining how the front retail store, customer service counter, exotic vet clinic, skylit greenhouse conservatory, reptile galleries, and small mammal meadow fit together under one zero-step roof.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings.json"
     },
     "books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins": {
       "slug": "books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins",
