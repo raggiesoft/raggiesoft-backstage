@@ -414,7 +414,7 @@
     "part_count": 2,
     "backstage_count": 6,
     "stop_count": 8,
-    "word_count": 12818,
+    "word_count": 12949,
     "reading_minutes": 52,
     "reading_hours": 0.9,
     "stops": [
@@ -491,8 +491,8 @@
         "image": "/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg",
         "url": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie/",
         "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
-        "word_count": 2947,
-        "reading_minutes": 12
+        "word_count": 3078,
+        "reading_minutes": 13
       },
       {
         "stop_num": 5,
@@ -586,9 +586,9 @@
     "part_count": 27,
     "backstage_count": 7,
     "stop_count": 34,
-    "word_count": 68201,
-    "reading_minutes": 273,
-    "reading_hours": 4.5,
+    "word_count": 68421,
+    "reading_minutes": 274,
+    "reading_hours": 4.6,
     "stops": [
       {
         "stop_num": 1,
@@ -758,7 +758,7 @@
         "image": "/raggiesoft-books/images/scenes/katie/b004/feb_2003_northwood_room_204_unhandled_exception_katie_nate_heather_apart.jpg",
         "url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a",
         "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
-        "word_count": 4140,
+        "word_count": 4177,
         "reading_minutes": 17
       },
       {
@@ -777,8 +777,8 @@
         "image": "/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg",
         "url": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie/",
         "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
-        "word_count": 2947,
-        "reading_minutes": 12
+        "word_count": 3078,
+        "reading_minutes": 13
       },
       {
         "stop_num": 11,
@@ -1100,7 +1100,7 @@
         "image": "/raggiesoft-backstage/images/scenes/katie-what-if-north-lion-grand-opening.jpg",
         "url": "https://backstage.raggiesoft.com/books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins/",
         "arc_url": "/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-5-chelsea-s-magical-first-non-family-hug-riding-route-54-to-terminal-2-a-three-way-hug-outside-tsa?arc=heather-wesley-and-north-lion",
-        "word_count": 1171,
+        "word_count": 1223,
         "reading_minutes": 5
       },
       {
@@ -1252,7 +1252,7 @@
     "part_count": 33,
     "backstage_count": 5,
     "stop_count": 38,
-    "word_count": 114571,
+    "word_count": 114648,
     "reading_minutes": 459,
     "reading_hours": 7.6,
     "stops": [
@@ -1880,7 +1880,7 @@
         "image": "/raggiesoft-books/images/scenes/katie/b006/oct_2043_arvin_road_four_person_cuddle_nest_katie_nate_brittany_chelsea.jpg",
         "url": "/katie/the-senator-from-virginia/three-senate-terms-refusing-the-2044-nomination-the-stop-0812-four-seat-presidential-endorsement-loop/part-1-refusing-the-2045-presidency-from-home-five-statutory-shields-against-the-bubble-out-of-the-closet-into-our-four-person-nest",
         "arc_url": "/katie/the-senator-from-virginia/three-senate-terms-refusing-the-2044-nomination-the-stop-0812-four-seat-presidential-endorsement-loop/part-1-refusing-the-2045-presidency-from-home-five-statutory-shields-against-the-bubble-out-of-the-closet-into-our-four-person-nest?arc=katie-political-career",
-        "word_count": 3557,
+        "word_count": 3595,
         "reading_minutes": 15
       },
       {
@@ -1975,7 +1975,7 @@
         "image": "/raggiesoft-books/images/scenes/katie/b005/senator_katie_prairie_age_41_us_senate_portrait_og.jpg",
         "url": "https://backstage.raggiesoft.com/books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary/",
         "arc_url": "/katie/the-senator-from-virginia/three-senate-terms-refusing-the-2044-nomination-the-stop-0812-four-seat-presidential-endorsement-loop/part-5-the-thursday-morning-loop-governor-elena-delgado-the-six-o-clock-upload?arc=katie-political-career",
-        "word_count": 3665,
+        "word_count": 3704,
         "reading_minutes": 15
       }
     ]
@@ -1994,9 +1994,9 @@
     "part_count": 12,
     "backstage_count": 2,
     "stop_count": 14,
-    "word_count": 36370,
-    "reading_minutes": 146,
-    "reading_hours": 2.4,
+    "word_count": 37120,
+    "reading_minutes": 149,
+    "reading_hours": 2.5,
     "stops": [
       {
         "stop_num": 1,
@@ -2080,18 +2080,18 @@
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
         "backstage_slug": "books/katie/hillside-court-six-oclock-news-and-holding-the-elevator",
-        "title": "Across the James River in Hillside Court: Watching the 6:00 PM News & Holding the General Assembly Elevator",
-        "subtitle": "How Cousin Brittany Saw Delegate Katie Prairie on Television Thursday Night, Rode JRTC Across the Manchester Bridge Without an Appointment, & Stuck Her Hand in the Closing Doors",
+        "title": "From Smoker's Corner to Hillside Court: How Tyler Trapped Brittany in South Richmond & Holding the General Assembly Elevator",
+        "subtitle": "Why the February 2003 Varsity Soccer Roast Drove Tyler Out to Smoker's Corner, The Off-Lease Public Housing Trap Across the James River, & Riding JRTC Route 74 Without an Appointment",
         "era_title": "Behind the Scenes",
         "chap_title": "Katie & Nathaniel — Behind the Scenes",
         "date": "2016-02-04",
-        "location": "Hillside Court (South Richmond), Manchester Bridge, & General Assembly Building Lobby (Ninth & Broad, Richmond, Virginia)",
-        "excerpt": "What happened across the James River in Hillside Court on Thursday evening, February 4, 2016—before Nate and Katie's first-person camera catches Brittany holding open the General Assembly Building elevator at 1:15 PM on Friday.",
+        "location": "Smoker's Corner (Virginia Beach, Spring 2003), Hillside Court (South Richmond), Manchester Bridge, & General Assembly Building Lobby (Richmond, Virginia)",
+        "excerpt": "How getting roasted by the entire Northwood Varsity Soccer team on February 11, 2003 drove radioactive sleazebag Tyler out to lonely Brittany Fletcher at Smoker's Corner—talking her into dropping out at eighteen, dragging her to South Richmond when her car died in 2013, and trapping her via an off-lease Hillside Court public-housing scheme until she saw Delegate Katie Prairie on the Thursday evening news.",
         "image": "/raggiesoft-books/images/scenes/katie/b005/jul_2016_kings_college_royal_gate_court_order_chelsea_rescue_family.jpg",
         "url": "https://backstage.raggiesoft.com/books/katie/hillside-court-six-oclock-news-and-holding-the-elevator/",
         "arc_url": "/katie/six-buses-from-williamsburg-sea-breeze-west-coming-home-to-arvin-road/tiffany-s-sea-breeze-west-apartment-dirty-old-tonomy-hill-coming-home-to-arvin-road/part-2-the-worst-christmas-ever-eighteen-stops-to-dirty-old-tonomy-hill-four-days-with-cousin-chelsea-the-west-main-road-shortcut-home?arc=brittany-chelsea-and-the-four-person-sanctuary",
-        "word_count": 1656,
-        "reading_minutes": 7
+        "word_count": 2250,
+        "reading_minutes": 9
       },
       {
         "stop_num": 6,
@@ -2109,8 +2109,8 @@
         "image": "/raggiesoft-books/images/scenes/katie/b005/feb_2016_gab_elevator_hold_reunion_brittany_katie_nate.jpg",
         "url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-3-hold-the-elevator-reuniting-with-cousin-brittany-in-room-518-friday-night-on-jrtc-route-6-why-nate-must-speak",
         "arc_url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-3-hold-the-elevator-reuniting-with-cousin-brittany-in-room-518-friday-night-on-jrtc-route-6-why-nate-must-speak?arc=brittany-chelsea-and-the-four-person-sanctuary",
-        "word_count": 4730,
-        "reading_minutes": 19
+        "word_count": 4839,
+        "reading_minutes": 20
       },
       {
         "stop_num": 7,
@@ -2128,7 +2128,7 @@
         "image": "/raggiesoft-books/images/scenes/katie/b005/feb_2016_south_richmond_church_nate_i_object_brittany_katie.jpg",
         "url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-4-via-southside-plaza-speaking-up-at-the-altar-taking-brittany-to-meet-the-nation-left-onto-macgregory-street",
         "arc_url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-4-via-southside-plaza-speaking-up-at-the-altar-taking-brittany-to-meet-the-nation-left-onto-macgregory-street?arc=brittany-chelsea-and-the-four-person-sanctuary",
-        "word_count": 8649,
+        "word_count": 8696,
         "reading_minutes": 35
       },
       {

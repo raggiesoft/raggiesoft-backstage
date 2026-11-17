@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T02:01:30.756Z",
+  "generatedAt": "2026-11-17T02:13:38.034Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
   "totalItems": 57,
@@ -681,8 +681,8 @@
     },
     "books/katie/hillside-court-six-oclock-news-and-holding-the-elevator": {
       "slug": "books/katie/hillside-court-six-oclock-news-and-holding-the-elevator",
-      "title": "Across the James River in Hillside Court: Watching the 6:00 PM News & Holding the General Assembly Elevator",
-      "subtitle": "How Cousin Brittany Saw Delegate Katie Prairie on Television Thursday Night, Rode JRTC Across the Manchester Bridge Without an Appointment, & Stuck Her Hand in the Closing Doors",
+      "title": "From Smoker's Corner to Hillside Court: How Tyler Trapped Brittany in South Richmond & Holding the General Assembly Elevator",
+      "subtitle": "Why the February 2003 Varsity Soccer Roast Drove Tyler Out to Smoker's Corner, The Off-Lease Public Housing Trap Across the James River, & Riding JRTC Route 74 Without an Appointment",
       "category": "Katie & Nathaniel — Behind the Scenes",
       "date": "2016-02-04",
       "time": "18:04 EST",
@@ -690,7 +690,7 @@
       "subject": "",
       "image": "",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "What happened across the James River in Hillside Court on Thursday evening, February 4, 2016—before Nate and Katie's first-person camera catches Brittany holding open the General Assembly Building elevator at 1:15 PM on Friday.",
+      "summary": "How getting roasted by the entire Northwood Varsity Soccer team on February 11, 2003 drove radioactive sleazebag Tyler out to lonely Brittany Fletcher at Smoker's Corner—talking her into dropping out at eighteen, dragging her to South Richmond when her car died in 2013, and trapping her via an off-lease Hillside Court public-housing scheme until she saw Delegate Katie Prairie on the Thursday evening news.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/hillside-court-six-oclock-news-and-holding-the-elevator",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/hillside-court-six-oclock-news-and-holding-the-elevator.json"
     },
