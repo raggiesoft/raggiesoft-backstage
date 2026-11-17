@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T12:46:59.141Z",
+  "generatedAt": "2026-11-17T13:07:00.573Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -590,7 +590,7 @@
       "part_count": 30,
       "backstage_count": 7,
       "stop_count": 37,
-      "word_count": 73970,
+      "word_count": 73958,
       "reading_minutes": 296,
       "reading_hours": 4.9,
       "stops": [
@@ -1275,7 +1275,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b006/apr_2032_arvin_road_brittany_1991_truck_streamtube_wheelchair_garage.jpg",
           "url": "/katie/the-senator-from-virginia/the-supported-companions-act-three-mirrored-in-law-suites-brittany-s-1991-crew-cab/part-4-passing-the-torch-for-chelsea-four-gears-uncle-david-taught-her-brittany-s-truck-videos-on-streamtube-and-the-grid",
           "arc_url": "/katie/the-senator-from-virginia/the-supported-companions-act-three-mirrored-in-law-suites-brittany-s-1991-crew-cab/part-4-passing-the-torch-for-chelsea-four-gears-uncle-david-taught-her-brittany-s-truck-videos-on-streamtube-and-the-grid?arc=heather-wesley-and-north-lion",
-          "word_count": 1960,
+          "word_count": 1948,
           "reading_minutes": 8
         },
         {
@@ -2112,7 +2112,7 @@
       "part_count": 14,
       "backstage_count": 2,
       "stop_count": 16,
-      "word_count": 40934,
+      "word_count": 40922,
       "reading_minutes": 164,
       "reading_hours": 2.7,
       "stops": [
@@ -2417,7 +2417,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b006/apr_2032_arvin_road_brittany_1991_truck_streamtube_wheelchair_garage.jpg",
           "url": "/katie/the-senator-from-virginia/the-supported-companions-act-three-mirrored-in-law-suites-brittany-s-1991-crew-cab/part-4-passing-the-torch-for-chelsea-four-gears-uncle-david-taught-her-brittany-s-truck-videos-on-streamtube-and-the-grid",
           "arc_url": "/katie/the-senator-from-virginia/the-supported-companions-act-three-mirrored-in-law-suites-brittany-s-1991-crew-cab/part-4-passing-the-torch-for-chelsea-four-gears-uncle-david-taught-her-brittany-s-truck-videos-on-streamtube-and-the-grid?arc=brittany-chelsea-and-the-four-person-sanctuary",
-          "word_count": 1960,
+          "word_count": 1948,
           "reading_minutes": 8
         }
       ]
