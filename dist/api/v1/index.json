@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-16T23:02:21.206Z",
+  "generatedAt": "2026-11-17T00:55:05.474Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 55,
+  "totalItems": 57,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 21,
-    "katieDossiers": 20,
+    "katie": 23,
+    "katieDossiers": 22,
     "casey": 7,
     "caseyDossiers": 6,
     "aubrie": 13,
@@ -15,8 +15,8 @@
     "aubrieCorrespondence": 10,
     "lore": 3,
     "hubs": 4,
-    "total": 55,
-    "storyArcs": 12
+    "total": 57,
+    "storyArcs": 13
   },
   "items": {
     "books/quantum-directive-3-casey": {
@@ -258,6 +258,21 @@
       "summary": "In-universe corporate history of Vectron Energy Corp.'s 1997-2001 'Question The Rules' TV ad campaign, energy deregulation, and the birth of Z-SOX-302.",
       "canonicalUrl": "https://backstage.raggiesoft.com/corporations/vectron-question-the-rules",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/corporations/vectron-question-the-rules.json"
+    },
+    "books/katie/wesley-blowout-at-heather-losing-his-friend-nate": {
+      "slug": "books/katie/wesley-blowout-at-heather-losing-his-friend-nate",
+      "title": "Five Red X's on the Wall Calendar: Wesley's Perspective on the Morning He Thought He Lost Nate Forever",
+      "subtitle": "From Fifteen-Year-Old Non-Verbal Wesley Collins's Third-Person Limited Point of View — Why Heather's Breakup Felt Like Losing His Only Guy Friend on Earth",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2003-01-11",
+      "time": "10:40–11:15 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/wesley-blowout-at-heather-jan-2003.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "While Katie & Nathaniel follows Nate in Virginia Beach and The Story of Heather Lindstrom follows Heather in Chesapeake, this companion scene enters fifteen-year-old non-verbal Wesley Collins's own third-person limited perspective on Saturday morning, January 11, 2003—revealing the sheer terror of having zero phone, bus, or spoken bridge to his very first guy friend when Heather messed up.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/wesley-blowout-at-heather-losing-his-friend-nate",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/wesley-blowout-at-heather-losing-his-friend-nate.json"
     },
     "books/katie/room-204-unhandled-exception-and-tylers-cousin-lie": {
       "slug": "books/katie/room-204-unhandled-exception-and-tylers-cousin-lie",
@@ -772,7 +787,7 @@
     "books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus": {
       "slug": "books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus",
       "title": "The $14 Million DSCC Primary Shock, Opposing Leader Schuman, The 211–204 Lame-Duck False Dawn, & The Senate Wheelchair Caucus",
-      "subtitle": "Inside Retiring Senator Martin Warren's Office, Uncle Richard's Live Beacon News Takedown, Forcing a Ballot Against Charles Schuman, Bret Halverson's Premature Pentagon Victory Lap, & VPOTUS Conrad Drayton's Fury in S-216",
+      "subtitle": "Inside Retiring Senator Martin Warren's Office, Uncle Richard's Live Beacon News Takedown, Backing Chris Van Deren to Unseat Charles Schuman 29–26, Bret Halverson's Premature Pentagon Victory Lap, & VPOTUS Conrad Drayton's Fury in S-216",
       "category": "Katie & Nathaniel — Behind the Scenes",
       "date": "2027-01-03",
       "time": "12:15 EST",
@@ -780,7 +795,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "Behind-the-scenes look at Katie's primary upset over the DSCC, Uncle Richard defending her on Beacon News, her public No vote against Leader Charles Schuman, Defense Secretary Bret Halverson's premature 211–204 impeachment escape, the three-member Senate Wheelchair Caucus, and S-216.",
+      "summary": "Behind-the-scenes look at Katie's primary upset over the DSCC, Uncle Richard defending her on Beacon News, backing Chris Van Deren's 29–26 upset over Leader Charles Schuman, Defense Secretary Bret Halverson's premature 211–204 impeachment escape, the three-member Senate Wheelchair Caucus, and S-216.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus.json"
     },
@@ -843,6 +858,21 @@
       "summary": "What happened in Richmond between 9:03 AM and 10:25 AM on Thursday, July 22, 2027—when a volcanically irate Governor Rebecca Langford summoned DARS Commissioner Marcus Sterling and Secretary of Health and Human Resources Dr. Miriam Alcott across Capitol Square for lying to U.S. Senator Katie Prairie.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/governor-langford-capitol-square-reckoning-with-sterling",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/governor-langford-capitol-square-reckoning-with-sterling.json"
+    },
+    "books/katie/what-if-wesley-and-chelsea-two-in-law-suites": {
+      "slug": "books/katie/what-if-wesley-and-chelsea-two-in-law-suites",
+      "title": "Alternate 'What If' Dossier: Two Ground-Floor In-Law Suites — Virginia Beach & Maplewood",
+      "subtitle": "What If Chelsea and Wesley Were Allowed to Live Together Year-Round Across Matching Guardian-Connected Suites at 737 Arvin Road and Heather & Dan's Minnesota Home?",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2028-09-15",
+      "time": "19:30 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/what-if-wesley-and-chelsea-shared-inlaw-suite.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "In main canon, Chelsea keeps her home base with Katie, Nate, and Brittany in Virginia while Wesley keeps his job at North Lion Scales & Tails in Minnesota, enjoying long cross-state visits after Senator Katie Prairie's 2028 reform law. This Alternate 'What If' explores the world where both guardian families build matching connected ground-floor in-law suites in BOTH Virginia Beach and Maplewood so Wesley and Chelsea can live together full-time!",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-wesley-and-chelsea-two-in-law-suites",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-wesley-and-chelsea-two-in-law-suites.json"
     }
   }
 }

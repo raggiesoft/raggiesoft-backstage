@@ -401,22 +401,194 @@
     ]
   },
   {
+    "slug": "scales-tails-and-safe-people",
+    "series_slug": "heather",
+    "series_title": "The Story of Heather Lindstrom",
+    "backstage_playlist_slug": "heather-scales-tails-and-safe-people",
+    "backstage_playlist_url": "https://backstage.raggiesoft.com/arcs/heather-scales-tails-and-safe-people/",
+    "title": "Scales, Tails, and Safe People: Heather, Wesley & The Road to North Lion",
+    "subtitle": "2003–2028 • Wesley's Chesapeake Blowout, Ten Years Behind the Lens & Two Shared Families",
+    "description": "Experience Heather Lindstrom's story alongside her non-verbal cousin Wesley—from the Saturday morning Wesley blew up over losing his first guy buddy Nate through building North Lion Scales & Tails in Maplewood and standing together in the restored White House Rose Garden.",
+    "image": "/raggiesoft-books/images/scenes/heather/e001/jan_2003_chesapeake_living_room_wesley_photo_blowout_heather.jpg",
+    "start_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-1-the-empty-pretzel-table-the-oak-frame-off-the-shelf-why-wesley-blew-up?arc=scales-tails-and-safe-people",
+    "part_count": 2,
+    "backstage_count": 6,
+    "stop_count": 8,
+    "word_count": 12186,
+    "reading_minutes": 49,
+    "reading_hours": 0.8,
+    "stops": [
+      {
+        "stop_num": 1,
+        "kind": "part",
+        "series_slug": "heather",
+        "series_title": "The Story of Heather Lindstrom",
+        "file_path": "e001/c001/p001.md",
+        "title": "Part 1: The Empty Pretzel Table, The Oak Frame Off the Shelf, & Why Wesley Blew Up",
+        "subtitle": "Saturday Pretzel Day, The Empty Shelf, & The Boy Without a Phone Bridge • Scales, Tails, and Safe People",
+        "era_title": "Scales, Tails, and Safe People",
+        "chap_title": "Saturday Pretzel Day, The Empty Shelf, & The Boy Without a Phone Bridge",
+        "date": "2003-01-11",
+        "location": "Chesapeake, VA (Aunt Linda & Uncle Greg Collins's Split-Level Home)",
+        "excerpt": "Five days after ending things with Nate outside Room 204, seventeen-year-old Heather tells fifteen-year-old Wesley they aren't meeting Nate at Emerald Creek Mall—triggering a furious, heartbroken blowout.",
+        "image": "/raggiesoft-books/images/scenes/heather/e001/jan_2003_chesapeake_living_room_wesley_photo_blowout_heather.jpg",
+        "url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-1-the-empty-pretzel-table-the-oak-frame-off-the-shelf-why-wesley-blew-up",
+        "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-1-the-empty-pretzel-table-the-oak-frame-off-the-shelf-why-wesley-blew-up?arc=scales-tails-and-safe-people",
+        "word_count": 2224,
+        "reading_minutes": 9
+      },
+      {
+        "stop_num": 2,
+        "kind": "backstage",
+        "series_slug": "heather",
+        "series_title": "The Story of Heather Lindstrom",
+        "backstage_slug": "books/katie/wesley-blowout-at-heather-losing-his-friend-nate",
+        "title": "Five Red X's on the Wall Calendar: Wesley's Perspective on the Morning He Thought He Lost Nate Forever",
+        "subtitle": "From Fifteen-Year-Old Non-Verbal Wesley Collins's Third-Person Limited Point of View — Why Heather's Breakup Felt Like Losing His Only Guy Friend on Earth",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2003-01-11",
+        "location": "Chesapeake, Virginia (Wesley's Upstairs Bedroom & Living Room)",
+        "excerpt": "While Katie & Nathaniel follows Nate in Virginia Beach and The Story of Heather Lindstrom follows Heather in Chesapeake, this companion scene enters fifteen-year-old non-verbal Wesley Collins's own third-person limited perspective on Saturday morning, January 11, 2003—revealing the sheer terror of having zero phone, bus, or spoken bridge to his very first guy friend when Heather messed up.",
+        "image": "/raggiesoft-backstage/images/scenes/wesley-blowout-at-heather-jan-2003.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/wesley-blowout-at-heather-losing-his-friend-nate/",
+        "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-1-the-empty-pretzel-table-the-oak-frame-off-the-shelf-why-wesley-blew-up?arc=scales-tails-and-safe-people",
+        "word_count": 1736,
+        "reading_minutes": 7
+      },
+      {
+        "stop_num": 3,
+        "kind": "part",
+        "series_slug": "heather",
+        "series_title": "The Story of Heather Lindstrom",
+        "file_path": "e001/c001/p002.md",
+        "title": "Part 2: Two Taps on the Glass Every Saturday & Five Months of Frozen Pride",
+        "subtitle": "Saturday Pretzel Day, The Empty Shelf, & The Boy Without a Phone Bridge • Scales, Tails, and Safe People",
+        "era_title": "Scales, Tails, and Safe People",
+        "chap_title": "Saturday Pretzel Day, The Empty Shelf, & The Boy Without a Phone Bridge",
+        "date": "2003-02-15",
+        "location": "Chesapeake & Virginia Beach, VA (Aunt Linda's House & Northwood High School)",
+        "excerpt": "Four days after watching Megan demolish Tyler's lie about Cousin Hannah in the Northwood cafeteria, Heather faces Wesley's weekly plea to go apologize to Nate and Katie.",
+        "image": "/raggiesoft-books/images/scenes/heather/e001/jan_2003_chesapeake_living_room_wesley_photo_blowout_heather.jpg",
+        "url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride",
+        "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
+        "word_count": 939,
+        "reading_minutes": 4
+      },
+      {
+        "stop_num": 4,
+        "kind": "backstage",
+        "series_slug": "heather",
+        "series_title": "The Story of Heather Lindstrom",
+        "backstage_slug": "books/katie/room-204-unhandled-exception-and-tylers-cousin-lie",
+        "title": "Workstation Three, Cousin Hannah's Green Parka, & Why Heather Knew There Was No Restore Point",
+        "subtitle": "Inside Senior Homeroom 212 on January 6, Five Weeks of Empty Floor in Room 204, & The Cafeteria Lie That Left Heather Sick With Herself",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2003-02-11",
+        "location": "Northwood High School (Homeroom 212, Room 204 Computer Lab, Commons Cafeteria, & Stairway A Bus Loop), Virginia Beach, Virginia",
+        "excerpt": "What happened outside Nathaniel's first-person view between January and June 2003—from Tyler's homeroom ambush on January 6 and five weeks of silence in Mr. Callahan's Room 204 lab to Cousin Hannah's green parka, Wesley's Pomp and Circumstance heartbreak at graduation, and one final pretzel afternoon at Emerald Creek Mall before Heather and Wesley moved home to Minnesota.",
+        "image": "/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie/",
+        "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
+        "word_count": 2644,
+        "reading_minutes": 11
+      },
+      {
+        "stop_num": 5,
+        "kind": "backstage",
+        "series_slug": "heather",
+        "series_title": "The Story of Heather Lindstrom",
+        "backstage_slug": "books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request",
+        "title": "Thirteen Hundred Miles Away in Maplewood: Missing Postcards, Seeing Katie on TV, & A Very Cautious Request",
+        "subtitle": "Why Twenty-Eight-Year-Old Wesley Was Overjoyed Watching Meet the Nation, How Heather Explained State Government Without Big Words, & Ten Quiet Weeks Waiting in Filtered Requests",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2016-02-07",
+        "location": "Maplewood, Minnesota (Heather & Dan Lindstrom's Family Living Room)",
+        "excerpt": "What happened inside Heather and Dan Lindstrom's snowy Maplewood, Minnesota home in February and March 2016—from twenty-eight-year-old Wesley missing his Virginia bus postcards and cheering at Katie and Nate on Sunday morning television to trying to figure out what state government is and convincing Heather to send one very cautious message across thirteen years.",
+        "image": "/raggiesoft-backstage/images/scenes/katie-maplewood-wesley-sees-katie-on-tv.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/wesley-sees-katie-on-tv-and-cautious-grid-request/",
+        "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
+        "word_count": 1399,
+        "reading_minutes": 6
+      },
+      {
+        "stop_num": 6,
+        "kind": "backstage",
+        "series_slug": "heather",
+        "series_title": "The Story of Heather Lindstrom",
+        "backstage_slug": "books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings",
+        "title": "Architectural Blueprint & Visitor Guide: Inside North Lion Scales & Tails (Maplewood, MN)",
+        "subtitle": "Zero-Step Automatic Sliding Doors, The Front Supply Store & Customer Service Counter, Dr. Meyer's Vet Clinic, & Three Barrier-Free Zoo Wings for Turtles, Reptiles, and Small Mammals",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2018-06-16",
+        "location": "1618 White Bear Avenue, Maplewood, Minnesota (Twin Cities Transit Route 64)",
+        "excerpt": "A complete room-by-room architectural guide to Heather and Dan Lindstrom's barrier-free Maplewood facility—explaining how the front retail store, customer service counter, exotic vet clinic, skylit greenhouse conservatory, reptile galleries, and small mammal meadow fit together under one zero-step roof.",
+        "image": "/raggiesoft-backstage/images/scenes/north-lion-scales-and-tails-floorplan-2018.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/north-lion-scales-and-tails-floorplan-and-animal-wings/",
+        "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
+        "word_count": 648,
+        "reading_minutes": 3
+      },
+      {
+        "stop_num": 7,
+        "kind": "backstage",
+        "series_slug": "heather",
+        "series_title": "The Story of Heather Lindstrom",
+        "backstage_slug": "books/katie/chelsea-and-wesley-at-the-turtle-lagoon",
+        "title": "While the Classroom Door Was Closed: Staff Member Wesley, Cousin Chelsea, & Matching Blue Gloves at the Turtle Lagoon",
+        "subtitle": "The Full Twenty-Minute Conservatory Scene Between Wesley, Chelsea, Jonas, Nora, Molly, Brittany, and Dan During Nate, Katie, and Heather's Private Reckoning",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2018-06-16",
+        "location": "Maplewood, Minnesota (Centerpiece Painted-Turtle Lagoon, North Lion Scales & Tails Reptile Zoo)",
+        "excerpt": "Because Katie & Nathaniel is told strictly in Nathaniel's first-person perspective, the main novel follows Nate, Katie, and Heather behind the closed door of the Education Classroom. This Backstage scene stays out in the sunlit conservatory to show the joyful twenty minutes Staff Member Wesley and Cousin Chelsea spend feeding Clover, Scooter, and Barnaby in matching blue gloves.",
+        "image": "/raggiesoft-backstage/images/scenes/katie-backstage-chelsea-wesley-turtle-lagoon.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/chelsea-and-wesley-at-the-turtle-lagoon/",
+        "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
+        "word_count": 1458,
+        "reading_minutes": 6
+      },
+      {
+        "stop_num": 8,
+        "kind": "backstage",
+        "series_slug": "heather",
+        "series_title": "The Story of Heather Lindstrom",
+        "backstage_slug": "books/katie/what-if-wesley-and-chelsea-two-in-law-suites",
+        "title": "Alternate 'What If' Dossier: Two Ground-Floor In-Law Suites — Virginia Beach & Maplewood",
+        "subtitle": "What If Chelsea and Wesley Were Allowed to Live Together Year-Round Across Matching Guardian-Connected Suites at 737 Arvin Road and Heather & Dan's Minnesota Home?",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2028-09-15",
+        "location": "Virginia Beach, Virginia (737 Arvin Road In-Law Suite) & Maplewood, Minnesota (Route 64 Breezeway Suite)",
+        "excerpt": "In main canon, Chelsea keeps her home base with Katie, Nate, and Brittany in Virginia while Wesley keeps his job at North Lion Scales & Tails in Minnesota, enjoying long cross-state visits after Senator Katie Prairie's 2028 reform law. This Alternate 'What If' explores the world where both guardian families build matching connected ground-floor in-law suites in BOTH Virginia Beach and Maplewood so Wesley and Chelsea can live together full-time!",
+        "image": "/raggiesoft-backstage/images/scenes/what-if-wesley-and-chelsea-shared-inlaw-suite.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/what-if-wesley-and-chelsea-two-in-law-suites/",
+        "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
+        "word_count": 1138,
+        "reading_minutes": 5
+      }
+    ]
+  },
+  {
     "slug": "heather-wesley-and-north-lion",
     "series_slug": "katie",
     "series_title": "Katie & Nathaniel",
     "backstage_playlist_slug": "katie-heather-wesley-and-north-lion",
     "backstage_playlist_url": "https://backstage.raggiesoft.com/arcs/katie-heather-wesley-and-north-lion/",
     "title": "From Northwood High to North Lion: Heather, Wesley & Chelsea",
-    "subtitle": "2001–2018 • Teenage Heartbreak, Ten Years Behind the Lens & Two Special Friends",
-    "description": "Follow Heather Collins from Nate's high school girlfriend at Emerald Creek Mall and Tyler's senior-year lie through ten years building North Lion Scales & Tails in Minnesota, the Maplewood zoo reunion, and Wesley and Chelsea's deep-pressure bond.",
+    "subtitle": "2001–2028 • Teenage Heartbreak, Ten Years Behind the Lens, Two Special Friends & The Restored Rose Garden",
+    "description": "Follow Heather Collins from Nate's high school girlfriend at Emerald Creek Mall and Wesley's January 2003 blowout through ten years building North Lion Scales & Tails in Minnesota, Wesley and Chelsea's deep-pressure bond, and Senator Katie Prairie's 2028 landmark disability reform law.",
     "image": "/raggiesoft-books/images/scenes/katie/b005/jun_2018_maplewood_north_lion_ribbon_cutting_earned_hug_nate_heather_wesley.jpg",
     "start_url": "/katie/sixteen-summer-sanctuary/sixteen-on-four-wheels-finding-dates/part-1-navigating-northwood-high-on-four-wheels-two-first-dates-why-we-ride-on-saturday?arc=heather-wesley-and-north-lion",
-    "part_count": 25,
-    "backstage_count": 5,
-    "stop_count": 30,
-    "word_count": 60808,
-    "reading_minutes": 244,
-    "reading_hours": 4.1,
+    "part_count": 27,
+    "backstage_count": 7,
+    "stop_count": 34,
+    "word_count": 67328,
+    "reading_minutes": 270,
+    "reading_hours": 4.5,
     "stops": [
       {
         "stop_num": 1,
@@ -553,6 +725,25 @@
       },
       {
         "stop_num": 8,
+        "kind": "backstage",
+        "series_slug": "katie",
+        "series_title": "Katie & Nathaniel",
+        "backstage_slug": "books/katie/wesley-blowout-at-heather-losing-his-friend-nate",
+        "title": "Five Red X's on the Wall Calendar: Wesley's Perspective on the Morning He Thought He Lost Nate Forever",
+        "subtitle": "From Fifteen-Year-Old Non-Verbal Wesley Collins's Third-Person Limited Point of View — Why Heather's Breakup Felt Like Losing His Only Guy Friend on Earth",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2003-01-11",
+        "location": "Chesapeake, Virginia (Wesley's Upstairs Bedroom & Living Room)",
+        "excerpt": "While Katie & Nathaniel follows Nate in Virginia Beach and The Story of Heather Lindstrom follows Heather in Chesapeake, this companion scene enters fifteen-year-old non-verbal Wesley Collins's own third-person limited perspective on Saturday morning, January 11, 2003—revealing the sheer terror of having zero phone, bus, or spoken bridge to his very first guy friend when Heather messed up.",
+        "image": "/raggiesoft-backstage/images/scenes/wesley-blowout-at-heather-jan-2003.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/wesley-blowout-at-heather-losing-his-friend-nate/",
+        "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-2-the-drunken-new-year-lie-heather-s-bitter-goodbye-twin-sisters-always-stay?arc=heather-wesley-and-north-lion",
+        "word_count": 1736,
+        "reading_minutes": 7
+      },
+      {
+        "stop_num": 9,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -571,7 +762,7 @@
         "reading_minutes": 16
       },
       {
-        "stop_num": 9,
+        "stop_num": 10,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -590,7 +781,7 @@
         "reading_minutes": 11
       },
       {
-        "stop_num": 10,
+        "stop_num": 11,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -609,7 +800,7 @@
         "reading_minutes": 16
       },
       {
-        "stop_num": 11,
+        "stop_num": 12,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -628,7 +819,7 @@
         "reading_minutes": 13
       },
       {
-        "stop_num": 12,
+        "stop_num": 13,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -647,7 +838,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 13,
+        "stop_num": 14,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -662,11 +853,11 @@
         "image": "/raggiesoft-books/images/scenes/katie/b005/nov_2005_ocean_view_kitchen_tiffany_breakup_katie_nate.jpg",
         "url": "/katie/six-buses-from-williamsburg-sea-breeze-west-coming-home-to-arvin-road/tiffany-s-sea-breeze-west-apartment-dirty-old-tonomy-hill-coming-home-to-arvin-road/part-3-milk-isn-t-allowed-in-this-fridge-tiffany-s-sunday-morning-accusation-yes-or-no-questions-through-tears",
         "arc_url": "/katie/six-buses-from-williamsburg-sea-breeze-west-coming-home-to-arvin-road/tiffany-s-sea-breeze-west-apartment-dirty-old-tonomy-hill-coming-home-to-arvin-road/part-3-milk-isn-t-allowed-in-this-fridge-tiffany-s-sunday-morning-accusation-yes-or-no-questions-through-tears?arc=heather-wesley-and-north-lion",
-        "word_count": 3339,
+        "word_count": 3354,
         "reading_minutes": 14
       },
       {
-        "stop_num": 14,
+        "stop_num": 15,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -685,7 +876,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 15,
+        "stop_num": 16,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -704,7 +895,7 @@
         "reading_minutes": 6
       },
       {
-        "stop_num": 16,
+        "stop_num": 17,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -723,7 +914,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 17,
+        "stop_num": 18,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -742,7 +933,7 @@
         "reading_minutes": 5
       },
       {
-        "stop_num": 18,
+        "stop_num": 19,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -761,7 +952,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 19,
+        "stop_num": 20,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -780,7 +971,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 20,
+        "stop_num": 21,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -799,7 +990,7 @@
         "reading_minutes": 11
       },
       {
-        "stop_num": 21,
+        "stop_num": 22,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -818,7 +1009,7 @@
         "reading_minutes": 3
       },
       {
-        "stop_num": 22,
+        "stop_num": 23,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -837,7 +1028,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 23,
+        "stop_num": 24,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -856,7 +1047,7 @@
         "reading_minutes": 6
       },
       {
-        "stop_num": 24,
+        "stop_num": 25,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -875,7 +1066,7 @@
         "reading_minutes": 12
       },
       {
-        "stop_num": 25,
+        "stop_num": 26,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -894,7 +1085,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 26,
+        "stop_num": 27,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -913,7 +1104,7 @@
         "reading_minutes": 5
       },
       {
-        "stop_num": 27,
+        "stop_num": 28,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -932,7 +1123,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 28,
+        "stop_num": 29,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -951,7 +1142,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 29,
+        "stop_num": 30,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -970,7 +1161,7 @@
         "reading_minutes": 5
       },
       {
-        "stop_num": 30,
+        "stop_num": 31,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -987,6 +1178,63 @@
         "arc_url": "/katie/across-the-rotunda-the-senate-of-virginia/msp-to-ric-deep-pressure-hugs-at-bayshore-town-center-wesley-meeting-sunny-and-pebble-on-arvin-road/part-3-inseparable-across-saturday-and-sunday-zero-guarding-left-between-them-seeing-the-lindstroms-off-at-ric?arc=heather-wesley-and-north-lion",
         "word_count": 1195,
         "reading_minutes": 5
+      },
+      {
+        "stop_num": 32,
+        "kind": "part",
+        "series_slug": "katie",
+        "series_title": "Katie & Nathaniel",
+        "file_path": "e011/c007/p001.md",
+        "title": "Part 1: Form SSA-4178 on Camera, Scrapping the Social Security Cap, & Taxing Billionaires and Windfall Profits",
+        "subtitle": "The Supported Companions, Waiver Portability, & Social Security Solvency Act • The Senator from Virginia",
+        "era_title": "The Senator from Virginia",
+        "chap_title": "The Supported Companions, Waiver Portability, & Social Security Solvency Act",
+        "date": "2028-05-11",
+        "location": "Washington, D.C. (Room 124 of the Dirksen Senate Office Building)",
+        "excerpt": "Holding up federal Form SSA-4178 in Dirksen Room 124, Senator Katie Prairie unveils landmark disability marriage equality, waiver portability, and billionaire tax reform.",
+        "image": "/raggiesoft-books/images/scenes/katie/b006/jun_2028_restored_rose_garden_supported_companions_signing.jpg",
+        "url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-1-form-ssa-4178-on-camera-scrapping-the-social-security-cap-taxing-billionaires-and-windfall-profits",
+        "arc_url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-1-form-ssa-4178-on-camera-scrapping-the-social-security-cap-taxing-billionaires-and-windfall-profits?arc=heather-wesley-and-north-lion",
+        "word_count": 1798,
+        "reading_minutes": 8
+      },
+      {
+        "stop_num": 33,
+        "kind": "part",
+        "series_slug": "katie",
+        "series_title": "Katie & Nathaniel",
+        "file_path": "e011/c007/p002.md",
+        "title": "Part 2: Dad's 1994 Crew Cab Pickup, First-Time Guests at the White House, & Signing Law Number One in the Restored Rose Garden",
+        "subtitle": "The Supported Companions, Waiver Portability, & Social Security Solvency Act • The Senator from Virginia",
+        "era_title": "The Senator from Virginia",
+        "chap_title": "The Supported Companions, Waiver Portability, & Social Security Solvency Act",
+        "date": "2028-06-20",
+        "location": "Alexandria, VA & Washington, D.C. (Sunset Drive, Capital Transit Yellow Line, & The Restored White House Rose Garden)",
+        "excerpt": "After passing the Senate 57-43, Chelsea, Brittany, and Heather's entire family visit the White House for the first time as President Morales signs Katie's landmark law in the restored Rose Garden.",
+        "image": "/raggiesoft-books/images/scenes/katie/b006/jun_2028_restored_rose_garden_supported_companions_signing.jpg",
+        "url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-2-dad-s-1994-crew-cab-pickup-first-time-guests-at-the-white-house-signing-law-number-one-in-the-restored-rose-garden",
+        "arc_url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-2-dad-s-1994-crew-cab-pickup-first-time-guests-at-the-white-house-signing-law-number-one-in-the-restored-rose-garden?arc=heather-wesley-and-north-lion",
+        "word_count": 1833,
+        "reading_minutes": 8
+      },
+      {
+        "stop_num": 34,
+        "kind": "backstage",
+        "series_slug": "katie",
+        "series_title": "Katie & Nathaniel",
+        "backstage_slug": "books/katie/what-if-wesley-and-chelsea-two-in-law-suites",
+        "title": "Alternate 'What If' Dossier: Two Ground-Floor In-Law Suites — Virginia Beach & Maplewood",
+        "subtitle": "What If Chelsea and Wesley Were Allowed to Live Together Year-Round Across Matching Guardian-Connected Suites at 737 Arvin Road and Heather & Dan's Minnesota Home?",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2028-09-15",
+        "location": "Virginia Beach, Virginia (737 Arvin Road In-Law Suite) & Maplewood, Minnesota (Route 64 Breezeway Suite)",
+        "excerpt": "In main canon, Chelsea keeps her home base with Katie, Nate, and Brittany in Virginia while Wesley keeps his job at North Lion Scales & Tails in Minnesota, enjoying long cross-state visits after Senator Katie Prairie's 2028 reform law. This Alternate 'What If' explores the world where both guardian families build matching connected ground-floor in-law suites in BOTH Virginia Beach and Maplewood so Wesley and Chelsea can live together full-time!",
+        "image": "/raggiesoft-backstage/images/scenes/what-if-wesley-and-chelsea-shared-inlaw-suite.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/what-if-wesley-and-chelsea-two-in-law-suites/",
+        "arc_url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-2-dad-s-1994-crew-cab-pickup-first-time-guests-at-the-white-house-signing-law-number-one-in-the-restored-rose-garden?arc=heather-wesley-and-north-lion",
+        "word_count": 1138,
+        "reading_minutes": 5
       }
     ]
   },
@@ -1001,12 +1249,12 @@
     "description": "Trace Katie Prairie's public-service journey alongside Nate—from a 2007 White House and Capitol visit and Virginia Beach's 5:30 PM bus curfew to City Council, the viral House Bill 663 speech, flipping the State Senate, and riding every bus in Virginia to the United States Senate.",
     "image": "/raggiesoft-books/images/scenes/katie/b005/senator_katie_prairie_age_41_us_senate_portrait_og.jpg",
     "start_url": "/katie/unofficial-homeowners-back-home-in-virginia-beach-2007-2008/twenty-two-in-alexandria-riding-dmv-transit-touring-the-white-house-the-u-s-capitol-meeting-senator-james-west-the-spark-to-run-for-city-council-two-blue-passports/part-2-unclipping-our-backpacks-where-is-president-george-w-walker-today-the-white-house-tour-that-sparked-a-political-calling?arc=katie-political-career",
-    "part_count": 31,
+    "part_count": 33,
     "backstage_count": 5,
-    "stop_count": 36,
-    "word_count": 110192,
-    "reading_minutes": 441,
-    "reading_hours": 7.3,
+    "stop_count": 38,
+    "word_count": 114168,
+    "reading_minutes": 457,
+    "reading_hours": 7.6,
     "stops": [
       {
         "stop_num": 1,
@@ -1442,8 +1690,8 @@
         "image": "/raggiesoft-books/images/scenes/katie/b006/jan_2027_capitol_south_elevator_plaza_arrival_katie_nate_david.jpg",
         "url": "/katie/the-senator-from-virginia/election-night-the-decision-desk-call-the-referendum-mandate/part-3-u-s-senate-new-member-orientation-senator-tess-dunmore-s-ramp-making-the-vice-president-swear-her-in",
         "arc_url": "/katie/the-senator-from-virginia/election-night-the-decision-desk-call-the-referendum-mandate/part-3-u-s-senate-new-member-orientation-senator-tess-dunmore-s-ramp-making-the-vice-president-swear-her-in?arc=katie-political-career",
-        "word_count": 6224,
-        "reading_minutes": 25
+        "word_count": 6323,
+        "reading_minutes": 26
       },
       {
         "stop_num": 24,
@@ -1457,11 +1705,11 @@
         "chap_title": "Election Night, The Decision Desk Call, & The Referendum Mandate",
         "date": "2026-12-01",
         "location": "Washington, D.C. & Alexandria, VA (The U.S. Capitol, Dirksen Basement Transition Suite SD-B14, Charles R. Fenwick Bridge, & Sunset Drive)",
-        "excerpt": "Senator-Elect Katie Prairie opposes Leader Charles Schuman, watches SecDef Halverson survive a 211-204 vote, and rides home over the Fenwick Bridge.",
+        "excerpt": "Senator-Elect Katie Prairie backs Challenger Chris Van Deren to unseat Leader Charles Schuman 29-26, watches SecDef Halverson survive a 211-204 vote, and rides home over the Fenwick Bridge.",
         "image": "/raggiesoft-books/images/scenes/katie/b006/dec_2026_dirksen_basement_transition_211_204_vote_katie_nate.jpg",
         "url": "/katie/the-senator-from-virginia/election-night-the-decision-desk-call-the-referendum-mandate/part-4-opposing-leader-schuman-the-211-204-lame-duck-false-dawn-in-the-dirksen-basement-home-across-the-fenwick-bridge",
         "arc_url": "/katie/the-senator-from-virginia/election-night-the-decision-desk-call-the-referendum-mandate/part-4-opposing-leader-schuman-the-211-204-lame-duck-false-dawn-in-the-dirksen-basement-home-across-the-fenwick-bridge?arc=katie-political-career",
-        "word_count": 3566,
+        "word_count": 3699,
         "reading_minutes": 15
       },
       {
@@ -1471,17 +1719,17 @@
         "series_title": "Katie & Nathaniel",
         "backstage_slug": "books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus",
         "title": "The $14 Million DSCC Primary Shock, Opposing Leader Schuman, The 211–204 Lame-Duck False Dawn, & The Senate Wheelchair Caucus",
-        "subtitle": "Inside Retiring Senator Martin Warren's Office, Uncle Richard's Live Beacon News Takedown, Forcing a Ballot Against Charles Schuman, Bret Halverson's Premature Pentagon Victory Lap, & VPOTUS Conrad Drayton's Fury in S-216",
+        "subtitle": "Inside Retiring Senator Martin Warren's Office, Uncle Richard's Live Beacon News Takedown, Backing Chris Van Deren to Unseat Charles Schuman 29–26, Bret Halverson's Premature Pentagon Victory Lap, & VPOTUS Conrad Drayton's Fury in S-216",
         "era_title": "Behind the Scenes",
         "chap_title": "Katie & Nathaniel — Behind the Scenes",
         "date": "2027-01-03",
         "location": "DSCC Headquarters, Mansfield Room (S-207), Dirksen Basement (SD-B14), U.S. Capitol Chamber, & S-216, Washington, D.C.",
-        "excerpt": "Behind-the-scenes look at Katie's primary upset over the DSCC, Uncle Richard defending her on Beacon News, her public No vote against Leader Charles Schuman, Defense Secretary Bret Halverson's premature 211–204 impeachment escape, the three-member Senate Wheelchair Caucus, and S-216.",
+        "excerpt": "Behind-the-scenes look at Katie's primary upset over the DSCC, Uncle Richard defending her on Beacon News, backing Chris Van Deren's 29–26 upset over Leader Charles Schuman, Defense Secretary Bret Halverson's premature 211–204 impeachment escape, the three-member Senate Wheelchair Caucus, and S-216.",
         "image": "/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg",
         "url": "https://backstage.raggiesoft.com/books/katie/dscc-holloway-primary-and-senate-wheelchair-caucus/",
         "arc_url": "/katie/the-senator-from-virginia/election-night-the-decision-desk-call-the-referendum-mandate/part-4-opposing-leader-schuman-the-211-204-lame-duck-false-dawn-in-the-dirksen-basement-home-across-the-fenwick-bridge?arc=katie-political-career",
-        "word_count": 1728,
-        "reading_minutes": 7
+        "word_count": 1786,
+        "reading_minutes": 8
       },
       {
         "stop_num": 26,
@@ -1537,8 +1785,8 @@
         "image": "/raggiesoft-books/images/scenes/katie/b006/mar_2027_capitol_succession_flowchart_katie_nate_morales.jpg",
         "url": "/katie/the-senator-from-virginia/the-norfolk-carrier-leak-suite-756-at-timberline-shopping-center-three-convictions-in-the-senate/part-1-the-south-lawn-tirade-the-norfolk-carrier-leak-why-the-order-of-the-trials-matters",
         "arc_url": "/katie/the-senator-from-virginia/the-norfolk-carrier-leak-suite-756-at-timberline-shopping-center-three-convictions-in-the-senate/part-1-the-south-lawn-tirade-the-norfolk-carrier-leak-why-the-order-of-the-trials-matters?arc=katie-political-career",
-        "word_count": 2735,
-        "reading_minutes": 11
+        "word_count": 2788,
+        "reading_minutes": 12
       },
       {
         "stop_num": 29,
@@ -1556,7 +1804,7 @@
         "image": "/raggiesoft-books/images/scenes/katie/b006/apr_2027_us_senate_impeachment_guilty_vote_katie_nate_david.jpg",
         "url": "/katie/the-senator-from-virginia/the-norfolk-carrier-leak-suite-756-at-timberline-shopping-center-three-convictions-in-the-senate/part-3-the-words-of-mason-madison-and-lincoln-three-guilty-votes-from-capitol-police-protection-back-to-normal-life-at-pleasure-house-road",
         "arc_url": "/katie/the-senator-from-virginia/the-norfolk-carrier-leak-suite-756-at-timberline-shopping-center-three-convictions-in-the-senate/part-3-the-words-of-mason-madison-and-lincoln-three-guilty-votes-from-capitol-police-protection-back-to-normal-life-at-pleasure-house-road?arc=katie-political-career",
-        "word_count": 6046,
+        "word_count": 6048,
         "reading_minutes": 25
       },
       {
@@ -1584,6 +1832,44 @@
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
         "file_path": "e011/c007/p001.md",
+        "title": "Part 1: Form SSA-4178 on Camera, Scrapping the Social Security Cap, & Taxing Billionaires and Windfall Profits",
+        "subtitle": "The Supported Companions, Waiver Portability, & Social Security Solvency Act • The Senator from Virginia",
+        "era_title": "The Senator from Virginia",
+        "chap_title": "The Supported Companions, Waiver Portability, & Social Security Solvency Act",
+        "date": "2028-05-11",
+        "location": "Washington, D.C. (Room 124 of the Dirksen Senate Office Building)",
+        "excerpt": "Holding up federal Form SSA-4178 in Dirksen Room 124, Senator Katie Prairie unveils landmark disability marriage equality, waiver portability, and billionaire tax reform.",
+        "image": "/raggiesoft-books/images/scenes/katie/b006/jun_2028_restored_rose_garden_supported_companions_signing.jpg",
+        "url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-1-form-ssa-4178-on-camera-scrapping-the-social-security-cap-taxing-billionaires-and-windfall-profits",
+        "arc_url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-1-form-ssa-4178-on-camera-scrapping-the-social-security-cap-taxing-billionaires-and-windfall-profits?arc=katie-political-career",
+        "word_count": 1798,
+        "reading_minutes": 8
+      },
+      {
+        "stop_num": 32,
+        "kind": "part",
+        "series_slug": "katie",
+        "series_title": "Katie & Nathaniel",
+        "file_path": "e011/c007/p002.md",
+        "title": "Part 2: Dad's 1994 Crew Cab Pickup, First-Time Guests at the White House, & Signing Law Number One in the Restored Rose Garden",
+        "subtitle": "The Supported Companions, Waiver Portability, & Social Security Solvency Act • The Senator from Virginia",
+        "era_title": "The Senator from Virginia",
+        "chap_title": "The Supported Companions, Waiver Portability, & Social Security Solvency Act",
+        "date": "2028-06-20",
+        "location": "Alexandria, VA & Washington, D.C. (Sunset Drive, Capital Transit Yellow Line, & The Restored White House Rose Garden)",
+        "excerpt": "After passing the Senate 57-43, Chelsea, Brittany, and Heather's entire family visit the White House for the first time as President Morales signs Katie's landmark law in the restored Rose Garden.",
+        "image": "/raggiesoft-books/images/scenes/katie/b006/jun_2028_restored_rose_garden_supported_companions_signing.jpg",
+        "url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-2-dad-s-1994-crew-cab-pickup-first-time-guests-at-the-white-house-signing-law-number-one-in-the-restored-rose-garden",
+        "arc_url": "/katie/the-senator-from-virginia/the-supported-companions-waiver-portability-social-security-solvency-act/part-2-dad-s-1994-crew-cab-pickup-first-time-guests-at-the-white-house-signing-law-number-one-in-the-restored-rose-garden?arc=katie-political-career",
+        "word_count": 1833,
+        "reading_minutes": 8
+      },
+      {
+        "stop_num": 33,
+        "kind": "part",
+        "series_slug": "katie",
+        "series_title": "Katie & Nathaniel",
+        "file_path": "e011/c008/p001.md",
         "title": "Part 1: Refusing the 2045 Presidency From Home, Five Statutory Shields Against the Bubble, & Out of the Closet Into Our Four-Person Nest",
         "subtitle": "Three Senate Terms, Refusing the 2044 Nomination, & The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia",
         "era_title": "The Senator from Virginia",
@@ -1598,11 +1884,11 @@
         "reading_minutes": 15
       },
       {
-        "stop_num": 32,
+        "stop_num": 34,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
-        "file_path": "e011/c007/p002.md",
+        "file_path": "e011/c008/p002.md",
         "title": "Part 2: The Biggest Prize in the Primary: Sam, Mandy, & Sarah's Bus-Loop Plan & Stop #0812",
         "subtitle": "Three Senate Terms, Refusing the 2044 Nomination, & The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia",
         "era_title": "The Senator from Virginia",
@@ -1617,11 +1903,11 @@
         "reading_minutes": 11
       },
       {
-        "stop_num": 33,
+        "stop_num": 35,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
-        "file_path": "e011/c007/p003.md",
+        "file_path": "e011/c008/p003.md",
         "title": "Part 3: The First Tuesday on the Loop: Governor Harrison Caldwell on Routes 15, 800, 25, & 12",
         "subtitle": "Three Senate Terms, Refusing the 2044 Nomination, & The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia",
         "era_title": "The Senator from Virginia",
@@ -1636,11 +1922,11 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 34,
+        "stop_num": 36,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
-        "file_path": "e011/c007/p004.md",
+        "file_path": "e011/c008/p004.md",
         "title": "Part 4: The Second Tuesday on the Loop: Representative Devon Pierce on Routes 15, 800, 25, & 12",
         "subtitle": "Three Senate Terms, Refusing the 2044 Nomination, & The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia",
         "era_title": "The Senator from Virginia",
@@ -1655,11 +1941,11 @@
         "reading_minutes": 10
       },
       {
-        "stop_num": 35,
+        "stop_num": 37,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
-        "file_path": "e011/c007/p005.md",
+        "file_path": "e011/c008/p005.md",
         "title": "Part 5: The Thursday Morning Loop: Governor Elena Delgado & The Six O'Clock Upload",
         "subtitle": "Three Senate Terms, Refusing the 2044 Nomination, & The Stop #0812 Four-Seat Presidential Endorsement Loop • The Senator from Virginia",
         "era_title": "The Senator from Virginia",
@@ -1674,7 +1960,7 @@
         "reading_minutes": 13
       },
       {
-        "stop_num": 36,
+        "stop_num": 38,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1994,7 +2280,7 @@
     "part_count": 10,
     "backstage_count": 6,
     "stop_count": 16,
-    "word_count": 47434,
+    "word_count": 47451,
     "reading_minutes": 190,
     "reading_hours": 3.2,
     "stops": [
@@ -2204,7 +2490,7 @@
         "image": "/raggiesoft-books/images/scenes/katie/b006/jan_2027_dirksen_room_511_natalie_mother_phone_call_katie_nate.jpg",
         "url": "/katie/the-senator-from-virginia/first-train-from-norfolk-swearing-in-on-the-constitution-strings-attached-for-rrc/part-4-the-constituent-line-in-room-511-is-nathaniel-still-with-you-what-really-happened-to-natalie",
         "arc_url": "/katie/the-senator-from-virginia/first-train-from-norfolk-swearing-in-on-the-constitution-strings-attached-for-rrc/part-4-the-constituent-line-in-room-511-is-nathaniel-still-with-you-what-really-happened-to-natalie?arc=fishersville-twelve-days-and-twenty-years",
-        "word_count": 4682,
+        "word_count": 4699,
         "reading_minutes": 19
       },
       {

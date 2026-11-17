@@ -25,6 +25,7 @@ const PRECACHE_URLS = [
   "/arcs",
   "/arcs/aubrie-room-214-and-isabels-firewall",
   "/arcs/aubrie-world-trek-and-zoes-architecture",
+  "/arcs/heather-scales-tails-and-safe-people",
   "/arcs/katie-heather-wesley-and-north-lion",
   "/arcs/katie-katie-political-career",
   "/arcs/katie-brittany-chelsea-and-the-four-person-sanctuary",
@@ -51,6 +52,7 @@ const PRECACHE_URLS = [
   "/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage",
   "/books/katie/sunward-tropics-divorce-and-maiden-name-order",
   "/corporations/vectron-question-the-rules",
+  "/books/katie/wesley-blowout-at-heather-losing-his-friend-nate",
   "/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie",
   "/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file",
   "/books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit",
@@ -90,6 +92,7 @@ const PRECACHE_URLS = [
   "/books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary",
   "/books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations",
   "/books/katie/governor-langford-capitol-square-reckoning-with-sterling",
+  "/books/katie/what-if-wesley-and-chelsea-two-in-law-suites",
   "/api/v1/books/quantum-directive-3-casey.json",
   "/api/v1/books/aubrie.json",
   "/api/v1/books/rachel.json",
@@ -106,6 +109,7 @@ const PRECACHE_URLS = [
   "/api/v1/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage.json",
   "/api/v1/books/katie/sunward-tropics-divorce-and-maiden-name-order.json",
   "/api/v1/corporations/vectron-question-the-rules.json",
+  "/api/v1/books/katie/wesley-blowout-at-heather-losing-his-friend-nate.json",
   "/api/v1/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie.json",
   "/api/v1/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file.json",
   "/api/v1/books/quantum-directive-3-casey/twenty-one-day-firewall-and-mount-hope-reveillon-permit.json",
@@ -144,7 +148,8 @@ const PRECACHE_URLS = [
   "/api/v1/books/katie/dirksen-room-511-sterling-and-cross-panic.json",
   "/api/v1/books/katie/brenda-walsh-suite-756-and-the-2044-route-15-primary.json",
   "/api/v1/books/katie/arthur-lawrence-fishersville-audit-and-five-oclock-resignations.json",
-  "/api/v1/books/katie/governor-langford-capitol-square-reckoning-with-sterling.json"
+  "/api/v1/books/katie/governor-langford-capitol-square-reckoning-with-sterling.json",
+  "/api/v1/books/katie/what-if-wesley-and-chelsea-two-in-law-suites.json"
 ];
 
 self.addEventListener('install', (event) => {
