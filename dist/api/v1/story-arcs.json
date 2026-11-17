@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T01:33:19.323Z",
+  "generatedAt": "2026-11-17T01:52:37.275Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -418,8 +418,8 @@
       "part_count": 2,
       "backstage_count": 6,
       "stop_count": 8,
-      "word_count": 12190,
-      "reading_minutes": 49,
+      "word_count": 12516,
+      "reading_minutes": 51,
       "reading_hours": 0.8,
       "stops": [
         {
@@ -472,12 +472,12 @@
           "chap_title": "Saturday Pretzel Day, The Empty Shelf, & The Boy Without a Phone Bridge",
           "date": "2003-02-15",
           "location": "Chesapeake & Virginia Beach, VA (Aunt Linda's House & Northwood High School)",
-          "excerpt": "Four days after watching Megan demolish Tyler's lie about Cousin Hannah in the Northwood cafeteria, Heather faces Wesley's weekly plea to go apologize to Nate and Katie.",
+          "excerpt": "Four days after watching Kristen Bauer demolish Tyler's double-down lie about Cousin Hannah in the Northwood cafeteria, Heather faces Wesley's weekly plea to go apologize to Nate and Katie.",
           "image": "/raggiesoft-books/images/scenes/heather/e001/jan_2003_chesapeake_living_room_wesley_photo_blowout_heather.jpg",
           "url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride",
           "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
-          "word_count": 939,
-          "reading_minutes": 4
+          "word_count": 1143,
+          "reading_minutes": 5
         },
         {
           "stop_num": 4,
@@ -495,8 +495,8 @@
           "image": "/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie/",
           "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
-          "word_count": 2644,
-          "reading_minutes": 11
+          "word_count": 2766,
+          "reading_minutes": 12
         },
         {
           "stop_num": 5,
@@ -590,8 +590,8 @@
       "part_count": 27,
       "backstage_count": 7,
       "stop_count": 34,
-      "word_count": 67481,
-      "reading_minutes": 270,
+      "word_count": 67832,
+      "reading_minutes": 272,
       "reading_hours": 4.5,
       "stops": [
         {
@@ -762,8 +762,8 @@
           "image": "/raggiesoft-books/images/scenes/katie/b004/feb_2003_northwood_room_204_unhandled_exception_katie_nate_heather_apart.jpg",
           "url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
-          "word_count": 3799,
-          "reading_minutes": 16
+          "word_count": 4002,
+          "reading_minutes": 17
         },
         {
           "stop_num": 10,
@@ -781,8 +781,8 @@
           "image": "/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie/",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
-          "word_count": 2644,
-          "reading_minutes": 11
+          "word_count": 2766,
+          "reading_minutes": 12
         },
         {
           "stop_num": 11,
@@ -800,7 +800,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b004/jun_2003_pavilion_graduation_heather_apology_angry_wesley.jpg",
           "url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-4-purple-gowns-at-the-pavilion-pomp-and-circumstance-one-chance-strictly-for-wesley",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-4-purple-gowns-at-the-pavilion-pomp-and-circumstance-one-chance-strictly-for-wesley?arc=heather-wesley-and-north-lion",
-          "word_count": 3786,
+          "word_count": 3812,
           "reading_minutes": 16
         },
         {
