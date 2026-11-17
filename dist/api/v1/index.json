@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-17T13:29:40.307Z",
+  "generatedAt": "2026-11-17T13:58:25.158Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 57,
+  "totalItems": 59,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 23,
-    "katieDossiers": 22,
+    "katie": 25,
+    "katieDossiers": 24,
     "casey": 7,
     "caseyDossiers": 6,
     "aubrie": 13,
@@ -15,7 +15,7 @@
     "aubrieCorrespondence": 10,
     "lore": 3,
     "hubs": 4,
-    "total": 57,
+    "total": 59,
     "storyArcs": 13
   },
   "items": {
@@ -67,7 +67,7 @@
     "books/katie": {
       "slug": "books/katie",
       "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
-      "subtitle": "Twenty Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
+      "subtitle": "Twenty-Four Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
       "category": "Katie & Nathaniel — Behind the Scenes",
       "date": "2027-07-22",
       "time": "",
@@ -75,7 +75,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "Complete collection of twenty behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Heather Collins's 2003 Room 204 reckoning, and the 2018 North Lion Scales & Tails floor plan and reunion in Maplewood to Governor Rebecca Langford's July 2027 Capitol Square sweep and the 2044 Route 15 Bus-Stop Primary.",
+      "summary": "Complete collection of twenty-four behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Heather Collins's 2003 Room 204 reckoning, and the 2007 Fishersville unlocked-closet What If timelines to the 2018 North Lion Scales & Tails floor plan in Maplewood, Governor Rebecca Langford's July 2027 Capitol Square sweep, and the 2044 Route 15 Bus-Stop Primary.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
     },
@@ -408,6 +408,36 @@
       "summary": "What happened outside Nate's first-person POV when Christopher Vance stole an open admin login to scramble the Barton Hall room database, and how RRC administration swept Natalie Brooks's assault under the rug on Thursday morning.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/rrc-dorm-database-hack-and-coverup",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/rrc-dorm-database-hack-and-coverup.json"
+    },
+    "books/katie/what-if-rrc-unlocked-closet-ending-a-three-fifty-am": {
+      "slug": "books/katie/what-if-rrc-unlocked-closet-ending-a-three-fifty-am",
+      "title": "Alternate 'What If' Dossier (Ending A — 3:50 AM): Leaving the Closet Unlocked, Dad's Engineer Question, & Waking Up With Zero Clue Who's Missing",
+      "subtitle": "What Happens If Katie and Nate Realize an Unlocked Door Is the Perfect Camouflage—Triggering a Midnight Missing-Persons Alert That Brings David and the Sheriff Straight to the Stage Curtain",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2007-03-14",
+      "time": "22:44–08:30 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/what-if-rrc-unlocked-closet-ending-a-350am.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "An official Alternate 'What If' exploration (Ending A): what if Katie and Nate left the Rec Hall seasonal closet unlocked at 10:44 PM so the night supervisor missed them completely—accidentally triggering a full Virginia State Police and Sheriff's missing-persons search and waking up at 3:50 AM having zero clue that everyone in Augusta County is looking for them?",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-rrc-unlocked-closet-ending-a-three-fifty-am",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-rrc-unlocked-closet-ending-a-three-fifty-am.json"
+    },
+    "books/katie/what-if-rrc-unlocked-closet-ending-b-six-forty-am-stealth": {
+      "slug": "books/katie/what-if-rrc-unlocked-closet-ending-b-six-forty-am-stealth",
+      "title": "Alternate 'What If' Dossier (Ending B — 6:40 AM): Sneaking Past the Morning Janitor—And Rolling Out Into Their Own Missing-Persons Command Post",
+      "subtitle": "What Happens If Nobody Re-Checks the Rec Hall Overnight, Nate and Katie Pull Off a Flawless Dawn Stealth Exit, & They Ask Their Own Search Party Who Went Missing",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2007-03-14",
+      "time": "03:35–08:45 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/what-if-rrc-unlocked-closet-ending-b-640am-courtyard.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "An official Alternate 'What If' exploration (Ending B): when the Night Supervisor swears on three state incident forms that the Rec Hall is empty, Katie and Nate sleep eight glorious hours undisturbed, sneak past the 6:25 AM janitor on Speed Setting 1 so nobody inside sees them, and roll casually onto the sunlit quad—having zero clue that the police command post and their dad are there looking for them.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-rrc-unlocked-closet-ending-b-six-forty-am-stealth",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-rrc-unlocked-closet-ending-b-six-forty-am-stealth.json"
     },
     "books/rachel/canadian-arch-sanctuary-anchor-rotation-and-lynnhaven-seondu": {
       "slug": "books/rachel/canadian-arch-sanctuary-anchor-rotation-and-lynnhaven-seondu",
