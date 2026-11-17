@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T02:13:38.055Z",
+  "generatedAt": "2026-11-17T02:30:11.448Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -1998,8 +1998,8 @@
       "part_count": 12,
       "backstage_count": 2,
       "stop_count": 14,
-      "word_count": 37120,
-      "reading_minutes": 149,
+      "word_count": 37880,
+      "reading_minutes": 152,
       "reading_hours": 2.5,
       "stops": [
         {
@@ -2084,18 +2084,18 @@
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
           "backstage_slug": "books/katie/hillside-court-six-oclock-news-and-holding-the-elevator",
-          "title": "From Smoker's Corner to Hillside Court: How Tyler Trapped Brittany in South Richmond & Holding the General Assembly Elevator",
-          "subtitle": "Why the February 2003 Varsity Soccer Roast Drove Tyler Out to Smoker's Corner, The Off-Lease Public Housing Trap Across the James River, & Riding JRTC Route 74 Without an Appointment",
+          "title": "From Smoker's Corner to Hillside Court: How Tyler Trapped Brittany on a Joint Lease & How Delegate Prairie Helped Her Exit Above Board",
+          "subtitle": "Why the February 2003 Varsity Soccer Roast Drove Tyler Out to Smoker's Corner, Fleeing Mid-Lease Across the James River, & Getting Cleanly Off the Joint RRHA Lease via Va. Code § 55-248.21:2, VAWA, & Legal Aid",
           "era_title": "Behind the Scenes",
           "chap_title": "Katie & Nathaniel — Behind the Scenes",
           "date": "2016-02-04",
           "location": "Smoker's Corner (Virginia Beach, Spring 2003), Hillside Court (South Richmond), Manchester Bridge, & General Assembly Building Lobby (Richmond, Virginia)",
-          "excerpt": "How getting roasted by the entire Northwood Varsity Soccer team on February 11, 2003 drove radioactive sleazebag Tyler out to lonely Brittany Fletcher at Smoker's Corner—talking her into dropping out at eighteen, dragging her to South Richmond when her car died in 2013, and trapping her via an off-lease Hillside Court public-housing scheme until she saw Delegate Katie Prairie on the Thursday evening news.",
+          "excerpt": "How getting roasted by the entire Northwood Varsity Soccer team on February 11, 2003 drove radioactive sleazebag Tyler out to lonely Brittany Fletcher at Smoker's Corner—talking her into dropping out at eighteen, dragging her onto a joint Hillside Court public-housing lease when her car died in 2013, and how Delegate Katie Prairie ethically helped Brittany sever her name mid-lease via Va. Code § 55-248.21:2, federal VAWA lease bifurcation, and Central Virginia Legal Aid.",
           "image": "/raggiesoft-books/images/scenes/katie/b005/jul_2016_kings_college_royal_gate_court_order_chelsea_rescue_family.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/hillside-court-six-oclock-news-and-holding-the-elevator/",
           "arc_url": "/katie/six-buses-from-williamsburg-sea-breeze-west-coming-home-to-arvin-road/tiffany-s-sea-breeze-west-apartment-dirty-old-tonomy-hill-coming-home-to-arvin-road/part-2-the-worst-christmas-ever-eighteen-stops-to-dirty-old-tonomy-hill-four-days-with-cousin-chelsea-the-west-main-road-shortcut-home?arc=brittany-chelsea-and-the-four-person-sanctuary",
-          "word_count": 2250,
-          "reading_minutes": 9
+          "word_count": 2610,
+          "reading_minutes": 11
         },
         {
           "stop_num": 6,
@@ -2113,8 +2113,8 @@
           "image": "/raggiesoft-books/images/scenes/katie/b005/feb_2016_gab_elevator_hold_reunion_brittany_katie_nate.jpg",
           "url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-3-hold-the-elevator-reuniting-with-cousin-brittany-in-room-518-friday-night-on-jrtc-route-6-why-nate-must-speak",
           "arc_url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-3-hold-the-elevator-reuniting-with-cousin-brittany-in-room-518-friday-night-on-jrtc-route-6-why-nate-must-speak?arc=brittany-chelsea-and-the-four-person-sanctuary",
-          "word_count": 4839,
-          "reading_minutes": 20
+          "word_count": 5026,
+          "reading_minutes": 21
         },
         {
           "stop_num": 7,
@@ -2132,8 +2132,8 @@
           "image": "/raggiesoft-books/images/scenes/katie/b005/feb_2016_south_richmond_church_nate_i_object_brittany_katie.jpg",
           "url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-4-via-southside-plaza-speaking-up-at-the-altar-taking-brittany-to-meet-the-nation-left-onto-macgregory-street",
           "arc_url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/house-bill-663-live-on-meet-the-nation/part-4-via-southside-plaza-speaking-up-at-the-altar-taking-brittany-to-meet-the-nation-left-onto-macgregory-street?arc=brittany-chelsea-and-the-four-person-sanctuary",
-          "word_count": 8696,
-          "reading_minutes": 35
+          "word_count": 8857,
+          "reading_minutes": 36
         },
         {
           "stop_num": 8,
@@ -2151,7 +2151,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b005/mar_2016_coastal_adult_learning_center_route_20_hse_enrollment_brittany_katie_nate.jpg",
           "url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/keeping-our-high-school-promise-a-cautious-request-on-the-grid-rescuing-cousin-chelsea-out-of-the-closet-into-our-four-person-nest-chelsea-s-turtle-tank-reveal/part-1-sine-die-welcoming-brittany-home-to-arvin-road-route-20-to-the-coastal-adult-learning-center-three-cousins-in-the-closet",
           "arc_url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/keeping-our-high-school-promise-a-cautious-request-on-the-grid-rescuing-cousin-chelsea-out-of-the-closet-into-our-four-person-nest-chelsea-s-turtle-tank-reveal/part-1-sine-die-welcoming-brittany-home-to-arvin-road-route-20-to-the-coastal-adult-learning-center-three-cousins-in-the-closet?arc=brittany-chelsea-and-the-four-person-sanctuary",
-          "word_count": 2830,
+          "word_count": 2882,
           "reading_minutes": 12
         },
         {
