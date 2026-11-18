@@ -1479,19 +1479,60 @@
   }
 
   .bs-led-sign {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.46em;
+    vertical-align: middle;
     max-inline-size: 100%;
-    padding: 0.25rem 0.75rem;
+    padding: 0.24rem 0.68rem;
     border-radius: 0.35rem;
     background: #090d16;
     color: #fbbf24;
     border: 1px solid #f59e0b;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-weight: 800;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.055em;
+    line-height: 1.15;
     white-space: normal;
     overflow-wrap: anywhere;
     box-sizing: border-box;
+  }
+
+  .bs-led-sign .bs-led-route {
+    font-size: 1.56em;
+    line-height: 0.96;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    padding-inline-end: 0.42em;
+    border-inline-end: 1px solid rgba(251, 191, 36, 0.35);
+    align-self: stretch;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .bs-led-sign .bs-led-lines {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.09em;
+    min-inline-size: 0;
+  }
+
+  .bs-led-sign .bs-led-line-top {
+    font-size: 0.74em;
+    line-height: 1.12;
+    font-weight: 800;
+  }
+
+  .bs-led-sign .bs-led-line-bottom {
+    font-size: 0.7em;
+    line-height: 1.12;
+    font-weight: 700;
+    color: #fcd34d;
   }
 
   .bs-inline-code {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T13:53:11.919Z",
+  "generatedAt": "2026-11-18T14:34:20.171Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -590,7 +590,7 @@
       "part_count": 32,
       "backstage_count": 8,
       "stop_count": 40,
-      "word_count": 80628,
+      "word_count": 80642,
       "reading_minutes": 323,
       "reading_hours": 5.4,
       "stops": [
@@ -800,7 +800,7 @@
           "image": "/raggiesoft-backstage/images/scenes/what-if-warwick-university-route-112-nntc-wesley-tour.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues/",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
-          "word_count": 1815,
+          "word_count": 1818,
           "reading_minutes": 8
         },
         {
@@ -1351,7 +1351,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b006/apr_2032_arvin_road_brittany_1991_truck_streamtube_wheelchair_garage.jpg",
           "url": "/katie/the-senator-from-virginia/saying-goodbye-in-danville-kempsville-passing-the-torch-brittany-s-1991-crew-cab/part-3-passing-the-torch-for-chelsea-fifteen-years-of-videos-with-uncle-david-it-really-is-her-truck-now",
           "arc_url": "/katie/the-senator-from-virginia/saying-goodbye-in-danville-kempsville-passing-the-torch-brittany-s-1991-crew-cab/part-3-passing-the-torch-for-chelsea-fifteen-years-of-videos-with-uncle-david-it-really-is-her-truck-now?arc=heather-wesley-and-north-lion",
-          "word_count": 1462,
+          "word_count": 1473,
           "reading_minutes": 6
         }
       ]
@@ -1370,7 +1370,7 @@
       "part_count": 38,
       "backstage_count": 5,
       "stop_count": 43,
-      "word_count": 123723,
+      "word_count": 123722,
       "reading_minutes": 495,
       "reading_hours": 8.2,
       "stops": [
@@ -1732,7 +1732,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b006/may_2026_bluewater_transit_center_maroon_express_katie_nate_madison.jpg",
           "url": "/katie/across-the-rotunda-the-senate-of-virginia/the-accessibility-project-riding-every-bus-across-the-commonwealth-for-the-united-states-senate/part-3-the-roanoke-express-the-brooks-family-compound-on-lee-highway-the-maroon-express-to-bluewater-winning-the-june-primary",
           "arc_url": "/katie/across-the-rotunda-the-senate-of-virginia/the-accessibility-project-riding-every-bus-across-the-commonwealth-for-the-united-states-senate/part-3-the-roanoke-express-the-brooks-family-compound-on-lee-highway-the-maroon-express-to-bluewater-winning-the-june-primary?arc=katie-political-career",
-          "word_count": 3929,
+          "word_count": 3928,
           "reading_minutes": 16
         },
         {
@@ -2207,8 +2207,8 @@
       "part_count": 17,
       "backstage_count": 2,
       "stop_count": 19,
-      "word_count": 47712,
-      "reading_minutes": 191,
+      "word_count": 47790,
+      "reading_minutes": 192,
       "reading_hours": 3.2,
       "stops": [
         {
@@ -2493,7 +2493,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b005/jul_2016_kings_college_royal_gate_court_order_chelsea_rescue_family.jpg",
           "url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/keeping-our-high-school-promise-a-cautious-request-on-the-grid-rescuing-cousin-chelsea-out-of-the-closet-into-our-four-person-nest-chelsea-s-turtle-tank-reveal/part-11-now-you-re-learning-my-truck-l-1-2-3-r-in-an-empty-parking-lot-three-manuals-on-the-tailgate",
           "arc_url": "/katie/the-gentlewoman-from-virginia-beach-the-house-of-delegates/keeping-our-high-school-promise-a-cautious-request-on-the-grid-rescuing-cousin-chelsea-out-of-the-closet-into-our-four-person-nest-chelsea-s-turtle-tank-reveal/part-11-now-you-re-learning-my-truck-l-1-2-3-r-in-an-empty-parking-lot-three-manuals-on-the-tailgate?arc=brittany-chelsea-and-the-four-person-sanctuary",
-          "word_count": 2058,
+          "word_count": 2125,
           "reading_minutes": 9
         },
         {
@@ -2569,7 +2569,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b006/apr_2032_arvin_road_brittany_1991_truck_streamtube_wheelchair_garage.jpg",
           "url": "/katie/the-senator-from-virginia/saying-goodbye-in-danville-kempsville-passing-the-torch-brittany-s-1991-crew-cab/part-3-passing-the-torch-for-chelsea-fifteen-years-of-videos-with-uncle-david-it-really-is-her-truck-now",
           "arc_url": "/katie/the-senator-from-virginia/saying-goodbye-in-danville-kempsville-passing-the-torch-brittany-s-1991-crew-cab/part-3-passing-the-torch-for-chelsea-fifteen-years-of-videos-with-uncle-david-it-really-is-her-truck-now?arc=brittany-chelsea-and-the-four-person-sanctuary",
-          "word_count": 1462,
+          "word_count": 1473,
           "reading_minutes": 6
         }
       ]

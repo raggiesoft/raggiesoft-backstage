@@ -321,9 +321,49 @@ function renderInlineMarkdown(text, sharedState = null) {
       `<span class="bs-pa-chip"><i class="fa-solid fa-walkie-talkie" aria-hidden="true"></i> ${escapeHtml(inner)}</span>`
     )
   );
-  working = working.replace(/<led>([\s\S]*?)<\/led>/gi, (_, inner) =>
-    stash(`<span class="bs-led-sign">${escapeHtml(inner)}</span>`)
-  );
+  working = working.replace(/<led\b([^>]*?)(?:\/>|>([\s\S]*?)<\/led>)/gi, (_, attrStr = '', inner = '') => {
+    const attrs = {};
+    for (const m of String(attrStr).matchAll(/([a-z0-9_-]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/gi)) {
+      attrs[m[1].toLowerCase()] = (m[2] ?? m[3] ?? '').trim();
+    }
+    let route = attrs.route ?? '';
+    let lines = [];
+    if (attrs.line1 || attrs.line2) {
+      if (attrs.line1) lines.push(attrs.line1);
+      if (attrs.line2) lines.push(attrs.line2);
+    } else {
+      const parts = String(inner ?? '')
+        .replace(/<br\s*\/?>|\r?\n/gi, '|')
+        .split('|')
+        .map((s) => s.trim())
+        .filter(Boolean);
+      if (!route && parts.length >= 3) {
+        route = parts[0];
+        lines = [parts[1], parts.slice(2).join(' ')];
+      } else if (parts.length >= 2) {
+        lines = [parts[0], parts.slice(1).join(' ')];
+      } else if (parts.length === 1) {
+        lines = [parts[0]];
+      }
+    }
+    if (!route && lines.length <= 1) {
+      return stash(`<span class="bs-led-sign"><span class="bs-led-line-single">${escapeHtml(lines[0] ?? inner)}</span></span>`);
+    }
+    if (!route) {
+      return stash(
+        `<span class="bs-led-sign bs-led-sign--stacked"><span class="bs-led-lines"><span class="bs-led-line-top">${escapeHtml(lines[0])}</span><span class="bs-led-line-bottom">${escapeHtml(lines[1])}</span></span></span>`
+      );
+    }
+    const rightHtml =
+      lines.length >= 2
+        ? `<span class="bs-led-lines"><span class="bs-led-line-top">${escapeHtml(lines[0])}</span><span class="bs-led-line-bottom">${escapeHtml(lines[1])}</span></span>`
+        : lines.length === 1
+          ? `<span class="bs-led-lines"><span class="bs-led-line-single">${escapeHtml(lines[0])}</span></span>`
+          : '';
+    return stash(
+      `<span class="bs-led-sign bs-led-sign--split"><span class="bs-led-route">${escapeHtml(route)}</span>${rightHtml}</span>`
+    );
+  });
 
   // Inline code fragments (stashed into shared `state.tokens` so recursive link calls preserve them)
   working = working.replace(/`([^`]+)`/g, (_, code) =>
@@ -2448,19 +2488,60 @@ function buildBackstageCss() {
   }
 
   .bs-led-sign {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.46em;
+    vertical-align: middle;
     max-inline-size: 100%;
-    padding: 0.25rem 0.75rem;
+    padding: 0.24rem 0.68rem;
     border-radius: 0.35rem;
     background: #090d16;
     color: #fbbf24;
     border: 1px solid #f59e0b;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-weight: 800;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.055em;
+    line-height: 1.15;
     white-space: normal;
     overflow-wrap: anywhere;
     box-sizing: border-box;
+  }
+
+  .bs-led-sign .bs-led-route {
+    font-size: 1.56em;
+    line-height: 0.96;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    padding-inline-end: 0.42em;
+    border-inline-end: 1px solid rgba(251, 191, 36, 0.35);
+    align-self: stretch;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .bs-led-sign .bs-led-lines {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.09em;
+    min-inline-size: 0;
+  }
+
+  .bs-led-sign .bs-led-line-top {
+    font-size: 0.74em;
+    line-height: 1.12;
+    font-weight: 800;
+  }
+
+  .bs-led-sign .bs-led-line-bottom {
+    font-size: 0.7em;
+    line-height: 1.12;
+    font-weight: 700;
+    color: #fcd34d;
   }
 
   .bs-inline-code {
