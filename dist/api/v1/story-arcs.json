@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T01:42:06.232Z",
+  "generatedAt": "2026-11-18T12:20:07.592Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -418,7 +418,7 @@
       "part_count": 2,
       "backstage_count": 6,
       "stop_count": 8,
-      "word_count": 12896,
+      "word_count": 12936,
       "reading_minutes": 52,
       "reading_hours": 0.9,
       "stops": [
@@ -495,7 +495,7 @@
           "image": "/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie/",
           "arc_url": "/heather/scales-tails-and-safe-people/saturday-pretzel-day-the-empty-shelf-the-boy-without-a-phone-bridge/part-2-two-taps-on-the-glass-every-saturday-five-months-of-frozen-pride?arc=scales-tails-and-safe-people",
-          "word_count": 3078,
+          "word_count": 3118,
           "reading_minutes": 13
         },
         {
@@ -590,8 +590,8 @@
       "part_count": 32,
       "backstage_count": 8,
       "stop_count": 40,
-      "word_count": 81318,
-      "reading_minutes": 326,
+      "word_count": 80920,
+      "reading_minutes": 324,
       "reading_hours": 5.4,
       "stops": [
         {
@@ -705,8 +705,8 @@
           "image": "/raggiesoft-books/images/scenes/katie/b004/dec_2002_northwood_room_204_senior_winter_break_heather_katie_nate.jpg",
           "url": "/katie/seventeen-senior-year-greenway-court/seventeen-at-chesapeake-bay-mall-senior-fall-with-heather/part-3-senior-gold-day-in-room-204-paper-snowflakes-one-tight-hug-before-winter-break",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/seventeen-at-chesapeake-bay-mall-senior-fall-with-heather/part-3-senior-gold-day-in-room-204-paper-snowflakes-one-tight-hug-before-winter-break?arc=heather-wesley-and-north-lion",
-          "word_count": 1447,
-          "reading_minutes": 6
+          "word_count": 1513,
+          "reading_minutes": 7
         },
         {
           "stop_num": 7,
@@ -724,7 +724,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b004/jan_2003_bedroom_blue_butterfly_twin_sisters_never_walk_away.jpg",
           "url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-2-the-drunken-new-year-lie-heather-s-bitter-goodbye-twin-sisters-always-stay",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-2-the-drunken-new-year-lie-heather-s-bitter-goodbye-twin-sisters-always-stay?arc=heather-wesley-and-north-lion",
-          "word_count": 1990,
+          "word_count": 1994,
           "reading_minutes": 8
         },
         {
@@ -781,7 +781,7 @@
           "image": "/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie/",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
-          "word_count": 3078,
+          "word_count": 3118,
           "reading_minutes": 13
         },
         {
@@ -790,18 +790,18 @@
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
           "backstage_slug": "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
-          "title": "Alternate 'What If' Dossier: Virginia Domicile, Calling Tyler's Bluff in Homeroom 212, & Keeping Wesley, Katie's Career, and Both Rescues",
-          "subtitle": "What Happens If Cousin Hannah's Movie-Theater Lie Comes First, Heather Roasts Tyler on January 6, and Heather & Wesley Stay in Virginia for In-State Tuition at CCHR and VDU",
+          "title": "Story Crossroads Dossier: Virginia Domicile, Touring Warwick University on Route 112 NNTC, & Keeping Wesley, Katie's Career, and Both Rescues",
+          "subtitle": "How Staying in Virginia on In-State Tuition Domicile Lets Heather Drive Nate, Katie, and Wesley to Warwick University, Eliminates Tiffany, Stops Brandon Cold, and Preserves Katie's Senate Career and Both Cousin Rescues",
           "era_title": "Behind the Scenes",
           "chap_title": "Katie & Nathaniel — Behind the Scenes",
           "date": "2005-10-15",
-          "location": "Virginia Beach & Norfolk, Virginia (Northwood High School, CCHR, Virginia Dominion University, Kempsville, & Richmond)",
-          "excerpt": "In our Minnesota Marriage 'What If,' moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie's Senate career. Here is the Virginia Domicile 'What If': Cousin Hannah's green-parka lie happens first so Heather demolishes Tyler in Homeroom 212, Heather and Wesley stay in Hampton Roads for in-state tuition at CCHR and VDU, Tiffany is eliminated, Brandon hits a four-person brick wall, Wesley never loses his guy friend Nate, Katie still rises to the U.S. Senate, and both Brittany and Chelsea come home safe.",
-          "image": "/raggiesoft-backstage/images/scenes/what-if-virginia-domicile-vdu-quad-nate-heather-katie-wesley.jpg",
+          "location": "Virginia Beach, Norfolk, & Newport News, Virginia (Northwood High School, CCHR, Virginia Dominion University, Warwick University, & Richmond)",
+          "excerpt": "In our Minnesota Marriage 'What If,' moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie's Senate career. Here is the architectural breakdown behind the Virginia Domicile Story Crossroads path: Heather and Wesley stay in Hampton Roads for in-state tuition at CCHR and VDU, Heather drives everyone across the tunnel to tour Warwick University beside Route 112 NNTC at the Shoe Lane roundabout, Tiffany is eliminated, Brandon hits a four-person brick wall, Wesley never loses his guy friend Nate, Katie still rises to the U.S. Senate, and both Brittany and Chelsea come home safe.",
+          "image": "/raggiesoft-backstage/images/scenes/what-if-warwick-university-route-112-nntc-wesley-tour.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues/",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
-          "word_count": 2140,
-          "reading_minutes": 9
+          "word_count": 1616,
+          "reading_minutes": 7
         },
         {
           "stop_num": 12,
@@ -809,18 +809,18 @@
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
           "file_path": "e004/c002/p004.md",
-          "title": "Part 4: Purple Gowns at the Pavilion, Pomp and Circumstance, & One Chance Strictly for Wesley",
+          "title": "Part 4: Purple Gowns at the Pavilion, Pomp and Circumstance, & Heather's Apology",
           "subtitle": "Drunken New Year • Seventeen, Senior Year, & Greenway Court",
           "era_title": "Seventeen, Senior Year, & Greenway Court",
           "chap_title": "Drunken New Year",
           "date": "2003-06-14",
           "location": "Virginia Beach, VA (Virginia Beach Pavilion — Class of 2003 Commencement)",
-          "excerpt": "After Pomp and Circumstance echoes through Northwood High's graduation at the Virginia Beach Pavilion, Katie and Nate tell Heather they cannot reform their relationship—breaking Wesley's heart until the twins agree to one strictly bounded Saturday at Emerald Creek Mall for Wesley's sake.",
+          "excerpt": "Outside the Virginia Beach Pavilion after Northwood High's Class of 2003 Commencement, Wesley marches Heather over to apologize to Katie and Nate—leaving everything resting on their answer.",
           "image": "/raggiesoft-books/images/scenes/katie/b004/jun_2003_pavilion_graduation_heather_apology_angry_wesley.jpg",
-          "url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-4-purple-gowns-at-the-pavilion-pomp-and-circumstance-one-chance-strictly-for-wesley",
-          "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-4-purple-gowns-at-the-pavilion-pomp-and-circumstance-one-chance-strictly-for-wesley?arc=heather-wesley-and-north-lion",
-          "word_count": 3862,
-          "reading_minutes": 16
+          "url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-4-purple-gowns-at-the-pavilion-pomp-and-circumstance-heather-s-apology",
+          "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-4-purple-gowns-at-the-pavilion-pomp-and-circumstance-heather-s-apology?arc=heather-wesley-and-north-lion",
+          "word_count": 2263,
+          "reading_minutes": 10
         },
         {
           "stop_num": 13,
@@ -832,14 +832,14 @@
           "subtitle": "Drunken New Year • Seventeen, Senior Year, & Greenway Court",
           "era_title": "Seventeen, Senior Year, & Greenway Court",
           "chap_title": "Drunken New Year",
-          "date": "2003-06-28",
-          "location": "Chesapeake, VA (Emerald Creek Mall — CVTA Route 15 Bus Stop & Upstairs Food Court)",
-          "excerpt": "Before Heather and Wesley move home to Minnesota, Katie and Nate meet them off CVTA Route 15 at Emerald Creek Mall to give Wesley a proper buddy farewell.",
+          "date": "2003-06-14",
+          "location": "Virginia Beach & Chesapeake, VA (Virginia Beach Pavilion & Emerald Creek Mall)",
+          "excerpt": "Saying no to dating yet refusing to let sixteen-year-old Wesley lose his first guy friend, Katie and Nate meet Wesley and Heather off CVTA Route 15 at Emerald Creek Mall before Minnesota.",
           "image": "/raggiesoft-books/images/scenes/katie/b004/jun_2003_emerald_creek_mall_food_court_goodbye_wesley_nate_katie_heather.jpg",
           "url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-5-waiting-by-the-route-15-stop-if-you-walked-away-wesley-s-laminated-buddy-card",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-5-waiting-by-the-route-15-stop-if-you-walked-away-wesley-s-laminated-buddy-card?arc=heather-wesley-and-north-lion",
-          "word_count": 3099,
-          "reading_minutes": 13
+          "word_count": 4714,
+          "reading_minutes": 19
         },
         {
           "stop_num": 14,
@@ -2207,7 +2207,7 @@
       "part_count": 16,
       "backstage_count": 2,
       "stop_count": 18,
-      "word_count": 46087,
+      "word_count": 46145,
       "reading_minutes": 185,
       "reading_hours": 3.1,
       "stops": [
@@ -2227,7 +2227,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b004/dec_2002_new_years_eve_locked_bedroom_cereal_ginger_ale.jpg",
           "url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-1-the-gas-station-run-a-box-of-dry-cereal-why-i-never-had-a-twenty-first-birthday-drink",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-1-the-gas-station-run-a-box-of-dry-cereal-why-i-never-had-a-twenty-first-birthday-drink?arc=brittany-chelsea-and-the-four-person-sanctuary",
-          "word_count": 2606,
+          "word_count": 2664,
           "reading_minutes": 11
         },
         {
