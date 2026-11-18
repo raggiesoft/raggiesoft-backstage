@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-17T13:58:25.158Z",
+  "generatedAt": "2026-11-18T01:42:06.210Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 59,
+  "totalItems": 60,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 25,
-    "katieDossiers": 24,
+    "katie": 26,
+    "katieDossiers": 25,
     "casey": 7,
     "caseyDossiers": 6,
     "aubrie": 13,
@@ -15,7 +15,7 @@
     "aubrieCorrespondence": 10,
     "lore": 3,
     "hubs": 4,
-    "total": 59,
+    "total": 60,
     "storyArcs": 13
   },
   "items": {
@@ -67,7 +67,7 @@
     "books/katie": {
       "slug": "books/katie",
       "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
-      "subtitle": "Twenty-Four Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
+      "subtitle": "Twenty-Five Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
       "category": "Katie & Nathaniel — Behind the Scenes",
       "date": "2027-07-22",
       "time": "",
@@ -75,7 +75,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "Complete collection of twenty-four behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Heather Collins's 2003 Room 204 reckoning, and the 2007 Fishersville unlocked-closet What If timelines to the 2018 North Lion Scales & Tails floor plan in Maplewood, Governor Rebecca Langford's July 2027 Capitol Square sweep, and the 2044 Route 15 Bus-Stop Primary.",
+      "summary": "Complete collection of twenty-five behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Heather Collins's 2003 Room 204 reckoning, the Virginia Domicile What If, and the 2007 Fishersville unlocked-closet What If timelines to the 2018 North Lion Scales & Tails floor plan in Maplewood, Governor Rebecca Langford's July 2027 Capitol Square sweep, and the 2044 Route 15 Bus-Stop Primary.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
     },
@@ -348,6 +348,21 @@
       "summary": "Reveals what happened on Ruby Mountain forty-eight hours before the East Coast minivan convoy arrived at the Lower Motorpool blast doors: why Victoria Vance initially treated Cassandra Vance's triple-rate cash buyout as a hostile corporate reconnaissance trap, how nineteen-year-old Johnny Vance traced the severed 1920s Virginia bloodline overnight, and how Cassandra's Form 709 executive ledger kept both fortresses financially sovereign.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger.json"
+    },
+    "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues": {
+      "slug": "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
+      "title": "Alternate 'What If' Dossier: Virginia Domicile, Calling Tyler's Bluff in Homeroom 212, & Keeping Wesley, Katie's Career, and Both Rescues",
+      "subtitle": "What Happens If Cousin Hannah's Movie-Theater Lie Comes First, Heather Roasts Tyler on January 6, and Heather & Wesley Stay in Virginia for In-State Tuition at CCHR and VDU",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2005-10-15",
+      "time": "13:15 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/what-if-virginia-domicile-vdu-quad-nate-heather-katie-wesley.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "In our Minnesota Marriage 'What If,' moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie's Senate career. Here is the Virginia Domicile 'What If': Cousin Hannah's green-parka lie happens first so Heather demolishes Tyler in Homeroom 212, Heather and Wesley stay in Hampton Roads for in-state tuition at CCHR and VDU, Tiffany is eliminated, Brandon hits a four-person brick wall, Wesley never loses his guy friend Nate, Katie still rises to the U.S. Senate, and both Brittany and Chelsea come home safe.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues.json"
     },
     "books/rachel/the-quantum-dossier-jessica-progman-and-william-keswick": {
       "slug": "books/rachel/the-quantum-dossier-jessica-progman-and-william-keswick",

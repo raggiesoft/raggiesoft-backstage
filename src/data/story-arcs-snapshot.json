@@ -584,11 +584,11 @@
     "image": "/raggiesoft-books/images/scenes/katie/b005/jun_2018_maplewood_north_lion_ribbon_cutting_earned_hug_nate_heather_wesley.jpg",
     "start_url": "/katie/sixteen-summer-sanctuary/sixteen-on-four-wheels-finding-dates/part-1-navigating-northwood-high-on-four-wheels-two-first-dates-why-we-ride-on-saturday?arc=heather-wesley-and-north-lion",
     "part_count": 32,
-    "backstage_count": 7,
-    "stop_count": 39,
-    "word_count": 79123,
-    "reading_minutes": 317,
-    "reading_hours": 5.3,
+    "backstage_count": 8,
+    "stop_count": 40,
+    "word_count": 81318,
+    "reading_minutes": 326,
+    "reading_hours": 5.4,
     "stops": [
       {
         "stop_num": 1,
@@ -782,6 +782,25 @@
       },
       {
         "stop_num": 11,
+        "kind": "backstage",
+        "series_slug": "katie",
+        "series_title": "Katie & Nathaniel",
+        "backstage_slug": "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
+        "title": "Alternate 'What If' Dossier: Virginia Domicile, Calling Tyler's Bluff in Homeroom 212, & Keeping Wesley, Katie's Career, and Both Rescues",
+        "subtitle": "What Happens If Cousin Hannah's Movie-Theater Lie Comes First, Heather Roasts Tyler on January 6, and Heather & Wesley Stay in Virginia for In-State Tuition at CCHR and VDU",
+        "era_title": "Behind the Scenes",
+        "chap_title": "Katie & Nathaniel — Behind the Scenes",
+        "date": "2005-10-15",
+        "location": "Virginia Beach & Norfolk, Virginia (Northwood High School, CCHR, Virginia Dominion University, Kempsville, & Richmond)",
+        "excerpt": "In our Minnesota Marriage 'What If,' moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie's Senate career. Here is the Virginia Domicile 'What If': Cousin Hannah's green-parka lie happens first so Heather demolishes Tyler in Homeroom 212, Heather and Wesley stay in Hampton Roads for in-state tuition at CCHR and VDU, Tiffany is eliminated, Brandon hits a four-person brick wall, Wesley never loses his guy friend Nate, Katie still rises to the U.S. Senate, and both Brittany and Chelsea come home safe.",
+        "image": "/raggiesoft-backstage/images/scenes/what-if-virginia-domicile-vdu-quad-nate-heather-katie-wesley.jpg",
+        "url": "https://backstage.raggiesoft.com/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues/",
+        "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
+        "word_count": 2140,
+        "reading_minutes": 9
+      },
+      {
+        "stop_num": 12,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -800,7 +819,7 @@
         "reading_minutes": 16
       },
       {
-        "stop_num": 12,
+        "stop_num": 13,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -819,7 +838,7 @@
         "reading_minutes": 13
       },
       {
-        "stop_num": 13,
+        "stop_num": 14,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -838,7 +857,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 14,
+        "stop_num": 15,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -857,7 +876,7 @@
         "reading_minutes": 14
       },
       {
-        "stop_num": 15,
+        "stop_num": 16,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -876,7 +895,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 16,
+        "stop_num": 17,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -895,7 +914,7 @@
         "reading_minutes": 6
       },
       {
-        "stop_num": 17,
+        "stop_num": 18,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -914,7 +933,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 18,
+        "stop_num": 19,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -933,7 +952,7 @@
         "reading_minutes": 5
       },
       {
-        "stop_num": 19,
+        "stop_num": 20,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -952,7 +971,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 20,
+        "stop_num": 21,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -971,7 +990,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 21,
+        "stop_num": 22,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -990,7 +1009,7 @@
         "reading_minutes": 11
       },
       {
-        "stop_num": 22,
+        "stop_num": 23,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1009,7 +1028,7 @@
         "reading_minutes": 3
       },
       {
-        "stop_num": 23,
+        "stop_num": 24,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1028,7 +1047,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 24,
+        "stop_num": 25,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1047,7 +1066,7 @@
         "reading_minutes": 6
       },
       {
-        "stop_num": 25,
+        "stop_num": 26,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1066,7 +1085,7 @@
         "reading_minutes": 12
       },
       {
-        "stop_num": 26,
+        "stop_num": 27,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1085,7 +1104,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 27,
+        "stop_num": 28,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1100,11 +1119,11 @@
         "image": "/raggiesoft-backstage/images/scenes/katie-what-if-north-lion-grand-opening.jpg",
         "url": "https://backstage.raggiesoft.com/books/katie/what-if-minnesota-marriage-and-the-unrescued-cousins/",
         "arc_url": "/katie/across-the-rotunda-the-senate-of-virginia/watching-senator-ward-kill-our-bills-across-the-rotunda-the-250-signature-petition-cutting-the-ribbon-on-route-64-in-maplewood/part-5-chelsea-s-magical-first-non-family-hug-riding-route-54-to-terminal-2-a-three-way-hug-outside-tsa?arc=heather-wesley-and-north-lion",
-        "word_count": 1223,
-        "reading_minutes": 5
+        "word_count": 1278,
+        "reading_minutes": 6
       },
       {
-        "stop_num": 28,
+        "stop_num": 29,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1123,7 +1142,7 @@
         "reading_minutes": 9
       },
       {
-        "stop_num": 29,
+        "stop_num": 30,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1142,7 +1161,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 30,
+        "stop_num": 31,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1161,7 +1180,7 @@
         "reading_minutes": 5
       },
       {
-        "stop_num": 31,
+        "stop_num": 32,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1180,7 +1199,7 @@
         "reading_minutes": 5
       },
       {
-        "stop_num": 32,
+        "stop_num": 33,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1199,7 +1218,7 @@
         "reading_minutes": 11
       },
       {
-        "stop_num": 33,
+        "stop_num": 34,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1218,7 +1237,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 34,
+        "stop_num": 35,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1237,7 +1256,7 @@
         "reading_minutes": 8
       },
       {
-        "stop_num": 35,
+        "stop_num": 36,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1256,7 +1275,7 @@
         "reading_minutes": 5
       },
       {
-        "stop_num": 36,
+        "stop_num": 37,
         "kind": "backstage",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1275,7 +1294,7 @@
         "reading_minutes": 5
       },
       {
-        "stop_num": 37,
+        "stop_num": 38,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1294,7 +1313,7 @@
         "reading_minutes": 11
       },
       {
-        "stop_num": 38,
+        "stop_num": 39,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
@@ -1313,7 +1332,7 @@
         "reading_minutes": 11
       },
       {
-        "stop_num": 39,
+        "stop_num": 40,
         "kind": "part",
         "series_slug": "katie",
         "series_title": "Katie & Nathaniel",
