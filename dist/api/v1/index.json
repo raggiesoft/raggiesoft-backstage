@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-11-18T15:10:43.385Z",
+  "generatedAt": "2026-11-18T16:03:47.102Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 60,
+  "totalItems": 62,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 26,
-    "katieDossiers": 25,
+    "katie": 27,
+    "katieDossiers": 26,
     "casey": 7,
     "caseyDossiers": 6,
     "aubrie": 13,
     "aubrieDossiers": 12,
     "aubrieCorrespondence": 10,
-    "lore": 3,
+    "lore": 4,
     "hubs": 4,
-    "total": 60,
+    "total": 62,
     "storyArcs": 13
   },
   "items": {
@@ -67,7 +67,7 @@
     "books/katie": {
       "slug": "books/katie",
       "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
-      "subtitle": "Twenty-Five Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
+      "subtitle": "Twenty-Six Archival Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
       "category": "Katie & Nathaniel — Behind the Scenes",
       "date": "2027-07-22",
       "time": "",
@@ -75,7 +75,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "Complete collection of twenty-five behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Heather Collins's 2003 Room 204 reckoning, the Virginia Domicile What If, and the 2007 Fishersville unlocked-closet What If timelines to the 2018 North Lion Scales & Tails floor plan in Maplewood, Governor Rebecca Langford's July 2027 Capitol Square sweep, and the 2044 Route 15 Bus-Stop Primary.",
+      "summary": "Complete collection of twenty-six behind-the-scenes dossiers revealing what happened outside Nathaniel Prairie's first-person POV across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Brittany's New Year's Eve 2002 'What If,' Heather Collins's 2003 Room 204 reckoning, the Virginia Domicile What If, and the 2007 Fishersville unlocked-closet What If timelines to the 2018 North Lion Scales & Tails floor plan in Maplewood, Governor Rebecca Langford's July 2027 Capitol Square sweep, and the 2044 Route 15 Bus-Stop Primary.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
     },
@@ -259,6 +259,21 @@
       "canonicalUrl": "https://backstage.raggiesoft.com/corporations/vectron-question-the-rules",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/corporations/vectron-question-the-rules.json"
     },
+    "books/katie/what-if-brittany-respected-no-company-new-years-2002": {
+      "slug": "books/katie/what-if-brittany-respected-no-company-new-years-2002",
+      "title": "Alternate 'What If' Dossier: Hanging Up on Smoker's Corner — What If Brittany Respected Uncle David's No-Company Rule on New Year's Eve 2002?",
+      "subtitle": "How One Deadbolted Door on December 31, 2002 Saves Brittany From Thirteen Lost Years, Prevents Tyler's Locker Lie, Puts Four Purple Gowns at the Pavilion, and Launches Her 1991 L-1-2-3-R Truck Channel With Uncle David",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2002-12-31",
+      "time": "21:15 EST",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/katie/b004/dec_2002_northwood_bus_loop_winter_goodbye_tight_hug_heather_nate_katie.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "In the mainline novel, seventeen-year-old Brittany Fletcher caves to peer pressure on New Year's Eve 2002 while Uncle David is in Newport, Rhode Island—setting off a 13-year domino chain that shatters Nate and Heather on January 6 and traps Brittany in South Richmond until 2016. Here is what happens if Brittany remembers Nate's no-company promise, hangs up on Tyler, deadbolts the front door, graduates in the fourth purple gown in June 2003, tours ten colleges with Wesley, and learns Uncle David's 1991 L-1-2-3-R Crew Cab pickup while he is healthy and proud beside her.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-brittany-respected-no-company-new-years-2002.json"
+    },
     "books/katie/wesley-blowout-at-heather-losing-his-friend-nate": {
       "slug": "books/katie/wesley-blowout-at-heather-losing-his-friend-nate",
       "title": "Five Red X's on the Wall Calendar: Wesley's Perspective on the Morning He Thought He Lost Nate Forever",
@@ -288,6 +303,36 @@
       "summary": "What happened outside Nathaniel's first-person view between January and June 2003—from Tyler's homeroom ambush on January 6 and five weeks of silence in Mr. Callahan's Room 204 lab to Cousin Hannah's green parka, Wesley's Pomp and Circumstance heartbreak at graduation, and one final pretzel afternoon at Emerald Creek Mall before Heather and Wesley moved home to Minnesota.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie.json"
+    },
+    "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues": {
+      "slug": "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
+      "title": "Alternate 'What If' Dossier: Virginia Domicile, Touring Ten Campuses for Wesley, & Keeping Katie's Career and Both Rescues",
+      "subtitle": "How Staying in Virginia on In-State Tuition Domicile Lets Heather Take Rising-Junior Wesley on a Ten-Campus Tour, Eliminates Tiffany, Stops Brandon Cold, and Preserves Katie's Senate Career and Both Cousin Rescues",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2003-07-12",
+      "time": "13:15 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/what-if-warwick-university-route-112-nntc-wesley-tour.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "In our Minnesota Marriage 'What If,' moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie's Senate career. Here is the complete 'What If' where Nate and Katie welcome Heather back (or trust is never broken in January 2003), Heather and Aunt Linda stay in Hampton Roads for Virginia in-state domicile, rising-junior Wesley tours ten campuses from Warwick University to SVU, RRC's Redmond Hall, CPI, and NSSU, Heather rises through a five-step Special Education career, Brittany learns Uncle David's 1991 L-1-2-3-R truck while he is alive, and Katie still becomes a U.S. Senator while rescuing both Brittany and Chelsea.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues.json"
+    },
+    "books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend": {
+      "slug": "books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend",
+      "title": "Alternate 'What If' Dossier: What If Luna Screamed 'GET OUT!' and Threw Delores Out During the Sibling Weekend?",
+      "subtitle": "How Reclaiming the October 2003 Three-Sibling Weekend Spares Leo the Four-Day Pathfinder Bus Nightmare to Washington—and Changes Robyn & Delores's Motive in Jack & Sarah",
+      "category": "Luna & Leo • Jack & Sarah — Cross-Book 'What If' Archive",
+      "date": "2003-10-11",
+      "time": "17:10 EDT",
+      "sender": "RaggieSoft Backstage Cross-Book Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/luna-leo.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/luna-leo.jpg",
+      "summary": "What happens at 5:10 PM on Saturday, October 11, 2003 if Luna Porter loses every ounce of patience when Delores grabs Leo's forearms during their hijacked Columbus Day Sibling Weekend and screams 'GET OUT!'? Follow how Stella enforces her plenary guardianship on the spot, reclaims the weekend for a brother and his two sisters, prevents the four-day $99 Pathfinder bus ordeal to Kent, Washington, and sends a direct cross-book ripple three years forward into January 2007 of Jack & Sarah—where Delores is the exact same woman.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend.json"
     },
     "books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file": {
       "slug": "books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file",
@@ -348,21 +393,6 @@
       "summary": "Reveals what happened on Ruby Mountain forty-eight hours before the East Coast minivan convoy arrived at the Lower Motorpool blast doors: why Victoria Vance initially treated Cassandra Vance's triple-rate cash buyout as a hostile corporate reconnaissance trap, how nineteen-year-old Johnny Vance traced the severed 1920s Virginia bloodline overnight, and how Cassandra's Form 709 executive ledger kept both fortresses financially sovereign.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/quantum-directive-3-casey/milepost-138-threat-dossier-and-form-709-clean-ledger.json"
-    },
-    "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues": {
-      "slug": "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
-      "title": "Story Crossroads Dossier: Virginia Domicile, Touring Warwick University on Route 112 NNTC, & Keeping Wesley, Katie's Career, and Both Rescues",
-      "subtitle": "How Staying in Virginia on In-State Tuition Domicile Lets Heather Drive Nate, Katie, and Wesley to Warwick University, Eliminates Tiffany, Stops Brandon Cold, and Preserves Katie's Senate Career and Both Cousin Rescues",
-      "category": "Katie & Nathaniel — Behind the Scenes",
-      "date": "2005-10-15",
-      "time": "13:15 EDT",
-      "sender": "RaggieSoft Backstage Production Dossier",
-      "subject": "",
-      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/what-if-warwick-university-route-112-nntc-wesley-tour.jpg",
-      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "In our Minnesota Marriage 'What If,' moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie's Senate career. Here is the architectural breakdown behind the Virginia Domicile Story Crossroads path: Heather and Wesley stay in Hampton Roads for in-state tuition at CCHR and VDU, Heather drives everyone across the tunnel to tour Warwick University beside Route 112 NNTC at the Shoe Lane roundabout, Tiffany is eliminated, Brandon hits a four-person brick wall, Wesley never loses his guy friend Nate, Katie still rises to the U.S. Senate, and both Brittany and Chelsea come home safe.",
-      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
-      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues.json"
     },
     "books/rachel/the-quantum-dossier-jessica-progman-and-william-keswick": {
       "slug": "books/rachel/the-quantum-dossier-jessica-progman-and-william-keswick",

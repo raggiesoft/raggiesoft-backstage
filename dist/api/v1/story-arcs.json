@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T15:10:43.413Z",
+  "generatedAt": "2026-11-18T16:03:47.129Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -590,8 +590,8 @@
       "part_count": 32,
       "backstage_count": 8,
       "stop_count": 40,
-      "word_count": 80642,
-      "reading_minutes": 323,
+      "word_count": 81011,
+      "reading_minutes": 325,
       "reading_hours": 5.4,
       "stops": [
         {
@@ -790,18 +790,18 @@
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
           "backstage_slug": "books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues",
-          "title": "Story Crossroads Dossier: Virginia Domicile, Touring Warwick University on Route 112 NNTC, & Keeping Wesley, Katie's Career, and Both Rescues",
-          "subtitle": "How Staying in Virginia on In-State Tuition Domicile Lets Heather Drive Nate, Katie, and Wesley to Warwick University, Eliminates Tiffany, Stops Brandon Cold, and Preserves Katie's Senate Career and Both Cousin Rescues",
+          "title": "Alternate 'What If' Dossier: Virginia Domicile, Touring Ten Campuses for Wesley, & Keeping Katie's Career and Both Rescues",
+          "subtitle": "How Staying in Virginia on In-State Tuition Domicile Lets Heather Take Rising-Junior Wesley on a Ten-Campus Tour, Eliminates Tiffany, Stops Brandon Cold, and Preserves Katie's Senate Career and Both Cousin Rescues",
           "era_title": "Behind the Scenes",
           "chap_title": "Katie & Nathaniel — Behind the Scenes",
-          "date": "2005-10-15",
-          "location": "Virginia Beach, Norfolk, & Newport News, Virginia (Northwood High School, CCHR, Virginia Dominion University, Warwick University, & Richmond)",
-          "excerpt": "In our Minnesota Marriage 'What If,' moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie's Senate career. Here is the architectural breakdown behind the Virginia Domicile Story Crossroads path: Heather and Wesley stay in Hampton Roads for in-state tuition at CCHR and VDU, Heather drives everyone across the tunnel to tour Warwick University beside Route 112 NNTC at the Shoe Lane roundabout, Tiffany is eliminated, Brandon hits a four-person brick wall, Wesley never loses his guy friend Nate, Katie still rises to the U.S. Senate, and both Brittany and Chelsea come home safe.",
+          "date": "2003-07-12",
+          "location": "Virginia Beach, Norfolk, Newport News, Williamsburg, Richmond, Fairfax, Harrisonburg, Fishersville, & Blacksburg, Virginia • Saint Paul, Minnesota",
+          "excerpt": "In our Minnesota Marriage 'What If,' moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie's Senate career. Here is the complete 'What If' where Nate and Katie welcome Heather back (or trust is never broken in January 2003), Heather and Aunt Linda stay in Hampton Roads for Virginia in-state domicile, rising-junior Wesley tours ten campuses from Warwick University to SVU, RRC's Redmond Hall, CPI, and NSSU, Heather rises through a five-step Special Education career, Brittany learns Uncle David's 1991 L-1-2-3-R truck while he is alive, and Katie still becomes a U.S. Senator while rescuing both Brittany and Chelsea.",
           "image": "/raggiesoft-backstage/images/scenes/what-if-warwick-university-route-112-nntc-wesley-tour.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues/",
           "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-3-the-back-corner-of-room-204-a-song-in-my-head-stairway-a?arc=heather-wesley-and-north-lion",
-          "word_count": 1818,
-          "reading_minutes": 8
+          "word_count": 2187,
+          "reading_minutes": 9
         },
         {
           "stop_num": 12,
@@ -2205,11 +2205,11 @@
       "image": "/raggiesoft-books/images/scenes/katie/b005/jul_2016_kings_college_royal_gate_court_order_chelsea_rescue_family.jpg",
       "start_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-1-the-gas-station-run-a-box-of-dry-cereal-why-i-never-had-a-twenty-first-birthday-drink?arc=brittany-chelsea-and-the-four-person-sanctuary",
       "part_count": 17,
-      "backstage_count": 2,
-      "stop_count": 19,
-      "word_count": 47790,
-      "reading_minutes": 192,
-      "reading_hours": 3.2,
+      "backstage_count": 3,
+      "stop_count": 20,
+      "word_count": 49342,
+      "reading_minutes": 198,
+      "reading_hours": 3.3,
       "stops": [
         {
           "stop_num": 1,
@@ -2232,6 +2232,25 @@
         },
         {
           "stop_num": 2,
+          "kind": "backstage",
+          "series_slug": "katie",
+          "series_title": "Katie & Nathaniel",
+          "backstage_slug": "books/katie/what-if-brittany-respected-no-company-new-years-2002",
+          "title": "Alternate 'What If' Dossier: Hanging Up on Smoker's Corner — What If Brittany Respected Uncle David's No-Company Rule on New Year's Eve 2002?",
+          "subtitle": "How One Deadbolted Door on December 31, 2002 Saves Brittany From Thirteen Lost Years, Prevents Tyler's Locker Lie, Puts Four Purple Gowns at the Pavilion, and Launches Her 1991 L-1-2-3-R Truck Channel With Uncle David",
+          "era_title": "Behind the Scenes",
+          "chap_title": "Katie & Nathaniel — Behind the Scenes",
+          "date": "2002-12-31",
+          "location": "Virginia Beach, Virginia (Arvin Road, Northwood High School, Virginia Beach Pavilion, & Ten-Campus Summer Tour)",
+          "excerpt": "In the mainline novel, seventeen-year-old Brittany Fletcher caves to peer pressure on New Year's Eve 2002 while Uncle David is in Newport, Rhode Island—setting off a 13-year domino chain that shatters Nate and Heather on January 6 and traps Brittany in South Richmond until 2016. Here is what happens if Brittany remembers Nate's no-company promise, hangs up on Tyler, deadbolts the front door, graduates in the fourth purple gown in June 2003, tours ten colleges with Wesley, and learns Uncle David's 1991 L-1-2-3-R Crew Cab pickup while he is healthy and proud beside her.",
+          "image": "/raggiesoft-books/images/scenes/katie/b004/dec_2002_northwood_bus_loop_winter_goodbye_tight_hug_heather_nate_katie.jpg",
+          "url": "https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002/",
+          "arc_url": "/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-1-the-gas-station-run-a-box-of-dry-cereal-why-i-never-had-a-twenty-first-birthday-drink?arc=brittany-chelsea-and-the-four-person-sanctuary",
+          "word_count": 1552,
+          "reading_minutes": 7
+        },
+        {
+          "stop_num": 3,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2250,7 +2269,7 @@
           "reading_minutes": 5
         },
         {
-          "stop_num": 3,
+          "stop_num": 4,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2269,7 +2288,7 @@
           "reading_minutes": 7
         },
         {
-          "stop_num": 4,
+          "stop_num": 5,
           "kind": "backstage",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2288,7 +2307,7 @@
           "reading_minutes": 4
         },
         {
-          "stop_num": 5,
+          "stop_num": 6,
           "kind": "backstage",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2307,7 +2326,7 @@
           "reading_minutes": 11
         },
         {
-          "stop_num": 6,
+          "stop_num": 7,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2326,7 +2345,7 @@
           "reading_minutes": 21
         },
         {
-          "stop_num": 7,
+          "stop_num": 8,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2345,7 +2364,7 @@
           "reading_minutes": 36
         },
         {
-          "stop_num": 8,
+          "stop_num": 9,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2364,7 +2383,7 @@
           "reading_minutes": 12
         },
         {
-          "stop_num": 9,
+          "stop_num": 10,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2383,7 +2402,7 @@
           "reading_minutes": 13
         },
         {
-          "stop_num": 10,
+          "stop_num": 11,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2402,7 +2421,7 @@
           "reading_minutes": 7
         },
         {
-          "stop_num": 11,
+          "stop_num": 12,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2421,7 +2440,7 @@
           "reading_minutes": 11
         },
         {
-          "stop_num": 12,
+          "stop_num": 13,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2440,7 +2459,7 @@
           "reading_minutes": 10
         },
         {
-          "stop_num": 13,
+          "stop_num": 14,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2459,7 +2478,7 @@
           "reading_minutes": 5
         },
         {
-          "stop_num": 14,
+          "stop_num": 15,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2478,7 +2497,7 @@
           "reading_minutes": 5
         },
         {
-          "stop_num": 15,
+          "stop_num": 16,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2497,7 +2516,7 @@
           "reading_minutes": 9
         },
         {
-          "stop_num": 16,
+          "stop_num": 17,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2516,7 +2535,7 @@
           "reading_minutes": 5
         },
         {
-          "stop_num": 17,
+          "stop_num": 18,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2535,7 +2554,7 @@
           "reading_minutes": 11
         },
         {
-          "stop_num": 18,
+          "stop_num": 19,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
@@ -2554,7 +2573,7 @@
           "reading_minutes": 11
         },
         {
-          "stop_num": 19,
+          "stop_num": 20,
           "kind": "part",
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",

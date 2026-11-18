@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var root = document.documentElement;
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261116a" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261116a" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261116a" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261116a" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>Alternate &#39;What If&#39; Dossier: What If Luna Screamed &#39;GET…</title>
+    <meta name="description" content="What happens at 5:10 PM on Saturday, October 11, 2003 if Luna Porter loses every ounce of patience when Delores grabs Leo&#39;s forearms during their…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend" />
+    <meta property="og:title" content="Alternate &#39;What If&#39; Dossier: What If Luna Screamed &#39;GET…" />
+    <meta property="og:description" content="What happens at 5:10 PM on Saturday, October 11, 2003 if Luna Porter loses every ounce of patience when Delores grabs Leo&#39;s forearms during their…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/luna-leo.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/luna-leo.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Widescreen illustrated cover art for Luna &amp; Leo depicting twin siblings Luna and Leo Porter side by side on their North American journey." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alternate &#39;What If&#39; Dossier: What If Luna Screamed &#39;GET…" />
+    <meta name="twitter:description" content="What happens at 5:10 PM on Saturday, October 11, 2003 if Luna Porter loses every ounce of patience when Delores grabs Leo&#39;s forearms during their…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/luna-leo.jpg" />
+    <meta name="twitter:image:alt" content="Widescreen illustrated cover art for Luna &amp; Leo depicting twin siblings Luna and Leo Porter side by side on their North American journey." />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend#webpage","url":"https://backstage.raggiesoft.com/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend","name":"Alternate 'What If' Dossier: What If Luna Screamed 'GET…","description":"What happens at 5:10 PM on Saturday, October 11, 2003 if Luna Porter loses every ounce of patience when Delores grabs Leo's forearms during their…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/luna-leo.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261116a" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261115h" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+
+      <div slot="banner" class="bs-banner-slot">
+        <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+          <div class="rs-network-bar-inner">
+            <span class="rs-network-label">✦ RaggieSoft Network:</span>
+            <ul class="rs-network-links">
+              <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+              <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+              <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+              <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+              <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+              <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261116a" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/arcs" class="bs-nav-link"><wa-icon family="duotone" name="timeline" swap-opacity aria-hidden="true"></wa-icon><span>Story Arcs (13)</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (26)</span></a></li>
+                <li><a href="/books/quantum-directive-3-casey" class="bs-nav-link"><wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon><span>The Caretakers (6)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (62 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/arcs">
+                <wa-icon slot="icon" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc Playlists (13 Arcs)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (26 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            
+            <wa-breadcrumb-item>Alternate &#39;What If&#39; Dossier: What If Luna Screamed &#39;GET OUT!&#39; and Threw Delores Out During the Sibling Weekend?</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <wa-icon family="duotone" name="people-roof" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Luna &amp; Leo • Jack &amp; Sarah — Cross-Book &#39;What If&#39; Archive
+        </wa-badge>
+        <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="clock" aria-hidden="true"></wa-icon>&nbsp;2003-10-11</wa-tag>
+      </div>
+
+      <h1 class="bs-title">Alternate &#39;What If&#39; Dossier: What If Luna Screamed &#39;GET OUT!&#39; and Threw Delores Out During the Sibling Weekend?</h1>
+      <p class="bs-subtitle">How Reclaiming the October 2003 Three-Sibling Weekend Spares Leo the Four-Day Pathfinder Bus Nightmare to Washington—and Changes Robyn &amp; Delores&#39;s Motive in Jack &amp; Sarah</p>
+
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/luna-leo/the-delores-nightmare/the-hijacked-plan/part-2-printer-rage-guardianship-questions-and-the-flute-signal" target="_blank" rel="noopener">
+                <wa-icon slot="start" family="duotone" name="book-open-cover" swap-opacity aria-hidden="true"></wa-icon>
+                Luna &amp; Leo — Era 12, Chapter 3, Part 2: Printer Rage, Guardianship Questions, &amp; the Flute Signal ↗
+              </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/">
+                <wa-icon slot="start" family="duotone" name="film" aria-hidden="true"></wa-icon>
+                All 62 Backstage Records
+              </wa-button>
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button value="https://backstage.raggiesoft.com/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend" copy-label="Copy direct link to this dossier" success-label="Link copied!"></wa-copy-button>
+        </span>
+
+        <wa-button id="bs-qr-trigger" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="qrcode" aria-hidden="true"></wa-icon>
+          Read on Phone
+        </wa-button>
+        <wa-popover for="bs-qr-trigger" placement="bottom">
+          <div class="bs-qr-panel">
+            <wa-qr-code value="https://backstage.raggiesoft.com/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend" label="QR code to open Alternate &#39;What If&#39; Dossier: What If Luna Screamed &#39;GET OUT!&#39; and Threw Delores Out During the Sibling Weekend? on a phone or tablet" size="148"></wa-qr-code>
+            <p class="bs-qr-caption">Scan with your camera to continue reading this dossier on your phone or tablet.</p>
+          </div>
+        </wa-popover>
+      </div>
+
+      <div class="bs-meta-grid">
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="calendar-day" aria-hidden="true"></wa-icon> Story Date &amp; Time</span>
+        <strong>2003-10-11 • 17:10 EDT</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="location-dot" aria-hidden="true"></wa-icon> Setting</span>
+        <strong>Virginia Beach &amp; Portsmouth, Virginia (Stella Porter&#39;s House, Robyn Mahone&#39;s Apartment, &amp; Virginia Dominion University)</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="user-pen" aria-hidden="true"></wa-icon> Archival Source</span>
+        <strong>RaggieSoft Backstage Cross-Book Production Dossier</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="users" aria-hidden="true"></wa-icon> Addressed To</span>
+        <strong>Readers of Luna &amp; Leo (Era 12, Chapter 3) &amp; Jack &amp; Sarah (Era 2, Chapter 8)</strong>
+      </div>
+    </div>
+    </div>
+
+    
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/luna-leo.jpg"
+        alt="Widescreen illustrated cover art for Luna &amp; Leo depicting twin siblings Luna and Leo Porter side by side on their North American journey."
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      <figcaption class="bs-dossier-hero-caption">Widescreen illustrated cover art for Luna &amp; Leo depicting twin siblings Luna and Leo Porter side by side on their North American journey.</figcaption>
+    </figure>
+
+    <wa-card class="bs-article-card">
+      <article class="bs-article-prose" aria-label="Alternate &#39;What If&#39; Dossier: What If Luna Screamed &#39;GET OUT!&#39; and Threw Delores Out During the Sibling Weekend?">
+        <blockquote class="bs-blockquote"><p><strong>Cross-Book Continuity Note:</strong> Across the shared Tidewater universe of Ocean View Archives, the <strong>Delores Mahone</strong> who corners <strong>Jack Bennett</strong> during a January 2007 campus open house at <strong>Virginia Dominion University (<code class="bs-inline-code">VDU</code>)</strong> in <a href="https://books.raggiesoft.com/jack-sarah" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Jack &amp; Sarah</em></strong></a> is the <strong>exact same Delores</strong> who isolated <strong>Leo Porter</strong> in Portsmouth three years earlier in <a href="https://books.raggiesoft.com/luna-leo" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Luna &amp; Leo</em></strong></a>.</p>
+<p>Because those two novels share a single timeline, changing how <strong>Luna</strong> and <strong>Stella Porter</strong> react during the hijacked <strong>October 2003 Columbus Day Sibling Weekend</strong> (<a href="https://books.raggiesoft.com/luna-leo/the-delores-nightmare/the-hijacked-plan/part-2-printer-rage-guardianship-questions-and-the-flute-signal" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Luna &amp; Leo — Era 12, Chapter 3, Part 2</em></strong></a>) doesn&#39;t just transform <em>Luna &amp; Leo</em>—it sends a direct psychological and financial knock-on effect straight into <strong>Robyn and Delores Mahone&#39;s</strong> January 2007 dinner table in <a href="https://books.raggiesoft.com/jack-sarah/jack-and-delores/an-unassuming-dinner-the-debrief/an-unassuming-dinner-the-debrief" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Jack &amp; Sarah — Era 2, Chapter 8</em></strong></a>.</p></blockquote>
+<hr class="bs-divider" />
+<h2 id="sec-1-saturday-october-11-2003-5-10-pm-luna-leo-luna-screams-get-out" class="bs-heading bs-h2">1. <code class="bs-inline-code">Saturday, October 11, 2003, 5:10 PM</code> (<em>Luna &amp; Leo</em>): Luna Screams <em>&quot;GET OUT!&quot;</em></h2>
+<p>From the moment <strong>Stella Porter</strong> pulled her Holt Sentinel up to the Portsmouth apartment on Friday afternoon, October 10, 2003, the three-day holiday weekend was supposed to be one simple, sacred thing: <strong>a Sibling Weekend—a brother, his twin sister Luna, and his older sister Stella</strong>.</p>
+<p>Instead, <strong>Delores</strong> invited herself along unasked, claimed Leo&#39;s front passenger seat, mocked the dual <code class="bs-inline-code">MagnaByte Opus</code> computer desk, vetoed the Elizabeth River Trail, hovered suspiciously outside Leo&#39;s daily speakerphone call with <strong>Olivia Walker</strong> in Montréal, shrieked like a siren over the <em>ZZZT-CHUNK</em> of their <code class="bs-inline-code">MagnaByte GraphiPrint</code> dot-matrix tractor printer, &quot;sweetly&quot; suggested to Stella&#39;s face that Stella hand Leo&#39;s court-appointed <strong>Guardianship and Conservatorship</strong> over to Delores, and snapped at Luna for humming the twin distress flute passage from <strong>Fractured Prisms&#39;s</strong> <em>Kaleidoscope Sun</em>.</p>
+<p>In the mainline novel, when Delores rises from the sofa at <code class="bs-inline-code">5:10 PM</code> and clamps both hands around Leo&#39;s forearms to yank him out of his wheelchair onto her lap, Luna and Stella freeze—terrified that screaming at Delores in Virginia Beach will bring worse retaliation down on Leo behind a locked apartment door back in Portsmouth.</p>
+<p><strong>In this <em>&quot;What If?&quot;</em> timeline, the dam behind Luna&#39;s ribs shatters half a heartbeat <em>before</em> Delores can lift Leo an inch:</strong></p>
+<ul class="bs-list"><li><strong>The Explosion in Stella&#39;s Living Room:</strong><div class="bs-list-subline">Luna&#39;s wooden desk chair crashes backward onto the carpet behind the <code class="bs-inline-code">MagnaByte</code> desk. Crossing the living room in three furious strides, Luna plants herself squarely between Delores and her twin brother&#39;s footrests and screams <strong><em>&quot;GET OUT!&quot;</em></strong> at the top of her lungs:</div><div class="bs-list-subline">&gt; <em>&quot;Don&#39;t you DARE put your hands on my brother! This was supposed to be OUR weekend! Just Leo, me, and Stella! You invited yourself into our car, you stole his front seat, you insulted our house, you screamed at our printer, you tried to keep him off the phone with his best friend, and now you think you can grab him out of his chair right in front of us?! GET OUT OF OUR HOUSE!&quot;</em></div></li>
+<li><strong>Stella Drops the Legal Hammer &amp; Leo Clicks His Brakes:</strong><div class="bs-list-subline">Expecting measured older sister Stella to scold Luna and smooth things over, Delores demands that Leo grab his backpack to leave with her. Instead, Stella dries her hands on a dish towel, walks out of the kitchen to stand shoulder to shoulder beside Luna, carries Delores&#39;s canvas overnight bag four paces to the front door, and sets it squarely out on the concrete porch stoop—invoking the exact Virginia Circuit Court plenary guardianship and conservatorship order Delores was questioning five minutes earlier to terminate Leo&#39;s Portsmouth living arrangement <strong>permanently on the spot</strong>. Behind his two sisters, Leo clicks both manual wheel locks tight with his own hands and types two unmistakable words on his Quantum Communicator: <span class="bs-aac-chip" role="note" aria-label="Synthesized tablet speech"><i class="fa-solid fa-tablet-screen-button" aria-hidden="true"></i> Go away.</span></div></li>
+<li><strong>Reclaiming the True Three-Sibling Weekend (<code class="bs-inline-code">Oct 11–13, 2003</code>):</strong><div class="bs-list-subline">With the brass deadbolt and security chain locked behind a furious Delores storming toward the Saturday <code class="bs-inline-code">CVTA</code> corner stop—and Delores <strong>never welcomed back into Leo&#39;s life</strong>—the Columbus Day weekend becomes exactly what it was meant to be: a brother, his twin sister, and his older sister ordering hot extra-cheese pizza, spinning Stella&#39;s <strong>Fractured Prisms</strong> vinyl LPs (<em>...And Only Three Remained...</em> and <em>Kaleidoscope Sun</em>), decompressing in Luna and Leo&#39;s safe L-shaped sofa embrace, and sharing an unhurried, joyful two-hour speakerphone call with <strong>Olivia</strong> in Montréal.</div></li></ul>
+<hr class="bs-divider" />
+<h2 id="sec-2-oct-2003-sep-2004-luna-leo-zero-four-day-pathfinder-trip-to-washington-state" class="bs-heading bs-h2">2. <code class="bs-inline-code">Oct 2003 – Sep 2004</code> (<em>Luna &amp; Leo</em>): Zero Four-Day Pathfinder Trip to Washington State</h2>
+<p>Throwing Delores out on October 11, 2003 erases the darkest arc of <em>Luna &amp; Leo</em> before it can ever happen:</p>
+<ol class="bs-list"><li><strong>Tuesday Morning Portsmouth Civil Standby (<code class="bs-inline-code">October 14, 2003</code>):</strong><div class="bs-list-subline">Instead of Leo enduring a grueling multi-bus Tuesday morning ride back into Portsmouth captivity, Leo stays safe in Virginia Beach with Luna and <strong>Grandma Eleanor</strong> while <strong>Stella and Grandpa Arthur</strong> cross the Midtown Tunnel accompanied by a uniformed <strong>Portsmouth Police civil-standby officer</strong>—packing every textbook, <code class="bs-inline-code">MagnaByte</code> floppy disk, charger, and sweater out of <strong>Robyn and Delores Mahone&#39;s</strong> apartment in twenty minutes flat and serving formal written notice that any contact will be met with an immediate protective order.</div></li>
+<li><strong>No <code class="bs-inline-code">$99</code> Pathfinder Bus Ordeal to Kent, Washington (<code class="bs-inline-code">November 2003</code>):</strong><div class="bs-list-subline">Because Delores no longer has access to Leo or his monthly support funds, <strong>the four-day cross-country Pathfinder bus trip from Virginia to Aunt Carol&#39;s apartment in Kent, Washington never happens</strong>—meaning zero confiscated or smashed AAC device, zero four-day neglect injuries or hospitalization, zero frantic airport TTY collect call from Sea-Tac, and zero emergency Flight 1138 rescue.</div></li>
+<li><strong>Olivia&#39;s Return &amp; September 17, 2004 Without a Courtroom Trial:</strong><div class="bs-list-subline">Leo celebrates Thanksgiving and a Québec poutine <em>Réveillon</em> whole and uninjured in Virginia Beach, enrolls alongside Stella, Luna, and newly arrived <strong>Olivia Walker</strong> in <em>Beginning French I</em> at <code class="bs-inline-code">CCHR</code> in January 2004, and rolls into Virginia Beach Circuit Court on <strong>September 17, 2004</strong> strictly for the joyful half of that date—celebrating Olivia legally taking the name <strong>Olivia Walker Porter</strong> before moving north to their gated coastal sanctuary in <strong>Iron Point, Rhode Island</strong>, with zero <code class="bs-inline-code">$8,745</code> restitution lawsuit needed.</div></li></ol>
+<hr class="bs-divider" />
+<h2 id="sec-3-january-march-2007-the-knock-on-effect-in-jack-sarah" class="bs-heading bs-h2">3. <code class="bs-inline-code">January–March 2007</code>: The Knock-On Effect in <em>Jack &amp; Sarah</em></h2>
+
+        <figure class="bs-inline-figure">
+          <img
+            src="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/jack-sarah.jpg"
+            alt="Widescreen illustrated cover art for Jack &amp; Sarah depicting siblings Jack and Sarah Bennett alongside their twin cousins Molly and Clare."
+            width="1408"
+            height="768"
+            loading="lazy"
+            class="bs-inline-img"
+          />
+          <figcaption class="bs-inline-caption">Widescreen illustrated cover art for Jack &amp; Sarah depicting siblings Jack and Sarah Bennett alongside their twin cousins Molly and Clare.</figcaption>
+        </figure>
+      
+<p>Three years later, in <strong>January 2007</strong>, twenty-something <strong>Delores Mahone</strong> is taking classes at <strong>Virginia Dominion University (<code class="bs-inline-code">VDU</code>)</strong> when kind-hearted Fairlawn Recreation Center staffer <strong>Jack Bennett</strong> attends a campus tour (<a href="https://books.raggiesoft.com/jack-sarah/jack-and-delores/a-cousin-s-rescue-conversations-on-a-ride-home" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Jack &amp; Sarah — Era 2, Chapter 7</em></strong></a>).</p>
+<p>Because Delores&#39;s manipulative personality hasn&#39;t changed an ounce—she still spins the exact same inverted victim script at the Fairlawn front desk claiming she <em>&quot;just got out of a really controlling relationship&quot;</em>—Jack, his sister <strong>Sarah</strong>, and his twin cousins <strong>Molly and Clare</strong> still form their unbreakable four-person protective wall around him. <strong>Beneath the surface, however, throwing Delores out during the October 2003 Sibling Weekend reshapes three pivotal moments in <em>Jack &amp; Sarah</em>:</strong></p>
+<h3 id="sec-a-why-robyn-mahone-is-furious-over-the-valuemart-freezer-lasagna-jan-27-2007-e002-c008-p001-md" class="bs-heading bs-h3">A. Why Robyn Mahone Is Furious Over the ValueMart Freezer Lasagna (<code class="bs-inline-code">Jan 27, 2007</code>, <code class="bs-inline-code">e002/c008/p001.md</code>)</h3>
+<p>In mainline <em>Jack &amp; Sarah</em>, when Molly drives Jack to Delores and <strong>Robyn Mahone&#39;s</strong> apartment for Robyn&#39;s &quot;world-famous&quot; ValueMart freezer-lasagna dinner, Robyn&#39;s passive-aggressive jabs at Delores stem from screaming phone calls from Aunt Carol in Washington and the massive, unpayable <code class="bs-inline-code">$8,745+</code> court restitution debt Delores owes the Porter family.</p>
+<p><strong>In the Sibling Weekend Throwout timeline, Delores owes zero Washington court debt—yet Robyn is every bit as livid at her daughter for the opposite financial reason:</strong></p>
+<ul class="bs-list"><li>Robyn is still seething over the mortifying Tuesday morning when Stella and Arthur Porter showed up at her Portsmouth door with a <strong>uniformed police officer</strong> in front of the whole apartment building—and over how Delores&#39;s reckless temper <strong>blew their golden meal ticket with the wealthy Porter family</strong>, costing Robyn the steady household rent share Leo&#39;s placement had brought in.</li>
+<li>When Robyn stares creepily across the dining table at Jack and purrs about knowing his newly divorced father <strong>Jermaine Bennett</strong> from work, she isn&#39;t looking for someone to pay off a Washington judgment; she is sizing up Jermaine as the <strong>replacement meal ticket</strong> to make up for the Porter windfall Delores squandered.</li></ul>
+<h3 id="sec-b-delores-s-heart-hospital-scream-e003-c002-p001-md-final-retreat-e003-c008-p001-md" class="bs-heading bs-h3">B. Delores&#39;s Heart Hospital Scream (<code class="bs-inline-code">e003/c002/p001.md</code>) &amp; Final Retreat (<code class="bs-inline-code">e003/c008/p001.md</code>)</h3>
+<ul class="bs-list"><li><strong>Outside the Hospital (<code class="bs-inline-code">e003/c002/p001.md</code>):</strong> When Sarah, Molly, and Clare block Delores from isolating Jack during the family medical scare, Delores&#39;s mask slips and betrays the exact wound festering inside her since October 11, 2003:<div class="bs-list-subline">&gt; <em>&quot;I had Leo right where I wanted him! Completely under my thumb, and his precious sisters threw me out and ruined everything! I will NOT let you people do it to me again with Jack!&quot;</em></div></li>
+<li><strong>The Final Wall (<code class="bs-inline-code">e003/c008/p001.md</code>):</strong> When all four Bennetts confront her together, Delores backs down remembering Stella Porter&#39;s ice-cold porch warning of a Virginia Beach protective order and the uniformed Portsmouth police standby.</li></ul>
+<h3 id="sec-c-a-deeper-psychological-lock-on-the-biological-deadline-e003-c009-p002-md" class="bs-heading bs-h3">C. A Deeper Psychological Lock on <em>&quot;The Biological Deadline&quot;</em> (<code class="bs-inline-code">e003/c009/p002.md</code>)</h3>
+<p>Most strikingly of all, the Sibling Weekend throwout makes Sarah and Molly&#39;s deduction in <strong>Era 3, Chapter 9 (<em>&quot;The Biological Deadline&quot;</em>)</strong> click into place with chilling precision:</p>
+<ul class="bs-list"><li>Why did Delores lead Jack into a pitch-black VDU Chemistry hallway and an empty apartment bedroom to initiate an unguarded sexual encounter <strong>within hours of meeting him</strong> during her fertile window?</li>
+<li>Because in October 2003, <strong>Stella Porter&#39;s legal guardianship</strong> allowed Leo&#39;s sisters to scream <em>&quot;GET OUT!&quot;</em>, put Delores&#39;s bag on the porch stoop, and erase Delores from Leo&#39;s life in sixty seconds flat because Delores had <strong>zero legal or biological tie</strong> to him. Determined never to let another protective sister (<code class="bs-inline-code">Sarah</code>) or twin cousins (<code class="bs-inline-code">Molly and Clare</code>) throw her off a porch again, Delores was racing on Day One to manufacture an instant biological anchor that no family wall could ever legally sever.</li></ul>
+<hr class="bs-divider" />
+<h2 id="sec-4-cross-book-comparison-summary-mainline-vs-sibling-weekend-throwout-what-if" class="bs-heading bs-h2">4. Cross-Book Comparison Summary (<code class="bs-inline-code">Mainline</code> vs. <code class="bs-inline-code">Sibling Weekend Throwout &#39;What If&#39;</code>)</h2>
+<div class="bs-table-wrapper"><table class="bs-table" style="--label-2: &quot;Mainline Shared Canon (Pathfinder Ordeal)&quot;; --label-3: &quot;Sibling Weekend \&quot;GET OUT!\&quot; \&quot;What If?\&quot;&quot;"><caption class="visually-hidden">4. Cross-Book Comparison Summary (Mainline vs. Sibling Weekend Throwout &#39;What If&#39;) — Reference Table</caption><thead><tr><th scope="col" class="bs-cell-align-start">Story Milestone</th><th scope="col" class="bs-cell-align-start">Mainline Shared Canon (<code class="bs-inline-code">Pathfinder Ordeal</code>)</th><th scope="col" class="bs-cell-align-start">Sibling Weekend <em>&quot;GET OUT!&quot;</em> <code class="bs-inline-code">&quot;What If?&quot;</code></th></tr></thead><tbody><tr><th scope="row" class="bs-cell-align-start"><strong>Sat, Oct 11, 2003 (<code class="bs-inline-code">Luna &amp; Leo</code>, <code class="bs-inline-code">5:10 PM</code>)</strong></th><td class="bs-cell-align-start">Luna &amp; Stella freeze in fear of Portsmouth retaliation as Delores pulls Leo onto her lap</td><td class="bs-cell-align-start"><strong>Luna screams <em>&quot;GET OUT!&quot;</em></strong>; Stella enforces guardianship &amp; locks Delores out forever</td></tr>
+<tr><th scope="row" class="bs-cell-align-start"><strong>Columbus Day Weekend (<code class="bs-inline-code">Oct 11–13, 2003</code>)</strong></th><td class="bs-cell-align-start">Spent under duress behind locked bedroom doors; Stella teaches TTY collect-call lifeline</td><td class="bs-cell-align-start"><strong>True Three-Sibling Weekend</strong>: pizza, <em>Fractured Prisms</em> vinyls, &amp; joyful call with Olivia</td></tr>
+<tr><th scope="row" class="bs-cell-align-start"><strong>November 2003 (<code class="bs-inline-code">Luna &amp; Leo</code>)</strong></th><td class="bs-cell-align-start">Four-day <code class="bs-inline-code">$99</code> Pathfinder bus nightmare to Kent, WA; smashed AAC; Sea-Tac TTY rescue</td><td class="bs-cell-align-start"><strong>100% Prevented</strong>; Portsmouth police civil-standby packs out Leo&#39;s things on Oct 14</td></tr>
+<tr><th scope="row" class="bs-cell-align-start"><strong>Sep 17, 2004 (<code class="bs-inline-code">Virginia Beach Circuit Court</code>)</strong></th><td class="bs-cell-align-start">Dual court day: <code class="bs-inline-code">$8,745+</code> restitution judgment against Delores + Olivia&#39;s name change</td><td class="bs-cell-align-start">Pure celebration: <strong>Olivia Walker Porter&#39;s</strong> legal name change before Iron Point move</td></tr>
+<tr><th scope="row" class="bs-cell-align-start"><strong>Jan 27, 2007 (<code class="bs-inline-code">Jack &amp; Sarah</code> Lasagna Dinner)</strong></th><td class="bs-cell-align-start">Robyn fumes over Aunt Carol&#39;s calls &amp; Delores&#39;s unpayable Washington restitution debt</td><td class="bs-cell-align-start">Robyn fumes over the Portsmouth police standby &amp; <strong>Delores blowing the wealthy Porter meal ticket</strong></td></tr>
+<tr><th scope="row" class="bs-cell-align-start"><strong>Why Delores Rushes Day-One Entrapment (<code class="bs-inline-code">Jack &amp; Sarah</code>)</strong></th><td class="bs-cell-align-start">Escalating predatory control after losing Leo</td><td class="bs-cell-align-start"><strong>Direct countermeasure</strong> so no sister/cousin can ever scream <em>&quot;Get out!&quot;</em> and sever her again</td></tr></tbody></table></div>
+      </article>
+    </wa-card>
+
+    
+    
+    <section aria-labelledby="related-backstage-heading">
+      <wa-divider></wa-divider>
+      <div class="bs-section-head">
+        <h2 id="related-backstage-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="folder-tree" swap-opacity aria-hidden="true"></wa-icon>
+          More in This Behind-the-Scenes Collection
+        </h2>
+      </div>
+      <wa-scroller orientation="horizontal">
+        <div class="bs-scroller-track">
+          <div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Commonwealth Polytechnic Institute (CPI) Architectural, Geographic &amp; Transit Dossier — Blacksburg, Virginia Locations &amp; Architecture Blacksburg, Montgomery County, Virginia Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI)—featuring Preston Hall, The Keystone Bridge, Kincaid Hall &amp; Kincaid Commons, Eleanor Bennett Commonwealth Hall, The Crucible, and the Poly Pass regional transit network. 1872-10-01">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-preston-hall-commonwealth-green.jpg" alt="Preston Hall&#39;s towering Neo-Gothic Ironstone turrets overlooking the sweeping oval lawn of Commonwealth Green in crisp Blacksburg autumn sunlight, with students walking and a student propelling a manual wheelchair along the accessible paved campus promenade." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="success" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="building-columns" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Campus &amp; Architecture
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1872-10-01</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/locations/cpi" class="bs-link">Commonwealth Polytechnic Institute (CPI)</a></h3>
+        <div class="bs-card-subtitle">Architectural, Geographic &amp; Transit Dossier — Blacksburg, Virginia</div>
+        <p class="bs-card-summary">Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI)—featuring Preston Hall, The Keystone Bridge, Kincaid Hall &amp; Kincaid Commons, Eleanor Bennett Commonwealth Hall, The Crucible, and the Poly Pass regional transit network.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/locations/cpi">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Commonwealth Polytechnic Institute (CPI)</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="locations/cpi">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Commonwealth Polytechnic Institute (CPI)</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39; From an Unheated Blacksburg Garage to the Cosmos Engine Room Records &amp; Music Corner of Progress &amp; Turner Streets, Blacksburg, Virginia (CPI) How Ryan, Cassidy, Evan, Tyler, and Holly formed The Stardust Engine at CPI in 1986—and how their 1987 debut &#39;Electric Color&#39; awoke Jordan in 2015. 1986-10-14">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/aubrie/e008/c004/p002/stardust-engine-300-marching-forgers.jpg" alt="The Stardust Engine performing live inside CPI&#39;s stadium alongside three hundred members of the Marching Forgers under glowing concert stage lights." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="compact-disc" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Engine Room Records &amp; Music
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1986-10-14</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/music/stardust-engine-origins" class="bs-link">The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</a></h3>
+        <div class="bs-card-subtitle">From an Unheated Blacksburg Garage to the Cosmos</div>
+        <p class="bs-card-summary">How Ryan, Cassidy, Evan, Tyler, and Holly formed The Stardust Engine at CPI in 1986—and how their 1987 debut &#39;Electric Color&#39; awoke Jordan in 2015.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/music/stardust-engine-origins">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="music/stardust-engine-origins">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001) From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act Corporate &amp; Legal Archives Houston, Texas / Blacksburg, Virginia In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302. 2001-12-02">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/aubrie/e007/c001/p003/birth-of-finsharp.jpg" alt="Zoë Wren Brooks studying historical Vectron Energy Corp. financial ledger disclosures while designing the Fin# audit architecture at CPI." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="neutral" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="scale-balanced" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Corporate &amp; Legal Archives
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-12-02</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/corporations/vectron-question-the-rules" class="bs-link">Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</a></h3>
+        <div class="bs-card-subtitle">From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act</div>
+        <p class="bs-card-summary">In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/corporations/vectron-question-the-rules">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="corporations/vectron-question-the-rules">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+        </div>
+      </wa-scroller>
+    </section>
+  
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        <wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  <li><a href="#sec-1-saturday-october-11-2003-5-10-pm-luna-leo-luna-screams-get-out" class="bs-toc-link">1. Saturday, October 11, 2003, 5:10 PM (Luna &amp; Leo): Luna Screams &quot;GET OUT!&quot;</a></li>
+                  <li><a href="#sec-2-oct-2003-sep-2004-luna-leo-zero-four-day-pathfinder-trip-to-washington-state" class="bs-toc-link">2. Oct 2003 – Sep 2004 (Luna &amp; Leo): Zero Four-Day Pathfinder Trip to Washington State</a></li>
+                  <li><a href="#sec-3-january-march-2007-the-knock-on-effect-in-jack-sarah" class="bs-toc-link">3. January–March 2007: The Knock-On Effect in Jack &amp; Sarah</a></li>
+                  <li><a href="#sec-4-cross-book-comparison-summary-mainline-vs-sibling-weekend-throwout-what-if" class="bs-toc-link">4. Cross-Book Comparison Summary (Mainline vs. Sibling Weekend Throwout &#39;What If&#39;)</a></li>
+                </ul>
+              </wa-card>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/luna-leo/the-delores-nightmare/the-hijacked-plan/part-2-printer-rage-guardianship-questions-and-the-flute-signal" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Luna &amp; Leo — Era 12, Chapter 3, Part 2: Printer Rage, Guardianship Questions, &amp; the Flute Signal ↗
+                  </wa-button>
+            
+            
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/books/luna-leo/what-if-luna-threw-delores-out-during-sibling-weekend" label="QR code to open Alternate &#39;What If&#39; Dossier: What If Luna Screamed &#39;GET OUT!&#39; and Threw Delores Out During the Sibling Weekend? on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261116a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261115h" defer></script>
+  </body>
+</html>

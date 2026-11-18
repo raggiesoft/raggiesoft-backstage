@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var root = document.documentElement;
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261116a" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261116a" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261116a" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261116a" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261116a" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261116a" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261116a" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261116a" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261116a" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261116a" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261116a" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261116a" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261116a" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261116a" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261116a" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261116a" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261116a" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261116a" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261116a" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261116a" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261116a" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261116a" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261116a" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>Alternate &#39;What If&#39; Dossier: Hanging Up on Smoker&#39;s Corner…</title>
+    <meta name="description" content="In the mainline novel, seventeen-year-old Brittany Fletcher caves to peer pressure on New Year&#39;s Eve 2002 while Uncle David is in Newport, Rhode…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002" />
+    <meta property="og:title" content="Alternate &#39;What If&#39; Dossier: Hanging Up on Smoker&#39;s Corner…" />
+    <meta property="og:description" content="In the mainline novel, seventeen-year-old Brittany Fletcher caves to peer pressure on New Year&#39;s Eve 2002 while Uncle David is in Newport, Rhode…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Outside the red-brick building of Northwood High School beside a waiting yellow school bus on an overcast December 2002 afternoon, seventeen-year-old Heather Collins in a…" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alternate &#39;What If&#39; Dossier: Hanging Up on Smoker&#39;s Corner…" />
+    <meta name="twitter:description" content="In the mainline novel, seventeen-year-old Brittany Fletcher caves to peer pressure on New Year&#39;s Eve 2002 while Uncle David is in Newport, Rhode…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg" />
+    <meta name="twitter:image:alt" content="Outside the red-brick building of Northwood High School beside a waiting yellow school bus on an overcast December 2002 afternoon, seventeen-year-old Heather Collins in a…" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002#webpage","url":"https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002","name":"Alternate 'What If' Dossier: Hanging Up on Smoker's Corner…","description":"In the mainline novel, seventeen-year-old Brittany Fletcher caves to peer pressure on New Year's Eve 2002 while Uncle David is in Newport, Rhode…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261116a" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261115h" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+
+      <div slot="banner" class="bs-banner-slot">
+        <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+          <div class="rs-network-bar-inner">
+            <span class="rs-network-label">✦ RaggieSoft Network:</span>
+            <ul class="rs-network-links">
+              <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+              <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+              <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+              <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+              <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+              <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+              <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+              <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+              <li><a href="https://michaelpragsdale.com">👔 Michael P. Ragsdale</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261116a" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/arcs" class="bs-nav-link"><wa-icon family="duotone" name="timeline" swap-opacity aria-hidden="true"></wa-icon><span>Story Arcs (13)</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link" aria-current="page"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (26)</span></a></li>
+                <li><a href="/books/quantum-directive-3-casey" class="bs-nav-link"><wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon><span>The Caretakers (6)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-sparkles" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (62 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/arcs">
+                <wa-icon slot="icon" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc Playlists (13 Arcs)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (26 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+          </div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            <wa-breadcrumb-item href="/books/katie">Katie &amp; Nathaniel (26 Dossiers)</wa-breadcrumb-item>
+            <wa-breadcrumb-item>Alternate &#39;What If&#39; Dossier: Hanging Up on Smoker&#39;s Corner — What If Brittany Respected Uncle David&#39;s No-Company Rule on New Year&#39;s Eve 2002?</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="brand" appearance="filled" pill>
+          <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel — Behind the Scenes
+        </wa-badge>
+        <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="clock" aria-hidden="true"></wa-icon>&nbsp;2002-12-31</wa-tag>
+      </div>
+
+      <h1 class="bs-title">Alternate &#39;What If&#39; Dossier: Hanging Up on Smoker&#39;s Corner — What If Brittany Respected Uncle David&#39;s No-Company Rule on New Year&#39;s Eve 2002?</h1>
+      <p class="bs-subtitle">How One Deadbolted Door on December 31, 2002 Saves Brittany From Thirteen Lost Years, Prevents Tyler&#39;s Locker Lie, Puts Four Purple Gowns at the Pavilion, and Launches Her 1991 L-1-2-3-R Truck Channel With Uncle David</p>
+
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-1-the-gas-station-run-a-box-of-dry-cereal-why-i-never-had-a-twenty-first-birthday-drink" target="_blank" rel="noopener">
+                <wa-icon slot="start" family="duotone" name="book-open-cover" swap-opacity aria-hidden="true"></wa-icon>
+                Episode 4, Chapter 2, Part 1: New Year&#39;s Eve 2002 on Arvin Road ↗
+              </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/books/katie">
+                <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (26 Dossiers)
+              </wa-button>
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button value="https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002" copy-label="Copy direct link to this dossier" success-label="Link copied!"></wa-copy-button>
+        </span>
+
+        <wa-button id="bs-qr-trigger" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="qrcode" aria-hidden="true"></wa-icon>
+          Read on Phone
+        </wa-button>
+        <wa-popover for="bs-qr-trigger" placement="bottom">
+          <div class="bs-qr-panel">
+            <wa-qr-code value="https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002" label="QR code to open Alternate &#39;What If&#39; Dossier: Hanging Up on Smoker&#39;s Corner — What If Brittany Respected Uncle David&#39;s No-Company Rule on New Year&#39;s Eve 2002? on a phone or tablet" size="148"></wa-qr-code>
+            <p class="bs-qr-caption">Scan with your camera to continue reading this dossier on your phone or tablet.</p>
+          </div>
+        </wa-popover>
+      </div>
+
+      <div class="bs-meta-grid">
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="calendar-day" aria-hidden="true"></wa-icon> Story Date &amp; Time</span>
+        <strong>2002-12-31 • 21:15 EST</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="location-dot" aria-hidden="true"></wa-icon> Setting</span>
+        <strong>Virginia Beach, Virginia (Arvin Road, Northwood High School, Virginia Beach Pavilion, &amp; Ten-Campus Summer Tour)</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="user-pen" aria-hidden="true"></wa-icon> Archival Source</span>
+        <strong>RaggieSoft Backstage Production Dossier</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="users" aria-hidden="true"></wa-icon> Addressed To</span>
+        <strong>Readers of Katie &amp; Nathaniel (Episode 4, Chapter 2 &#39;What If&#39; Archive)</strong>
+      </div>
+    </div>
+    </div>
+
+    
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/katie/b004/dec_2002_northwood_bus_loop_winter_goodbye_tight_hug_heather_nate_katie.jpg"
+        alt="Outside the red-brick building of Northwood High School beside a waiting yellow school bus on an overcast December 2002 afternoon, seventeen-year-old Heather Collins in a forest-green quilted winter coat and cream knit scarf bends down to share a radiant, tight two-armed holiday hug with Nathaniel Prairie in his compact black motorized SwiftChair power wheelchair while his blonde twin sister Katie Prairie sits right beside him in her matching power wheelchair smiling warmly."
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      <figcaption class="bs-dossier-hero-caption">Outside the red-brick building of Northwood High School beside a waiting yellow school bus on an overcast December 2002 afternoon, seventeen-year-old Heather Collins in a forest-green quilted winter coat and cream knit scarf bends down to share a radiant, tight two-armed holiday hug with Nathaniel Prairie in his compact black motorized SwiftChair power wheelchair while his blonde twin sister Katie Prairie sits right beside him in her matching power wheelchair smiling warmly.</figcaption>
+    </figure>
+
+    <wa-card class="bs-article-card">
+      <article class="bs-article-prose" aria-label="Alternate &#39;What If&#39; Dossier: Hanging Up on Smoker&#39;s Corner — What If Brittany Respected Uncle David&#39;s No-Company Rule on New Year&#39;s Eve 2002?">
+        <blockquote class="bs-blockquote"><p><strong>Archival Note:</strong> Few moments in <a href="https://books.raggiesoft.com/katie" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Katie &amp; Nathaniel</em></strong></a> carry a bigger butterfly effect than <code class="bs-inline-code">9:15 PM</code> on <strong>Tuesday, December 31, 2002</strong> (<a href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-1-the-gas-station-run-a-box-of-dry-cereal-why-i-never-had-a-twenty-first-birthday-drink" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Episode 4, Chapter 2, Part 1</em></strong></a>).</p>
+<p>Remember <em>why</em> seventeen-year-old <strong>Brittany Fletcher</strong> was at the Arvin Road house that night in the first place: remembering Brittany raising her palm to turn down a cigarette at <code class="bs-inline-code">Smoker&#39;s Corner</code> that autumn, <strong>Katie and Nate</strong> were the ones who asked <strong>David Prairie</strong> and <strong>Aunt Karen</strong> to let Brittany stay over while David drove nine hours north to Newport, Rhode Island to check on <strong>Grandma Ruth</strong>, <strong>Aunt Liz</strong>, and <strong>Chelsea</strong>—hoping one safe, warm New Year&#39;s Eve over pizza and ginger ale would bring their ninth-grade best friend back home. <strong>What happens if that rescue actually works on New Year&#39;s Eve 2002?</strong></p></blockquote>
+<hr class="bs-divider" />
+<h2 id="sec-1-december-20-december-31-2002-nate-s-bus-loop-promise-hanging-up-on-tyler" class="bs-heading bs-h2">1. December 20 &amp; December 31, 2002: Nate&#39;s Bus-Loop Promise &amp; Hanging Up on Tyler</h2>
+<p>Before Winter Break even begins at the Northwood High School bus loop on <strong>Friday, December 20, 2002</strong> (<a href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/fall-semester-room-204-paper-snowflakes/part-3-senior-gold-day-in-room-204-paper-snowflakes-one-tight-hug-before-winter-break" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>Episode 4, Chapter 1, Part 3</em></strong></a>), rule-following <strong>Nate</strong> tells <strong>Heather</strong> openly how seriously their household takes David&#39;s ground rules: Heather, <strong>Wesley</strong>, <strong>Aunt Linda</strong>, and Heather&#39;s parents are driving to Minnesota on December 26 to visit her grandparents outside Saint Paul—<em>and even if Heather and Wesley had stayed five minutes away in Virginia Beach all week, neither of them would be coming over while Dad was in Rhode Island because Dad&#39;s rule is deadbolted doors and zero company.</em></p>
+<p>At <code class="bs-inline-code">9:15 PM</code> on <strong>New Year&#39;s Eve</strong>, the beige cordless kitchen phone rings. On the other end of the line is <strong>Tyler</strong> from <code class="bs-inline-code">Smoker&#39;s Corner</code>, bragging over thumping car-stereo bass on Military Highway that twenty-one-year-old Derek just bought two bags of bottles at the corner gas station and pressuring Brittany to unlock Uncle David&#39;s front door since David is four hundred and fifty miles away in Rhode Island.</p>
+<p>Standing beside the refrigerator in her oversized burgundy sweatshirt and wool socks behind her thin silver wire-rimmed oval glasses, Brittany looks across the breakfast bar at Katie and Nate parked hub to hub in their two black <code class="bs-inline-code">SwiftChairs</code>—at a clean carpet Uncle David works overtime to keep over their heads, a fresh pepperoni pizza cooling on the stove, and three green cans of cold ginger ale waiting beside plastic cups.</p>
+<p>Brittany&#39;s jaw squares:</p>
+<blockquote class="bs-blockquote"><p><em>&quot;Uncle David trusted me with his house and my cousins, Tyler, and Nate didn&#39;t even invite his own girlfriend&#39;s family over when Uncle David said no company. Take Derek&#39;s bags somewhere else and lose this landline number. Happy New Year.&quot;</em></p></blockquote>
+<p>Brittany presses the red <em>Off</em> button, sets the handset into its wall cradle, walks five steps down the front hall to check the brass deadbolt with her own hand, and asks Katie and Nate if there is still room for her under the thick navy-blue fleece blanket on the tan sofa like the Blizzard of &#39;96. At midnight, with Katie tucked against Nate&#39;s left shoulder and Brittany curled warmly against his right, all three cousins clink cold cans of ginger ale together—safe, sober, deadbolted, and whole.</p>
+<hr class="bs-divider" />
+<h2 id="sec-2-spring-june-2003-zero-locker-lie-four-royal-purple-gowns-at-the-pavilion" class="bs-heading bs-h2">2. Spring &amp; June 2003: Zero Locker Lie &amp; Four Royal-Purple Gowns at the Pavilion</h2>
+<p>Respecting Uncle David&#39;s rule on December 31 snaps three destructive chains before they can ever start:</p>
+<ol class="bs-list"><li><strong>Zero January 6 Locker Blowout:</strong><div class="bs-list-subline">Because Tyler never sets foot inside the Arvin Road hallway and Katie and Nate never have to lock themselves behind a bedroom door, <strong>Tyler has zero ammunition</strong> on Monday morning, January 6, 2003. When Heather returns rosy-cheeked from Minnesota at <code class="bs-inline-code">8:00 AM</code> in the upstairs B-Wing hallway, Brittany is standing right beside Katie&#39;s left wheel carrying a clean three-ring English binder, sixteen-year-old <strong>Wesley</strong> happily bumps knuckles with Nate, and Tyler walks right past without a single lie to tell.</div></li>
+<li><strong>Returning to Mrs. DeMarco&#39;s Cafeteria &amp; Mrs. Periwinkle&#39;s Library:</strong><div class="bs-list-subline">Every Purple Day and Gold Day that spring, Brittany walks right past the <code class="bs-inline-code">Lions Way</code> gate to eat lunch with Katie, Nate, Heather, and Wesley at their accessible corner table in <strong>Mrs. DeMarco&#39;s</strong> cafeteria and read quietly upstairs in <strong>Mrs. Periwinkle&#39;s</strong> Media Center. Tutored on Tuesday and Thursday evenings at the Arvin Road dining table by Uncle David after his <code class="bs-inline-code">CCHR</code> programming classes, Brittany pulls every senior credit up to <em>A</em>s and <em>B</em>s—never dropping out at eighteen and <strong>never losing thirteen years of her life trapped on a joint lease at Hillside Court in South Richmond</strong>.</div></li>
+<li><strong>Four Purple Gowns Under the Crape-Myrtles (<code class="bs-inline-code">Saturday, June 14, 2003</code>):</strong><div class="bs-list-subline">Outside the <strong>Virginia Beach Pavilion</strong> after Commencement—as a CVTA bus glides down Nineteenth Street displaying <span class="bs-led-sign bs-led-sign--split"><span class="bs-led-route">20</span><span class="bs-led-lines"><span class="bs-led-line-top">VA BEACH</span><span class="bs-led-line-bottom">OCEANFRONT via BLVD</span></span></span>—Uncle David, Aunt Karen, Uncle Steve, and Aunt Linda snap thirty-five-millimeter photos of <strong>four</strong> Class of 2003 graduates in royal-purple caps and gowns (<code class="bs-inline-code">Katie</code>, <code class="bs-inline-code">Nate</code>, <code class="bs-inline-code">Heather</code>, and <code class="bs-inline-code">Brittany</code>) with rising-junior <strong>Wesley</strong> cheering right in the middle of them.</div></li></ol>
+<hr class="bs-divider" />
+<h2 id="sec-3-summer-2003-five-cousins-partners-touring-ten-campuses-for-rising-junior-wesley" class="bs-heading bs-h2">3. Summer 2003: Five Cousins &amp; Partners Touring Ten Campuses for Rising-Junior Wesley</h2>
+<p>With Heather and Aunt Linda keeping their <strong>Code of Virginia § 23-7.4</strong> Virginia in-state tuition domicile (<code class="bs-inline-code">&quot;Wherever Nate goes, Katie goes too — and wherever Heather goes, Wesley goes with her&quot;</code>), eighteen-year-old <strong>Brittany</strong> joins Katie, Nate, Heather, Aunt Linda, and sixteen-year-old <strong>Wesley</strong> (right between his sophomore and junior years of high school) on the proactive <strong>ten-campus Summer 2003 college tour</strong>:</p>
+<ul class="bs-list"><li><strong>Tidewater &amp; Peninsula (<code class="bs-inline-code">Stops 1–4</code>):</strong> <code class="bs-inline-code">CCHR</code> Norfolk (where Brittany enrolls alongside Katie, Nate, Heather, and Uncle David that fall), <code class="bs-inline-code">Virginia Dominion University</code> (<code class="bs-inline-code">VDU</code>, Hampton Blvd), <code class="bs-inline-code">Warwick University</code> (<code class="bs-inline-code">WU</code>, Newport News beside <span class="bs-led-sign"><span class="bs-led-line-single">112 NNTC</span></span> at the <code class="bs-inline-code">SR-312 &amp; Shoe Lane</code> roundabout), and <code class="bs-inline-code">College of Charles &amp; Anne</code> (<code class="bs-inline-code">C&amp;A</code>, Williamsburg&#39;s uneven colonial brick walkways).</li>
+<li><strong>Richmond, Fairfax, &amp; Harrisonburg (<code class="bs-inline-code">Stops 5–7</code>):</strong> <code class="bs-inline-code">Central Virginia University</code> (<code class="bs-inline-code">CVU</code> West Broad Street sirens), <code class="bs-inline-code">George Wythe University</code> (<code class="bs-inline-code">GWU</code> four-hour <code class="bs-inline-code">I-95</code> traffic), and <strong><code class="bs-inline-code">Shenandoah Valley University</code> (<code class="bs-inline-code">SVU</code>, Harrisonburg — in-universe <em>James Madison University</em>)</strong>, where a loud Summer Preview Open House pep band and balloon arch overwhelm Wesley so Heather and Brittany help guide him back to the quiet van early (with Wesley signaling he would still like to revisit <code class="bs-inline-code">SVU</code> when it isn&#39;t an Open House).</li>
+<li><strong>Fishersville &amp; Blacksburg (<code class="bs-inline-code">Stops 8–9</code>):</strong> Checking in at the <code class="bs-inline-code">Bates-Harding</code> window at <strong><code class="bs-inline-code">Roosevelt Rehabilitation Center</code> (<code class="bs-inline-code">RRC</code>)</strong> in Fishersville, the tour stops short sixty yards down the hall outside attached <strong><code class="bs-inline-code">Redmond Hall</code></strong> the moment the guide announces gender-separated dorms and mandatory medical-dorm placement—leaving Wesley crying his eyes out in his <strong>Safe Person</strong> Heather&#39;s arms because he wouldn&#39;t be able to climb into Heather&#39;s bed when scared at night, and Heather politely telling the guide that <strong>this is Wesley making his decision and the answer is no</strong>. That afternoon at <strong><code class="bs-inline-code">Commonwealth Polytechnic Institute</code> (<code class="bs-inline-code">CPI</code>)</strong> in Blacksburg, Nate falls in love with the mountain valley yet worries the steep campus hills will drain their 24-volt wheelchair batteries too fast.</li>
+<li><strong>Minnesota Family Visit &amp; <code class="bs-inline-code">NSSU</code> (<code class="bs-inline-code">Stop 10</code>, August 2003):</strong> All five fly north with Aunt Linda to meet Heather and Wesley&#39;s extended family outside Saint Paul and ride the intercampus bus across <code class="bs-inline-code">North Star State University</code> before returning home to Tidewater—where their five-person Tidewater wall stops <strong>Brandon Mercer</strong> cold in May 2004, celebrates Nate and Heather&#39;s 2007 marriage and Heather&#39;s five-step Special Education career, brings <strong>Cousin Chelsea</strong> home from <code class="bs-inline-code">Mount Regalis</code> in July 2016, and propels <strong>Katie Prairie</strong> all the way to the <strong>United States Senate</strong>.</li></ul>
+<hr class="bs-divider" />
+<h2 id="sec-4-uncle-david-teaching-brittany-l-1-2-3-r-truck-repairs-on-camera-1991-crestline-garrison-350" class="bs-heading bs-h2">4. Uncle David Teaching Brittany <code class="bs-inline-code">L-1-2-3-R</code> &amp; Truck Repairs on Camera (<code class="bs-inline-code">1991 Crestline Garrison 350</code>)</h2>
+
+        <figure class="bs-inline-figure">
+          <img
+            src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/katie/b006/apr_2032_arvin_road_brittany_1991_truck_streamtube_wheelchair_garage.jpg"
+            alt="On a sunny Kempsville afternoon in the Arvin Road driveway beside the Dark Midnight Blue over Ultra Silver 1991 Crestline Garrison 350 four-door Crew Cab 4x4 pickup truck with its functional chrome-latched triangular front vent windows and long bed cap, Brittany Fletcher in silver wire-rimmed oval glasses adjusts a tripod camera while Katie and Nathaniel Prairie watch side by side in their black SwiftChair power wheelchairs."
+            width="1408"
+            height="768"
+            loading="lazy"
+            class="bs-inline-img"
+          />
+          <figcaption class="bs-inline-caption">On a sunny Kempsville afternoon in the Arvin Road driveway beside the Dark Midnight Blue over Ultra Silver 1991 Crestline Garrison 350 four-door Crew Cab 4x4 pickup truck with its functional chrome-latched triangular front vent windows and long bed cap, Brittany Fletcher in silver wire-rimmed oval glasses adjusts a tripod camera while Katie and Nathaniel Prairie watch side by side in their black SwiftChair power wheelchairs.</figcaption>
+        </figure>
+      
+<p>Because Brittany never loses thirteen years in South Richmond, her bond with <strong>Uncle David</strong> and his beloved Dark Midnight Blue over Ultra Silver <strong><code class="bs-inline-code">1991 Crestline Garrison 350</code> Crew Cab 4x4</strong> deepens even earlier—while keeping every mechanical and emotional rule of David&#39;s stewardship intact:</p>
+<ul class="bs-list"><li><strong>Learning an Agricultural <code class="bs-inline-code">L-1-2-3-R</code> Four-Speed From Scratch (With Engine Off First):</strong><div class="bs-list-subline">Already comfortable driving ordinary automatics with zero five-speed habits to unlearn, Brittany climbs behind the wheel in an empty Kempsville Sunday parking lot with <strong>Uncle David</strong> coaching calmly from the passenger bench (behind the open chrome-latched triangular front vent window) while Katie and Nate watch safely from the shaded sidewalk island until Brittany passes David&#39;s strict safety threshold. Starting with the engine off, David teaches her the <code class="bs-inline-code">Crestline CH-465</code> cast-iron shift knob—why unsynchronized compound granny <strong><code class="bs-inline-code">L</code></strong> (<code class="bs-inline-code">6.55:1</code>) stays untouched on flat Tidewater asphalt, why everyday driving uses <strong><code class="bs-inline-code">1</code> $\rightarrow$ <code class="bs-inline-code">2</code> $\rightarrow$ <code class="bs-inline-code">3</code></strong> (<code class="bs-inline-code">direct 1:1</code>, with zero overdrive fifth gear), and how to feel the mechanical bite point through heavy boots without riding the throwout bearing.</div></li>
+<li><strong>Earning a Modest Independent Income on <code class="bs-inline-code">StreamTube</code> and <code class="bs-inline-code">The Grid</code>:</strong><div class="bs-list-subline">Looking for an honest, flexible way to earn a modest income around family schedules, Brittany films her genuine, unscripted lessons with living Uncle David—from stalling and laughing in the parking lot to opening all three tiers of <strong>David&#39;s Documentation System</strong> on the lowered tailgate (<strong><code class="bs-inline-code">Hartley Repair Manual</code></strong> for approachable overviews, the two-inch <strong><code class="bs-inline-code">1991 Crestline Factory Service Manual</code></strong> for exact torque specs and wiring diagrams, and David&#39;s handwritten three-ring <strong><code class="bs-inline-code">Maintenance Binder</code></strong> logging every fluid change and part number since 1991).</div></li>
+<li><strong>An Inevitable, Earned Inheritance (<code class="bs-inline-code">2030–2031</code>):</strong><div class="bs-list-subline">By the time Uncle David steps back from driving in Spring 2030 and passes away peacefully in October 2031, viewers on <code class="bs-inline-code">StreamTube</code> and <code class="bs-inline-code">The Grid</code> have watched David spend years preparing his niece—so when his will formally bequeaths the 1991 Crew Cab to Brittany alongside her succession as <strong>Chelsea&#39;s</strong> guardian, nobody sees a surprise windfall; everyone sees a torch Uncle David spent years placing steadily into her hands.</div></li></ul>
+      </article>
+    </wa-card>
+
+    
+    
+    <section aria-labelledby="related-backstage-heading">
+      <wa-divider></wa-divider>
+      <div class="bs-section-head">
+        <h2 id="related-backstage-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="folder-tree" swap-opacity aria-hidden="true"></wa-icon>
+          More in This Behind-the-Scenes Collection
+        </h2>
+      </div>
+      <wa-scroller orientation="horizontal">
+        <div class="bs-scroller-track">
+          <div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname Inside Attorney Arthur Vance&#39;s Settlement Trap, the $6,400 Cruise Credit-Card Debt, &amp; The Va. Code § 20-121.4 Maiden Name Restoration Order Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 3, Chapter 2, Part 5 &amp; Chapter 3, Part 1) Law Offices of Arthur Vance, Independence Boulevard &amp; Virginia Beach Circuit Court, Virginia Beach, Virginia What happened behind closed doors when Brenda&#39;s attorney walked into Arthur Vance&#39;s conference room to view the M/S Sunward Tropics Deck 4 security tape—and how Katie and Nate&#39;s request cost Brenda the Prairie family name. 2001-10-19">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-10-19</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/sunward-tropics-divorce-and-maiden-name-order" class="bs-link">The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</a></h3>
+        <div class="bs-card-subtitle">Inside Attorney Arthur Vance&#39;s Settlement Trap, the $6,400 Cruise Credit-Card Debt, &amp; The Va. Code § 20-121.4 Maiden Name Restoration Order</div>
+        <p class="bs-card-summary">What happened behind closed doors when Brenda&#39;s attorney walked into Arthur Vance&#39;s conference room to view the M/S Sunward Tropics Deck 4 security tape—and how Katie and Nate&#39;s request cost Brenda the Prairie family name.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/sunward-tropics-divorce-and-maiden-name-order">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/sunward-tropics-divorce-and-maiden-name-order">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Sunward Tropics Security File &amp; How Brenda Lost the &#39;Prairie&#39; Surname</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Five Red X&#39;s on the Wall Calendar: Wesley&#39;s Perspective on the Morning He Thought He Lost Nate Forever From Fifteen-Year-Old Non-Verbal Wesley Collins&#39;s Third-Person Limited Point of View — Why Heather&#39;s Breakup Felt Like Losing His Only Guy Friend on Earth Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of The Story of Heather Lindstrom &amp; Katie &amp; Nathaniel (Episode 4, Chapter 2) Chesapeake, Virginia (Wesley&#39;s Upstairs Bedroom &amp; Living Room) While Katie &amp; Nathaniel follows Nate in Virginia Beach and The Story of Heather Lindstrom follows Heather in Chesapeake, this companion scene enters fifteen-year-old non-verbal Wesley Collins&#39;s own third-person limited perspective on Saturday morning, January 11, 2003—revealing the sheer terror of having zero phone, bus, or spoken bridge to his very first guy friend when Heather messed up. 2003-01-11">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/wesley-blowout-at-heather-jan-2003.jpg" alt="On a sunlit Saturday morning in January 2003 inside his Chesapeake split-level living room, fifteen-year-old non-verbal Wesley Collins in a navy-blue fleece quarter-zip pullover and blue jeans with his blue silicone ring on his wrist cradles the oak-framed Emerald Creek Mall snapshot protectively inward against his chest while pointing emphatically toward the closed front door in heartbroken teenage protest, as seventeen-year-old Heather Collins sits stricken on the bottom stair step beside her car keys and his mother Linda watches quietly from the oak bookshelf." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2003-01-11</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/wesley-blowout-at-heather-losing-his-friend-nate" class="bs-link">Five Red X&#39;s on the Wall Calendar: Wesley&#39;s Perspective on the Morning He Thought He Lost Nate Forever</a></h3>
+        <div class="bs-card-subtitle">From Fifteen-Year-Old Non-Verbal Wesley Collins&#39;s Third-Person Limited Point of View — Why Heather&#39;s Breakup Felt Like Losing His Only Guy Friend on Earth</div>
+        <p class="bs-card-summary">While Katie &amp; Nathaniel follows Nate in Virginia Beach and The Story of Heather Lindstrom follows Heather in Chesapeake, this companion scene enters fifteen-year-old non-verbal Wesley Collins&#39;s own third-person limited perspective on Saturday morning, January 11, 2003—revealing the sheer terror of having zero phone, bus, or spoken bridge to his very first guy friend when Heather messed up.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/wesley-blowout-at-heather-losing-his-friend-nate">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Five Red X&#39;s on the Wall Calendar: Wesley&#39;s Perspective on the Morning He Thought He Lost Nate Forever</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/wesley-blowout-at-heather-losing-his-friend-nate">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Five Red X&#39;s on the Wall Calendar: Wesley&#39;s Perspective on the Morning He Thought He Lost Nate Forever</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point Inside Senior Homeroom 212 on January 6, Five Weeks of Empty Floor in Room 204, &amp; The Cafeteria Lie That Left Heather Sick With Herself Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 4, Chapter 2, Parts 2–5) Northwood High School (Homeroom 212, Room 204 Computer Lab, Commons Cafeteria, &amp; Stairway A Bus Loop), Virginia Beach, Virginia What happened outside Nathaniel&#39;s first-person view between January and June 2003—from Tyler&#39;s homeroom ambush on January 6 and five weeks of silence in Mr. Callahan&#39;s Room 204 lab to Cousin Hannah&#39;s green parka, Wesley&#39;s Pomp and Circumstance heartbreak at graduation, and one final pretzel afternoon at Emerald Creek Mall before Heather and Wesley moved home to Minnesota. 2003-02-11">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-room-204-unhandled-exception.jpg" alt="Inside the second-floor Room 204 computer lab at Northwood High School in winter 2003 directly against the painted cinderblock back corner wall beneath Northwood Lions and Class of 2003 pennants, seventeen-year-old blonde twins Katie and Nathaniel Prairie sit side by side in matching black SwiftChair power wheelchairs at two separate side-by-side CRT workstations glowing with word-processor and coding windows while holding inner hands, as rows of students work at lit monitors ahead of them and Heather Collins sits alone two rows forward glancing back with pale regret." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2003-02-11</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie" class="bs-link">Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point</a></h3>
+        <div class="bs-card-subtitle">Inside Senior Homeroom 212 on January 6, Five Weeks of Empty Floor in Room 204, &amp; The Cafeteria Lie That Left Heather Sick With Herself</div>
+        <p class="bs-card-summary">What happened outside Nathaniel&#39;s first-person view between January and June 2003—from Tyler&#39;s homeroom ambush on January 6 and five weeks of silence in Mr. Callahan&#39;s Room 204 lab to Cousin Hannah&#39;s green parka, Wesley&#39;s Pomp and Circumstance heartbreak at graduation, and one final pretzel afternoon at Emerald Creek Mall before Heather and Wesley moved home to Minnesota.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/room-204-unhandled-exception-and-tylers-cousin-lie">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/room-204-unhandled-exception-and-tylers-cousin-lie">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Workstation Three, Cousin Hannah&#39;s Green Parka, &amp; Why Heather Knew There Was No Restore Point</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Alternate &#39;What If&#39; Dossier: Virginia Domicile, Touring Ten Campuses for Wesley, &amp; Keeping Katie&#39;s Career and Both Rescues How Staying in Virginia on In-State Tuition Domicile Lets Heather Take Rising-Junior Wesley on a Ten-Campus Tour, Eliminates Tiffany, Stops Brandon Cold, and Preserves Katie&#39;s Senate Career and Both Cousin Rescues Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 4, Chapter 2 &#39;What If&#39; Archive) Virginia Beach, Norfolk, Newport News, Williamsburg, Richmond, Fairfax, Harrisonburg, Fishersville, &amp; Blacksburg, Virginia • Saint Paul, Minnesota In our Minnesota Marriage &#39;What If,&#39; moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie&#39;s Senate career. Here is the complete &#39;What If&#39; where Nate and Katie welcome Heather back (or trust is never broken in January 2003), Heather and Aunt Linda stay in Hampton Roads for Virginia in-state domicile, rising-junior Wesley tours ten campuses from Warwick University to SVU, RRC&#39;s Redmond Hall, CPI, and NSSU, Heather rises through a five-step Special Education career, Brittany learns Uncle David&#39;s 1991 L-1-2-3-R truck while he is alive, and Katie still becomes a U.S. Senator while rescuing both Brittany and Chelsea. 2003-07-12">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/what-if-warwick-university-route-112-nntc-wesley-tour.jpg" alt="On a sunny summer afternoon along the wide red-brick campus walkway of Warwick University in Newport News in front of a Neo-Georgian white-columned brick hall as a blue-and-silver CVTA bus exits the landscaped SR-312 and Shoe Lane roundabout on the left with its amber LED sign reading 112 NNTC, Katie and Nathaniel Prairie sit side by side in their two compact black SwiftChair power wheelchairs holding inner hands while Heather stands warmly beside Nate&#39;s chair and Wesley holds a warm pretzel bag and shares a happy fist-bump with Nate." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2003-07-12</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues" class="bs-link">Alternate &#39;What If&#39; Dossier: Virginia Domicile, Touring Ten Campuses for Wesley, &amp; Keeping Katie&#39;s Career and Both Rescues</a></h3>
+        <div class="bs-card-subtitle">How Staying in Virginia on In-State Tuition Domicile Lets Heather Take Rising-Junior Wesley on a Ten-Campus Tour, Eliminates Tiffany, Stops Brandon Cold, and Preserves Katie&#39;s Senate Career and Both Cousin Rescues</div>
+        <p class="bs-card-summary">In our Minnesota Marriage &#39;What If,&#39; moving 1,300 miles north cost Cousin Brittany, Cousin Chelsea, and Katie&#39;s Senate career. Here is the complete &#39;What If&#39; where Nate and Katie welcome Heather back (or trust is never broken in January 2003), Heather and Aunt Linda stay in Hampton Roads for Virginia in-state domicile, rising-junior Wesley tours ten campuses from Warwick University to SVU, RRC&#39;s Redmond Hall, CPI, and NSSU, Heather rises through a five-step Special Education career, Brittany learns Uncle David&#39;s 1991 L-1-2-3-R truck while he is alive, and Katie still becomes a U.S. Senator while rescuing both Brittany and Chelsea.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Alternate &#39;What If&#39; Dossier: Virginia Domicile, Touring Ten Campuses for Wesley, &amp; Keeping Katie&#39;s Career and Both Rescues</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/what-if-virginia-domicile-unbroken-trust-and-both-rescues">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Alternate &#39;What If&#39; Dossier: Virginia Domicile, Touring Ten Campuses for Wesley, &amp; Keeping Katie&#39;s Career and Both Rescues</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer What Happened Between Katie and Nate&#39;s Six-Bus Escape from Williamsburg and Brandon&#39;s Arrest on Cass Avenue in Detroit Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 5, Chapter 1, Parts 2 &amp; 3) 555 Goyeau Street &amp; 35 Park Street East, Windsor, Ontario; East Jefferson Avenue, Randolph Street, &amp; Cass Avenue, Detroit, Michigan Behind-the-scenes reconstruction of Brandon Mercer&#39;s flight from Williamsburg to the Detroit-Windsor Tunnel, his ripped-up ticket on East Jefferson Avenue, his refusal of entry into Canada at 555 Goyeau Street / 35 Park Street East, and his arrest by Deputy U.S. Marshals on Cass Avenue. 2004-10-17">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2004-10-17</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file" class="bs-link">CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer</a></h3>
+        <div class="bs-card-subtitle">What Happened Between Katie and Nate&#39;s Six-Bus Escape from Williamsburg and Brandon&#39;s Arrest on Cass Avenue in Detroit</div>
+        <p class="bs-card-summary">Behind-the-scenes reconstruction of Brandon Mercer&#39;s flight from Williamsburg to the Detroit-Windsor Tunnel, his ripped-up ticket on East Jefferson Avenue, his refusal of entry into Canada at 555 Goyeau Street / 35 Park Street East, and his arrest by Deputy U.S. Marshals on Cass Avenue.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/cbsa-windsor-tunnel-refusal-and-marshals-file">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: CBSA Secondary Inspection at 35 Park Street East &amp; The U.S. Marshals File on Brandon Mercer</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg Why Cousin Chelsea Held All the Legal Cards in Newport—and the Two Transit Rules Brandon Mercer Never Bothered to Read Katie &amp; Nathaniel — Behind the Scenes RaggieSoft Backstage Production Dossier Readers of Katie &amp; Nathaniel (Episode 5, Chapter 1, Part 3 &amp; Chapter 2, Part 2) Tonomy Hill, Newport, Rhode Island &amp; Williamsburg Transportation Center, Williamsburg, Virginia Behind-the-scenes look at the legal irony inside Cousin Chelsea&#39;s apartment on Tonomy Hill during Christmas 2004—and the two transit tariff traps that doomed Brandon Mercer&#39;s flight from Williamsburg. 2004-12-27">
+      
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="brand" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Katie &amp; Nathaniel
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2004-12-27</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if" class="bs-link">Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg</a></h3>
+        <div class="bs-card-subtitle">Why Cousin Chelsea Held All the Legal Cards in Newport—and the Two Transit Rules Brandon Mercer Never Bothered to Read</div>
+        <p class="bs-card-summary">Behind-the-scenes look at the legal irony inside Cousin Chelsea&#39;s apartment on Tonomy Hill during Christmas 2004—and the two transit tariff traps that doomed Brandon Mercer&#39;s flight from Williamsburg.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/katie/christmas-2004-tonomy-hill-and-williamsburg-what-if">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Dirty Old Tonomy Hill &amp; Why Brandon&#39;s Tunnel-Bus Scheme Was Doomed Before He Left Williamsburg</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+        </div>
+      </wa-scroller>
+    </section>
+  
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        <wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  <li><a href="#sec-1-december-20-december-31-2002-nate-s-bus-loop-promise-hanging-up-on-tyler" class="bs-toc-link">1. December 20 &amp; December 31, 2002: Nate&#39;s Bus-Loop Promise &amp; Hanging Up on Tyler</a></li>
+                  <li><a href="#sec-2-spring-june-2003-zero-locker-lie-four-royal-purple-gowns-at-the-pavilion" class="bs-toc-link">2. Spring &amp; June 2003: Zero Locker Lie &amp; Four Royal-Purple Gowns at the Pavilion</a></li>
+                  <li><a href="#sec-3-summer-2003-five-cousins-partners-touring-ten-campuses-for-rising-junior-wesley" class="bs-toc-link">3. Summer 2003: Five Cousins &amp; Partners Touring Ten Campuses for Rising-Junior Wesley</a></li>
+                  <li><a href="#sec-4-uncle-david-teaching-brittany-l-1-2-3-r-truck-repairs-on-camera-1991-crestline-garrison-350" class="bs-toc-link">4. Uncle David Teaching Brittany L-1-2-3-R &amp; Truck Repairs on Camera (1991 Crestline Garrison 350)</a></li>
+                </ul>
+              </wa-card>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/drunken-new-year/part-1-the-gas-station-run-a-box-of-dry-cereal-why-i-never-had-a-twenty-first-birthday-drink" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    Episode 4, Chapter 2, Part 1: New Year&#39;s Eve 2002 on Arvin Road ↗
+                  </wa-button>
+            <wa-button variant="neutral" appearance="outlined" size="small" href="/books/katie">
+                    <wa-icon slot="start" family="duotone" name="layer-group" aria-hidden="true"></wa-icon>
+                    Katie &amp; Nathaniel (26 Dossiers)
+                  </wa-button>
+            
+              <wa-divider></wa-divider>
+              <div style="font-size: 0.78rem; font-weight: 800; color: var(--bs-primary);">
+                <wa-icon family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc • Stop 2 of 20
+              </div>
+              <div style="font-size: 0.88rem; font-weight: 700; line-height: 1.35;">Rescuing Our Cousins &amp; Passing the Torch: Brittany &amp; Chelsea</div>
+              <wa-button variant="neutral" appearance="outlined" size="small" href="/arcs/katie-brittany-chelsea-and-the-four-person-sanctuary">
+                <wa-icon slot="start" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Full Story Arc Playlist
+              </wa-button>
+              <wa-button variant="brand" appearance="filled-outlined" size="small" href="https://books.raggiesoft.com/katie/seventeen-senior-year-greenway-court/greenway-court-apartment-a6-the-square-closet-sanctuary/part-2-brenda-in-the-back-alley-discovering-the-square-closet-sanctuary?arc=brittany-chelsea-and-the-four-person-sanctuary" target="_blank" rel="noopener">
+                      <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                      Next Chapter in Arc ↗
+                    </wa-button>
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/books/katie/what-if-brittany-respected-no-company-new-years-2002" label="QR code to open Alternate &#39;What If&#39; Dossier: Hanging Up on Smoker&#39;s Corner — What If Brittany Respected Uncle David&#39;s No-Company Rule on New Year&#39;s Eve 2002? on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261116a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261115h" defer></script>
+  </body>
+</html>
