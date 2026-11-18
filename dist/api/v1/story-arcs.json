@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T22:01:51.255Z",
+  "generatedAt": "2026-11-18T22:17:21.640Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -590,7 +590,7 @@
       "part_count": 34,
       "backstage_count": 3,
       "stop_count": 37,
-      "word_count": 72293,
+      "word_count": 72302,
       "reading_minutes": 290,
       "reading_hours": 4.8,
       "stops": [
@@ -1028,7 +1028,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b006/jul_2007_rrc_cantor_hall_room_mixup_keycards_tina_herb_jim_nate.jpg",
           "url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/ditching-campus-for-the-hotel-room-without-passes-natalie-s-tears-spending-week-two-exploring-the-shenandoah-valley/part-1-the-dormitory-room-mix-up-staying-at-heather-and-wesley-s-hotel-without-passes-natalie-s-tears-outside-the-cafeteria",
           "arc_url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/ditching-campus-for-the-hotel-room-without-passes-natalie-s-tears-spending-week-two-exploring-the-shenandoah-valley/part-1-the-dormitory-room-mix-up-staying-at-heather-and-wesley-s-hotel-without-passes-natalie-s-tears-outside-the-cafeteria?arc=heather-wesley-and-virginia",
-          "word_count": 1282,
+          "word_count": 1291,
           "reading_minutes": 6
         },
         {
@@ -2550,8 +2550,8 @@
       "part_count": 11,
       "backstage_count": 8,
       "stop_count": 19,
-      "word_count": 50883,
-      "reading_minutes": 204,
+      "word_count": 51720,
+      "reading_minutes": 207,
       "reading_hours": 3.4,
       "stops": [
         {
@@ -2598,18 +2598,18 @@
           "series_slug": "katie",
           "series_title": "Katie & Nathaniel",
           "file_path": "e007/c001/p001.md",
-          "title": "Part 1: Sunday Check-In at Barton Hall, The Opposite-Gender Dorm Rule, & Expelling the Creepy Roommate",
+          "title": "Part 1: Four Names on the Hotel Folio, Sunday Check-In at Barton Hall, & Expelling the Creepy Roommate",
           "subtitle": "Barton Hall Check-In, Rushing Voc Eval in One Week, & Visiting Shenandoah Valley University With Heather and Wesley • Fourteen Days at Roosevelt Rehabilitation Center, Two Weeks in the Shenandoah Valley, & A Secular Wedding in 2008",
           "era_title": "Fourteen Days at Roosevelt Rehabilitation Center, Two Weeks in the Shenandoah Valley, & A Secular Wedding in 2008",
           "chap_title": "Barton Hall Check-In, Rushing Voc Eval in One Week, & Visiting Shenandoah Valley University With Heather and Wesley",
           "date": "2007-07-08",
-          "location": "Fishersville & Waynesboro, VA (Roosevelt Rehabilitation Center — Barton Hall, Recreation Hall, & Dining Hall)",
-          "excerpt": "\"Good timing—we beat the noon heat up Afton Mountain by ten minutes,\" twenty-two-year-old Heather Collins smiled as she clicked the power side-ramp of our silver accessible van back into place along the curb…",
-          "image": "/raggiesoft-books/images/scenes/katie/b006/jul_2007_rrc_barton_hall_checkin_wesley_heather_david_katie_nate.jpg",
-          "url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/barton-hall-check-in-rushing-voc-eval-in-one-week-visiting-shenandoah-valley-university-with-heather-and-wesley/part-1-sunday-check-in-at-barton-hall-the-opposite-gender-dorm-rule-expelling-the-creepy-roommate",
-          "arc_url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/barton-hall-check-in-rushing-voc-eval-in-one-week-visiting-shenandoah-valley-university-with-heather-and-wesley/part-1-sunday-check-in-at-barton-hall-the-opposite-gender-dorm-rule-expelling-the-creepy-roommate?arc=fishersville-twelve-days-and-twenty-years",
-          "word_count": 4372,
-          "reading_minutes": 18
+          "location": "Augusta County, Waynesboro, & Fishersville, VA (Extended-Stay Hotel on Route 250 & Roosevelt Rehabilitation Center — Barton Hall)",
+          "excerpt": "\"Fourteen nights in a ground-floor accessible two-queen kitchenette suite, checking out Sunday, July twenty-second—and I've got your Meridian card right here for the room and incidentals, Miss Collins,\" the…",
+          "image": "/raggiesoft-books/images/scenes/katie/b006/jul_2007_route250_hotel_checkin_heather_wesley_nate_katie.jpg",
+          "url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/barton-hall-check-in-rushing-voc-eval-in-one-week-visiting-shenandoah-valley-university-with-heather-and-wesley/part-1-four-names-on-the-hotel-folio-sunday-check-in-at-barton-hall-expelling-the-creepy-roommate",
+          "arc_url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/barton-hall-check-in-rushing-voc-eval-in-one-week-visiting-shenandoah-valley-university-with-heather-and-wesley/part-1-four-names-on-the-hotel-folio-sunday-check-in-at-barton-hall-expelling-the-creepy-roommate?arc=fishersville-twelve-days-and-twenty-years",
+          "word_count": 5200,
+          "reading_minutes": 21
         },
         {
           "stop_num": 4,
@@ -2760,7 +2760,7 @@
           "image": "/raggiesoft-books/images/scenes/katie/b006/jul_2007_rrc_cantor_hall_room_mixup_keycards_tina_herb_jim_nate.jpg",
           "url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/ditching-campus-for-the-hotel-room-without-passes-natalie-s-tears-spending-week-two-exploring-the-shenandoah-valley/part-1-the-dormitory-room-mix-up-staying-at-heather-and-wesley-s-hotel-without-passes-natalie-s-tears-outside-the-cafeteria",
           "arc_url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/ditching-campus-for-the-hotel-room-without-passes-natalie-s-tears-spending-week-two-exploring-the-shenandoah-valley/part-1-the-dormitory-room-mix-up-staying-at-heather-and-wesley-s-hotel-without-passes-natalie-s-tears-outside-the-cafeteria?arc=fishersville-twelve-days-and-twenty-years",
-          "word_count": 1282,
+          "word_count": 1291,
           "reading_minutes": 6
         },
         {
