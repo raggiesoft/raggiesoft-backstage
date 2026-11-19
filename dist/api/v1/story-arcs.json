@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T02:45:22.060Z",
+  "generatedAt": "2026-11-19T02:59:29.347Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -2550,8 +2550,8 @@
       "part_count": 11,
       "backstage_count": 8,
       "stop_count": 19,
-      "word_count": 53666,
-      "reading_minutes": 215,
+      "word_count": 53824,
+      "reading_minutes": 216,
       "reading_hours": 3.6,
       "stops": [
         {
@@ -2718,11 +2718,11 @@
           "chap_title": "Katie & Nathaniel — Behind the Scenes",
           "date": "2007-07-18",
           "location": "Campus Recreation Hall & Barton Hall, Roosevelt Rehabilitation Center, Fishersville, Virginia",
-          "excerpt": "An official Alternate 'What If' exploration (Ending A): what if Katie and Nate left the Rec Hall seasonal closet unlocked at 10:44 PM after texting Heather their hiding spot and shutting their phones off—accidentally triggering a midnight missing-persons search until Heather and Wesley are woken up at the hotel knowing 100% where the twins are?",
+          "excerpt": "An official Alternate 'What If' exploration (Ending A): what if Katie and Nate left the Rec Hall seasonal closet unlocked at 10:44 PM after texting Heather their hiding spot and shutting their phones off—so Heather and Wesley arrive from Waynesboro in under ten minutes knowing 100% where they are, while RRC refuses to listen until David finishes his two-and-a-half-hour drive from Alexandria at 3:45 AM?",
           "image": "/raggiesoft-backstage/images/scenes/what-if-rrc-unlocked-closet-ending-a-350am.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/what-if-rrc-unlocked-closet-ending-a-three-fifty-am/",
           "arc_url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/starting-web-apps-while-stuck-in-barton-hall-sleeping-in-the-closet-the-chickenshit-report/part-2-emergency-in-the-therapeutic-pool-caught-sleeping-together-in-a-closet-calling-the-staffer-s-bluff-the-chickenshit-report?arc=fishersville-twelve-days-and-twenty-years",
-          "word_count": 2667,
+          "word_count": 2690,
           "reading_minutes": 11
         },
         {
@@ -2737,12 +2737,12 @@
           "chap_title": "Katie & Nathaniel — Behind the Scenes",
           "date": "2007-07-18",
           "location": "Campus Recreation Hall & Main Quadrangle, Roosevelt Rehabilitation Center, Fishersville, Virginia",
-          "excerpt": "An official Alternate 'What If' exploration (Ending B): even after Heather and Wesley are woken up at the hotel with Nate's 10:44 PM text naming the exact Rec Hall closet, the panicked Night Supervisor swears on three signed state logs that he cleared every inch of that closet—so Katie and Nate sleep eight glorious hours, sneak past the 6:25 AM janitor on Speed Setting 1, and roll onto the quad asking who went missing.",
+          "excerpt": "An official Alternate 'What If' exploration (Ending B): even after Heather and Wesley drive over from Waynesboro in nine minutes with Nate's 10:44 PM text naming the exact Rec Hall closet—joined two and a half hours later by David from Alexandria—the panicked Night Supervisor swears on three signed state logs that he cleared every inch of that closet, setting up an eight-hour sleep and a 6:40 AM stealth exit.",
           "image": "/raggiesoft-backstage/images/scenes/what-if-rrc-unlocked-closet-ending-b-640am-courtyard.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/what-if-rrc-unlocked-closet-ending-b-six-forty-am-stealth/",
           "arc_url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/starting-web-apps-while-stuck-in-barton-hall-sleeping-in-the-closet-the-chickenshit-report/part-2-emergency-in-the-therapeutic-pool-caught-sleeping-together-in-a-closet-calling-the-staffer-s-bluff-the-chickenshit-report?arc=fishersville-twelve-days-and-twenty-years",
-          "word_count": 2639,
-          "reading_minutes": 11
+          "word_count": 2774,
+          "reading_minutes": 12
         },
         {
           "stop_num": 11,
