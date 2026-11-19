@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-19T12:13:35.462Z",
+  "generatedAt": "2026-11-19T12:26:08.358Z",
   "siteName": "RaggieSoft Backstage",
   "arcCount": 13,
   "arcs": [
@@ -2550,9 +2550,9 @@
       "part_count": 11,
       "backstage_count": 9,
       "stop_count": 20,
-      "word_count": 55944,
-      "reading_minutes": 224,
-      "reading_hours": 3.7,
+      "word_count": 56491,
+      "reading_minutes": 226,
+      "reading_hours": 3.8,
       "stops": [
         {
           "stop_num": 1,
@@ -2722,8 +2722,8 @@
           "image": "/raggiesoft-backstage/images/scenes/what-if-rrc-unlocked-closet-ending-c-wesley-rec-hall-door.jpg",
           "url": "https://backstage.raggiesoft.com/books/katie/what-if-rrc-unlocked-closet-ending-a-wesley-breaks-the-door/",
           "arc_url": "/katie/fourteen-days-at-roosevelt-rehabilitation-center-two-weeks-in-the-shenandoah-valley-a-secular-wedding-in-2008/starting-web-apps-while-stuck-in-barton-hall-sleeping-in-the-closet-the-chickenshit-report/part-2-emergency-in-the-therapeutic-pool-caught-sleeping-together-in-a-closet-calling-the-staffer-s-bluff-the-chickenshit-report?arc=fishersville-twelve-days-and-twenty-years",
-          "word_count": 2115,
-          "reading_minutes": 9
+          "word_count": 2662,
+          "reading_minutes": 11
         },
         {
           "stop_num": 10,
