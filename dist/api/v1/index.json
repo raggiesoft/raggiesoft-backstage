@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-19T02:59:29.324Z",
+  "generatedAt": "2026-11-19T03:26:10.001Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 62,
+  "totalItems": 63,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
-    "katie": 27,
-    "katieDossiers": 26,
+    "katie": 28,
+    "katieDossiers": 27,
     "casey": 7,
     "caseyDossiers": 6,
     "aubrie": 13,
@@ -15,7 +15,7 @@
     "aubrieCorrespondence": 10,
     "lore": 4,
     "hubs": 4,
-    "total": 62,
+    "total": 63,
     "storyArcs": 13
   },
   "items": {
@@ -67,7 +67,7 @@
     "books/katie": {
       "slug": "books/katie",
       "title": "Katie & Nathaniel: Bonus Features & Behind-the-Scenes Archive",
-      "subtitle": "Twenty-Six Archival & Alternate 'What If' Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
+      "subtitle": "Twenty-Seven Archival & Alternate 'What If' Dossiers Revealing What Happened Outside Nate's First-Person Point of View (2001–2044)",
       "category": "Katie & Nathaniel — Behind the Scenes",
       "date": "2027-07-22",
       "time": "",
@@ -75,7 +75,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/katie-nate-us-senate-corridor.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
-      "summary": "Complete collection of twenty-six behind-the-scenes and 'What If?' dossiers across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Brittany's New Year's Eve 2002 'What If,' Heather Collins's 2003 Room 204 reckoning, and the July 2007 Fishersville unlocked-closet What If timelines to Two Mirrored Companion Suites & the Six-Person Alaskan King, Governor Rebecca Langford's July 2027 Capitol Square sweep, and the 2044 Route 15 Bus-Stop Primary.",
+      "summary": "Complete collection of twenty-seven behind-the-scenes and 'What If?' dossiers across Katie & Nathaniel—from Arthur Vance's 2001 divorce settlement trap, Brittany's New Year's Eve 2002 'What If,' Heather Collins's 2003 Room 204 reckoning, and the three July 2007 Fishersville unlocked-closet What If timelines to Two Mirrored Companion Suites & the Six-Person Alaskan King, Governor Rebecca Langford's July 2027 Capitol Square sweep, and the 2044 Route 15 Bus-Stop Primary.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie.json"
     },
@@ -498,6 +498,21 @@
       "summary": "An official Alternate 'What If' exploration (Ending B): even after Heather and Wesley drive over from Waynesboro in nine minutes with Nate's 10:44 PM text naming the exact Rec Hall closet—joined two and a half hours later by David from Alexandria—the panicked Night Supervisor swears on three signed state logs that he cleared every inch of that closet, setting up an eight-hour sleep and a 6:40 AM stealth exit.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-rrc-unlocked-closet-ending-b-six-forty-am-stealth",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-rrc-unlocked-closet-ending-b-six-forty-am-stealth.json"
+    },
+    "books/katie/what-if-rrc-unlocked-closet-ending-c-wesley-breaks-the-door": {
+      "slug": "books/katie/what-if-rrc-unlocked-closet-ending-c-wesley-breaks-the-door",
+      "title": "Alternate 'What If' Dossier (Ending C — 1:35 AM): Angry Wesley Yanks Open the Rec Hall Door & Rescues Nate and Katie Two Hours Before Dad Arrives",
+      "subtitle": "What Happens When RRC Staff Call Nate's 10:44 PM Text a Lie—So Wesley Drags Heather Across the Courtyard, Pops the Rec Hall Lock Clean Loose, & Opens the Closet Himself",
+      "category": "Katie & Nathaniel — Behind the Scenes",
+      "date": "2007-07-18",
+      "time": "01:10–08:30 EDT",
+      "sender": "RaggieSoft Backstage Production Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/what-if-rrc-unlocked-closet-ending-c-wesley-rec-hall-door.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-backstage/images/og/katie-collection-og.jpg",
+      "summary": "An official Alternate 'What If' exploration (Ending C): when Heather and Wesley arrive from Waynesboro in nine minutes at 1:20 AM with Nate's 10:44 PM closet text—more than two hours ahead of David driving down from Alexandria—and RRC staff refuse to believe the SMS, an angry Wesley drags Heather across the quad, yanks on the locked Rec Hall door until the latch gives way, and marches straight to the seasonal closet to rescue Nate and Katie while furious staff demand his arrest.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/what-if-rrc-unlocked-closet-ending-c-wesley-breaks-the-door",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/what-if-rrc-unlocked-closet-ending-c-wesley-breaks-the-door.json"
     },
     "books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown": {
       "slug": "books/katie/mayor-overton-newtown-road-and-2010-dietz-meltdown",
