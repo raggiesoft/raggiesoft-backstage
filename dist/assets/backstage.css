@@ -9,13 +9,17 @@
  * ============================================================================
  */
 
+/* Establish explicit CSS Cascade Layer precedence from lowest (base) to highest (utilities) */
 @layer base, theme, components, utilities;
 
 @layer theme {
   :root {
+    /* Opt the document into both Light and Dark OS color schemes by default */
     color-scheme: light dark;
 
-    /* Sync CSS color-scheme property with <meta name="color-scheme"> override */
+    /* Sync CSS color-scheme property with <meta name="color-scheme"> override:
+       CSS ':has()' inspects the <head> meta tag updated by the Appearance Studio so
+       every 'light-dark()' token below flips immediately without duplicating dark-mode classes! */
     &:has(> head > meta[name="color-scheme"][content="dark"]) {
       color-scheme: dark;
     }
@@ -43,6 +47,7 @@
     --bs-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
     --bs-hero-glow: radial-gradient(circle at top right, rgba(134, 31, 65, 0.1), transparent 58%);
 
+    /* Baseline Dark Mode fallback for older browsers before '@supports (color: light-dark(...))' */
     @media (prefers-color-scheme: dark) {
       --bs-fallback-bg: #070b14;
       --bs-fallback-surface: #0f172a;
@@ -64,6 +69,8 @@
       --bs-hero-glow: radial-gradient(circle at top right, rgba(245, 158, 11, 0.14), transparent 58%);
     }
 
+    /* Modern CSS 'light-dark(lightValue, darkValue)' resolves automatically against
+       the active computed 'color-scheme' (whether OS-driven or user-pinned via ':has()') */
     @supports (color: light-dark(white, black)) {
       --bs-fallback-bg: light-dark(#f4f6fb, #070b14);
       --bs-fallback-surface: light-dark(#ffffff, #0f172a);
@@ -83,7 +90,9 @@
       --bs-aac-border: light-dark(#93c5fd, rgba(56, 189, 248, 0.48));
     }
 
-    /* Bridge semantic tokens directly to Web Awesome Pro 3.13.0 theme/palette variables */
+    /* Bridge semantic tokens directly to Web Awesome Pro 3.13.0 theme/palette variables:
+       'var(--wa-color-..., fallback)' uses Web Awesome's live theme token once loaded,
+       and gracefully falls back to '--bs-fallback-*' on slow/offline networks! */
     --bs-bg: var(--wa-color-surface-lowered, var(--bs-fallback-bg));
     --bs-surface: var(--wa-color-surface-default, var(--bs-fallback-surface));
     --bs-elevated: var(--wa-color-neutral-fill-quiet, var(--bs-fallback-elevated));
@@ -99,6 +108,9 @@
     accent-color: var(--bs-primary);
   }
 
+  /* Windows High Contrast / Forced Colors Mode ('forced-colors: active'):
+     Replaces custom decorative colors and shadows with official W3C CSS System Colors
+     so users with low-vision OS contrast themes get 100% crisp borders and legibility. */
   @media (forced-colors: active) {
     :root {
       --bs-bg: Canvas;
@@ -117,6 +129,7 @@
 }
 
 @layer base {
+  /* Hardware notch, Dynamic Island, and home-indicator safe-area inset tokens */
   :root {
     --bs-safe-top: env(safe-area-inset-top, 0px);
     --bs-safe-right: env(safe-area-inset-right, 0px);
@@ -175,6 +188,7 @@
     scroll-behavior: smooth;
   }
 
+  /* Respect vestibular accessibility preferences by disabling smooth scrolling when requested */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -190,7 +204,9 @@
     line-height: 1.7;
   }
 
-  /* Zero-FOUC fallback before <wa-page> custom element upgrades */
+  /* Zero-FOUC (Flash of Unstyled Content) fallback before <wa-page> custom element upgrades:
+     ':not(:defined)' matches custom elements during the brief network window before
+     'webawesome.loader.js' registers their Shadow DOM class definitions! */
   wa-page:not(:defined) {
     display: flex;
     flex-direction: column;
@@ -222,6 +238,7 @@
     display: none !important;
   }
 
+  /* High-visibility 3px keyboard focus ring (':where()' keeps specificity at 0) */
   :where(a:any-link, button, summary, [tabindex="0"]):focus-visible {
     outline: 3px solid var(--bs-accent);
     outline-offset: 3px;
@@ -229,6 +246,8 @@
 }
 
 @layer utilities {
+  /* Screen-reader-only utility ('visually-hidden'): visually clips text to 1x1px while
+     keeping it in the Accessibility Tree for VoiceOver/NVDA/JAWS announcements. */
   .visually-hidden:where(:not(:focus-within, :active)) {
     position: absolute !important;
     clip-path: inset(50%) !important;
@@ -319,6 +338,7 @@
     min-inline-size: 0;
   }
 
+  /* Collapse the right-hand sticky aside rail on viewports <= 1080px so prose gets 100% width */
   @media (max-width: 1080px) {
     wa-page.bs-page {
       --aside-width: 0px;
@@ -328,6 +348,7 @@
     }
   }
 
+  /* Accessible keyboard 'Skip to Backstage main content' link: hidden off-screen until Tab-focused */
   .skip-link {
     position: fixed;
     inset-block-start: calc(0.75rem + var(--bs-safe-top));
@@ -363,7 +384,9 @@
     box-sizing: border-box;
   }
 
-  /* Ultra-Compact Single-Row Sticky Header with Full Dynamic Island Safe-Area Clearance */
+  /* Ultra-Compact Single-Row Sticky Header with Full Dynamic Island Safe-Area Clearance:
+     Declares 'container: header / inline-size' so '@container header (...)' breakpoints
+     progressively reveal brand prefixes, button labels, and full collection links! */
   .bs-header {
     inline-size: 100%;
     max-inline-size: 100%;
@@ -493,6 +516,7 @@
     white-space: nowrap;
   }
 
+  /* Container Query Breakpoints for 'header': adapts smoothly to actual header width! */
   @container header (inline-size >= 540px) {
     .bs-brand-prefix {
       display: inline;
@@ -809,7 +833,7 @@
     max-inline-size: 100%;
   }
 
-  /* Featured Scenes Showcase (<wa-carousel>) */
+  /* Featured Scenes Showcase (<wa-carousel>): sets Web Awesome custom property '--aspect-ratio: 16 / 9' */
   .bs-carousel-section {
     margin-block-end: 2rem;
     min-inline-size: 0;
@@ -914,7 +938,9 @@
     color: #e2e8f0;
   }
 
-  /* Dossier Hero Artwork & Inline Markdown Figures */
+  /* Dossier Hero Artwork & Inline Markdown Figures:
+     'aspect-ratio: 1408 / 768' matches the native widescreen scene resolution so
+     layout boxes never jump while images stream in. */
   .bs-dossier-hero {
     margin: 0 0 1.5rem;
     border-radius: var(--bs-radius-l);
@@ -957,7 +983,7 @@
     display: block;
   }
 
-  /* Search Stage */
+  /* Search Stage (HTML5 '<search>' landmark + '<wa-input>' + quick-filter topic chips) */
   .bs-search-box {
     margin-block-start: 1.35rem;
     padding-block-start: 1.15rem;
@@ -1001,7 +1027,7 @@
     color: var(--bs-muted);
   }
 
-  /* Archive Pulse Metric + Sparkline Strip */
+  /* Archive Pulse Metric + Sparkline Strip ('minmax(min(100%, 215px), 1fr)' auto-fits cards without horizontal scroll) */
   .bs-pulse-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 215px), 1fr));
@@ -1048,7 +1074,7 @@
     color: var(--bs-muted);
   }
 
-  /* Story Timeline & Collection Charts */
+  /* Story Timeline & Collection Charts ('<wa-bar-chart>' + '<wa-doughnut-chart>' + accessible HTML '<table>') */
   .bs-charts-section {
     margin-block-end: 2rem;
     min-inline-size: 0;
@@ -1150,7 +1176,8 @@
     font-weight: 800;
   }
 
-  /* Collection Cards Grid (min(100%, 300px) prevents overflow on 320px–360px phones) */
+  /* Collection Cards Grid ('min(100%, 300px)' prevents overflow on 320px–360px phones;
+     '.bs-card::part(body)' stretches internal Shadow DOM body flex column so action rows align evenly) */
   .bs-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
@@ -1276,6 +1303,7 @@
     overflow-wrap: break-word;
   }
 
+  /* Two-column Folder Tree + Live Inspector split pane (collapses to 1 column at <= 860px) */
   .bs-explorer-split {
     display: grid;
     grid-template-columns: minmax(min(100%, 280px), 380px) minmax(0, 1fr);
@@ -1303,7 +1331,8 @@
     overflow-x: auto;
   }
 
-  /* Dossier Metadata & Article Prose */
+  /* Dossier Metadata Grid & Article Prose Typography:
+     'scroll-margin-block-start' offsets '#sec-...' anchor jumps so sticky headers never cover the heading! */
   .bs-meta-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
@@ -1374,6 +1403,7 @@
     margin-block-start: 0.25rem;
   }
 
+  /* In-Universe CPI Administrative Mail Dispatches & EHS Institutional Filings */
   .bs-email-card {
     margin-block: 1.5rem;
     border: 1px solid var(--bs-email-border);
@@ -1449,6 +1479,8 @@
     line-height: 1.55;
   }
 
+  /* Custom In-Universe Speech & Transit Signage Chips (<aac>, <pa>, <led>):
+     Notice 'font-variant-numeric: tabular-nums' on '.bs-led-route' so route digits align like real LED matrices! */
   .bs-aac-chip {
     display: inline-block;
     max-inline-size: 100%;
@@ -1573,7 +1605,10 @@
     font-size: 0.95em;
   }
 
-  /* Responsive Semantic GFM Data Tables (Sticky Headers + @container Stacked Cards) */
+  /* Responsive Semantic GFM Data Tables (Sticky Headers + @container Stacked Cards):
+     On wide containers (>= 600px), renders a 2D scrollable table with sticky top '<thead>'
+     and sticky first-column '<th scope="row">'. Below 600px, '@container (width < 600px)'
+     transforms each row into a self-contained vertical card labeled via '--label-2'..'--label-8'! */
   .bs-table-wrapper {
     margin-block: 1.4rem;
     overflow: auto;
@@ -1730,7 +1765,7 @@
     .bs-table td:nth-child(8)::before { content: var(--label-8) ": " / var(--label-8); }
   }
 
-  /* Related Scroller Strip */
+  /* Related Scroller Strip ('<wa-scroller orientation="horizontal">') */
   .bs-scroller-track {
     display: flex;
     gap: 1rem;
@@ -1744,7 +1779,7 @@
     flex: 0 0 auto;
   }
 
-  /* Share QR Popover & Copy Pill */
+  /* Share QR Popover ('<wa-popover>' + '<wa-qr-code>') & Clipboard Copy Pill ('<wa-copy-button>') */
   .bs-copy-pill {
     display: inline-flex;
     align-items: center;
@@ -1774,7 +1809,7 @@
     color: var(--bs-muted);
   }
 
-  /* Appearance Drawer Studio & Install Dialog */
+  /* Appearance Drawer Studio ('wa-drawer::part(panel)') & Install Dialog */
   wa-drawer#bs-appearance-drawer::part(panel) {
     padding-block-start: var(--bs-safe-top);
     padding-block-end: var(--bs-safe-bottom);
@@ -1808,7 +1843,7 @@
     min-inline-size: 0;
   }
 
-  /* Quick View Dialog */
+  /* Quick View Dialog ('--width' custom property exposed by '<wa-dialog>') */
   .bs-dialog-width {
     --width: min(54rem, calc(100dvw - 1.5rem));
   }
@@ -1906,7 +1941,7 @@
     padding-block: 0.5rem;
   }
 
-  /* Footer & Mandatory Fictitious Disclaimer */
+  /* Footer & Mandatory Fictitious Disclaimer (padded by '--bs-safe-bottom' for iPhone Home Indicator) */
   .bs-footer {
     inline-size: 100%;
     max-inline-size: 100%;

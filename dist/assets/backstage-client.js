@@ -9,13 +9,18 @@
  * Archival Ledger data grid, Folder Explorer, and Quick View modal.
  * ============================================================================
  */
+// Wrap all browser code inside an Immediately Invoked Function Expression (IIFE)
+// '(function () { ... })()' so helper variables never leak onto 'window'.
 (function () {
+  // Allowlists of official Web Awesome Pro 3.13.0 theme and color-palette class suffixes
   var VALID_THEMES = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
   var VALID_PALETTES = ['default', 'elegant', 'natural', 'vogue'];
 
+  // Query <meta name="color-scheme"> and OS dark-mode MediaQueryList once up front
   var metaScheme = document.querySelector('meta[name="color-scheme"]');
   var mqlDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
+  // Appearance Studio (<wa-drawer> + <wa-radio-group>) DOM references
   var appearanceBtn = document.getElementById('bs-open-appearance');
   var appearanceDrawer = document.getElementById('bs-appearance-drawer');
   var closeAppearanceBtn = document.getElementById('bs-close-appearance');
@@ -25,6 +30,8 @@
   var paletteRadios = document.getElementById('bs-palette-radios');
   var systemHint = document.getElementById('bs-system-hint');
 
+  // Wrap localStorage reads/writes in try/catch so strict Safari Private Browsing
+  // or blocked third-party storage settings never throw an uncaught SecurityError.
   function safeGetStorage(key) {
     try {
       return localStorage.getItem(key);
@@ -47,6 +54,7 @@
     return mqlDark && mqlDark.matches ? 'dark' : 'light';
   }
 
+  // Returns 'light', 'dark', or 'system' (when no explicit override is saved)
   function getStoredSchemeMode() {
     var s = safeGetStorage('color-scheme');
     return s === 'light' || s === 'dark' ? s : 'system';
@@ -65,7 +73,10 @@
   /**
    * Applies the active lighting scheme, Web Awesome Pro theme, and color palette
    * to <html> and <meta name="color-scheme"> without touching stored values when
-   * reacting to OS preference changes.
+   * reacting to OS preference changes:
+   *   1. Updates <meta name="color-scheme"> ('light dark' | 'light' | 'dark') -> drives CSS light-dark()!
+   *   2. Updates <html class="wa-theme-<t> wa-palette-<p> [wa-dark]"> -> drives Web Awesome Shadow DOM tokens!
+   *   3. Syncs the <wa-radio-group> selected values inside the Appearance Studio drawer.
    */
   function syncAppearanceDom(modeOverride, themeOverride, paletteOverride) {
     var mode = modeOverride || getStoredSchemeMode();
@@ -116,13 +127,14 @@
     });
   }
 
-  // Keep open tabs synchronized when appearance preferences change elsewhere
+  // Keep open tabs synchronized when appearance preferences change in another browser tab
   window.addEventListener('storage', function (e) {
     if (!e.key || e.key === 'color-scheme' || e.key === 'bs-wa-theme' || e.key === 'bs-wa-palette') {
       syncAppearanceDom();
     }
   });
 
+  // Open/close Web Awesome <wa-drawer> by toggling its boolean '.open' property
   if (appearanceBtn && appearanceDrawer) {
     appearanceBtn.addEventListener('click', function () {
       syncAppearanceDom();
@@ -136,6 +148,7 @@
     });
   }
 
+  // Persist user selections from the three <wa-radio-group> controls
   if (schemeRadios) {
     schemeRadios.addEventListener('change', function () {
       var val = schemeRadios.value;
@@ -174,12 +187,16 @@
     });
   }
 
-  // Install App Controller (Desktop/Android beforeinstallprompt + iOS/iPadOS Home Screen guide)
+  // ==========================================================================
+  // INSTALL APP & CROSS-PWA HANDOFF CONTROLLER
+  // ==========================================================================
   var installBtn = document.getElementById('bs-install-app');
   var iosInstallDialog = document.getElementById('bs-ios-install-dialog');
   var closeIosInstallBtn = document.getElementById('bs-close-ios-install');
   var deferredInstallPrompt = null;
 
+  // Detect whether the user is already running inside an installed standalone PWA window
+  // across standard CSS display-mode, iOS 'navigator.standalone', or Android TWA referrer.
   var isStandalone =
     (window.matchMedia &&
       window.matchMedia(
@@ -236,6 +253,8 @@
       .call(document.querySelectorAll('a[href], wa-button[href]'))
       .forEach(upgradeSiblingControl);
 
+    // 'event.composedPath()' traverses across Shadow DOM boundaries so dynamically rendered
+    // '<wa-button>' controls inside '<wa-data-grid>' row details are upgraded right before activation!
     var handleSiblingInteraction = function (event) {
       if (event.defaultPrevented) return;
       var path = typeof event.composedPath === 'function' ? event.composedPath() : [];
@@ -256,12 +275,15 @@
     document.addEventListener('click', handleSiblingInteraction, true);
   }
 
+  // Detect iOS / iPadOS Safari (including iPadOS desktop-class UA reporting 'MacIntel' + touch points)
   var ua = window.navigator.userAgent || '';
   var isIosSafari =
     (/iPad|iPhone|iPod/.test(ua) ||
       (window.navigator.platform === 'MacIntel' && window.navigator.maxTouchPoints > 1)) &&
     !/CriOS|FxiOS|EdgiOS/.test(ua);
 
+  // Chromium fires 'beforeinstallprompt' so we can trigger a native one-click install prompt;
+  // iOS Safari does not fire 'beforeinstallprompt', so we reveal the button and open the step-by-step <wa-dialog>.
   if (!isStandalone && installBtn) {
     if (isIosSafari) {
       installBtn.hidden = false;
@@ -296,7 +318,8 @@
     });
   }
 
-  // Header Collections <wa-dropdown> navigation
+  // Header Collections <wa-dropdown> navigation:
+  // Web Awesome <wa-dropdown> dispatches custom 'wa-select' with 'e.detail.item.value'
   var navDropdown = document.getElementById('bs-collections-dropdown');
   if (navDropdown) {
     navDropdown.addEventListener('wa-select', function (e) {
@@ -318,7 +341,12 @@
     });
   }
 
-  // Instant Search Filtering + Debounced Polite Live-Region Announcements
+  // ==========================================================================
+  // INSTANT CLIENT-SIDE SEARCH + DEBOUNCED LIVE-REGION ANNOUNCEMENTS
+  // ==========================================================================
+  // Filtering cards happens synchronously on every keystroke for zero-lag visuals,
+  // while updating '#backstage-search-count' ('aria-live="polite"') is debounced by 220ms
+  // so screen readers announce the final count cleanly instead of reading partial keystrokes!
   var searchInput = document.getElementById('backstage-search');
   var searchCount = document.getElementById('backstage-search-count');
   var mainTabGroup = document.getElementById('bs-main-tabs');
@@ -339,6 +367,7 @@
         }
       });
 
+      // Automatically switch <wa-tab-group> to the 'All Records' tab when typing a search query
       if (q && switchToAllTab && mainTabGroup && typeof mainTabGroup.show === 'function') {
         mainTabGroup.show('all');
       }
@@ -356,11 +385,13 @@
     searchInput.addEventListener('input', function () {
       runFilter(true);
     });
+    // '<wa-input with-clear>' emits 'wa-clear' when the user clicks its built-in clear button
     searchInput.addEventListener('wa-clear', function () {
       searchInput.value = '';
       runFilter(false);
     });
 
+    // Event delegation for popular topic filter chips ('data-bs-filter-term="..."')
     document.addEventListener('click', function (e) {
       var chip = e.target.closest && e.target.closest('[data-bs-filter-term]');
       if (!chip) return;
@@ -373,7 +404,8 @@
     });
   }
 
-  // Parse embedded archive dataset for <wa-data-grid> Ledger & <wa-tree> Explorer
+  // Parse embedded archive JSON dataset ('<script id="bs-archive-dataset" type="application/json">')
+  // shared by both the '<wa-data-grid>' Archival Ledger and '<wa-tree>' Folder Explorer
   var archiveDataEl = document.getElementById('bs-archive-dataset');
   var archiveRows = [];
   if (archiveDataEl) {
@@ -389,7 +421,12 @@
     archiveBySlug[r.slug] = r;
   });
 
-  // Configure <wa-data-grid> Interactive Archival Ledger
+  // ==========================================================================
+  // WEB AWESOME PRO <wa-data-grid> INTERACTIVE ARCHIVAL LEDGER
+  // ==========================================================================
+  // Rich JavaScript properties like 'columns', 'rowDetail' (a DOM-returning callback),
+  // and 'data' are assigned after 'customElements.whenDefined("wa-data-grid")' resolves
+  // so the upgraded Web Component class setters receive them cleanly.
   var ledgerGrid = document.getElementById('bs-ledger-grid');
   if (ledgerGrid && archiveRows.length > 0) {
     var initLedger = function () {
@@ -431,6 +468,7 @@
         }
       ];
 
+      // Expandable row detail renderer using safe 'document.createElement' + 'textContent'
       ledgerGrid.rowDetail = function (row) {
         var wrap = document.createElement('div');
         wrap.className = 'bs-grid-detail';
@@ -470,6 +508,12 @@
       initLedger();
     }
 
+    // Wire toolbar buttons to Web Awesome Pro <wa-data-grid> imperative methods:
+    //   - 'groupBy': groups rows into collapsible sections by 'collection'
+    //   - 'sizeColumnsToFit()': auto-scales column widths to fill container
+    //   - 'resetState()': restores default column order, sort, and filters
+    //   - 'exportDataAsCsv({ escapeFormulas: true })': exports CSV while neutralizing
+    //     spreadsheet formula-injection prefixes ('=', '+', '-', '@')!
     var groupToggleBtn = document.getElementById('bs-ledger-group');
     var fitColsBtn = document.getElementById('bs-ledger-fit');
     var resetLedgerBtn = document.getElementById('bs-ledger-reset');
@@ -511,7 +555,11 @@
     }
   }
 
-  // Configure <wa-tree> Folder Explorer Inspector
+  // ==========================================================================
+  // WEB AWESOME <wa-tree> HIERARCHICAL FOLDER EXPLORER INSPECTOR
+  // ==========================================================================
+  // Listens for 'wa-selection-change' on '#bs-archive-tree' and updates the
+  // right-hand live inspector card with the selected leaf item's metadata.
   var archiveTree = document.getElementById('bs-archive-tree');
   var treeTitle = document.getElementById('bs-tree-title');
   var treeCollection = document.getElementById('bs-tree-collection');
@@ -544,7 +592,13 @@
     });
   }
 
-  // Quick-Preview <wa-dialog> Modal
+  // ==========================================================================
+  // QUICK-PREVIEW <wa-dialog> MODAL (CONSUMING STATIC '/api/v1/<slug>.json')
+  // ==========================================================================
+  // Clicking any button with 'data-bs-preview-slug="<slug>"' opens '#bs-preview-dialog'
+  // immediately with '<wa-skeleton effect="sheen">' placeholders, fetches the static
+  // JSON payload '/api/v1/<slug>.json', and hydrates the modal (falling back to full
+  // page navigation '/<slug>' if the network fetch ever fails).
   var previewDialog = document.getElementById('bs-preview-dialog');
   var previewMeta = document.getElementById('bs-preview-meta');
   var previewBody = document.getElementById('bs-preview-body');
@@ -629,7 +683,7 @@
       });
   });
 
-  // Register Offline-Capable PWA Service Worker
+  // Register Offline-Capable PWA Service Worker after 'window.load' so initial page paint is never contended
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
       navigator.serviceWorker.register('/sw.js').catch(function () {});

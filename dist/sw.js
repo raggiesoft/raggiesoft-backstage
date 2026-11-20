@@ -164,12 +164,16 @@ const PRECACHE_URLS = [
   "/api/v1/books/katie/what-if-wesley-and-chelsea-two-in-law-suites.json"
 ];
 
+// Lifecycle Phase 1 ('install'): Pre-populate Cache Storage with all routes & assets,
+// then call 'self.skipWaiting()' so updated Service Workers activate without waiting for tabs to close.
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS)).then(() => self.skipWaiting())
   );
 });
 
+// Lifecycle Phase 2 ('activate'): Delete outdated cache buckets from older ASSET_VERSION builds
+// and call 'self.clients.claim()' to take immediate control of open Backstage windows.
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -178,10 +182,12 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+// Lifecycle Phase 3 ('fetch'): Intercept same-origin GET requests and apply tiered caching
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
+  // Let crawler/manifest/verification endpoints hit Nginx directly without SW interception
   if (
     url.pathname === '/manifest.json' ||
     url.pathname === '/robots.txt' ||
@@ -192,7 +198,9 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 1. HTML Documents: NetworkFirst for instant content freshness + offline fallback
+  // Tier 1 — HTML Documents: NetworkFirst for instant content freshness + offline fallback
+  // Note: Response streams can only be consumed ONCE, so 'response.clone()' duplicates the stream
+  // before writing one copy to Cache Storage and returning the other copy to the browser!
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
@@ -208,7 +216,8 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. JSON Companion API: StaleWhileRevalidate
+  // Tier 2 — JSON Companion API: StaleWhileRevalidate (returns cached JSON immediately if present
+  // while refreshing the cache in the background for next time)
   if (url.pathname.startsWith('/api/v1/')) {
     event.respondWith(
       caches.match(event.request).then((cached) => {
@@ -227,7 +236,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 3. Static Versioned Assets & Icons: CacheFirst
+  // Tier 3 — Static Versioned Assets & Icons ('?v=ASSET_VERSION'): CacheFirst for zero-latency hits
   event.respondWith(
     caches.match(event.request).then((cached) => {
       if (cached) return cached;
