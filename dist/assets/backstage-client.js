@@ -240,7 +240,7 @@
           el.setAttribute('target', '_blank');
           if ('target' in el) el.target = '_blank';
           var existingRel = (el.getAttribute('rel') || '').trim();
-          var relParts = existingRel ? existingRel.split(/s+/) : [];
+          var relParts = existingRel ? existingRel.split(/\s+/) : [];
           if (relParts.indexOf('noopener') === -1) relParts.push('noopener');
           var nextRel = relParts.join(' ');
           el.setAttribute('rel', nextRel);
@@ -326,7 +326,7 @@
       var item = e.detail && e.detail.item;
       var href = item && item.value;
       if (!href) return;
-      if (/^https?:///i.test(href)) {
+      if (/^https?:\/\//i.test(href)) {
         var extAnchor = document.createElement('a');
         extAnchor.href = href;
         extAnchor.target = '_blank';
