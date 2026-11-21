@@ -121,7 +121,7 @@ const storyArcsSnapshotPath = path.join(projectRoot, 'src', 'data', 'story-arcs-
  * screens, and the Service Worker cache name (`raggiesoft-backstage-v...`) in `/sw.js`.
  * Bumping this string invalidates stale browser & Service Worker caches atomically.
  */
-const ASSET_VERSION = '20261120b';
+const ASSET_VERSION = '20261121e';
 
 /**
  * External CDN roots:
@@ -4320,7 +4320,7 @@ ${splashLinksHtml}
     <link rel="stylesheet" href="https://kit.fontawesome.com/${FA_PRO_KIT_CODE}.css" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="/assets/backstage.css?v=${ASSET_VERSION}" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261121d" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261121e" />
 
     <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
@@ -4450,7 +4450,30 @@ ${splashLinksHtml}
               <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
               <span class="bs-appearance-label">Appearance</span>
             </wa-button>
+
+            <button
+              type="button"
+              class="rs-mobile-header-toggle"
+              data-rs-mobile-toggle
+              data-open-label="Open RaggieSoft menu"
+              data-close-label="Close RaggieSoft menu"
+              aria-expanded="false"
+              aria-controls="header-navigation-panel"
+              aria-label="Open RaggieSoft menu"
+            >
+              <svg class="rs-icon-bars" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+              <svg class="rs-icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
           </div>
+
+          <div id="header-navigation-panel" data-rs-collapsible="true" class="bs-mobile-network-drawer"></div>
         </div>
       </div>
 
@@ -4575,7 +4598,7 @@ ${splashLinksHtml}
     </wa-dialog>
 
     <script src="/assets/backstage-client.js?v=${ASSET_VERSION}" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261121d" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261121e" defer></script>
   </body>
 </html>`;
 }
