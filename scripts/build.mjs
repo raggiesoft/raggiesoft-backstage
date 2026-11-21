@@ -4320,7 +4320,7 @@ ${splashLinksHtml}
     <link rel="stylesheet" href="https://kit.fontawesome.com/${FA_PRO_KIT_CODE}.css" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="/assets/backstage.css?v=${ASSET_VERSION}" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261121b" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261121d" />
 
     <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
@@ -4575,7 +4575,7 @@ ${splashLinksHtml}
     </wa-dialog>
 
     <script src="/assets/backstage-client.js?v=${ASSET_VERSION}" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261121b" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261121d" defer></script>
   </body>
 </html>`;
 }
