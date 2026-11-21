@@ -121,7 +121,7 @@ const storyArcsSnapshotPath = path.join(projectRoot, 'src', 'data', 'story-arcs-
  * screens, and the Service Worker cache name (`raggiesoft-backstage-v...`) in `/sw.js`.
  * Bumping this string invalidates stale browser & Service Worker caches atomically.
  */
-const ASSET_VERSION = '20261116a';
+const ASSET_VERSION = '20261120b';
 
 /**
  * External CDN roots:
@@ -1539,6 +1539,8 @@ function buildBackstageCss() {
     --header-height: calc(3.35rem + var(--bs-safe-top));
     --main-width: minmax(0, 1fr);
     --aside-width: 18.5rem;
+    position: relative;
+    z-index: 1;
     display: block;
     inline-size: 100%;
     max-inline-size: 100%;
@@ -1645,7 +1647,13 @@ function buildBackstageCss() {
     box-sizing: border-box;
   }
 
-  /* Ultra-Compact Single-Row Sticky Header with Full Dynamic Island Safe-Area Clearance:
+  /* Match the sticky header's inner container width ('1380px') with '.rs-network-bar-inner'
+     ('1360px') so all 6 collection links, 'More', 'Install App', and 'Appearance' breathe cleanly. */
+  .bs-header .bs-container {
+    max-inline-size: min(100%, 1380px);
+  }
+
+  /* Ultra-Compact Responsive Sticky Header with Full Dynamic Island Safe-Area Clearance:
      Declares 'container: header / inline-size' so '@container header (...)' breakpoints
      progressively reveal brand prefixes, button labels, and full collection links! */
   .bs-header {
@@ -1662,37 +1670,36 @@ function buildBackstageCss() {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
   }
 
+  /* 'flex-wrap: wrap' ensures WCAG 1.4.10 Reflow compliance at 200%+ zoom or large OS text scales
+     so controls wrap onto a clean second row instead of clipping off the right viewport edge. */
   .bs-header-inner {
     display: flex;
     align-items: safe center;
     justify-content: space-between;
-    gap: 0.45rem;
+    gap: 0.4rem 0.65rem;
     padding-block: 0.38rem;
     min-block-size: 3.3rem;
     min-inline-size: 0;
     box-sizing: border-box;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
 
+  /* 'flex: 0 0 auto' guarantees the Backstage icon + title NEVER collapses or shrinks to 0px! */
   .bs-brand {
     display: inline-flex;
     align-items: center;
     gap: 0.48rem;
-    min-inline-size: 0;
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     font-weight: 900;
     font-size: 0.96rem;
     letter-spacing: 0.01em;
     color: var(--bs-text);
     text-decoration: none;
     white-space: nowrap;
-    overflow: hidden;
   }
 
   .bs-brand > span {
-    min-inline-size: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: inline-block;
   }
 
   .bs-brand-icon {
@@ -1711,8 +1718,9 @@ function buildBackstageCss() {
   .bs-nav-row {
     display: flex;
     align-items: safe center;
-    gap: 0.32rem;
-    flex: 0 0 auto;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    flex: 0 1 auto;
     min-inline-size: 0;
     margin-inline-start: auto;
     white-space: nowrap;
@@ -1725,8 +1733,8 @@ function buildBackstageCss() {
   .bs-nav {
     display: flex;
     align-items: center;
-    gap: 0.22rem;
-    flex-wrap: nowrap;
+    gap: 0.2rem;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -1735,11 +1743,11 @@ function buildBackstageCss() {
   .bs-nav-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.32rem;
+    gap: 0.28rem;
     min-block-size: 2rem;
-    padding: 0.22rem 0.56rem;
+    padding: 0.2rem 0.48rem;
     border-radius: var(--bs-radius-m);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: var(--bs-muted);
     background: transparent;
@@ -1760,11 +1768,13 @@ function buildBackstageCss() {
     border-color: var(--bs-fallback-primary);
   }
 
-  .bs-dropdown-desktop-label,
-  .bs-install-label {
+  .bs-dropdown-desktop-label {
     display: none;
   }
 
+  /* Keep both button labels in the Accessibility Tree when visually compact so VoiceOver/NVDA
+     always announce "Install App" and "Appearance" while '<wa-tooltip>' provides hover hints. */
+  .bs-install-label,
   .bs-appearance-label {
     position: absolute;
     clip-path: inset(50%);
@@ -1784,7 +1794,10 @@ function buildBackstageCss() {
     }
   }
 
-  @container header (inline-size >= 680px) {
+  /* Tablet widths (680px..1179px): desktop collection pills are collapsed into 'Browse',
+     leaving generous room for visible 'Install App' & 'Appearance' button labels. */
+  @container header (inline-size >= 680px) and (inline-size < 1180px) {
+    .bs-install-label,
     .bs-appearance-label {
       position: static;
       clip-path: none;
@@ -1793,12 +1806,12 @@ function buildBackstageCss() {
       block-size: auto;
       margin: 0;
     }
-    .bs-install-label {
-      display: inline;
-    }
   }
 
-  @container header (inline-size >= 1140px) {
+  /* Laptop widths (1180px..1359px, e.g. 1280px displays): reveal all 6 collection pills inline
+     while keeping 'Install App' & 'Appearance' as compact icon buttons with tooltips so neither
+     the brand on the left nor 'Appearance' on the right is ever crushed or clipped! */
+  @container header (inline-size >= 1180px) {
     .bs-desktop-nav {
       display: block;
     }
@@ -1807,6 +1820,19 @@ function buildBackstageCss() {
     }
     .bs-dropdown-desktop-label {
       display: inline;
+    }
+  }
+
+  /* Widescreen desktop (>= 1360px): enough room for brand + all 6 collection pills + 'More' + full button labels! */
+  @container header (inline-size >= 1360px) {
+    .bs-install-label,
+    .bs-appearance-label {
+      position: static;
+      clip-path: none;
+      overflow: visible;
+      inline-size: auto;
+      block-size: auto;
+      margin: 0;
     }
   }
 
@@ -4294,7 +4320,7 @@ ${splashLinksHtml}
     <link rel="stylesheet" href="https://kit.fontawesome.com/${FA_PRO_KIT_CODE}.css" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="/assets/backstage.css?v=${ASSET_VERSION}" />
-    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261118a" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261120b" />
 
     <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
@@ -4306,28 +4332,33 @@ ${splashLinksHtml}
     </script>
   </head>
   <body>
-    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
-      <a href="#content" slot="skip-to-content" class="skip-link">Skip to Backstage main content</a>
+    <a href="#content" class="skip-link">Skip to Backstage main content</a>
 
-      <div slot="banner" class="bs-banner-slot">
-        <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
-          <div class="rs-network-bar-inner">
-            <span class="rs-network-label">✦ RaggieSoft Network:</span>
-            <ul class="rs-network-links">
-              <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
-              <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
-              <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
-              <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
-              <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
-              <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
-              <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
-              <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
-              <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
-              <li><a href="https://michaelpragsdale.com">👔 Portfolio &amp; Resume</a></li>
-            </ul>
-          </div>
-        </nav>
+    <!-- Place .rs-network-bar directly inside body ABOVE wa-page (z-index 1055 > 1)
+         so .rs-network-bar and .rs-memoriam-bar stack 100% full-width top-to-bottom AND
+         open dropdown menus (Ocean View, Engine Room, Portfolio) paint cleanly above wa-page's sticky header! -->
+    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+      <div class="rs-network-bar-inner">
+        <span class="rs-network-label">✦ RaggieSoft Network:</span>
+        <ul class="rs-network-links">
+          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+          <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+          <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+          <li><a href="https://crossroads.raggiesoft.com">🧭 Story Crossroads</a></li>
+          <li><a href="https://cedarrun.raggiesoft.com">🌲 Cedar Run</a></li>
+          <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+          <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+          <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+          <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+          <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+          <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+          <li><a href="https://waystation.raggiesoft.com">🔮 Waystation</a></li>
+          <li><a href="https://michaelpragsdale.com">👔 Portfolio &amp; Resume</a></li>
+        </ul>
       </div>
+    </nav>
+
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
 
       <div slot="header" class="bs-header">
         <div class="bs-container bs-header-inner">
@@ -4390,9 +4421,21 @@ ${splashLinksHtml}
                 <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
                 Open RaggieSoft Book Reader ↗
               </wa-dropdown-item>
+              <wa-dropdown-item value="https://crossroads.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="signs-post" aria-hidden="true"></wa-icon>
+                Open Story Crossroads ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://cedarrun.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="trees" aria-hidden="true"></wa-icon>
+                Open Cedar Run ↗
+              </wa-dropdown-item>
               <wa-dropdown-item value="https://music.raggiesoft.com">
                 <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
                 Open The Listening Room ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://waystation.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="compass-drafting" aria-hidden="true"></wa-icon>
+                Open The Uncharted Waystation ↗
               </wa-dropdown-item>
             </wa-dropdown>
 
@@ -4433,7 +4476,10 @@ ${splashLinksHtml}
             </p>
             <div class="bs-footer-links">
               <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://crossroads.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="signs-post" aria-hidden="true"></wa-icon> Story Crossroads</a>
+              <a href="https://cedarrun.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="trees" aria-hidden="true"></wa-icon> Cedar Run</a>
               <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://waystation.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="compass-drafting" aria-hidden="true"></wa-icon> The Waystation</a>
               <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
             </div>
           </div>
@@ -4529,7 +4575,7 @@ ${splashLinksHtml}
     </wa-dialog>
 
     <script src="/assets/backstage-client.js?v=${ASSET_VERSION}" defer></script>
-    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261118a" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261120b" defer></script>
   </body>
 </html>`;
 }
