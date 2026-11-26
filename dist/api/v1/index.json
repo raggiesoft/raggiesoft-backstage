@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-26T04:49:20.066Z",
+  "generatedAt": "2026-11-26T05:16:44.416Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 63,
+  "totalItems": 64,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
@@ -13,9 +13,9 @@
     "aubrie": 13,
     "aubrieDossiers": 12,
     "aubrieCorrespondence": 10,
-    "lore": 4,
+    "lore": 5,
     "hubs": 4,
-    "total": 63,
+    "total": 64,
     "storyArcs": 13
   },
   "items": {
@@ -243,6 +243,21 @@
       "summary": "What happened behind closed doors when Brenda's attorney walked into Arthur Vance's conference room to view the M/S Sunward Tropics Deck 4 security tape—and how Katie and Nate's request cost Brenda the Prairie family name.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/katie/sunward-tropics-divorce-and-maiden-name-order",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/katie/sunward-tropics-divorce-and-maiden-name-order.json"
+    },
+    "books/waystation/the-paused-vcr-clock-and-two-world-time": {
+      "slug": "books/waystation/the-paused-vcr-clock-and-two-world-time",
+      "title": "The Paused 9:15 PM VCR Clock & Reciprocal Time Between Studio 2B and Vaeloria",
+      "subtitle": "Why the Twin-Ring Astrolabe Chose Nolan & Gwen, Why They Didn't Know Earth Stood Still Until Returning, and What Happened Inside Their Emerald Creek Apartment",
+      "category": "The Uncharted Waystation — Behind the Scenes",
+      "date": "2001-10-19",
+      "time": "21:15 EDT",
+      "sender": "RaggieSoft Backstage Worldbuilding & Metaphysics Dossier",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c001_p002_two_names_studio_lease.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg",
+      "summary": "What actually happens to Nolan and Gwen Lennox's tiny rectangular Studio 2B in Chesapeake while they journey barefoot across Vaeloria on their forearm crutches? Explore why the Slow-Footed Order's Astrolabe called them, their real initial fear before wonder took hold, the moment they return to find their VCR clock still frozen at 9:15 PM, and the Waystation's covenant of reciprocal paused time.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/waystation/the-paused-vcr-clock-and-two-world-time",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/waystation/the-paused-vcr-clock-and-two-world-time.json"
     },
     "corporations/vectron-question-the-rules": {
       "slug": "corporations/vectron-question-the-rules",

@@ -335,6 +335,7 @@ function resolveOgImageForSlug(slug, explicitOg = '') {
   if (slug.startsWith('books/quantum-directive-3-casey/')) return `${OG_CDN_BASE}/casey-collection-og.jpg`;
   if (slug.startsWith('books/aubrie/')) return `${OG_CDN_BASE}/aubrie-collection-og.jpg`;
   if (slug.startsWith('books/luna-leo/')) return 'https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/luna-leo.jpg';
+  if (slug.startsWith('books/waystation/')) return 'https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg';
   return `${OG_CDN_BASE}/backstage-hub-og.jpg`;
 }
 
@@ -1052,6 +1053,15 @@ function describeCollection(item) {
       badgeVariant: 'brand',
       iconFamily: 'duotone',
       iconName: 'people-roof'
+    };
+  }
+  if (item.slug.startsWith('books/waystation')) {
+    return {
+      key: 'lore',
+      label: 'The Uncharted Waystation',
+      badgeVariant: 'warning',
+      iconFamily: 'duotone',
+      iconName: 'compass'
     };
   }
   if (item.slug.startsWith('music/')) {
