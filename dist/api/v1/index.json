@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-27T06:40:28.065Z",
+  "generatedAt": "2026-11-27T06:48:50.398Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 64,
+  "totalItems": 65,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
@@ -13,9 +13,9 @@
     "aubrie": 13,
     "aubrieDossiers": 12,
     "aubrieCorrespondence": 10,
-    "lore": 5,
+    "lore": 6,
     "hubs": 4,
-    "total": 64,
+    "total": 65,
     "storyArcs": 13
   },
   "items": {
@@ -258,6 +258,21 @@
       "summary": "In-universe corporate history of Vectron Energy Corp.'s 1997-2001 'Question The Rules' TV ad campaign, energy deregulation, and the birth of Z-SOX-302.",
       "canonicalUrl": "https://backstage.raggiesoft.com/corporations/vectron-question-the-rules",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/corporations/vectron-question-the-rules.json"
+    },
+    "books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387": {
+      "slug": "books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387",
+      "title": "The Escalator Blindspot, Code of Virginia § 18.2-387, and What Nolan Never Saw",
+      "subtitle": "Why Strict First-Person POV Hid Tammy's Unexecuted Public-Flashing Plan at The Admiral Center—and How Mallory's Hand Saved Tammy From a Class 1 Misdemeanor",
+      "category": "The Uncharted Waystation — Behind the Scenes",
+      "date": "2002-06-01",
+      "time": "12:14 EDT",
+      "sender": "RaggieSoft Backstage Narrative POV & Legal Notes",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c001_p016_admiral_center_food_court_tammy.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg",
+      "summary": "Because Chapter 1, Part 16 stays locked inside Nolan Lennox's first-person point of view, Nolan only sees Tammy step up to the planter rail already boiling with jealousy. Go behind the camera to learn what Tammy was actually preparing to do thirty seconds earlier on the escalator—and the Virginia indecent-exposure arrest she narrowly avoided when she spotted Mallory Walsh at the table.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387.json"
     },
     "books/waystation/the-paused-vcr-clock-and-two-world-time": {
       "slug": "books/waystation/the-paused-vcr-clock-and-two-world-time",
