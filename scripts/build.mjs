@@ -1043,7 +1043,7 @@ function describeCollection(item) {
       label: 'The Eleventh Child • Dossier',
       badgeVariant: 'brand',
       iconFamily: 'duotone',
-      iconName: 'book-sparkles'
+      iconName: 'book-open'
     };
   }
   if (item.slug.startsWith('books/luna-leo')) {
@@ -4194,7 +4194,7 @@ function renderBackstageShell({
     { href: '/books/rachel', label: `Rachel (${counts.rachelDossiers})`, icon: 'shield-heart' },
     { href: '/books/katie', label: `Katie & Nathaniel (${counts.katieDossiers})`, icon: 'wheelchair-move' },
     { href: '/books/quantum-directive-3-casey', label: `The Caretakers (${counts.caseyDossiers})`, icon: 'microchip' },
-    { href: '/books/aubrie', label: `Eleventh Child (${counts.aubrieDossiers})`, icon: 'book-sparkles' }
+    { href: '/books/aubrie', label: `Eleventh Child (${counts.aubrieDossiers})`, icon: 'book-open' }
   ];
 
   const navHtml = navItems
@@ -4433,7 +4433,7 @@ ${splashLinksHtml}
                 The Quantum Directive: The Caretakers (${counts.caseyDossiers} Dossiers)
               </wa-dropdown-item>
               <wa-dropdown-item value="/books/aubrie">
-                <wa-icon slot="icon" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                <wa-icon slot="icon" family="duotone" name="book-open" aria-hidden="true"></wa-icon>
                 The Eleventh Child (${counts.aubrieDossiers} Files)
               </wa-dropdown-item>
               <wa-divider></wa-divider>
@@ -5699,7 +5699,7 @@ function renderHomePage(items, groups) {
           <wa-icon family="duotone" name="microchip" aria-hidden="true"></wa-icon>&nbsp;${counts.caseyDossiers} Caretakers Dossiers
         </wa-badge>
         <wa-badge variant="neutral" appearance="filled-outlined" pill>
-          <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>&nbsp;${counts.aubrieDossiers} Eleventh Child Files
+          <wa-icon family="duotone" name="book-open" aria-hidden="true"></wa-icon>&nbsp;${counts.aubrieDossiers} Eleventh Child Files
         </wa-badge>
         <wa-badge variant="neutral" appearance="filled-outlined" pill>
           <wa-icon family="duotone" name="building-columns" aria-hidden="true"></wa-icon>&nbsp;${counts.lore} Worldbuilding Guides
@@ -5714,7 +5714,7 @@ function renderHomePage(items, groups) {
       </p>
 
       <wa-callout variant="brand">
-        <wa-icon slot="icon" family="duotone" name="stars" swap-opacity aria-hidden="true"></wa-icon>
+        <wa-icon slot="icon" family="duotone" name="bullhorn" swap-opacity aria-hidden="true"></wa-icon>
         <strong>New Addition — <em>The Quantum Directive: The Caretakers</em> Archive (${counts.caseyDossiers} Dossiers, 1995–2014):</strong>
         Explore Portsmouth&rsquo;s Christmas Eve <em>Réveillon</em> permit beneath the <strong>Mount Hope Bridge</strong>, Building 26&rsquo;s 1996 Catalyst judging lab, <strong>Victoria Vance&rsquo;s</strong> pre-arrival Ruby Mountain threat trace, the eighteen-minute <strong>Building 33</strong> CEO vote &amp; Orange-Badge clearance, and K Street&rsquo;s DCA faregate meltdown.
         <div class="bs-action-row">
@@ -5895,7 +5895,7 @@ function renderHomePage(items, groups) {
           <wa-icon family="duotone" name="microchip" aria-hidden="true"></wa-icon>&nbsp;The Caretakers (${counts.caseyDossiers})
         </wa-tab>
         <wa-tab slot="nav" panel="aubrie">
-          <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>&nbsp;Eleventh Child (${counts.aubrieDossiers})
+          <wa-icon family="duotone" name="book-open" aria-hidden="true"></wa-icon>&nbsp;Eleventh Child (${counts.aubrieDossiers})
         </wa-tab>
         <wa-tab slot="nav" panel="lore">
           <wa-icon family="duotone" name="building-columns" aria-hidden="true"></wa-icon>&nbsp;Worldbuilding (${counts.lore})
@@ -6043,7 +6043,7 @@ function renderHomePage(items, groups) {
                     .join('\n                  ')}
                 </wa-tree-item>
                 <wa-tree-item expanded>
-                  <wa-icon family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+                  <wa-icon family="duotone" name="book-open" aria-hidden="true"></wa-icon>
                   The Eleventh Child (${counts.aubrie})
                   ${aubrieAll
                     .map(
@@ -6617,7 +6617,7 @@ function buildBackstageSite() {
               The Caretakers (${groups.counts.caseyDossiers})
             </wa-button>
             <wa-button variant="neutral" appearance="outlined" href="/books/aubrie">
-              <wa-icon slot="start" family="duotone" name="book-sparkles" aria-hidden="true"></wa-icon>
+              <wa-icon slot="start" family="duotone" name="book-open" aria-hidden="true"></wa-icon>
               The Eleventh Child (${groups.counts.aubrieDossiers})
             </wa-button>
             <wa-button variant="neutral" appearance="outlined" href="https://books.raggiesoft.com" target="_blank" rel="noopener">
