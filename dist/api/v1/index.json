@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-27T22:46:15.849Z",
+  "generatedAt": "2026-11-27T22:56:00.614Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 65,
+  "totalItems": 66,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
@@ -13,9 +13,9 @@
     "aubrie": 13,
     "aubrieDossiers": 12,
     "aubrieCorrespondence": 10,
-    "lore": 6,
+    "lore": 7,
     "hubs": 4,
-    "total": 65,
+    "total": 66,
     "storyArcs": 13
   },
   "items": {
@@ -228,6 +228,21 @@
       "summary": "What happened to Sloane after Brewster Gardens security detained him on May 15, 1999—and how Mary McCullough's January 2000 Brigadoon rumor hack backfired when Northwood High's Senior Class rallied around Jessica, Michael, and Rachel.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage.json"
+    },
+    "books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms": {
+      "slug": "books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms",
+      "title": "From Monticello Avenue to Pasco: Why Tammy Couldn't Find a Family Restroom Across Three Thousand Miles",
+      "subtitle": "What Nolan's Locked First-Person POV Never Saw—Tammy's Original Plan in Norfolk, Ninety Hours of Mid-Century Multi-Stall Depots, and Why Pasco Was the First Terminal With a Locking Single Bathroom",
+      "category": "The Uncharted Waystation — Behind the Scenes",
+      "date": "2001-08-25",
+      "time": "07:45 PDT",
+      "sender": "RaggieSoft Backstage Narrative POV, Transit Architecture & Legal Notes",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c001_p009_norfolk_alcove_sightline.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg",
+      "summary": "Because The Uncharted Waystation stays locked inside Nolan Lennox's first-person point of view, Nolan assumes Tammy rolled him behind the concrete column in Norfolk just to whisper and flash him out of sight of security—and never knows why Tammy waited ninety hours until Pasco on the Seattle Pathfinder route to lead him into a restroom. Go behind the camera to see how 1960s vs. late-1990s bus-terminal architecture shaped every branch of the story.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms.json"
     },
     "books/katie/sunward-tropics-divorce-and-maiden-name-order": {
       "slug": "books/katie/sunward-tropics-divorce-and-maiden-name-order",
