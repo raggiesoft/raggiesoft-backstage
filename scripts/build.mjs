@@ -1127,6 +1127,29 @@ function loadBackstageItems() {
     const items = relFiles.map((relFile) => {
       const raw = fs.readFileSync(path.join(narrativesDir, relFile), 'utf-8');
       const { frontmatter, body: rawBody } = parseFrontmatter(raw);
+      // IMMUTABLE SEPTEMBER 11, 2001 ZERO-IMAGES FATAL GUARDRAIL (`backstage/scripts/build.mjs`):
+      // Any Backstage dossier whose `date:` takes place on September 11, 2001 MUST NEVER
+      // specify `image`, `images`, `ogImage`, `og_image`, inline `![...](...)`, or `<img>`.
+      const rawDateStr = String(frontmatter.date || '').trim();
+      if (/(?:\b2001-0?9-11\b|\b0?9[\/\-]11[\/\-]2001\b|\bSept(?:ember)?\.?\s+11(?:th)?,?\s+2001\b|\b11\s+Sept(?:ember)?\.?,?\s+2001\b)/i.test(rawDateStr)) {
+        const hasFmImg = Boolean(
+          (Array.isArray(frontmatter.image) ? frontmatter.image.length : String(frontmatter.image || '').trim()) ||
+          (Array.isArray(frontmatter.images) ? frontmatter.images.length : String(frontmatter.images || '').trim()) ||
+          String(frontmatter.ogImage || '').trim() ||
+          String(frontmatter.og_image || '').trim()
+        );
+        const rawNoFences = String(rawBody || '').replace(/```[\s\S]*?```/g, '');
+        const hasInlineImg = /!\[[^\]]*\]\([^)]+\)|<img\b/i.test(rawNoFences);
+        if (hasFmImg || hasInlineImg) {
+          console.error(
+            `\n🛑 FATAL GUARDRAIL ERROR [IMMUTABLE SEPTEMBER 11, 2001 ZERO-IMAGES RULE]:\n` +
+            `   Dossier: ${path.join(narrativesDir, relFile)}\n` +
+            `   Date: ${rawDateStr}\n` +
+            `   September 11, 2001 sections MUST NEVER contain rendered images. Aborting Backstage build.\n`
+          );
+          process.exit(1);
+        }
+      }
       const body = canonicalizeRaggieSoftUrlsInText(rawBody);
 
       // Map file paths to clean URL slugs:
