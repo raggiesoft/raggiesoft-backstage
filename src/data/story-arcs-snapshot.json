@@ -204,9 +204,9 @@
     "part_count": 9,
     "backstage_count": 1,
     "stop_count": 10,
-    "word_count": 26221,
-    "reading_minutes": 105,
-    "reading_hours": 1.7,
+    "word_count": 26331,
+    "reading_minutes": 106,
+    "reading_hours": 1.8,
     "stops": [
       {
         "stop_num": 1,
@@ -300,8 +300,8 @@
         "image": "/raggiesoft-books/images/covers/2x3/aubrie.jpg",
         "url": "https://backstage.raggiesoft.com/books/aubrie/zoe-logging-architecture/",
         "arc_url": "/aubrie/jordan-s-world-trek/leg-8-southern-cross-winter-the-red-centre-home-to-roanoke-australia/part-1-sydney-harbour-the-three-sisters-the-jamison-skyway?arc=world-trek-and-zoes-architecture",
-        "word_count": 693,
-        "reading_minutes": 3
+        "word_count": 803,
+        "reading_minutes": 4
       },
       {
         "stop_num": 6,
