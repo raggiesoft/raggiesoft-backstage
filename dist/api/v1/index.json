@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-28T00:07:03.750Z",
+  "generatedAt": "2026-11-28T00:37:24.228Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 66,
+  "totalItems": 67,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
@@ -13,9 +13,9 @@
     "aubrie": 13,
     "aubrieDossiers": 12,
     "aubrieCorrespondence": 10,
-    "lore": 7,
+    "lore": 8,
     "hubs": 4,
-    "total": 66,
+    "total": 67,
     "storyArcs": 13
   },
   "items": {
@@ -228,6 +228,21 @@
       "summary": "What happened to Sloane after Brewster Gardens security detained him on May 15, 1999—and how Mary McCullough's January 2000 Brigadoon rumor hack backfired when Northwood High's Senior Class rallied around Jessica, Michael, and Rachel.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/rachel/sloanes-punishment-and-the-brigadoon-rumor-sabotage.json"
+    },
+    "books/waystation/the-turned-off-meter-denises-cab-from-monticello-avenue": {
+      "slug": "books/waystation/the-turned-off-meter-denises-cab-from-monticello-avenue",
+      "title": "Cab Forty-Seven With the Meter Switched Off: Why Denise Carter Drove Nolan Home for Free",
+      "subtitle": "What Strict First-Person POV Left Off-Camera on Monticello Avenue—A Norfolk Owner-Operator Who Had Just Escaped Her Own Abuser Seven Months Earlier",
+      "category": "The Uncharted Waystation — Behind the Scenes",
+      "date": "2001-08-21",
+      "time": "10:05 EDT",
+      "sender": "RaggieSoft Backstage Character & Narrative POV Notes",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/p010_denise_cab_free_ride_norfolk.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg",
+      "summary": "Across both Norfolk breakup routes of The Uncharted Waystation, thirty-eight-year-old Norfolk taxi driver Denise Carter steps forward after Tammy slaps Nolan in the waiting room, loads Nolan's wheelchair into Cab 47, switches her meter flat off, and refuses even Grandpa Walter's twenty-dollar bill in Chesapeake. Go behind Nolan's locked first-person POV to learn why Denise didn't hesitate for a single second.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/waystation/the-turned-off-meter-denises-cab-from-monticello-avenue",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/waystation/the-turned-off-meter-denises-cab-from-monticello-avenue.json"
     },
     "books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms": {
       "slug": "books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms",
