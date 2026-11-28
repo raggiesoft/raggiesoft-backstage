@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T01:59:12.123Z",
+  "generatedAt": "2026-11-28T02:04:58.374Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
   "totalItems": 67,
@@ -307,7 +307,7 @@
     "books/waystation/the-paused-vcr-clock-and-two-world-time": {
       "slug": "books/waystation/the-paused-vcr-clock-and-two-world-time",
       "title": "The Paused 9:15 PM VCR Clock & Reciprocal Time Between Studio 205 and Vaeloria",
-      "subtitle": "Why the Twin-Ring Astrolabe Chose Nolan & Gwen, Why They Didn't Know Earth Stood Still Until Returning, and What Happened Inside Their Norfolk High-Rise Studio",
+      "subtitle": "Why the Three-Ring Astrolabe Chose Nolan, Gwen & Mallory, Why They Didn't Know Earth Stood Still Until Returning, and How Two Pause-Held Worlds Work",
       "category": "The Uncharted Waystation — Behind the Scenes",
       "date": "2002-10-25",
       "time": "21:15 EDT",
@@ -315,7 +315,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c005_p002_nine_fifteen_studio_return.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg",
-      "summary": "What actually happens to Nolan and Gwen Lennox's tiny rectangular Studio 205 in Norfolk while they journey barefoot across Vaeloria on their forearm crutches? Explore why the Slow-Footed Order's Astrolabe called them, their real initial fear before wonder took hold, the moment they return to find their VCR clock still frozen at 9:15 PM, and the Waystation's covenant of reciprocal paused time.",
+      "summary": "What actually happens to Studio 205 in Norfolk while Nolan Lennox, his sister Gwen, and his girlfriend Mallory Walsh journey barefoot across Vaeloria? Explore why the Slow-Footed Order's Three-Ring Astrolabe called all three of them, the frozen 9:15 PM VCR clock, symmetric world-locked aging, and their expanding life in Vaeloria.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/waystation/the-paused-vcr-clock-and-two-world-time",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/waystation/the-paused-vcr-clock-and-two-world-time.json"
     },
