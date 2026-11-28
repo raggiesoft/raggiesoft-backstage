@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T03:44:35.220Z",
+  "generatedAt": "2026-11-28T04:06:33.978Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
   "totalItems": 67,
@@ -247,7 +247,7 @@
     "books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms": {
       "slug": "books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms",
       "title": "From Monticello Avenue to Pasco: Why Tammy Couldn't Find a Family Restroom Across Three Thousand Miles",
-      "subtitle": "What Nolan's Locked First-Person POV Never Saw—Tammy's Original Plan in Norfolk, Ninety Hours of Mid-Century Multi-Stall Depots, and Why Pasco Was the First Terminal With a Locking Single Bathroom",
+      "subtitle": "What Nolan's Locked First-Person POV Never Saw—Tammy's Secret Pinecrest Non-Renewal, Ninety Hours of Multi-Stall Depots, Pasco's Locking Restroom, and Her Pre-Planned Move With Cousin Travis",
       "category": "The Uncharted Waystation — Behind the Scenes",
       "date": "2001-08-25",
       "time": "07:45 PDT",
@@ -255,7 +255,7 @@
       "subject": "",
       "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c001_p009_norfolk_alcove_sightline.jpg",
       "ogImage": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg",
-      "summary": "Because The Uncharted Waystation stays locked inside Nolan Lennox's first-person point of view, Nolan assumes Tammy rolled him behind the concrete column in Norfolk just to whisper and flash him out of sight of security—and never knows why Tammy waited ninety hours until Pasco on the Seattle Pathfinder route to lead him into a restroom. Go behind the camera to see how 1960s vs. late-1990s bus-terminal architecture shaped every branch of the story.",
+      "summary": "Because The Uncharted Waystation stays locked inside Nolan Lennox's first-person point of view, neither Nolan nor the novel reader ever sees Tammy's quiet Pinecrest Court lease non-renewal before departure, why Pasco was the first station with a locking family bathroom, or why Tammy kept saying 'I' instead of 'we' on the Seattle payphone to her cousin Travis.",
       "canonicalUrl": "https://backstage.raggiesoft.com/books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms.json"
     },
