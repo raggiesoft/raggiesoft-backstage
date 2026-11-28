@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en" class="wa-theme-default wa-palette-default" data-fa-kit-code="ec060982d4">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        var s = localStorage.getItem('color-scheme');
+        var t = localStorage.getItem('bs-wa-theme') || 'default';
+        var p = localStorage.getItem('bs-wa-palette') || 'default';
+        var vt = ['default', 'awesome', 'glossy', 'mellow', 'premium'];
+        var vp = ['default', 'elegant', 'natural', 'vogue'];
+        if (vt.indexOf(t) === -1) t = 'default';
+        if (vp.indexOf(p) === -1) p = 'default';
+        document.querySelector('meta[name="color-scheme"]').content =
+          (s === 'light' || s === 'dark') ? s : 'light dark';
+        var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = (s === 'light' || s === 'dark') ? (s === 'dark') : sysDark;
+        var isPwa =
+          window.navigator.standalone === true ||
+          (window.matchMedia &&
+            window.matchMedia(
+              '(display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: minimal-ui), (display-mode: fullscreen)'
+            ).matches);
+        var ua = navigator.userAgent || '';
+        var isIOS =
+          /iPad|iPhone|iPod/.test(ua) ||
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var root = document.documentElement;
+        root.className =
+          'wa-theme-' +
+          t +
+          ' wa-palette-' +
+          p +
+          (isDark ? ' wa-dark' : '') +
+          (isPwa ? ' is-pwa-standalone' : '');
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        root.setAttribute('data-pwa', isPwa ? 'standalone' : 'browser');
+        if (isIOS) root.setAttribute('data-os', 'ios');
+      } catch (e) {}
+    </script>
+
+    <!-- Resource Hints for Early TLS Handshakes -->
+    <link rel="preconnect" href="https://assets.raggiesoft.com" crossorigin />
+    <link rel="preconnect" href="https://ka-p.webawesome.com" crossorigin />
+    <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin />
+
+    <!-- Progressive Web App Manifest, Adaptive Theme Colors, Icons & 92 iOS Splash Screens -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#070b14" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#861f41" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Backstage" />
+    <link rel="icon" href="/favicon.ico?v=20261121e" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg?v=20261121e" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=20261121e" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png?v=20261121e" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-2732.jpg?v=20261121e" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2732-2048.jpg?v=20261121e" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-2732.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2732-2048.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2064-2752.jpg?v=20261121e" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2752-2064.jpg?v=20261121e" media="(device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2064-2752.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2752-2064.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2420.jpg?v=20261121e" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2420-1668.jpg?v=20261121e" media="(device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2420.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2420-1668.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2388.jpg?v=20261121e" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2388-1668.jpg?v=20261121e" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2388.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2388-1668.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1668-2224.jpg?v=20261121e" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2224-1668.jpg?v=20261121e" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1668-2224.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2224-1668.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1536-2048.jpg?v=20261121e" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2048-1536.jpg?v=20261121e" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1536-2048.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2048-1536.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1640-2360.jpg?v=20261121e" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2360-1640.jpg?v=20261121e" media="(device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1640-2360.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2360-1640.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1620-2160.jpg?v=20261121e" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2160-1620.jpg?v=20261121e" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1620-2160.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2160-1620.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1488-2266.jpg?v=20261121e" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2266-1488.jpg?v=20261121e" media="(device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1488-2266.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2266-1488.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 744px) and (device-height: 1133px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1320-2868.jpg?v=20261121e" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2868-1320.jpg?v=20261121e" media="(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1320-2868.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2868-1320.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1206-2622.jpg?v=20261121e" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2622-1206.jpg?v=20261121e" media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1206-2622.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2622-1206.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1260-2736.jpg?v=20261121e" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2736-1260.jpg?v=20261121e" media="(device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1260-2736.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2736-1260.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 420px) and (device-height: 912px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1290-2796.jpg?v=20261121e" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2796-1290.jpg?v=20261121e" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1290-2796.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2796-1290.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1179-2556.jpg?v=20261121e" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2556-1179.jpg?v=20261121e" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1179-2556.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2556-1179.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1170-2532.jpg?v=20261121e" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2532-1170.jpg?v=20261121e" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1170-2532.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2532-1170.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1284-2778.jpg?v=20261121e" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2778-1284.jpg?v=20261121e" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1284-2778.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2778-1284.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1080-2340.jpg?v=20261121e" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2340-1080.jpg?v=20261121e" media="(device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1080-2340.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2340-1080.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2688.jpg?v=20261121e" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2688-1242.jpg?v=20261121e" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2688.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2688-1242.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1125-2436.jpg?v=20261121e" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2436-1125.jpg?v=20261121e" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1125-2436.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2436-1125.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-828-1792.jpg?v=20261121e" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1792-828.jpg?v=20261121e" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-828-1792.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1792-828.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1242-2208.jpg?v=20261121e" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-2208-1242.jpg?v=20261121e" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1242-2208.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-2208-1242.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-750-1334.jpg?v=20261121e" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1334-750.jpg?v=20261121e" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-750-1334.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1334-750.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-640-1136.jpg?v=20261121e" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-1136-640.jpg?v=20261121e" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-640-1136.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="https://assets.raggiesoft.com/raggiesoft-backstage/images/pwa-icons/apple-splash-dark-1136-640.jpg?v=20261121e" media="(prefers-color-scheme: dark) and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" />
+
+    <!-- Primary SEO & Complete 1200x630 OpenGraph / Twitter Card Metadata -->
+    <title>Two Different Phone Lines, One Glowing Review: Ray…</title>
+    <meta name="description" content="Because The Uncharted Waystation stays locked inside Nolan Lennox&#39;s first-person point of view, Nolan only hears secondhand that his supervisor Ray…" />
+    <link rel="canonical" href="https://backstage.raggiesoft.com/books/waystation/ray-halsteads-two-telephone-references-for-cchr" />
+    <meta property="og:title" content="Two Different Phone Lines, One Glowing Review: Ray…" />
+    <meta property="og:description" content="Because The Uncharted Waystation stays locked inside Nolan Lennox&#39;s first-person point of view, Nolan only hears secondhand that his supervisor Ray…" />
+    <meta property="og:url" content="https://backstage.raggiesoft.com/books/waystation/ray-halsteads-two-telephone-references-for-cchr" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="RaggieSoft Backstage" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg" />
+    <meta property="og:image:secure_url" content="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Inside the quiet employee breakroom of the Emerald Creek Blue Tech electronics store in Chesapeake, twenty-three-year-old Nolan Lennox sits in his manual wheelchair talking…" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Two Different Phone Lines, One Glowing Review: Ray…" />
+    <meta name="twitter:description" content="Because The Uncharted Waystation stays locked inside Nolan Lennox&#39;s first-person point of view, Nolan only hears secondhand that his supervisor Ray…" />
+    <meta name="twitter:image" content="https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg" />
+    <meta name="twitter:image:alt" content="Inside the quiet employee breakroom of the Emerald Creek Blue Tech electronics store in Chesapeake, twenty-three-year-old Nolan Lennox sits in his manual wheelchair talking…" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://raggiesoft.com/#organization","name":"RaggieSoft","url":"https://raggiesoft.com"},{"@type":"WebSite","@id":"https://backstage.raggiesoft.com/#website","url":"https://backstage.raggiesoft.com","name":"RaggieSoft Backstage — Bonus Features \u0026 Story Companion Archive","publisher":{"@id":"https://raggiesoft.com/#organization"}},{"@type":"WebApplication","@id":"https://backstage.raggiesoft.com/#webapp","name":"RaggieSoft Backstage","url":"https://backstage.raggiesoft.com","applicationCategory":"EntertainmentApplication","operatingSystem":"Web, macOS, Windows, Linux, iOS, Android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"WebPage","@id":"https://backstage.raggiesoft.com/books/waystation/ray-halsteads-two-telephone-references-for-cchr#webpage","url":"https://backstage.raggiesoft.com/books/waystation/ray-halsteads-two-telephone-references-for-cchr","name":"Two Different Phone Lines, One Glowing Review: Ray…","description":"Because The Uncharted Waystation stays locked inside Nolan Lennox's first-person point of view, Nolan only hears secondhand that his supervisor Ray…","isPartOf":{"@id":"https://backstage.raggiesoft.com/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg","width":1200,"height":630},"license":"https://creativecommons.org/licenses/by-sa/4.0/"}]}</script>
+
+    <!-- Web Awesome Pro 3.13.0 Themes, Color Palettes, Utilities & Autoloader -->
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/awesome.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/glossy.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/mellow.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/themes/premium.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/default.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/elegant.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/natural.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/color/palettes/vogue.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/utilities.css" />
+    <link rel="stylesheet" href="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/styles/native.css" />
+    <script type="module" src="https://ka-p.webawesome.com/kit/bb765cf132c5414e/webawesome@3.13.0/webawesome.loader.js"></script>
+
+    <!-- Font Awesome Pro+ Kit (ec060982d4) -->
+    <link rel="stylesheet" href="https://kit.fontawesome.com/ec060982d4.css" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="/assets/backstage.css?v=20261121e" />
+    <link rel="stylesheet" href="https://assets.raggiesoft.com/common/css/raggiesoft-network.css?v=20261121e" />
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9RG9JVYB6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-P9RG9JVYB6');
+    </script>
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to Backstage main content</a>
+
+    <!-- Place .rs-network-bar directly inside body ABOVE wa-page (z-index 1055 > 1)
+         so .rs-network-bar and .rs-memoriam-bar stack 100% full-width top-to-bottom AND
+         open dropdown menus (Ocean View, Engine Room, Portfolio) paint cleanly above wa-page's sticky header! -->
+    <nav class="rs-network-bar" aria-label="RaggieSoft Ecosystem">
+      <div class="rs-network-bar-inner">
+        <span class="rs-network-label">✦ RaggieSoft Network:</span>
+        <ul class="rs-network-links">
+          <li><a href="https://raggiesoft.com">🌐 Hub</a></li>
+          <li><a href="https://nebulae.raggiesoft.com">🌌 Nebulae</a></li>
+          <li><a href="https://books.raggiesoft.com">📚 Books</a></li>
+          <li><a href="https://crossroads.raggiesoft.com">🧭 Story Crossroads</a></li>
+          <li><a href="https://cedarrun.raggiesoft.com">🌲 Cedar Run</a></li>
+          <li><a href="https://backstage.raggiesoft.com" aria-current="page" class="is-active">🎬 Backstage</a></li>
+          <li><a href="https://music.raggiesoft.com">🎧 Music</a></li>
+          <li><a href="https://stardust.raggiesoft.com">🚀 Stardust</a></li>
+          <li><a href="https://engineroom.raggiesoft.com">⚙️ Engine Room</a></li>
+          <li><a href="https://corporate.raggiesoft.com">🏢 Corporate</a></li>
+          <li><a href="https://storetrainer.raggiesoft.com">💾 StoreTrainer</a></li>
+          <li><a href="https://waystation.raggiesoft.com">🔮 Waystation</a></li>
+          <li><a href="https://michaelpragsdale.com">👔 Portfolio &amp; Resume</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <wa-page disable-navigation-toggle mobile-breakpoint="920" class="bs-page">
+
+      <div slot="header" class="bs-header">
+        <div class="bs-container bs-header-inner">
+          <a href="/" class="bs-brand">
+            <img src="/icons/icon-192.png?v=20261121e" alt="" width="29" height="29" class="bs-brand-icon" />
+            <span><span class="bs-brand-prefix">RaggieSoft </span>Backstage</span>
+          </a>
+
+          <div class="bs-nav-row">
+            <nav class="bs-desktop-nav" aria-label="Backstage collections">
+              <ul class="bs-nav">
+                <li><a href="/" class="bs-nav-link"><wa-icon family="duotone" name="clapperboard-play" swap-opacity aria-hidden="true"></wa-icon><span>Hub</span></a></li>
+                <li><a href="/arcs" class="bs-nav-link"><wa-icon family="duotone" name="timeline" swap-opacity aria-hidden="true"></wa-icon><span>Story Arcs (13)</span></a></li>
+                <li><a href="/books/rachel" class="bs-nav-link"><wa-icon family="duotone" name="shield-heart" swap-opacity aria-hidden="true"></wa-icon><span>Rachel (10)</span></a></li>
+                <li><a href="/books/katie" class="bs-nav-link"><wa-icon family="duotone" name="wheelchair-move" swap-opacity aria-hidden="true"></wa-icon><span>Katie &amp; Nathaniel (27)</span></a></li>
+                <li><a href="/books/quantum-directive-3-casey" class="bs-nav-link"><wa-icon family="duotone" name="microchip" swap-opacity aria-hidden="true"></wa-icon><span>The Caretakers (6)</span></a></li>
+                <li><a href="/books/aubrie" class="bs-nav-link"><wa-icon family="duotone" name="book-open" swap-opacity aria-hidden="true"></wa-icon><span>Eleventh Child (12)</span></a></li>
+              </ul>
+            </nav>
+
+            <wa-dropdown id="bs-collections-dropdown" placement="bottom-end">
+              <wa-button slot="trigger" variant="neutral" appearance="outlined" size="small" with-caret>
+                <wa-icon slot="start" family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>
+                <span class="bs-dropdown-mobile-label">Browse</span><span class="bs-dropdown-desktop-label">More</span>
+              </wa-button>
+              <wa-dropdown-item value="/">
+                <wa-icon slot="icon" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+                Backstage Hub (68 Records)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/arcs">
+                <wa-icon slot="icon" family="duotone" name="timeline" aria-hidden="true"></wa-icon>
+                Story Arc Playlists (13 Arcs)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/rachel">
+                <wa-icon slot="icon" family="duotone" name="shield-heart" aria-hidden="true"></wa-icon>
+                The Rachel Narrative (10 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/katie">
+                <wa-icon slot="icon" family="duotone" name="wheelchair-move" aria-hidden="true"></wa-icon>
+                Katie &amp; Nathaniel (27 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/quantum-directive-3-casey">
+                <wa-icon slot="icon" family="duotone" name="microchip" aria-hidden="true"></wa-icon>
+                The Quantum Directive: The Caretakers (6 Dossiers)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/books/aubrie">
+                <wa-icon slot="icon" family="duotone" name="book-open" aria-hidden="true"></wa-icon>
+                The Eleventh Child (12 Files)
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="/locations/cpi">
+                <wa-icon slot="icon" family="duotone" name="building-columns" aria-hidden="true"></wa-icon>
+                Commonwealth Polytechnic Institute (CPI)
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/music/stardust-engine-origins">
+                <wa-icon slot="icon" family="duotone" name="compact-disc" aria-hidden="true"></wa-icon>
+                The Stardust Engine: 1986 Origins
+              </wa-dropdown-item>
+              <wa-dropdown-item value="/corporations/vectron-question-the-rules">
+                <wa-icon slot="icon" family="duotone" name="scale-balanced" aria-hidden="true"></wa-icon>
+                Vectron Energy Corp. Archive
+              </wa-dropdown-item>
+              <wa-divider></wa-divider>
+              <wa-dropdown-item value="https://books.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                Open RaggieSoft Book Reader ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://crossroads.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="signs-post" aria-hidden="true"></wa-icon>
+                Open Story Crossroads ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://cedarrun.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="trees" aria-hidden="true"></wa-icon>
+                Open Cedar Run ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://music.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="headphones" aria-hidden="true"></wa-icon>
+                Open The Listening Room ↗
+              </wa-dropdown-item>
+              <wa-dropdown-item value="https://waystation.raggiesoft.com">
+                <wa-icon slot="icon" family="duotone" name="compass-drafting" aria-hidden="true"></wa-icon>
+                Open The Uncharted Waystation ↗
+              </wa-dropdown-item>
+            </wa-dropdown>
+
+            <wa-tooltip for="bs-install-app">Install RaggieSoft Backstage to your home screen or desktop</wa-tooltip>
+            <wa-button id="bs-install-app" hidden variant="brand" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="arrow-down-to-bracket" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-install-label">Install App</span>
+            </wa-button>
+
+            <wa-tooltip for="bs-open-appearance">Customize lighting, visual style, and color palette</wa-tooltip>
+            <wa-button id="bs-open-appearance" variant="neutral" appearance="filled-outlined" size="small">
+              <wa-icon slot="start" family="duotone" name="sliders" swap-opacity aria-hidden="true"></wa-icon>
+              <span class="bs-appearance-label">Appearance</span>
+            </wa-button>
+
+            <button
+              type="button"
+              class="rs-mobile-header-toggle"
+              data-rs-mobile-toggle
+              data-open-label="Open RaggieSoft menu"
+              data-close-label="Close RaggieSoft menu"
+              aria-expanded="false"
+              aria-controls="header-navigation-panel"
+              aria-label="Open RaggieSoft menu"
+            >
+              <svg class="rs-icon-bars" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
+              <svg class="rs-icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <div id="header-navigation-panel" data-rs-collapsible="true" class="bs-mobile-network-drawer"></div>
+        </div>
+      </div>
+
+      
+      <div slot="subheader" class="bs-subheader">
+        <div class="bs-container bs-subheader-inner">
+          <wa-breadcrumb label="Backstage Archive Path">
+            <wa-breadcrumb-item href="/">
+              <wa-icon slot="start" family="duotone" name="clapperboard-play" aria-hidden="true"></wa-icon>
+              RaggieSoft Backstage
+            </wa-breadcrumb-item>
+            
+            <wa-breadcrumb-item>Two Different Phone Lines, One Glowing Review: Ray Halstead&#39;s Reference Calls to CCHR</wa-breadcrumb-item>
+          </wa-breadcrumb>
+        </div>
+      </div>
+
+      <div id="content" class="bs-container" tabindex="-1">
+        
+    <div class="bs-hero">
+      <div class="bs-badge-strip">
+        <wa-badge variant="warning" appearance="filled" pill>
+          <wa-icon family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Uncharted Waystation — Behind the Scenes
+        </wa-badge>
+        <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="clock" aria-hidden="true"></wa-icon>&nbsp;2002-02-20</wa-tag>
+      </div>
+
+      <h1 class="bs-title">Two Different Phone Lines, One Glowing Review: Ray Halstead&#39;s Reference Calls to CCHR</h1>
+      <p class="bs-subtitle">What Happened Behind the Campus IT Director&#39;s Closed Door—Ray Halstead&#39;s Store #421 Reference on the Mainline Route vs. His Careful Off-the-Clock Home-Line Defense on the Rescue Routes</p>
+
+      <div class="bs-action-row">
+        <wa-button variant="brand" href="https://books.raggiesoft.com/waystation/book-one-tidewater-and-studio-205/chapter-1-two-names-on-one-studio-lease/part-15-clocking-out-together-one-car-ride-home-and-crimson-red-outside-the-lobby" target="_blank" rel="noopener">
+                <wa-icon slot="start" family="duotone" name="book-open-cover" swap-opacity aria-hidden="true"></wa-icon>
+                The Uncharted Waystation — Chapter 1, Part 15: Clocking Out Together, One Car Ride Home, and Crimson Red Outside the Lobby ↗
+              </wa-button>
+        <wa-button variant="neutral" appearance="outlined" href="/">
+                <wa-icon slot="start" family="duotone" name="film" aria-hidden="true"></wa-icon>
+                All 68 Backstage Records
+              </wa-button>
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button value="https://backstage.raggiesoft.com/books/waystation/ray-halsteads-two-telephone-references-for-cchr" copy-label="Copy direct link to this dossier" success-label="Link copied!"></wa-copy-button>
+        </span>
+
+        <wa-button id="bs-qr-trigger" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="qrcode" aria-hidden="true"></wa-icon>
+          Read on Phone
+        </wa-button>
+        <wa-popover for="bs-qr-trigger" placement="bottom">
+          <div class="bs-qr-panel">
+            <wa-qr-code value="https://backstage.raggiesoft.com/books/waystation/ray-halsteads-two-telephone-references-for-cchr" label="QR code to open Two Different Phone Lines, One Glowing Review: Ray Halstead&#39;s Reference Calls to CCHR on a phone or tablet" size="148"></wa-qr-code>
+            <p class="bs-qr-caption">Scan with your camera to continue reading this dossier on your phone or tablet.</p>
+          </div>
+        </wa-popover>
+      </div>
+
+      <div class="bs-meta-grid">
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="calendar-day" aria-hidden="true"></wa-icon> Story Date &amp; Time</span>
+        <strong>2002-02-20 • 14:10 EST</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="location-dot" aria-hidden="true"></wa-icon> Setting</span>
+        <strong>Martin Building IT Office at CCHR Norfolk Campus &amp; Ray Halstead&#39;s Desk / Living Room in Chesapeake, Virginia</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="user-pen" aria-hidden="true"></wa-icon> Archival Source</span>
+        <strong>RaggieSoft Backstage Narrative POV &amp; Workplace Canon Notes</strong>
+      </div>
+    
+      <div class="bs-meta-item">
+        <span class="bs-meta-label"><wa-icon family="duotone" name="users" aria-hidden="true"></wa-icon> Addressed To</span>
+        <strong>Readers of The Uncharted Waystation &amp; Visitors to backstage.raggiesoft.com</strong>
+      </div>
+    </div>
+    </div>
+
+    
+    <figure class="bs-dossier-hero">
+      <img
+        src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c001_p008_mallory_breakroom_quantum_os.jpg"
+        alt="Inside the quiet employee breakroom of the Emerald Creek Blue Tech electronics store in Chesapeake, twenty-three-year-old Nolan Lennox sits in his manual wheelchair talking Quantum OS diagnostics across a laminate corner table with Computers Shift Supervisor Mallory Walsh."
+        width="1408"
+        height="768"
+        fetchpriority="high"
+        class="bs-dossier-hero-img"
+      />
+      <figcaption class="bs-dossier-hero-caption">Inside the quiet employee breakroom of the Emerald Creek Blue Tech electronics store in Chesapeake, twenty-three-year-old Nolan Lennox sits in his manual wheelchair talking Quantum OS diagnostics across a laminate corner table with Computers Shift Supervisor Mallory Walsh.</figcaption>
+    </figure>
+
+    <wa-card class="bs-article-card">
+      <article class="bs-article-prose" aria-label="Two Different Phone Lines, One Glowing Review: Ray Halstead&#39;s Reference Calls to CCHR">
+        <p>Across every storyline of <a href="https://books.raggiesoft.com/waystation" class="bs-link" target="_blank" rel="noopener noreferrer"><strong><em>The Uncharted Waystation</em></strong></a>, twenty-three-year-old <strong>Nolan Lennox</strong> lands the exact same life-changing role at the <strong>Community College of Hampton Roads (<code class="bs-inline-code">CCHR</code>) Norfolk Campus</strong>: a twenty-eight-hour-a-week seated <strong>Part-Time Campus Computer Lab and Helpdesk Technician</strong> post inside the Martin Building, one six-minute ride down <code class="bs-inline-code">CVTA Route 2</code> or <code class="bs-inline-code">Route 11</code> from <code class="bs-inline-code">Harborview Towers</code>.</p>
+<p>And across every branch, the decisive voice that turns Nolan&#39;s four-minute hands-on TCP/IP and print-spooler diagnostic test into an immediate job offer at two dollars an hour above retail belongs to fifty-two-year-old retired U.S. Navy Chief Electronics Technician <strong>Ray Halstead</strong>—Nolan&#39;s department supervisor at Emerald Creek <strong>Blue Tech (<code class="bs-inline-code">Store #421</code>)</strong>, whose five-year-old granddaughter is autistic and who understood Nolan&#39;s literal, hyper-dependable wiring from Day One.</p>
+<p>Because the novel never leaves Nolan&#39;s perspective, readers never sit inside <strong>CCHR Campus IT Director Marcus Brennan&#39;s</strong> third-floor office when Brennan picks up his desk telephone to verify Nolan&#39;s employment. Depending on which <strong>Story Crossroads</strong> route the reader walked in August 2001, <strong>two completely different telephone calls</strong> unfold—requiring two very different kinds of leadership from Ray Halstead.</p>
+<hr class="bs-divider" />
+<h2 id="sec-version-1-mainline-norfolk-gate-four-routes-february-2002-store-421-back-office-line" class="bs-heading bs-h2">Version 1: Mainline Norfolk &amp; Gate Four Routes (<code class="bs-inline-code">February 2002</code> — <em>Store #421 Back-Office Line</em>)</h2>
+<h3 id="sec-context-nolan-broke-up-with-tammy-in-norfolk-and-never-missed-a-single-shift" class="bs-heading bs-h3"><em>Context: Nolan Broke Up With Tammy in Norfolk and Never Missed a Single Shift</em></h3>
+<p>On both the <strong>Norfolk Terminal Route</strong> (<a href="https://books.raggiesoft.com/waystation/book-one-tidewater-and-studio-205/chapter-1-two-names-on-one-studio-lease/part-15-clocking-out-together-one-car-ride-home-and-crimson-red-outside-the-lobby" class="bs-link" target="_blank" rel="noopener noreferrer"><strong>Chapter 1, Part 15</strong></a>) and the <strong>Gate Four Route</strong>, Nolan escaped Tammy at the Norfolk Pathfinder station on Tuesday morning, August 21, 2001 without ever missing a shift. By February 2002, Nolan has worked <strong>twenty-eight consecutive spotless months</strong> at <em>Blue Tech</em> and only applies to <code class="bs-inline-code">CCHR</code> because commuting from Norfolk&#39;s <code class="bs-inline-code">Studio 205</code> back to Chesapeake in winter sleet takes three buses and nearly four hours round-trip for post-holiday four-hour shifts.</p>
+<p>When CCHR IT Director Marcus Brennan dials Store #421&#39;s main number at <code class="bs-inline-code">2:10 PM</code> and asks for Home Theater &amp; Floor Supervisor Ray Halstead, Ray closes his office door with zero need to guard against corporate HR flags:</p>
+<blockquote class="bs-blockquote"><p><strong>Brennan:</strong> <em>&quot;Mr. Halstead, this is Marcus Brennan over at CCHR&#39;s Norfolk Campus IT department. Nolan Lennox listed you as his current supervisor for our part-time Computer Lab Technician bench. Do you have two minutes?&quot;</em></p>
+<p><strong>Ray Halstead:</strong> <em>&quot;For Nolan Lennox, I&#39;ve got ten, Mr. Brennan—though I&#39;ll warn you upfront you&#39;re trying to poach the single most reliable diagnostic technician in my building.&quot;</em></p>
+<p><strong>Brennan:</strong> <em>(laughs)</em> <em>&quot;He cleared a broken gateway route and a hung NTFS print queue on our test rig in under four minutes. How is he day-to-day on reliability and working with non-technical users?&quot;</em></p>
+<p><strong>Ray Halstead:</strong> <em>&quot;Twenty-eight months on my roster—through two Black Fridays, hurricane warnings, and three-bus winter sleet commutes out of Norfolk—and that young man has not clocked in late or missed a single scheduled shift once. Not one. He&#39;s straightforward, literal, and rock-solid honest: if Nolan tells you a workstation kernel is clean, you can stake your server room on it, and when a frustrated freshman or retiree sits down in front of him, he never talks down to them or loses his temper. Frankly, watching him push half a mile across Emerald Creek Parkway in February freezing rain for retail hours has been tearing me up all winter. Putting him six minutes from his apartment at a seated college workbench is exactly what he&#39;s earned. Hire him today before somebody else gets smart—and know he&#39;ll give me every minute of a spotless two-week notice before he walks in your door.&quot;</em></p></blockquote>
+<hr class="bs-divider" />
+<h2 id="sec-version-2-pasco-seattle-rescue-routes-november-2001-ray-s-direct-home-landline-off-the-clock" class="bs-heading bs-h2">Version 2: Pasco &amp; Seattle Rescue Routes (<code class="bs-inline-code">November 2001</code> — <em>Ray&#39;s Direct Home Landline Off the Clock</em>)</h2>
+<h3 id="sec-context-tammy-tricked-nolan-onto-the-coast-to-coast-bus-triggering-corporate-s-automated-rehire-freeze" class="bs-heading bs-h3"><em>Context: Tammy Tricked Nolan Onto the Coast-to-Coast Bus, Triggering Corporate&#39;s Automated Rehire Freeze</em></h3>
+<p>On both the <strong>Pasco Rescue Route</strong> and the <strong>Seattle Rescue Route</strong>, Nolan&#39;s employment record carries a landmine. Tricked onto Tammy&#39;s unreserved coast-to-coast Pathfinder coach on August 21, 2001 and physically blocked from every rest-stop payphone across the country, Nolan missed three consecutive Week A shifts (<code class="bs-inline-code">Wednesday, Thursday, and Friday</code>), causing Blue Tech&#39;s automated corporate PeopleSoft system at headquarters to process an involuntary job-abandonment termination on Friday evening, August 24—automatically flagging Nolan&#39;s employee number <strong>ineligible for rehire</strong>.</p>
+<p>Knowing any automated call to Blue Tech&#39;s <code class="bs-inline-code">1-800</code> corporate verification line would immediately disqualify Nolan without context, Ray instructed Nolan over Mallory Walsh&#39;s cell phone right after his rescue <strong>never</strong> to list corporate&#39;s verification number—and to put down <strong>Ray&#39;s direct home phone number</strong> instead.</p>
+<p>When Marcus Brennan dials that residential <code class="bs-inline-code">757</code> number on his off-day in early November 2001, Ray walks a surgical tightrope: telling <strong>100% honest truth</strong> about why Nolan left <em>Blue Tech</em>, <strong>protecting Nolan&#39;s medical and personal dignity</strong> (never disclosing private abuse details, Pasco&#39;s restroom, or anything messy that could stigmatize a candidate), and explaining clearly why Nolan gave out a supervisor&#39;s home number:</p>
+<blockquote class="bs-blockquote"><p><strong>Brennan:</strong> <em>&quot;Hello, is this Mr. Ray Halstead? This is Marcus Brennan calling from the IT department at the Community College of Hampton Roads in Norfolk. Nolan Lennox interviewed with us this morning and listed this number as his direct supervisor reference from Blue Tech.&quot;</em></p>
+<p><strong>Ray Halstead:</strong> <em>&quot;Yes sir, Mr. Brennan—glad you called me directly. I&#39;m a retired twenty-year Navy electronics chief and Nolan&#39;s department supervisor over at Store Four-Twenty-One in Chesapeake. I&#39;m taking your call at home off the clock on purpose, and I want to be completely upfront with you about why.&quot;</em></p>
+<p><strong>Brennan:</strong> <em>&quot;I appreciate candor, Chief. Go right ahead.&quot;</em></p>
+<p><strong>Ray Halstead:</strong> <em>&quot;Nolan worked for me for twenty-two straight months—October ninety-nine right up to late August of this year—without a single late punch, write-up, or missed shift. Sharpest Quantum OS 2000 diagnostic eye in our district. In late August, through zero fault of his own, a former household member took Nolan out of state without wheelchair accessibility arrangements and left him stranded three thousand miles away without access to a telephone—landing him in medical care before his sister and our Computers supervisor flew out to bring him home.&quot;</em></p>
+<p><strong>Brennan:</strong> <em>&quot;Good grief. Is he alright now?&quot;</em></p>
+<p><strong>Ray Halstead:</strong> <em>&quot;He&#39;s a hundred percent healed up and ready to work. Here&#39;s the bureaucratic catch I didn&#39;t want sinking a good kid: while Nolan was cut off from a phone for seventy-two hours, our corporate mainframe up at headquarters automatically logged three missed shifts as an unexcused separation with a corporate rehire lock before store management even knew he was in trouble. I appealed it to District HR myself with documentation, and corporate&#39;s software still doesn&#39;t let a store manager override an automated three-shift flag. That&#39;s why I told Nolan to give you my home line instead of our corporate verification number. If corporate handed me an override key this afternoon, I&#39;d put Nolan back on my bench at eight-thirty tomorrow morning without blinking.&quot;</em></p>
+<p><strong>Brennan:</strong> <em>&quot;That tells me everything I needed to hear—and it matches every impression he gave me at our test bench this morning. How is he under pressure around students?&quot;</em></p>
+<p><strong>Ray Halstead:</strong> <em>&quot;Calmest, most methodical technician you&#39;ll ever put behind a helpdesk. Give him clear expectations, a seated workbench for his Quantum OS imaging discs, and basic human respect, and he won&#39;t miss a beat for you. You&#39;re getting a gem, Mr. Brennan.&quot;</em></p></blockquote>
+<p>Fifteen minutes after hanging up with Ray Halstead&#39;s living room, Marcus Brennan dialed Grandpa Walter&#39;s Chesapeake landline and offered Nolan the Martin Building campus technician bench at two dollars an hour more than retail ever paid.</p>
+      </article>
+    </wa-card>
+
+    
+    
+    <section aria-labelledby="related-backstage-heading">
+      <wa-divider></wa-divider>
+      <div class="bs-section-head">
+        <h2 id="related-backstage-heading" class="bs-section-title">
+          <wa-icon family="duotone" name="folder-tree" swap-opacity aria-hidden="true"></wa-icon>
+          More in This Behind-the-Scenes Collection
+        </h2>
+      </div>
+      <wa-scroller orientation="horizontal">
+        <div class="bs-scroller-track">
+          <div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Commonwealth Polytechnic Institute (CPI) Architectural, Geographic &amp; Transit Dossier — Blacksburg, Virginia Locations &amp; Architecture Blacksburg, Montgomery County, Virginia Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI)—featuring Preston Hall, The Keystone Bridge, Kincaid Hall &amp; Kincaid Commons, Eleanor Bennett Commonwealth Hall, The Crucible, and the Poly Pass regional transit network. 1872-10-01">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-backstage/images/scenes/cpi-preston-hall-commonwealth-green.jpg" alt="Preston Hall&#39;s towering Neo-Gothic Ironstone turrets overlooking the sweeping oval lawn of Commonwealth Green in crisp Blacksburg autumn sunlight, with students walking and a student propelling a manual wheelchair along the accessible paved campus promenade." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="success" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="building-columns" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Campus &amp; Architecture
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1872-10-01</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/locations/cpi" class="bs-link">Commonwealth Polytechnic Institute (CPI)</a></h3>
+        <div class="bs-card-subtitle">Architectural, Geographic &amp; Transit Dossier — Blacksburg, Virginia</div>
+        <p class="bs-card-summary">Complete in-universe campus guide to Commonwealth Polytechnic Institute (CPI)—featuring Preston Hall, The Keystone Bridge, Kincaid Hall &amp; Kincaid Commons, Eleanor Bennett Commonwealth Hall, The Crucible, and the Poly Pass regional transit network.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/locations/cpi">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Commonwealth Polytechnic Institute (CPI)</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="locations/cpi">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Commonwealth Polytechnic Institute (CPI)</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39; From an Unheated Blacksburg Garage to the Cosmos Engine Room Records &amp; Music Corner of Progress &amp; Turner Streets, Blacksburg, Virginia (CPI) How Ryan, Cassidy, Evan, Tyler, and Holly formed The Stardust Engine at CPI in 1986—and how their 1987 debut &#39;Electric Color&#39; awoke Jordan in 2015. 1986-10-14">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/aubrie/e008/c004/p002/stardust-engine-300-marching-forgers.jpg" alt="The Stardust Engine performing live inside CPI&#39;s stadium alongside three hundred members of the Marching Forgers under glowing concert stage lights." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="compact-disc" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Engine Room Records &amp; Music
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;1986-10-14</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/music/stardust-engine-origins" class="bs-link">The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</a></h3>
+        <div class="bs-card-subtitle">From an Unheated Blacksburg Garage to the Cosmos</div>
+        <p class="bs-card-summary">How Ryan, Cassidy, Evan, Tyler, and Holly formed The Stardust Engine at CPI in 1986—and how their 1987 debut &#39;Electric Color&#39; awoke Jordan in 2015.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/music/stardust-engine-origins">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="music/stardust-engine-origins">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Stardust Engine: 1986 CPI Origins &amp; &#39;Electric Color&#39;</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Cab Forty-Seven With the Meter Switched Off: Why Denise Carter Drove Nolan Home for Free What Strict First-Person POV Left Off-Camera on Monticello Avenue—A Norfolk Owner-Operator Who Had Just Escaped Her Own Abuser Seven Months Earlier The Uncharted Waystation — Behind the Scenes RaggieSoft Backstage Character &amp; Narrative POV Notes Readers of The Uncharted Waystation &amp; Visitors to backstage.raggiesoft.com 1961 Norfolk Pathfinder Terminal on Monticello Avenue Across the Berkley Bridge to Eden Way North, Chesapeake, Virginia Across both Norfolk breakup routes of The Uncharted Waystation, thirty-eight-year-old Norfolk taxi driver Denise Carter steps forward after Tammy slaps Nolan in the waiting room, loads Nolan&#39;s wheelchair into Cab 47, switches her meter flat off, and refuses even Grandpa Walter&#39;s twenty-dollar bill in Chesapeake. Go behind Nolan&#39;s locked first-person POV to learn why Denise didn&#39;t hesitate for a single second. 2001-08-21">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/p010_denise_cab_free_ride_norfolk.jpg" alt="Beneath the iconic round 1961 concrete mushroom corner canopy outside the Norfolk Pathfinder Terminal on Monticello Avenue, kind thirty-eight-year-old female Norfolk taxi driver Denise Carter holds open the right-rear passenger door of her parked yellow-and-navy four-door sedan taxicab while twenty-three-year-old Nolan Lennox stands braced on his two matte-silver single-tube Lofstrand forearm crutches beside the open trunk holding his folded manual wheelchair." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Uncharted Waystation
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-08-21</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/waystation/the-turned-off-meter-denises-cab-from-monticello-avenue" class="bs-link">Cab Forty-Seven With the Meter Switched Off: Why Denise Carter Drove Nolan Home for Free</a></h3>
+        <div class="bs-card-subtitle">What Strict First-Person POV Left Off-Camera on Monticello Avenue—A Norfolk Owner-Operator Who Had Just Escaped Her Own Abuser Seven Months Earlier</div>
+        <p class="bs-card-summary">Across both Norfolk breakup routes of The Uncharted Waystation, thirty-eight-year-old Norfolk taxi driver Denise Carter steps forward after Tammy slaps Nolan in the waiting room, loads Nolan&#39;s wheelchair into Cab 47, switches her meter flat off, and refuses even Grandpa Walter&#39;s twenty-dollar bill in Chesapeake. Go behind Nolan&#39;s locked first-person POV to learn why Denise didn&#39;t hesitate for a single second.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/waystation/the-turned-off-meter-denises-cab-from-monticello-avenue">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Cab Forty-Seven With the Meter Switched Off: Why Denise Carter Drove Nolan Home for Free</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/waystation/the-turned-off-meter-denises-cab-from-monticello-avenue">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Cab Forty-Seven With the Meter Switched Off: Why Denise Carter Drove Nolan Home for Free</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="From Monticello Avenue to Pasco: Why Tammy Couldn&#39;t Find a Family Restroom Across Three Thousand Miles What Nolan&#39;s Locked First-Person POV Never Saw—Tammy&#39;s Secret Pinecrest Non-Renewal, Ninety Hours of Multi-Stall Depots, Pasco&#39;s Locking Restroom, and Her Pre-Planned Move With Cousin Travis The Uncharted Waystation — Behind the Scenes RaggieSoft Backstage Narrative POV, Transit Architecture &amp; Legal Notes Readers of The Uncharted Waystation &amp; Visitors to backstage.raggiesoft.com 1961 Norfolk Pathfinder Terminal on Monticello Avenue Across the Continent to Pasco &amp; Downtown Seattle, Washington Because The Uncharted Waystation stays locked inside Nolan Lennox&#39;s first-person point of view, neither Nolan nor the novel reader ever sees Tammy&#39;s quiet Pinecrest Court lease non-renewal before departure, why Pasco was the first station with a locking family bathroom, or why Tammy kept saying &#39;I&#39; instead of &#39;we&#39; on the Seattle payphone to her cousin Travis. 2001-08-25">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c001_p009_norfolk_alcove_sightline.jpg" alt="Inside the recessed steel coin-locker and payphone vestibule alcove leading to the separate MEN and WOMEN restrooms of the 1961 mid-century Norfolk Pathfinder Terminal on Monticello Avenue, petite five-foot-tall Tammy stands directly in front of twenty-three-year-old Nolan Lennox&#39;s manual wheelchair holding the unzipped panels of her pastel baby-blue fleece cardigan open like side blinders over her white ribbed shelf-bra camisole." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Uncharted Waystation
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-08-25</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms" class="bs-link">From Monticello Avenue to Pasco: Why Tammy Couldn&#39;t Find a Family Restroom Across Three Thousand Miles</a></h3>
+        <div class="bs-card-subtitle">What Nolan&#39;s Locked First-Person POV Never Saw—Tammy&#39;s Secret Pinecrest Non-Renewal, Ninety Hours of Multi-Stall Depots, Pasco&#39;s Locking Restroom, and Her Pre-Planned Move With Cousin Travis</div>
+        <p class="bs-card-summary">Because The Uncharted Waystation stays locked inside Nolan Lennox&#39;s first-person point of view, neither Nolan nor the novel reader ever sees Tammy&#39;s quiet Pinecrest Court lease non-renewal before departure, why Pasco was the first station with a locking family bathroom, or why Tammy kept saying &#39;I&#39; instead of &#39;we&#39; on the Seattle payphone to her cousin Travis.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: From Monticello Avenue to Pasco: Why Tammy Couldn&#39;t Find a Family Restroom Across Three Thousand Miles</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/waystation/from-monticello-to-pasco-why-there-were-no-family-restrooms">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: From Monticello Avenue to Pasco: Why Tammy Couldn&#39;t Find a Family Restroom Across Three Thousand Miles</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001) From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act Corporate &amp; Legal Archives Houston, Texas / Blacksburg, Virginia In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302. 2001-12-02">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/aubrie/e007/c001/p003/birth-of-finsharp.jpg" alt="Zoë Wren Brooks studying historical Vectron Energy Corp. financial ledger disclosures while designing the Fin# audit architecture at CPI." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="neutral" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="scale-balanced" swap-opacity aria-hidden="true"></wa-icon>&nbsp;Corporate &amp; Legal Archives
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2001-12-02</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/corporations/vectron-question-the-rules" class="bs-link">Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</a></h3>
+        <div class="bs-card-subtitle">From Deregulated Energy Trading Commercials to the Sarbanes-Oxley Act</div>
+        <p class="bs-card-summary">In-universe corporate history of Vectron Energy Corp.&#39;s 1997-2001 &#39;Question The Rules&#39; TV ad campaign, energy deregulation, and the birth of Z-SOX-302.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/corporations/vectron-question-the-rules">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="corporations/vectron-question-the-rules">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: Vectron Energy Corp.: &#39;Question The Rules&#39; (1997–2001)</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+<div class="bs-scroller-card">
+    <wa-card with-media class="bs-card" data-bs-card data-bs-primary-card="false" data-bs-search="The Escalator Blindspot, Code of Virginia § 18.2-387, and What Nolan Never Saw Why Strict First-Person POV Hid Tammy&#39;s Unexecuted Public-Flashing Plan at The Admiral Center—and How Mallory&#39;s Hand Saved Tammy From a Class 1 Misdemeanor The Uncharted Waystation — Behind the Scenes RaggieSoft Backstage Narrative POV &amp; Legal Notes Readers of The Uncharted Waystation &amp; Visitors to backstage.raggiesoft.com Third-Floor Food Court Escalator Well, The Admiral Center, Downtown Norfolk, Virginia Because Chapter 1, Part 17 stays locked inside Nolan Lennox&#39;s first-person point of view, Nolan only sees Tammy step up to the planter rail already boiling with jealousy. Go behind the camera to learn what Tammy was actually preparing to do thirty seconds earlier on the escalator—and the Virginia indecent-exposure arrest she narrowly avoided when she spotted Mallory Walsh at the table. 2002-06-01">
+      <img slot="media" src="https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c001_p016_admiral_center_food_court_tammy.jpg" alt="Beneath the vaulted glass skylights of the third-floor food court at The Admiral Center in Downtown Norfolk, Mallory Walsh laces her fingers firmly over Nolan Lennox&#39;s hand on the tabletop alongside Gwen Lennox in her manual wheelchair while petite five-foot-tall ex-girlfriend Tammy stands speechless on the left with her arms crossed over her unzipped baby-blue cardigan." width="704" height="384" loading="lazy" class="bs-card-media-img" />
+      <div>
+        <div class="bs-card-meta">
+          <wa-badge variant="warning" appearance="filled-outlined" pill>
+            <wa-icon family="duotone" name="compass" swap-opacity aria-hidden="true"></wa-icon>&nbsp;The Uncharted Waystation
+          </wa-badge>
+          <wa-tag size="small" pill><wa-icon family="classic" variant="regular" name="calendar" aria-hidden="true"></wa-icon>&nbsp;2002-06-01</wa-tag>
+        </div>
+        <h3 class="bs-card-title"><a href="/books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387" class="bs-link">The Escalator Blindspot, Code of Virginia § 18.2-387, and What Nolan Never Saw</a></h3>
+        <div class="bs-card-subtitle">Why Strict First-Person POV Hid Tammy&#39;s Unexecuted Public-Flashing Plan at The Admiral Center—and How Mallory&#39;s Hand Saved Tammy From a Class 1 Misdemeanor</div>
+        <p class="bs-card-summary">Because Chapter 1, Part 17 stays locked inside Nolan Lennox&#39;s first-person point of view, Nolan only sees Tammy step up to the planter rail already boiling with jealousy. Go behind the camera to learn what Tammy was actually preparing to do thirty seconds earlier on the escalator—and the Virginia indecent-exposure arrest she narrowly avoided when she spotted Mallory Walsh at the table.</p>
+      </div>
+      <div class="bs-card-actions">
+        <wa-button variant="brand" size="small" href="/books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387">
+          <wa-icon slot="start" family="duotone" name="folder-open" swap-opacity aria-hidden="true"></wa-icon>
+          Open Dossier<span class="visually-hidden">: The Escalator Blindspot, Code of Virginia § 18.2-387, and What Nolan Never Saw</span>
+        </wa-button>
+        <wa-button variant="neutral" appearance="outlined" size="small" data-bs-preview-slug="books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387">
+          <wa-icon slot="start" family="duotone" name="expand" swap-opacity aria-hidden="true"></wa-icon>
+          Quick View<span class="visually-hidden">: The Escalator Blindspot, Code of Virginia § 18.2-387, and What Nolan Never Saw</span>
+        </wa-button>
+      </div>
+    </wa-card>
+  </div>
+        </div>
+      </wa-scroller>
+    </section>
+  
+      </div>
+
+      
+      <div slot="aside" class="bs-aside-rail">
+        <wa-card class="bs-aside-card">
+                <h2 class="bs-aside-heading">
+                  <wa-icon family="duotone" name="list-tree" aria-hidden="true"></wa-icon>
+                  On This Page
+                </h2>
+                <ul class="bs-toc-list">
+                  <li><a href="#sec-version-1-mainline-norfolk-gate-four-routes-february-2002-store-421-back-office-line" class="bs-toc-link">Version 1: Mainline Norfolk &amp; Gate Four Routes (February 2002 — Store #421 Back-Office Line)</a></li>
+                  <li><a href="#sec-version-2-pasco-seattle-rescue-routes-november-2001-ray-s-direct-home-landline-off-the-clock" class="bs-toc-link">Version 2: Pasco &amp; Seattle Rescue Routes (November 2001 — Ray&#39;s Direct Home Landline Off the Clock)</a></li>
+                </ul>
+              </wa-card>
+        <wa-card class="bs-aside-card">
+          <h2 class="bs-aside-heading">
+            <wa-icon family="duotone" name="compass" aria-hidden="true"></wa-icon>
+            Story Companion
+          </h2>
+          <div class="bs-studio-stack" style="gap: 0.6rem;">
+            <wa-button variant="brand" size="small" href="https://books.raggiesoft.com/waystation/book-one-tidewater-and-studio-205/chapter-1-two-names-on-one-studio-lease/part-15-clocking-out-together-one-car-ride-home-and-crimson-red-outside-the-lobby" target="_blank" rel="noopener">
+                    <wa-icon slot="start" family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon>
+                    The Uncharted Waystation — Chapter 1, Part 15: Clocking Out Together, One Car Ride Home, and Crimson Red Outside the Lobby ↗
+                  </wa-button>
+            
+            
+            <div class="bs-qr-panel" style="margin-inline: auto; padding-block-start: 0.35rem;">
+              <wa-qr-code value="https://backstage.raggiesoft.com/books/waystation/ray-halsteads-two-telephone-references-for-cchr" label="QR code to open Two Different Phone Lines, One Glowing Review: Ray Halstead&#39;s Reference Calls to CCHR on a phone or tablet" size="124"></wa-qr-code>
+              <p class="bs-qr-caption">Scan to continue reading on your phone or tablet.</p>
+            </div>
+          </div>
+        </wa-card>
+      </div>
+
+      <div slot="footer" class="bs-footer">
+        <div class="bs-container">
+          <div class="bs-disclaimer" role="note" aria-label="Fictitious Persons and Entities Disclaimer">
+            <strong>Fictitious Persons, Universities, Bands &amp; Entities Disclaimer:</strong> All narrative characters, bands (including The Stardust Engine, Fractured Prisms, Crimson Node, The Paper Wall, Mana Canvas, The Arctic Symphony Project, and Teller County), biographies, universities and schools (including <strong>Commonwealth Polytechnic Institute / CPI</strong>, Virginia Dominion University / VDU, The Forgers, The Crucible, Eleanor Bennett Commonwealth Hall, Callahan Hall, Kincaid Commons, and Morrison Middle School), academies and theme parks (including Tidewater Tumblers, Lynnhaven Academy of Seondu, Seonduwon, and Brewster Gardens), corporations (including OmniCorp, Vectron Energy Corp., Quantum Corporation, Apex Records, Prairie Coachworks, and Sainte-Claire), transit agencies (Coastal Virginia Transit Authority / CVTA, Blue Ridge Transit, Bluewater Transit, Roanoke Valley Transit, Radford Transit, and Mountain Valley Transit), in-universe administrative correspondence, legal filings, and any entity with <strong>&ldquo;LLC&rdquo;</strong>, <strong>&ldquo;Trust&rdquo;</strong>, or <strong>&ldquo;Holdings&rdquo;</strong> in its name (including <em>Engine Room Records, LLC</em>, <em>The O'Connell Family, LLC</em>, <em>Artists First Management, LLC</em>, <em>Stardust Properties, LLC</em>, <em>Stardust Blacksburg, LLC</em>, <em>Stardust Strategic Assets, LLC</em>, <em>Pacific Rim Properties, LLC</em>, <em>Jessica Miller Center, LLC</em>, and <em>Aethelgard Holdings, LLC</em>) are <strong>100% works of fiction</strong> inside the RaggieSoft universe. Any resemblance to actual persons (living or dead), universities, businesses, institutions, or events is purely coincidental. In real life, there is only <strong>Engine Room Records</strong> (no &ldquo;LLC&rdquo;), the real-world creative brand under which <strong>Michael P. Ragsdale</strong> distributes his music.
+          </div>
+          <div class="bs-footer-bar">
+            <p>
+              &copy; 2026 Michael P. Ragsdale / RaggieSoft. Code licensed under the
+              <a href="https://opensource.org/licenses/MIT" class="bs-link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+              Creative content licensed under
+              <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="bs-link" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.
+            </p>
+            <div class="bs-footer-links">
+              <a href="https://books.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="book-open-cover" aria-hidden="true"></wa-icon> RaggieSoft Book Reader</a>
+              <a href="https://crossroads.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="signs-post" aria-hidden="true"></wa-icon> Story Crossroads</a>
+              <a href="https://cedarrun.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="trees" aria-hidden="true"></wa-icon> Cedar Run</a>
+              <a href="https://music.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="headphones" aria-hidden="true"></wa-icon> The Listening Room</a>
+              <a href="https://waystation.raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="compass-drafting" aria-hidden="true"></wa-icon> The Waystation</a>
+              <a href="https://raggiesoft.com" class="bs-link"><wa-icon family="duotone" name="globe" aria-hidden="true"></wa-icon> RaggieSoft Hub</a>
+              <a href="https://raggiesoft.com/about/privacy" class="bs-link">Privacy Policy</a>
+              <a href="https://raggiesoft.com/about/terms" class="bs-link">Terms of Service</a>
+              <a href="https://raggiesoft.com/about/ai-disclaimer" class="bs-link">AI &amp; Creative Process | RaggieSoft Governance</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </wa-page>
+
+    <!-- Progressive Disclosure Appearance & Theme Studio (<wa-drawer>) -->
+    <wa-drawer id="bs-appearance-drawer" label="Reading Appearance Studio" placement="end" light-dismiss>
+      <div class="bs-studio-stack">
+        <p class="bs-studio-note">
+          Tailor lighting, visual style, and editorial color tones for comfortable reading day or night. Your choices stay saved on this device.
+        </p>
+
+        <wa-radio-group id="bs-scheme-radios" label="Lighting" orientation="horizontal" value="system">
+          <wa-radio appearance="button" value="system">
+            Match Device <span id="bs-system-hint">(Auto)</span>
+          </wa-radio>
+          <wa-radio appearance="button" value="light">Light</wa-radio>
+          <wa-radio appearance="button" value="dark">Dark</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-theme-radios" label="Visual Style" value="default">
+          <wa-radio value="default">Default — Crisp Archival</wa-radio>
+          <wa-radio value="awesome">Awesome — Expressive Playbill</wa-radio>
+          <wa-radio value="glossy">Glossy — Screening Room</wa-radio>
+          <wa-radio value="mellow">Mellow — Warm Reading Lamp</wa-radio>
+          <wa-radio value="premium">Premium — Editorial Press</wa-radio>
+        </wa-radio-group>
+
+        <wa-divider></wa-divider>
+
+        <wa-radio-group id="bs-palette-radios" label="Color Palette" value="default">
+          <wa-radio value="default">Default — Slate &amp; Crimson</wa-radio>
+          <wa-radio value="elegant">Elegant — Ivory &amp; Charcoal</wa-radio>
+          <wa-radio value="natural">Natural — Botanical Stone</wa-radio>
+          <wa-radio value="vogue">Vogue — Theatrical Noir</wa-radio>
+        </wa-radio-group>
+      </div>
+
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-reset-appearance" variant="neutral" appearance="outlined" size="small">
+          <wa-icon slot="start" family="duotone" name="rotate-left" aria-hidden="true"></wa-icon>
+          Reset to Defaults
+        </wa-button>
+        <wa-button id="bs-close-appearance" variant="brand" size="small">
+          Done
+        </wa-button>
+      </div>
+    </wa-drawer>
+
+    <!-- iOS / iPadOS Add-to-Home-Screen Guide (<wa-dialog>) -->
+    <wa-dialog id="bs-ios-install-dialog" label="Install RaggieSoft Backstage" light-dismiss>
+      <div class="bs-install-steps">
+        <p class="bs-studio-note">
+          Add <strong>RaggieSoft Backstage</strong> to your phone or tablet Home Screen for full-screen reading, custom launch splash screens, and instant offline access alongside <strong>RaggieSoft Book Reader</strong> and <strong>The Listening Room</strong>:
+        </p>
+        <wa-callout variant="brand">
+          <wa-icon slot="icon" family="duotone" name="arrow-up-from-bracket" aria-hidden="true"></wa-icon>
+          <strong>Step 1:</strong> Tap the <strong>Share</strong> button in your Safari toolbar.
+        </wa-callout>
+        <wa-callout variant="neutral">
+          <wa-icon slot="icon" family="duotone" name="square-plus" aria-hidden="true"></wa-icon>
+          <strong>Step 2:</strong> Scroll down and choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.
+        </wa-callout>
+      </div>
+      <div slot="footer" class="bs-card-actions">
+        <wa-button id="bs-close-ios-install" variant="brand" size="small">Got It</wa-button>
+      </div>
+    </wa-dialog>
+
+    <!-- Quick View Dossier Modal (<wa-dialog>) -->
+    <wa-dialog id="bs-preview-dialog" class="bs-dialog-width" label="Backstage Quick View" light-dismiss>
+      <div id="bs-preview-meta" class="bs-dialog-meta"></div>
+      <div id="bs-preview-body"></div>
+      <div slot="footer" class="bs-footer-bar">
+        <span class="bs-copy-pill">
+          <span>Copy Link:</span>
+          <wa-copy-button id="bs-preview-copy" value="https://backstage.raggiesoft.com/" copy-label="Copy link to this dossier" success-label="Copied!"></wa-copy-button>
+        </span>
+        <div class="bs-card-actions">
+          <wa-button id="bs-preview-close" variant="neutral" appearance="outlined" size="small">
+            Close
+          </wa-button>
+          <wa-button id="bs-preview-full-link" variant="brand" size="small" href="/">
+            <wa-icon slot="end" family="classic" variant="solid" name="arrow-up-right-from-square" aria-hidden="true"></wa-icon>
+            Open Full Dossier Page
+          </wa-button>
+        </div>
+      </div>
+    </wa-dialog>
+
+    <script src="/assets/backstage-client.js?v=20261121e" defer></script>
+    <script src="https://assets.raggiesoft.com/common/js/raggiesoft-network.js?v=20261121e" defer></script>
+  </body>
+</html>

@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-28T05:14:13.308Z",
+  "generatedAt": "2026-11-28T05:27:41.982Z",
   "siteName": "RaggieSoft Backstage",
   "baseUrl": "https://backstage.raggiesoft.com",
-  "totalItems": 67,
+  "totalItems": 68,
   "counts": {
     "rachel": 11,
     "rachelDossiers": 10,
@@ -13,9 +13,9 @@
     "aubrie": 13,
     "aubrieDossiers": 12,
     "aubrieCorrespondence": 10,
-    "lore": 8,
+    "lore": 9,
     "hubs": 4,
-    "total": 67,
+    "total": 68,
     "storyArcs": 13
   },
   "items": {
@@ -288,6 +288,21 @@
       "summary": "In-universe corporate history of Vectron Energy Corp.'s 1997-2001 'Question The Rules' TV ad campaign, energy deregulation, and the birth of Z-SOX-302.",
       "canonicalUrl": "https://backstage.raggiesoft.com/corporations/vectron-question-the-rules",
       "apiUrl": "https://backstage.raggiesoft.com/api/v1/corporations/vectron-question-the-rules.json"
+    },
+    "books/waystation/ray-halsteads-two-telephone-references-for-cchr": {
+      "slug": "books/waystation/ray-halsteads-two-telephone-references-for-cchr",
+      "title": "Two Different Phone Lines, One Glowing Review: Ray Halstead's Reference Calls to CCHR",
+      "subtitle": "What Happened Behind the Campus IT Director's Closed Door—Ray Halstead's Store #421 Reference on the Mainline Route vs. His Careful Off-the-Clock Home-Line Defense on the Rescue Routes",
+      "category": "The Uncharted Waystation — Behind the Scenes",
+      "date": "2002-02-20",
+      "time": "14:10 EST",
+      "sender": "RaggieSoft Backstage Narrative POV & Workplace Canon Notes",
+      "subject": "",
+      "image": "https://assets.raggiesoft.com/raggiesoft-books/images/scenes/waystation/e001/e001_c001_p008_mallory_breakroom_quantum_os.jpg",
+      "ogImage": "https://assets.raggiesoft.com/raggiesoft-books/images/covers/og/waystation.jpg",
+      "summary": "Because The Uncharted Waystation stays locked inside Nolan Lennox's first-person point of view, Nolan only hears secondhand that his supervisor Ray Halstead gave the Community College of Hampton Roads a glowing telephone reference. Step inside the campus IT office to hear both versions of Ray's call—where Nolan never left his job, and where Ray carefully shields Nolan after Tammy's cross-country bus trap.",
+      "canonicalUrl": "https://backstage.raggiesoft.com/books/waystation/ray-halsteads-two-telephone-references-for-cchr",
+      "apiUrl": "https://backstage.raggiesoft.com/api/v1/books/waystation/ray-halsteads-two-telephone-references-for-cchr.json"
     },
     "books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387": {
       "slug": "books/waystation/the-admiral-center-escalator-blindspot-and-section-18-2-387",
