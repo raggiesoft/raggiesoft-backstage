@@ -462,11 +462,26 @@ function renderInlineMarkdown(text, sharedState = null) {
   // Step 1: Preserve explicit HTML `<br>` line breaks (used in blockquote email headers)
   working = working.replace(/<br\s*\/?>/gi, () => stash('<br />'));
 
-  // Step 2: Preserve backslash-escaped punctuation (`\*`, `\_`, `\$`, `\|`) before delimiter scanning
-  working = working.replace(/\\\*/g, () => stash('*'));
-  working = working.replace(/\\_/g, () => stash('_'));
-  working = working.replace(/\\\$/g, () => stash('$'));
-  working = working.replace(/\\\|/g, () => stash('|'));
+  // Step 1b: Normalize inline LaTeX arrow / relational shorthand (`$\rightarrow$`, `$\leftrightarrow$`, etc.)
+  // into crisp Unicode glyphs before stashing code or punctuation, since Backstage renders static HTML without KaTeX!
+  working = working
+    .replace(/\\?\$\\rightarrow\\?\$/g, '→')
+    .replace(/\\?\$\\leftarrow\\?\$/g, '←')
+    .replace(/\\?\$\\leftrightarrow\\?\$/g, '↔')
+    .replace(/\\?\$\\updownarrow\\?\$/g, '↕')
+    .replace(/\\?\$\\uparrow\\?\$/g, '↑')
+    .replace(/\\?\$\\downarrow\\?\$/g, '↓')
+    .replace(/\\?\$\\to\\?\$/g, '→');
+
+  // Step 2: Stash inline code spans (`` `...` ``) BEFORE backslash unescaping so literal backslashes
+  // inside actual code snippets stay intact, while cleaning accidental `\$18.5 million` currency escapes!
+  working = working.replace(/`([^`]+)`/g, (_, codeText) => {
+    const cleanedCode = String(codeText).replace(/\\\$(?=\d)/g, '$');
+    return stash(`<code class="bs-inline-code">${escapeHtml(cleanedCode)}</code>`);
+  });
+
+  // Step 2b: Preserve all 32 CommonMark backslash-escaped ASCII punctuation characters (`\$`, `\_`, `\*`, `\'`, `\"`, `\&`, `\#`, etc.)
+  working = working.replace(/\\([!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])/g, (_, ch) => stash(escapeHtml(ch)));
 
   // Step 3: Custom in-universe RaggieSoft narrative tags:
   //   - `<aac>...</aac>`: Augmentative & Alternative Communication tablet speech chip
@@ -529,10 +544,7 @@ function renderInlineMarkdown(text, sharedState = null) {
     );
   });
 
-  // Step 4: Inline code fragments (stashed into shared `state.tokens` so recursive link calls preserve them)
-  working = working.replace(/`([^`]+)`/g, (_, code) =>
-    stash(`<code class="bs-inline-code">${escapeHtml(code)}</code>`)
-  );
+  // (Step 4 inline code spans are already stashed in Step 2 above before CommonMark punctuation unescaping.)
 
   // Step 5: Markdown links `[label](href)` — passes `state` recursively into `renderInlineMarkdown(label, state)`
   // so formatted link labels like `[Read *The Eleventh Child*](...)` resolve cleanly. External `https://` links
